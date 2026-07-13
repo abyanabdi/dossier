@@ -10,10 +10,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 
@@ -42,7 +38,6 @@ DOSSIER
 
 
 
-
 <section class="hero">
 
 
@@ -58,15 +53,13 @@ Website Investigation
 
 <p class="hero-text">
 
-Digital analysis of the internship application
-website connected to the suspected scam.
+Analysis of a suspicious website connected to
+the internship opportunity.
 
 </p>
 
 
 </section>
-
-
 
 
 
@@ -84,34 +77,40 @@ Recovered Website Evidence
 
 
 <p>
-<strong>Evidence Type:</strong>
-Website Analysis Report
-</p>
-
-
-<p>
-<strong>Evidence ID:</strong>
-001-B
-</p>
-
-
-<p>
 <strong>Website:</strong>
 </p>
 
 
 <p>
-globalinternships-support.com/application
+globalinternships-support.com
 </p>
+
 
 
 <p>
-
-Investigators were asked to determine whether
-this website represented a legitimate organization
-or a fraudulent recruitment operation.
-
+<strong>Investigation Notes:</strong>
 </p>
+
+
+<ul>
+
+<li>
+Domain created recently.
+</li>
+
+<li>
+No verified company address listed.
+</li>
+
+<li>
+No employee information available.
+</li>
+
+<li>
+Application page requests unnecessary personal information.
+</li>
+
+</ul>
 
 
 </div>
@@ -123,120 +122,11 @@ or a fraudulent recruitment operation.
 
 
 
-
-
 <section>
 
 
 <h2>
-Website Investigation Report
-</h2>
-
-
-<div class="card">
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-WEBSITE FLAG 001
-</p>
-
-
-<h3>
-Recently Created Domain
-</h3>
-
-
-<p>
-
-The domain was created shortly before the
-internship campaign began.
-
-A short domain history is a warning sign when
-combined with other suspicious indicators.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-WEBSITE FLAG 002
-</p>
-
-
-<h3>
-Missing Organization Verification
-</h3>
-
-
-<p>
-
-Investigators could not locate verified company
-records, employee profiles, or established online
-accounts.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-WEBSITE FLAG 003
-</p>
-
-
-<h3>
-Suspicious Website Content
-</h3>
-
-
-<p>
-
-The website contains generic testimonials,
-limited contact information, and content that
-appears copied from other sources.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-Investigator Notes
+Investigator Analysis
 </h2>
 
 
@@ -244,84 +134,68 @@ Investigator Notes
 
 
 <p>
-
-A legitimate organization should have a consistent
-digital identity across multiple sources.
-
-Investigators compare domain information,
-company records, and online history to verify
-authenticity.
-
+Identify the suspicious website indicators:
 </p>
 
 
-<p>
 
-The website evidence suggests that the platform
-was designed to appear legitimate while collecting
-personal information.
+<label>
 
-</p>
+<input type="checkbox">
 
+Recently created domain
 
-</div>
+</label>
 
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-Investigator Challenge
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-Which combination of findings creates the strongest
-evidence that this website may be fraudulent?
-
-</p>
-
-
-<details>
-
-
-<summary>
-Reveal Investigation Notes
-</summary>
-
-
-<p>
-
-Correct findings:
 
 <br><br>
 
-✓ Recently created domain
-
-<br>
-
-✓ No verified organization records
-
-<br>
-
-✓ Suspicious website content
-
-</p>
 
 
-</details>
+<label>
+
+<input type="checkbox">
+
+Missing organization verification
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="checkbox">
+
+Requests unnecessary personal information
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="checkbox">
+
+Website contains a professional logo
+
+</label>
+
+
+<br><br>
+
+
+
+<button onclick="reviewEvidence()" class="primary-btn">
+
+Submit Evidence Review →
+
+</button>
 
 
 </div>
@@ -330,6 +204,74 @@ Correct findings:
 </section>
 
 
+
+
+
+<section>
+
+
+<div class="card" id="result">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<script>
+
+
+function reviewEvidence(){
+
+
+let checks = document.querySelectorAll(
+'input[type="checkbox"]:checked'
+);
+
+
+let result = document.getElementById("result");
+
+
+
+if(checks.length === 3){
+
+
+result.innerHTML =
+
+"<h2>Evidence Confirmed ✓</h2>" +
+
+"<p>Website Investigation has been completed.</p>" +
+
+"<p>Investigators identified multiple website authenticity concerns.</p>" +
+
+"<br>" +
+
+"<a class='primary-btn' href='case001.html'>Return to Case File →</a>";
+
+
+
+}
+
+else{
+
+
+result.innerHTML =
+
+"<h2>Additional Review Required</h2>" +
+
+"<p>Review the website evidence again and identify all suspicious indicators.</p>";
+
+}
+
+
+}
+
+
+</script>
 
 
 
