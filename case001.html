@@ -70,7 +70,6 @@ social engineering tactics, and online deception.
 
 
 
-
 <section>
 
 <div class="card">
@@ -140,7 +139,6 @@ Beginner
 
 
 
-
 <section>
 
 
@@ -180,7 +178,6 @@ social engineering attack.
 
 
 </section>
-
 
 
 
@@ -231,6 +228,60 @@ Investigation Timeline
 
 
 
+<section>
+
+
+<h2>
+Investigator Objectives
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Your mission is to analyze the evidence and
+determine whether this internship opportunity
+is legitimate or part of a cybercrime operation.
+
+</p>
+
+
+<p>
+Investigators must:
+</p>
+
+
+<ul>
+
+<li>
+Identify suspicious indicators within digital evidence.
+</li>
+
+<li>
+Analyze communication and online activity.
+</li>
+
+<li>
+Determine whether the organization is authentic.
+</li>
+
+<li>
+Recommend prevention strategies for the victim.
+</li>
+
+</ul>
+
+
+</div>
+
+
+</section>
+
+
+
+
 
 <section>
 
@@ -245,8 +296,6 @@ Evidence Locker
 Review all evidence files before completing the investigation assessment.
 
 </p>
-
-
 
 
 <div class="grid">
@@ -361,65 +410,6 @@ Open Evidence →
 
 
 
-
-
-<section>
-
-
-<h2>
-Investigator Objectives
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-Your mission is to analyze the evidence and
-determine whether this internship opportunity
-is legitimate or part of a cybercrime operation.
-
-</p>
-
-
-<p>
-Investigators must:
-</p>
-
-
-<ul>
-
-<li>
-Identify suspicious indicators within digital evidence.
-</li>
-
-<li>
-Analyze communication and online activity.
-</li>
-
-<li>
-Determine whether the organization is authentic.
-</li>
-
-<li>
-Recommend prevention strategies for the victim.
-</li>
-
-</ul>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
 <section>
 
 
@@ -448,7 +438,6 @@ Evidence Collected: 0/3
 </p>
 
 
-
 <a id="assessmentButton" class="primary-btn" href="investigation001.html">
 
 Begin Assessment →
@@ -465,8 +454,6 @@ Begin Assessment →
 
 
 
-
-
 <footer>
 
 <p>
@@ -474,8 +461,6 @@ Begin Assessment →
 </p>
 
 </footer>
-
-
 
 
 
@@ -494,9 +479,7 @@ let evidenceB = localStorage.getItem("evidence002");
 let evidenceC = localStorage.getItem("evidence003");
 
 
-
 let completed = 0;
-
 
 
 if(evidenceA === "complete"){
@@ -506,13 +489,11 @@ completed++;
 }
 
 
-
 if(evidenceB === "complete"){
 
 completed++;
 
 }
-
 
 
 if(evidenceC === "complete"){
@@ -535,8 +516,6 @@ status.innerHTML =
 
 
 
-
-
 if(completed === 3){
 
 
@@ -549,7 +528,6 @@ button.href =
 
 
 }
-
 
 
 else{
@@ -565,17 +543,14 @@ button.href =
 
 button.onclick = function(){
 
-
 alert(
 "Complete all three evidence files before beginning the assessment."
 );
 
-
-};
+}
 
 
 }
-
 
 
 }
@@ -587,9 +562,6 @@ updateInvestigationStatus();
 
 
 </script>
-
-
-
 
 
 </body>
