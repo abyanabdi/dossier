@@ -10,10 +10,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 
@@ -52,13 +48,13 @@ CASE FILE 001 / EVIDENCE 001-C
 
 
 <h1>
-Digital Footprint Analysis
+Digital Footprint
 </h1>
 
 
 <p class="hero-text">
 
-Investigating the online identity and activity
+Analysis of online activity and identity indicators
 connected to the suspected organization.
 
 </p>
@@ -85,128 +81,44 @@ Recovered Digital Evidence
 
 <p>
 <strong>Evidence Type:</strong>
-Digital Identity Investigation
+Online Identity Investigation
 </p>
 
 
 <p>
-<strong>Evidence ID:</strong>
-001-C
+<strong>Organization:</strong>
+Global Internships Support
 </p>
 
 
 <p>
-
-Investigators analyzed online activity connected
-to Global Internships Support to determine whether
-the organization had an authentic digital presence.
-
+<strong>Investigation Findings:</strong>
 </p>
 
 
-</div>
+<ul>
+
+<li>
+No verified social media presence was found.
+</li>
 
 
-</section>
+<li>
+No employee profiles could be connected to the organization.
+</li>
 
 
+<li>
+The company name appeared only on recently created websites.
+</li>
 
 
+<li>
+Online information was inconsistent across platforms.
+</li>
 
 
-
-<section>
-
-
-<h2>
-Digital Footprint Investigation Report
-</h2>
-
-
-<div class="card">
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-DIGITAL FLAG 001
-</p>
-
-
-<h3>
-Limited Online History
-</h3>
-
-
-<p>
-
-The organization has very little online activity
-despite claiming to operate as an established
-international internship provider.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-DIGITAL FLAG 002
-</p>
-
-
-<h3>
-Suspicious Employee Profiles
-</h3>
-
-
-<p>
-
-Investigators identified profiles with limited
-history, few connections, and signs of possible
-fabricated identities.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-DIGITAL FLAG 003
-</p>
-
-
-<h3>
-Victim Account Activity
-</h3>
-
-
-<p>
-
-After submitting information, the victim reported
-unusual login attempts and suspicious account
-notifications.
-
-</p>
-
-
-</div>
-
+</ul>
 
 
 </div>
@@ -232,20 +144,68 @@ Investigator Analysis
 
 
 <p>
-
-A digital footprint allows investigators to evaluate
-whether an online identity is consistent,
-verifiable, and trustworthy.
-
+Identify the suspicious digital footprint indicators:
 </p>
 
 
-<p>
 
-The evidence suggests that the organization created
-a false online identity to gain the victim's trust.
+<label>
 
-</p>
+<input type="checkbox">
+
+No verified online company presence
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="checkbox">
+
+Missing employee identity information
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="checkbox">
+
+Inconsistent online information
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="checkbox">
+
+Large number of legitimate company reviews
+
+</label>
+
+
+<br><br>
+
+
+
+<button onclick="reviewEvidence()" class="primary-btn">
+
+Submit Evidence Review →
+
+</button>
 
 
 </div>
@@ -262,51 +222,7 @@ a false online identity to gain the victim's trust.
 <section>
 
 
-<h2>
-Investigator Challenge
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-Which evidence would be most useful when verifying
-whether an online organization is legitimate?
-
-</p>
-
-
-<details>
-
-
-<summary>
-Reveal Investigation Notes
-</summary>
-
-
-<p>
-
-Correct findings:
-
-<br><br>
-
-✓ Verified company information
-
-<br>
-
-✓ Consistent employee history
-
-<br>
-
-✓ Established online presence
-
-</p>
-
-
-</details>
-
+<div class="card" id="result">
 
 </div>
 
@@ -314,6 +230,61 @@ Correct findings:
 </section>
 
 
+
+
+
+
+
+<script>
+
+
+function reviewEvidence(){
+
+
+let checks = document.querySelectorAll(
+'input[type="checkbox"]:checked'
+);
+
+
+let result = document.getElementById("result");
+
+
+
+if(checks.length === 3){
+
+
+result.innerHTML =
+
+"<h2>Evidence Confirmed ✓</h2>" +
+
+"<p>Digital Footprint analysis completed successfully.</p>" +
+
+"<p>Investigators identified online identity inconsistencies.</p>" +
+
+"<br>" +
+
+"<a class='primary-btn' href='case001.html'>Return to Case File →</a>";
+
+
+
+}
+
+else{
+
+
+result.innerHTML =
+
+"<h2>Additional Review Required</h2>" +
+
+"<p>Review the evidence again and identify all suspicious indicators.</p>";
+
+}
+
+
+}
+
+
+</script>
 
 
 
