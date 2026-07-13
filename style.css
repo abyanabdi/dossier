@@ -1,134 +1,231 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #111111;
-    color: white;
     margin: 0;
+    background: #0e1117;
+    color: #f5f7fa;
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
 }
 
 
-header {
-    text-align: center;
-    padding: 100px 20px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    border-bottom: 1px solid #2e3748;
 }
 
 
-h1 {
-    font-size: 70px;
-    letter-spacing: 10px;
-    margin-bottom: 20px;
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 5px;
 }
 
 
-h2 {
-    font-weight: normal;
+.nav-links a {
+    color: #f5f7fa;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;
 }
 
 
-section {
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+
+/* Hero */
+
+.hero {
+    padding: 100px 8%;
     max-width: 900px;
-    margin: auto;
-    padding: 50px 20px;
 }
 
 
-.case {
-    background-color: #222222;
-    padding: 25px;
-    margin: 20px 0;
-    border-left: 4px solid white;
-}
-
-
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    border: 1px solid white;
-    color: white;
-    text-decoration: none;
-}
-
-
-footer {
-    text-align: center;
-    padding: 40px;
-    opacity: 0.7;
-}
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    border-bottom: 1px solid #333;
-}
-
-
-nav h2 {
+.eyebrow {
+    font-size: 13px;
     letter-spacing: 5px;
-    margin: 0;
+    color: #6ea8fe;
 }
 
 
-nav a {
-    margin-left: 25px;
-    color: white;
-    text-decoration: none;
-}
-
-
-nav a:hover {
-    opacity: 0.7;
-}
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    border-bottom: 1px solid #333;
-}
-
-
-nav h2 {
-    letter-spacing: 5px;
-    margin: 0;
-}
-
-
-nav a {
-    margin-left: 25px;
-    color: white;
-    text-decoration: none;
-}
-
-
-nav a:hover {
-    opacity: 0.7;
-}
-
-
-/* Case File Cards */
-
-.case {
-    background: #1b1b1b;
-    padding: 25px;
+.hero h1 {
+    font-size: 60px;
+    line-height: 1.1;
     margin: 20px 0;
-    border-left: 3px solid white;
+}
+
+
+.hero-text {
+    font-size: 20px;
+    color: #b8c0cc;
+    max-width: 700px;
 }
 
 
 /* Buttons */
 
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    border: 1px solid white;
-    color: white;
-    text-decoration: none;
+.buttons {
+    margin-top: 40px;
 }
-.label {
-    letter-spacing: 4px;
+
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    text-decoration: none;
+    margin-right: 15px;
+    border-radius: 6px;
+}
+
+
+.primary-btn {
+    background: #6ea8fe;
+    color: #0e1117;
+}
+
+
+.secondary-btn {
+    border: 1px solid #2e3748;
+    color: white;
+}
+
+
+
+/* Sections */
+
+section {
+    padding: 70px 8%;
+}
+
+
+section h2 {
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+
+
+/* Cards */
+
+.card,
+.learn-card {
+
+    background: #171d27;
+    border: 1px solid #2e3748;
+    border-radius: 12px;
+    padding: 35px;
+
+}
+
+
+.case-label {
+    color: #6ea8fe;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+
+
+.stats {
+
+    display: flex;
+    gap: 50px;
+    margin: 30px 0;
+
+}
+
+
+.stats div {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.stats span {
+
+    color: #8c96a6;
     font-size: 14px;
-    opacity: 0.7;
-    text-transform: uppercase;
+
+}
+
+
+/* Learning Grid */
+
+
+.grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+}
+
+
+
+.learn-card h3 {
+
+    margin-top: 0;
+
+}
+
+
+
+.learn-card p {
+
+    color: #b8c0cc;
+
+}
+
+
+/* Mission */
+
+.mission p {
+
+    max-width: 800px;
+    color: #b8c0cc;
+    font-size: 18px;
+
+}
+
+
+/* Footer */
+
+footer {
+
+    border-top: 1px solid #2e3748;
+    padding: 30px 8%;
+    color: #8c96a6;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
 }
