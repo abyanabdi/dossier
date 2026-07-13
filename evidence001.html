@@ -66,6 +66,8 @@ internship offer.
 
 
 
+
+
 <section>
 
 
@@ -102,7 +104,6 @@ URGENT: Internship Opportunity Selected
 
 <div class="card">
 
-
 <p>
 
 "Congratulations! You have been selected for
@@ -113,7 +114,6 @@ continue the application process."
 
 </p>
 
-
 </div>
 
 
@@ -121,6 +121,7 @@ continue the application process."
 
 
 </section>
+
 
 
 
@@ -143,40 +144,57 @@ Identify the suspicious indicators found in this email:
 </p>
 
 
+
 <label>
+
 <input type="checkbox">
+
 Suspicious sender domain
+
 </label>
 
 
 <br><br>
 
 
+
 <label>
+
 <input type="checkbox">
+
 Urgent language designed to pressure the victim
+
 </label>
 
 
 <br><br>
 
 
+
 <label>
+
 <input type="checkbox">
+
 Request for personal information
+
 </label>
 
 
 <br><br>
+
 
 
 <label>
+
 <input type="checkbox">
+
 Verified company employee contact information
+
 </label>
 
 
 <br><br>
+
 
 
 <button onclick="reviewEvidence()" class="primary-btn">
@@ -196,6 +214,7 @@ Submit Evidence Review →
 
 
 
+
 <section>
 
 
@@ -205,6 +224,7 @@ Submit Evidence Review →
 
 
 </section>
+
 
 
 
@@ -229,13 +249,17 @@ let result = document.getElementById("result");
 if(checks.length === 3){
 
 
+localStorage.setItem("evidence001", "complete");
+
+
+
 result.innerHTML =
 
 "<h2>Evidence Confirmed ✓</h2>" +
 
 "<p>Email Communication has been reviewed successfully.</p>" +
 
-"<p>Investigators identified multiple social engineering indicators.</p>" +
+"<p>Evidence file added to investigation record.</p>" +
 
 "<br>" +
 
@@ -252,7 +276,7 @@ result.innerHTML =
 
 "<h2>Additional Review Required</h2>" +
 
-"<p>Review the evidence again and identify all suspicious indicators.</p>";
+"<p>Select all suspicious indicators before submitting.</p>";
 
 }
 
@@ -266,6 +290,8 @@ result.innerHTML =
 
 
 
+
+
 <footer>
 
 <p>
@@ -273,6 +299,7 @@ result.innerHTML =
 </p>
 
 </footer>
+
 
 
 </body>
