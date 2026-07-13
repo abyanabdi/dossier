@@ -682,12 +682,9 @@ Submit Investigation
 
 
 
-
 <script>
 
-
 function calculateScore(){
-
 
 let score = 0;
 
@@ -700,13 +697,11 @@ let answers = document.querySelectorAll(
 
 answers.forEach(answer => {
 
-
 if(answer.value === "correct"){
 
 score++;
 
 }
-
 
 });
 
@@ -745,8 +740,6 @@ rank = "Evidence Review Required";
 
 
 
-
-
 let result = document.getElementById("result");
 
 
@@ -771,7 +764,6 @@ result.innerHTML =
 "<br>" +
 
 "<a class='primary-btn' href='casecomplete001.html'>View Case Report →</a>";
-
 
 
 }
@@ -799,17 +791,8 @@ result.innerHTML =
 
 "<button onclick='location.reload()' class='primary-btn'>Redo Investigation →</button>";
 
-"<br>" +
-
-"<button onclick='location.reload()' class='primary-btn'>
-
-Redo Investigation →
-
-</button>";
-
 
 }
-
 
 
 }
