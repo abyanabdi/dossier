@@ -54,3 +54,28 @@ footer {
     padding: 40px;
     opacity: 0.7;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 1px solid #333;
+}
+
+
+nav h2 {
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+
+nav a {
+    margin-left: 25px;
+    color: white;
+    text-decoration: none;
+}
+
+
+nav a:hover {
+    opacity: 0.7;
+}
