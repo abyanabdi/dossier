@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Evidence 001-B | Dossier</title>
+<title>Evidence 001-A | Dossier</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -38,28 +38,31 @@ DOSSIER
 
 
 
+
 <section class="hero">
 
 
 <p class="eyebrow">
-CASE FILE 001 / EVIDENCE 001-B
+CASE FILE 001 / EVIDENCE 001-A
 </p>
 
 
 <h1>
-Website Investigation
+Email Communication
 </h1>
 
 
 <p class="hero-text">
 
-Analysis of a suspicious website connected to
-the internship opportunity.
+Digital evidence review of a suspected fraudulent
+internship offer.
 
 </p>
 
 
 </section>
+
+
 
 
 
@@ -69,7 +72,7 @@ the internship opportunity.
 
 
 <h2>
-Recovered Website Evidence
+Recovered Evidence
 </h2>
 
 
@@ -77,46 +80,49 @@ Recovered Website Evidence
 
 
 <p>
-<strong>Website:</strong>
+<strong>Evidence Type:</strong>
+Email Transcript
 </p>
 
 
 <p>
-globalinternships-support.com
+<strong>Sender:</strong>
+career@globalinternships-support.com
 </p>
-
 
 
 <p>
-<strong>Investigation Notes:</strong>
+<strong>Subject:</strong>
+URGENT: Internship Opportunity Selected
 </p>
 
 
-<ul>
+<p>
+<strong>Message:</strong>
+</p>
 
-<li>
-Domain created recently.
-</li>
 
-<li>
-No verified company address listed.
-</li>
+<div class="card">
 
-<li>
-No employee information available.
-</li>
+<p>
 
-<li>
-Application page requests unnecessary personal information.
-</li>
+"Congratulations! You have been selected for
+an exclusive internship opportunity.
 
-</ul>
+Please provide your personal information to
+continue the application process."
+
+</p>
+
+</div>
 
 
 </div>
 
 
 </section>
+
+
 
 
 
@@ -134,7 +140,7 @@ Investigator Analysis
 
 
 <p>
-Identify the suspicious website indicators:
+Identify the suspicious indicators found in this email:
 </p>
 
 
@@ -143,7 +149,7 @@ Identify the suspicious website indicators:
 
 <input type="checkbox">
 
-Recently created domain
+Suspicious sender domain
 
 </label>
 
@@ -156,7 +162,7 @@ Recently created domain
 
 <input type="checkbox">
 
-Missing organization verification
+Urgent language designed to pressure the victim
 
 </label>
 
@@ -169,7 +175,7 @@ Missing organization verification
 
 <input type="checkbox">
 
-Requests unnecessary personal information
+Request for personal information
 
 </label>
 
@@ -182,7 +188,7 @@ Requests unnecessary personal information
 
 <input type="checkbox">
 
-Website contains a professional logo
+Verified company employee contact information
 
 </label>
 
@@ -207,6 +213,8 @@ Submit Evidence Review →
 
 
 
+
+
 <section>
 
 
@@ -216,6 +224,7 @@ Submit Evidence Review →
 
 
 </section>
+
 
 
 
@@ -240,13 +249,17 @@ let result = document.getElementById("result");
 if(checks.length === 3){
 
 
+localStorage.setItem("evidence001", "complete");
+
+
+
 result.innerHTML =
 
 "<h2>Evidence Confirmed ✓</h2>" +
 
-"<p>Website Investigation has been completed.</p>" +
+"<p>Email Communication has been reviewed successfully.</p>" +
 
-"<p>Investigators identified multiple website authenticity concerns.</p>" +
+"<p>Evidence file added to investigation record.</p>" +
 
 "<br>" +
 
@@ -263,7 +276,7 @@ result.innerHTML =
 
 "<h2>Additional Review Required</h2>" +
 
-"<p>Review the website evidence again and identify all suspicious indicators.</p>";
+"<p>Select all suspicious indicators before submitting.</p>";
 
 }
 
@@ -277,6 +290,8 @@ result.innerHTML =
 
 
 
+
+
 <footer>
 
 <p>
@@ -284,6 +299,7 @@ result.innerHTML =
 </p>
 
 </footer>
+
 
 
 </body>
