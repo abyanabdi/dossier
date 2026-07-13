@@ -42,6 +42,7 @@ DOSSIER
 
 
 
+
 <section class="hero">
 
 
@@ -64,6 +65,7 @@ social engineering tactics, and online deception.
 
 
 </section>
+
 
 
 
@@ -138,6 +140,7 @@ Beginner
 
 
 
+
 <section>
 
 
@@ -177,6 +180,7 @@ social engineering attack.
 
 
 </section>
+
 
 
 
@@ -227,6 +231,7 @@ Investigation Timeline
 
 
 
+
 <section>
 
 
@@ -240,6 +245,7 @@ Evidence Locker
 Review all evidence files before completing the investigation assessment.
 
 </p>
+
 
 
 
@@ -346,11 +352,12 @@ Open Evidence →
 </div>
 
 
-
 </div>
 
 
 </section>
+
+
 
 
 
@@ -411,7 +418,10 @@ Recommend prevention strategies for the victim.
 
 
 
+
+
 <section>
+
 
 <h2>
 Investigation Assessment
@@ -431,7 +441,15 @@ investigator score and case outcome.
 </p>
 
 
-<a class="primary-btn" href="investigation001.html">
+<p id="evidenceStatus">
+
+Evidence Collected: 0/3
+
+</p>
+
+
+
+<a id="assessmentButton" class="primary-btn" href="investigation001.html">
 
 Begin Assessment →
 
@@ -440,7 +458,10 @@ Begin Assessment →
 
 </div>
 
+
 </section>
+
+
 
 
 
@@ -453,6 +474,10 @@ Begin Assessment →
 </p>
 
 </footer>
+
+
+
+
 
 
 
@@ -470,12 +495,6 @@ let evidenceC = localStorage.getItem("evidence003");
 
 
 
-let status = document.getElementById("evidenceStatus");
-
-let button = document.getElementById("assessmentButton");
-
-
-
 let completed = 0;
 
 
@@ -487,11 +506,13 @@ completed++;
 }
 
 
+
 if(evidenceB === "complete"){
 
 completed++;
 
 }
+
 
 
 if(evidenceC === "complete"){
@@ -502,8 +523,10 @@ completed++;
 
 
 
+let status = document.getElementById("evidenceStatus");
 
-if(status){
+let button = document.getElementById("assessmentButton");
+
 
 
 status.innerHTML =
@@ -511,13 +534,6 @@ status.innerHTML =
 "Evidence Collected: " + completed + "/3";
 
 
-
-}
-
-
-
-
-if(button){
 
 
 
@@ -532,8 +548,8 @@ button.href =
 "investigation001.html";
 
 
-
 }
+
 
 
 else{
@@ -547,20 +563,15 @@ button.href =
 "#";
 
 
-
 button.onclick = function(){
 
 
 alert(
-"Complete all evidence reviews before beginning the assessment."
+"Complete all three evidence files before beginning the assessment."
 );
 
 
-}
-
-
-
-}
+};
 
 
 }
@@ -568,6 +579,7 @@ alert(
 
 
 }
+
 
 
 updateInvestigationStatus();
@@ -575,6 +587,8 @@ updateInvestigationStatus();
 
 
 </script>
+
+
 
 
 
