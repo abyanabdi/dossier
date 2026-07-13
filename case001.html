@@ -456,6 +456,128 @@ Begin Assessment →
 
 
 
+<script>
+
+
+function updateInvestigationStatus(){
+
+
+let evidenceA = localStorage.getItem("evidence001");
+
+let evidenceB = localStorage.getItem("evidence002");
+
+let evidenceC = localStorage.getItem("evidence003");
+
+
+
+let status = document.getElementById("evidenceStatus");
+
+let button = document.getElementById("assessmentButton");
+
+
+
+let completed = 0;
+
+
+
+if(evidenceA === "complete"){
+
+completed++;
+
+}
+
+
+if(evidenceB === "complete"){
+
+completed++;
+
+}
+
+
+if(evidenceC === "complete"){
+
+completed++;
+
+}
+
+
+
+
+if(status){
+
+
+status.innerHTML =
+
+"Evidence Collected: " + completed + "/3";
+
+
+
+}
+
+
+
+
+if(button){
+
+
+
+if(completed === 3){
+
+
+button.innerHTML =
+"Begin Assessment →";
+
+
+button.href =
+"investigation001.html";
+
+
+
+}
+
+
+else{
+
+
+button.innerHTML =
+"Evidence Review Required";
+
+
+button.href =
+"#";
+
+
+
+button.onclick = function(){
+
+
+alert(
+"Complete all evidence reviews before beginning the assessment."
+);
+
+
+}
+
+
+
+}
+
+
+}
+
+
+
+}
+
+
+updateInvestigationStatus();
+
+
+
+</script>
+
+
+
 </body>
 
 </html>
