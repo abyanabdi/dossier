@@ -70,6 +70,7 @@ social engineering tactics, and online deception.
 
 
 
+
 <section>
 
 <div class="card">
@@ -88,7 +89,7 @@ Case Classification
 <span>Status</span>
 
 <strong>
-Open Investigation
+Active Investigation
 </strong>
 
 </div>
@@ -139,6 +140,7 @@ Beginner
 
 
 
+
 <section>
 
 
@@ -152,24 +154,48 @@ Case Brief
 
 <p>
 
-A university student receives an internship offer
-from an organization that appears legitimate.
-
-The opportunity includes professional messaging,
-an application process, and requests for personal
-information.
+A university student receives an unexpected internship
+opportunity from an organization claiming to offer
+exclusive career placements.
 
 </p>
 
 
 <p>
 
-After submitting information, the victim notices
+At first glance, the opportunity appears legitimate.
+The message uses professional language, includes an
+application process, and creates the impression of a
+real recruitment opportunity.
+
+</p>
+
+
+<p>
+
+After submitting personal information through the
+application process, the student begins noticing
 unusual activity across their online accounts.
 
-Investigators must determine whether the
-internship opportunity is authentic or part of a
-social engineering attack.
+</p>
+
+
+<p>
+
+Investigators have been assigned to determine:
+
+Was this a legitimate internship opportunity, or was
+the student targeted through a carefully designed
+social engineering attack?
+
+</p>
+
+
+<p>
+
+Your task is to analyze the recovered digital evidence,
+identify suspicious indicators, and determine how the
+attack was carried out.
 
 </p>
 
@@ -178,6 +204,7 @@ social engineering attack.
 
 
 </section>
+
 
 
 
@@ -200,22 +227,22 @@ Investigation Timeline
 
 
 <p>
-<strong>Day 2:</strong> Victim provides personal information through an external form.
+<strong>Day 2:</strong> Victim completes an external application form requesting personal information.
 </p>
 
 
 <p>
-<strong>Day 3:</strong> Suspicious account activity is detected.
+<strong>Day 3:</strong> Suspicious activity is detected across the victim's online accounts.
 </p>
 
 
 <p>
-<strong>Day 4:</strong> Digital evidence collection begins.
+<strong>Day 4:</strong> Investigators begin collecting digital evidence.
 </p>
 
 
 <p>
-<strong>Day 5:</strong> Investigators analyze collected evidence.
+<strong>Day 5:</strong> Evidence analysis reveals possible indicators of fraud.
 </p>
 
 
@@ -223,6 +250,7 @@ Investigation Timeline
 
 
 </section>
+
 
 
 
@@ -241,9 +269,9 @@ Investigator Objectives
 
 <p>
 
-Your mission is to analyze the evidence and
-determine whether this internship opportunity
-is legitimate or part of a cybercrime operation.
+Your mission is to investigate the internship offer
+and determine whether it represents a legitimate
+career opportunity or a cybercrime operation.
 
 </p>
 
@@ -259,17 +287,26 @@ Investigators must:
 Identify suspicious indicators within digital evidence.
 </li>
 
-<li>
-Analyze communication and online activity.
-</li>
 
 <li>
-Determine whether the organization is authentic.
+Analyze communication methods and online activity.
 </li>
 
+
 <li>
-Recommend prevention strategies for the victim.
+Evaluate whether the organization can be verified.
 </li>
+
+
+<li>
+Determine what social engineering tactics were used.
+</li>
+
+
+<li>
+Recommend prevention strategies for future victims.
+</li>
+
 
 </ul>
 
@@ -278,11 +315,6 @@ Recommend prevention strategies for the victim.
 
 
 </section>
-
-
-
-
-
 <section>
 
 
@@ -293,9 +325,11 @@ Evidence Locker
 
 <p class="hero-text">
 
-Review all evidence files before completing the investigation assessment.
+Review all available evidence files before completing
+the investigation assessment.
 
 </p>
+
 
 
 <div class="grid">
@@ -410,6 +444,8 @@ Open Evidence →
 
 
 
+
+
 <section>
 
 
@@ -423,7 +459,7 @@ Investigation Assessment
 
 <p>
 
-You have reviewed all available evidence.
+You have reviewed the available evidence.
 
 Complete the assessment to determine your
 investigator score and case outcome.
@@ -431,11 +467,13 @@ investigator score and case outcome.
 </p>
 
 
+
 <p id="evidenceStatus">
 
 Evidence Collected: 0/3
 
 </p>
+
 
 
 <a id="assessmentButton" class="primary-btn" href="investigation001.html">
@@ -454,6 +492,8 @@ Begin Assessment →
 
 
 
+
+
 <footer>
 
 <p>
@@ -461,6 +501,8 @@ Begin Assessment →
 </p>
 
 </footer>
+
+
 
 
 
@@ -479,7 +521,9 @@ let evidenceB = localStorage.getItem("evidence002");
 let evidenceC = localStorage.getItem("evidence003");
 
 
+
 let completed = 0;
+
 
 
 if(evidenceA === "complete"){
@@ -489,11 +533,13 @@ completed++;
 }
 
 
+
 if(evidenceB === "complete"){
 
 completed++;
 
 }
+
 
 
 if(evidenceC === "complete"){
@@ -516,6 +562,8 @@ status.innerHTML =
 
 
 
+
+
 if(completed === 3){
 
 
@@ -530,6 +578,7 @@ button.href =
 }
 
 
+
 else{
 
 
@@ -541,16 +590,20 @@ button.href =
 "#";
 
 
+
 button.onclick = function(){
+
 
 alert(
 "Complete all three evidence files before beginning the assessment."
 );
 
-}
+
+};
 
 
 }
+
 
 
 }
@@ -562,6 +615,9 @@ updateInvestigationStatus();
 
 
 </script>
+
+
+
 
 
 </body>
