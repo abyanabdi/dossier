@@ -38,28 +38,23 @@ DOSSIER
 
 
 
-
 <section class="hero">
-
 
 <p class="eyebrow">
 CASE FILE 001 / FINAL ASSESSMENT
 </p>
 
-
 <h1>
 Investigator Assessment
 </h1>
 
-
 <p class="hero-text">
 
-Analyze the evidence and determine whether the
-internship opportunity was a legitimate offer or
-a social engineering attack.
+Review the evidence and determine whether the
+internship opportunity was legitimate or a
+social engineering attack.
 
 </p>
-
 
 </section>
 
@@ -67,60 +62,42 @@ a social engineering attack.
 
 
 
+<form id="quiz">
+
 
 
 <section>
-
 
 <h2>
 Question 1
 </h2>
 
-
 <div class="card">
 
-
 <p>
-Which detail is the strongest indicator that the
-email may be fraudulent?
+What is the strongest indicator that the email is suspicious?
 </p>
 
+<label>
+<input type="radio" name="q1" value="correct">
+The sender uses a suspicious domain and requests information
+</label>
+
+<br><br>
 
 <label>
 <input type="radio" name="q1" value="wrong">
 The email contains an internship description
 </label>
 
-
 <br><br>
-
-
-<label>
-<input type="radio" name="q1" value="correct">
-The sender uses a suspicious domain and requests personal information
-</label>
-
-
-<br><br>
-
 
 <label>
 <input type="radio" name="q1" value="wrong">
-The email has professional formatting
+The email uses professional language
 </label>
-
-
-<br><br>
-
-
-<label>
-<input type="radio" name="q1" value="wrong">
-The internship opportunity is online
-</label>
-
 
 </div>
-
 
 </section>
 
@@ -128,59 +105,38 @@ The internship opportunity is online
 
 
 
-
-
 <section>
-
 
 <h2>
 Question 2
 </h2>
 
-
 <div class="card">
 
-
 <p>
-Why is a recently created website domain suspicious?
+Why should investigators analyze a website domain?
 </p>
-
 
 <label>
 <input type="radio" name="q2" value="correct">
-It may indicate a temporary website created for fraudulent activity
+To verify ownership and legitimacy
 </label>
-
 
 <br><br>
 
-
 <label>
 <input type="radio" name="q2" value="wrong">
-All new websites are illegal
+To make the website faster
 </label>
-
 
 <br><br>
 
-
 <label>
 <input type="radio" name="q2" value="wrong">
-Websites cannot be newly created
+To improve website design
 </label>
-
-
-<br><br>
-
-
-<label>
-<input type="radio" name="q2" value="wrong">
-It proves the company is successful
-</label>
-
 
 </div>
-
 
 </section>
 
@@ -188,59 +144,38 @@ It proves the company is successful
 
 
 
-
-
 <section>
-
 
 <h2>
 Question 3
 </h2>
 
-
 <div class="card">
 
-
 <p>
-What type of cybercrime technique was used?
+What type of attack occurred?
 </p>
 
+<label>
+<input type="radio" name="q3" value="correct">
+Social Engineering
+</label>
+
+<br><br>
 
 <label>
 <input type="radio" name="q3" value="wrong">
 Hardware failure
 </label>
 
-
 <br><br>
-
-
-<label>
-<input type="radio" name="q3" value="correct">
-Social engineering
-</label>
-
-
-<br><br>
-
 
 <label>
 <input type="radio" name="q3" value="wrong">
 Software update
 </label>
 
-
-<br><br>
-
-
-<label>
-<input type="radio" name="q3" value="wrong">
-Physical theft
-</label>
-
-
 </div>
-
 
 </section>
 
@@ -248,21 +183,96 @@ Physical theft
 
 
 
+<section>
+
+<h2>
+Question 4
+</h2>
+
+<div class="card">
+
+<p>
+What makes a fake online identity difficult to detect?
+</p>
+
+<label>
+<input type="radio" name="q4" value="correct">
+It can imitate legitimate organizations and employees
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="q4" value="wrong">
+It cannot use websites
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="q4" value="wrong">
+It always looks unprofessional
+</label>
+
+</div>
+
+</section>
+
+
+
 
 
 <section>
 
+<h2>
+Question 5
+</h2>
 
-<button onclick="calculateScore()" class="primary-btn">
+<div class="card">
+
+<p>
+What evidence should investigators collect?
+</p>
+
+<label>
+<input type="radio" name="q5" value="correct">
+Emails, websites, account activity, and digital records
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="q5" value="wrong">
+Only the victim's opinion
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="q5" value="wrong">
+No evidence is needed
+</label>
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+<button type="button" onclick="calculateScore()" class="primary-btn">
 
 Submit Investigation
 
 </button>
 
-
 </section>
 
 
+</form>
 
 
 
@@ -270,15 +280,11 @@ Submit Investigation
 
 <section>
 
-
 <div class="card" id="result">
 
 </div>
 
-
 </section>
-
-
 
 
 
@@ -286,9 +292,7 @@ Submit Investigation
 
 <script>
 
-
 function calculateScore(){
-
 
 let score = 0;
 
@@ -298,28 +302,25 @@ let answers = document.querySelectorAll('input[type="radio"]:checked');
 
 answers.forEach(answer => {
 
-
 if(answer.value === "correct"){
 
 score++;
 
 }
 
-
 });
-
 
 
 let rank;
 
 
-if(score === 3){
+if(score === 5){
 
 rank = "Digital Investigation Analyst";
 
 }
 
-else if(score === 2){
+else if(score >= 3){
 
 rank = "Junior Digital Analyst";
 
@@ -337,14 +338,13 @@ document.getElementById("result").innerHTML =
 
 "<h2>Investigation Complete</h2>" +
 
-"<p>Score: " + score + "/3</p>" +
+"<p>Score: " + score + "/5</p>" +
 
 "<p>Investigator Rank: " + rank + "</p>" +
 
 "<br>" +
 
 "<a class='primary-btn' href='casecomplete001.html'>View Case Report →</a>";
-
 
 }
 
@@ -362,7 +362,6 @@ document.getElementById("result").innerHTML =
 </p>
 
 </footer>
-
 
 
 </body>
