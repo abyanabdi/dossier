@@ -126,3 +126,9 @@ a {
     color: white;
     text-decoration: none;
 }
+.label {
+    letter-spacing: 4px;
+    font-size: 14px;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
