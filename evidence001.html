@@ -10,10 +10,6 @@
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 
@@ -70,8 +66,6 @@ internship offer.
 
 
 
-
-
 <section>
 
 
@@ -85,41 +79,24 @@ Recovered Evidence
 
 <p>
 <strong>Evidence Type:</strong>
-Email Communication
-</p>
-
-
-<p>
-<strong>Evidence ID:</strong>
-001-A
+Email Transcript
 </p>
 
 
 <p>
 <strong>Sender:</strong>
-</p>
-
-
-<p>
 career@globalinternships-support.com
 </p>
 
 
-
 <p>
 <strong>Subject:</strong>
-</p>
-
-
-<p>
 URGENT: Internship Opportunity Selected
 </p>
 
 
-
-
 <p>
-<strong>Recovered Message:</strong>
+<strong>Message:</strong>
 </p>
 
 
@@ -128,8 +105,8 @@ URGENT: Internship Opportunity Selected
 
 <p>
 
-"Congratulations! You have been selected for an
-exclusive internship opportunity.
+"Congratulations! You have been selected for
+an exclusive internship opportunity.
 
 Please provide your personal information to
 continue the application process."
@@ -150,12 +127,11 @@ continue the application process."
 
 
 
-
 <section>
 
 
 <h2>
-Investigator Evidence Report
+Investigator Analysis
 </h2>
 
 
@@ -163,150 +139,51 @@ Investigator Evidence Report
 
 
 <p>
-
-Investigators reviewed the email communication
-and identified several indicators associated with
-a social engineering attack.
-
+Identify the suspicious indicators found in this email:
 </p>
 
 
-<div class="evidence-document">
+<label>
+<input type="checkbox">
+Suspicious sender domain
+</label>
 
-
-<p class="case-label">
-INVESTIGATOR FLAG 001
-</p>
-
-
-<h3>
-Suspicious Sender Domain
-</h3>
-
-
-<p>
-
-The sender address uses a domain that cannot be
-verified as an official organization account.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-INVESTIGATOR FLAG 002
-</p>
-
-
-<h3>
-Urgency Tactics
-</h3>
-
-
-<p>
-
-The subject line creates pressure by suggesting
-the opportunity requires immediate action.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="evidence-document">
-
-
-<p class="case-label">
-INVESTIGATOR FLAG 003
-</p>
-
-
-<h3>
-Personal Information Request
-</h3>
-
-
-<p>
-
-The email requests personal information before
-the organization identity is confirmed.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-Investigator Challenge
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-Which three indicators suggest this email may be
-part of a social engineering attack?
-
-</p>
-
-
-
-<details>
-
-
-<summary>
-Reveal Investigation Notes
-</summary>
-
-
-<p>
-
-Correct findings:
 
 <br><br>
 
-✓ Suspicious sender domain
 
-<br>
-
-✓ Artificial urgency
-
-<br>
-
-✓ Request for personal information
-
-</p>
+<label>
+<input type="checkbox">
+Urgent language designed to pressure the victim
+</label>
 
 
-</details>
+<br><br>
+
+
+<label>
+<input type="checkbox">
+Request for personal information
+</label>
+
+
+<br><br>
+
+
+<label>
+<input type="checkbox">
+Verified company employee contact information
+</label>
+
+
+<br><br>
+
+
+<button onclick="reviewEvidence()" class="primary-btn">
+
+Submit Evidence Review →
+
+</button>
 
 
 </div>
@@ -315,6 +192,75 @@ Correct findings:
 </section>
 
 
+
+
+
+
+<section>
+
+
+<div class="card" id="result">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<script>
+
+
+function reviewEvidence(){
+
+
+let checks = document.querySelectorAll(
+'input[type="checkbox"]:checked'
+);
+
+
+let result = document.getElementById("result");
+
+
+
+if(checks.length === 3){
+
+
+result.innerHTML =
+
+"<h2>Evidence Confirmed ✓</h2>" +
+
+"<p>Email Communication has been reviewed successfully.</p>" +
+
+"<p>Investigators identified multiple social engineering indicators.</p>" +
+
+"<br>" +
+
+"<a class='primary-btn' href='case001.html'>Return to Case File →</a>";
+
+
+
+}
+
+else{
+
+
+result.innerHTML =
+
+"<h2>Additional Review Required</h2>" +
+
+"<p>Review the evidence again and identify all suspicious indicators.</p>";
+
+}
+
+
+}
+
+
+</script>
 
 
 
