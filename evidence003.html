@@ -54,8 +54,8 @@ Digital Footprint
 
 <p class="hero-text">
 
-Analysis of online activity and identity indicators
-connected to the suspected organization.
+Analysis of online identity indicators and digital
+traces connected to the suspected organization.
 
 </p>
 
@@ -99,7 +99,7 @@ Global Internships Support
 <ul>
 
 <li>
-No verified social media presence was found.
+No verified social media accounts were found.
 </li>
 
 
@@ -109,12 +109,12 @@ No employee profiles could be connected to the organization.
 
 
 <li>
-The company name appeared only on recently created websites.
+The organization had limited online history.
 </li>
 
 
 <li>
-Online information was inconsistent across platforms.
+Information found across websites was inconsistent.
 </li>
 
 
@@ -192,7 +192,7 @@ Inconsistent online information
 
 <input type="checkbox">
 
-Large number of legitimate company reviews
+Large number of verified company reviews
 
 </label>
 
@@ -253,13 +253,17 @@ let result = document.getElementById("result");
 if(checks.length === 3){
 
 
+localStorage.setItem("evidence003", "complete");
+
+
+
 result.innerHTML =
 
 "<h2>Evidence Confirmed ✓</h2>" +
 
-"<p>Digital Footprint analysis completed successfully.</p>" +
+"<p>Digital Footprint analysis has been completed.</p>" +
 
-"<p>Investigators identified online identity inconsistencies.</p>" +
+"<p>Evidence file added to investigation record.</p>" +
 
 "<br>" +
 
@@ -276,7 +280,7 @@ result.innerHTML =
 
 "<h2>Additional Review Required</h2>" +
 
-"<p>Review the evidence again and identify all suspicious indicators.</p>";
+"<p>Select all suspicious indicators before submitting.</p>";
 
 }
 
@@ -290,6 +294,8 @@ result.innerHTML =
 
 
 
+
+
 <footer>
 
 <p>
@@ -297,6 +303,7 @@ result.innerHTML =
 </p>
 
 </footer>
+
 
 
 </body>
