@@ -16,25 +16,19 @@
 <style>
 
 .waveform {
-
 display:flex;
 align-items:center;
 gap:6px;
 height:90px;
 margin:25px 0;
-
 }
 
-
 .wave {
-
 width:6px;
 height:30px;
 background:#888;
 animation:pulse 1s infinite ease-in-out;
-
 }
-
 
 .wave:nth-child(2){animation-delay:.1s;}
 .wave:nth-child(3){animation-delay:.2s;}
@@ -43,8 +37,6 @@ animation:pulse 1s infinite ease-in-out;
 .wave:nth-child(6){animation-delay:.5s;}
 .wave:nth-child(7){animation-delay:.6s;}
 .wave:nth-child(8){animation-delay:.7s;}
-
-
 
 @keyframes pulse {
 
@@ -59,13 +51,9 @@ height:80px;
 }
 
 
-
 .hidden{
-
 display:none;
-
 }
-
 
 
 .audio-player {
@@ -78,14 +66,12 @@ border-radius:12px;
 }
 
 
-
 .audio-player audio {
 
 width:100%;
 margin-top:15px;
 
 }
-
 
 
 .progress-container {
@@ -100,7 +86,6 @@ margin-top:20px;
 }
 
 
-
 #progressBar {
 
 height:100%;
@@ -109,7 +94,6 @@ background:white;
 transition:.5s;
 
 }
-
 
 
 .analysis-box {
@@ -122,37 +106,22 @@ background:#111;
 }
 
 
-
 .correct {
-
 color:#42ff8a;
-
 }
-
 
 
 .incorrect {
-
 color:#ff6767;
-
-}
-
-
-.hidden {
-
-display:none;
-
 }
 
 
 </style>
 
-
 </head>
 
 
 <body>
-
 
 
 <nav>
@@ -178,8 +147,6 @@ DOSSIER
 
 
 
-
-
 <section class="hero">
 
 
@@ -195,8 +162,7 @@ Audio Recording Analysis
 
 <p class="hero-text">
 
-Analyze the suspected AI-generated voice recording
-used during a fraudulent financial request.
+Analyze the suspected AI-generated voice recording used during a fraudulent financial request.
 
 </p>
 
@@ -209,9 +175,7 @@ used during a fraudulent financial request.
 
 
 
-
 <section>
-
 
 <h2>
 Recovered Evidence
@@ -243,7 +207,6 @@ Recovered Evidence
 
 
 
-
 <div class="waveform">
 
 <div class="wave"></div>
@@ -260,7 +223,6 @@ Recovered Evidence
 
 
 
-
 <div class="audio-player">
 
 
@@ -270,9 +232,8 @@ Audio Playback
 
 
 <p>
-Listen carefully before conducting forensic analysis.
+Listen carefully before conducting forensic analysis. Identify anything unusual before reviewing the automated findings.
 </p>
-
 
 
 <audio controls preload="metadata">
@@ -283,8 +244,8 @@ Your browser does not support the audio element.
 
 </audio>
 
-</div>
 
+</div>
 
 
 </div>
@@ -292,6 +253,87 @@ Your browser does not support the audio element.
 
 </section>
 
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Investigator Observations
+</h2>
+
+
+<div class="card">
+
+
+<p class="case-label">
+INITIAL REVIEW
+</p>
+
+
+<h3>
+What appears unusual about this recording?
+</h3>
+
+
+<p>
+Select all observations that apply.
+</p>
+
+
+<ul>
+
+<li>
+<label>
+<input type="checkbox">
+Unnatural pauses between responses
+</label>
+</li>
+
+
+<li>
+<label>
+<input type="checkbox">
+Limited emotional variation during the conversation
+</label>
+</li>
+
+
+<li>
+<label>
+<input type="checkbox">
+Repeated speech patterns or responses
+</label>
+</li>
+
+
+<li>
+<label>
+<input type="checkbox">
+Slight distortion during pronunciation changes
+</label>
+</li>
+
+
+<li>
+<label>
+<input type="checkbox">
+The recording quality is poor, but no unusual speech patterns are present
+</label>
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</section>
 
 
 
@@ -307,7 +349,6 @@ Forensic Audio Scanner
 </h2>
 
 
-
 <div class="card">
 
 
@@ -316,7 +357,6 @@ Forensic Audio Scanner
 Run Audio Analysis →
 
 </button>
-
 
 
 
@@ -330,7 +370,6 @@ Initializing forensic tools...
 </p>
 
 
-
 <div class="progress-container">
 
 <div id="progressBar">
@@ -338,7 +377,6 @@ Initializing forensic tools...
 </div>
 
 </div>
-
 
 
 <p id="progressNumber">
@@ -349,14 +387,10 @@ Initializing forensic tools...
 </div>
 
 
-
-
 </div>
 
 
 </section>
-
-
 
 
 
@@ -372,48 +406,169 @@ Forensic Findings
 </h2>
 
 
+<div class="card">
+
+
+<p class="case-label">
+AUTOMATED ANALYSIS COMPLETE
+</p>
+
+
+<h3>
+Digital Audio Results
+</h3>
+
+
+<p>
+The forensic scanner has completed analysis of the recovered audio file. Review the findings before making your final assessment.
+</p>
+
+
+<ul>
+
+<li>
+✓ Speech pattern comparison completed
+</li>
+
+
+<li>
+✓ Frequency irregularities detected
+</li>
+
+
+<li>
+✓ Voice consistency analysis completed
+</li>
+
+
+<li>
+✓ Synthetic voice indicators identified
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Investigator Assessment
+</h2>
+
 
 <div class="card">
 
 
-<p>
-✓ Speech pattern comparison completed
+<p class="case-label">
+FINAL DETERMINATION
 </p>
-
-
-<p>
-✓ Frequency irregularities detected
-</p>
-
-
-<p>
-✓ Voice consistency analysis completed
-</p>
-
-
-<p>
-✓ Synthetic voice indicators identified
-</p>
-
 
 
 <h3>
-Analyst Notes
+What conclusion is best supported by the evidence?
 </h3>
 
 
 
-<p>
+<input type="radio" name="answer" id="a">
 
-The recording contains multiple indicators consistent
-with possible AI voice manipulation.
+<label>
+A) The voice is confirmed authentic because it sounds familiar.
+</label>
 
-However, investigators must consider alternative
-explanations including compression issues,
-poor recording quality, or intentional voice modification.
 
+<br><br>
+
+
+
+<input type="radio" name="answer" id="b">
+
+<label>
+B) The recording contains indicators consistent with possible AI voice manipulation.
+</label>
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="c">
+
+<label>
+C) The employee created the fraudulent request.
+</label>
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="d">
+
+<label>
+D) Audio evidence cannot be used in cybercrime investigations.
+</label>
+
+
+
+<br><br>
+
+
+
+<button class="primary-btn" onclick="submitEvidence()">
+
+Submit Investigation Finding →
+
+</button>
+
+
+<p id="message"></p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<div class="card">
+
+
+<p class="case-label">
+ANALYST NOTES
 </p>
 
+
+<h3>
+Investigation Summary
+</h3>
+
+
+<p>
+
+The recording contains multiple indicators consistent with possible AI voice manipulation. However, investigators must consider alternative explanations including compression issues, poor recording quality, or intentional voice modification.
+
+</p>
 
 
 <ul>
@@ -434,111 +589,14 @@ Repeated speech patterns
 Slight distortion during pronunciation changes
 </li>
 
+
 </ul>
 
 
-
 </div>
 
 
 </section>
-
-
-
-
-
-
-
-
-
-<section>
-
-
-<h2>
-Investigator Assessment
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-What conclusion is best supported by the evidence?
-
-</p>
-
-
-
-<br>
-
-
-
-<input type="radio" name="answer" id="a">
-
-<label>
-A) The voice is confirmed authentic because it sounds familiar.
-</label>
-
-
-<br><br>
-
-
-
-<input type="radio" name="answer" id="b">
-
-<label>
-B) The recording contains indicators consistent with AI-generated voice manipulation.
-</label>
-
-
-
-<br><br>
-
-
-
-<input type="radio" name="answer" id="c">
-
-<label>
-C) The employee created the fraudulent request.
-</label>
-
-
-
-<br><br>
-
-
-
-<input type="radio" name="answer" id="d">
-
-<label>
-D) Audio evidence cannot be used in cybercrime investigations.
-</label>
-
-
-
-
-<br><br>
-
-
-
-<button class="primary-btn" onclick="submitEvidence()">
-
-Submit Investigation Finding →
-
-</button>
-
-
-
-<p id="message"></p>
-
-
-
-</div>
-
-
-</section>
-
 
 
 
@@ -611,9 +669,7 @@ bar.style.width=values[i]+"%";
 number.innerHTML=values[i]+"%";
 
 
-
 i++;
-
 
 
 if(i===steps.length){
@@ -622,13 +678,11 @@ if(i===steps.length){
 clearInterval(interval);
 
 
-
 setTimeout(function(){
 
 document.getElementById("results").classList.remove("hidden");
 
 },1000);
-
 
 
 }
@@ -639,8 +693,6 @@ document.getElementById("results").classList.remove("hidden");
 
 
 }
-
-
 
 
 
