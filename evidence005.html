@@ -15,7 +15,6 @@
 
 <style>
 
-
 .email-box {
 
 background:#111;
@@ -80,7 +79,6 @@ height:14px;
 background:#222;
 border-radius:10px;
 overflow:hidden;
-margin-top:15px;
 
 }
 
@@ -95,8 +93,16 @@ transition:1s;
 }
 
 
-</style>
+.note {
 
+border-left:3px solid white;
+padding-left:15px;
+margin-top:20px;
+
+}
+
+
+</style>
 
 </head>
 
@@ -108,6 +114,7 @@ transition:1s;
 
 
 <nav>
+
 
 <div class="logo">
 DOSSIER
@@ -134,7 +141,6 @@ DOSSIER
 
 
 
-
 <section class="hero">
 
 
@@ -150,11 +156,58 @@ Email Header & Phishing Analysis
 
 <p class="hero-text">
 
-Analyze the recovered email communication to determine
-whether the message represents a legitimate request or
-a targeted social engineering attack.
+Investigate whether the recovered communication
+represents a legitimate executive request or a
+targeted social engineering attack.
 
 </p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Investigation Objective
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Your role is to examine the recovered email as a
+digital investigator.
+
+You must evaluate sender authenticity, communication
+patterns, and manipulation techniques before reaching
+a conclusion.
+
+</p>
+
+
+<p>
+
+Remember:
+
+A suspicious indicator does not automatically prove
+criminal activity. Investigators must analyze multiple
+sources of evidence before making a determination.
+
+</p>
+
+
+</div>
 
 
 </section>
@@ -184,24 +237,21 @@ Email Archive
 
 
 <p>
-<strong>Evidence Type:</strong> Email Communication
+<strong>Evidence Type:</strong>
+Email Communication
 </p>
 
 
 <p>
-<strong>File Format:</strong> .eml Archive
+<strong>Source:</strong>
+Corporate Email Server Extraction
 </p>
 
 
 <p>
-<strong>Source:</strong> Corporate Email Server Extraction
+<strong>Date:</strong>
+March 14, 2026
 </p>
-
-
-<p>
-<strong>Timestamp:</strong> March 14, 2026 — 9:42 AM
-</p>
-
 
 
 
@@ -209,36 +259,37 @@ Email Archive
 
 
 <p>
-<strong>FROM:</strong>
+<strong>FROM:</strong><br>
 Michael.Reynolds@company-executive-support.com
 </p>
 
 
 <p>
-<strong>TO:</strong>
+<strong>TO:</strong><br>
 jordan.finance@company.com
 </p>
 
 
 <p>
-<strong>SUBJECT:</strong>
+<strong>SUBJECT:</strong><br>
 URGENT: Confidential Vendor Payment Request
 </p>
 
 
 <p>
-<strong>REPLY-TO:</strong>
+<strong>REPLY-TO:</strong><br>
 Michael.Reynolds.finance@gmail.com
 </p>
 
 
 <p>
-<strong>ATTACHMENT:</strong>
+<strong>ATTACHMENT:</strong><br>
 Vendor_Payment_Instructions.pdf
 </p>
 
 
 </div>
+
 
 
 
@@ -255,32 +306,25 @@ Jordan,
 
 <p>
 
-I am contacting you regarding an urgent financial matter
-that requires immediate assistance.
+I am contacting you regarding an urgent financial
+matter that requires immediate assistance.
 
 </p>
 
 
 <p>
 
-A vendor payment must be processed before the end of
-the business day to avoid delays.
+A vendor payment must be processed before the end
+of the business day.
 
 </p>
 
 
 <p>
 
-Due to the confidential nature of this request, please do
-not discuss this matter with other departments until the
-transfer has been completed.
-
-</p>
-
-
-<p>
-
-The required payment instructions are attached.
+Due to confidentiality concerns, please do not discuss
+this matter with other departments until the transfer
+has been completed.
 
 </p>
 
@@ -297,11 +341,9 @@ Please confirm once the transaction has been submitted.
 Thank you,
 
 <br>
-
 Michael Reynolds
 
 <br>
-
 Executive Office
 
 </p>
@@ -327,7 +369,7 @@ Executive Office
 
 
 <h2>
-Email Header Investigation
+Digital Evidence Examination
 </h2>
 
 
@@ -335,25 +377,15 @@ Email Header Investigation
 <div class="card">
 
 
-<p>
+<button class="primary-btn" onclick="domainAnalysis()">
 
-Investigators must verify whether the sender identity
-matches the organization being represented.
-
-</p>
-
-
-
-<button class="primary-btn" onclick="analyzeDomain()">
-
-Analyze Sender Domain →
+Analyze Domain Metadata →
 
 </button>
 
 
 
-
-<div id="domainResult" class="analysis-box hidden">
+<div id="domain" class="analysis-box hidden">
 
 
 <h3>
@@ -362,59 +394,108 @@ Domain Forensic Report
 
 
 <p>
-<strong>Domain:</strong>
+Domain:
 company-executive-support.com
 </p>
 
 
 <p>
-<strong>Domain Age:</strong>
-14 Days
+Domain Age:
+14 days
 </p>
 
 
 <p>
-<strong>Registrar:</strong>
-Unknown
-</p>
-
-
-<p>
-<strong>Official Domain:</strong>
+Official Organization Domain:
 company.com
 </p>
 
 
 <p>
-<strong>Risk Classification:</strong>
+Risk Classification:
 HIGH
 </p>
 
 
-
 <div class="risk-bar">
 
-<div id="riskFill" class="risk-fill"></div>
+<div id="risk" class="risk-fill"></div>
 
 </div>
+
+
+<div class="note">
+
+<strong>Investigator Note:</strong>
+
+<br><br>
+
+A recently created domain resembling a legitimate
+organization may indicate domain impersonation.
+
+However, investigators must compare this finding
+with additional evidence.
+
+</div>
+
+
+</div>
+
+
+
+
 
 
 
 <br>
 
 
+
+<button class="primary-btn" onclick="replyAnalysis()">
+
+Analyze Reply-To Address →
+
+</button>
+
+
+
+
+<div id="reply" class="analysis-box hidden">
+
+
+<h3>
+Reply-To Investigation
+</h3>
+
+
 <p>
 
-Finding:
-The sender domain was recently created and appears
-designed to imitate a legitimate organization.
+The sender claims to represent an organization.
+
+However, responses are redirected to:
 
 </p>
 
 
+<strong>
+Michael.Reynolds.finance@gmail.com
+</strong>
+
+
+<br><br>
+
+
+<p>
+
+Finding:
+
+The reply address does not match the organization's
+official email infrastructure.
+
+</p>
+
 
 </div>
-
 
 
 </div>
@@ -434,13 +515,12 @@ designed to imitate a legitimate organization.
 
 
 <h2>
-Social Engineering Analysis
+Criminological Analysis
 </h2>
 
 
 
 <div class="grid">
-
 
 
 <div class="learn-card">
@@ -453,14 +533,15 @@ Authority Manipulation
 
 <p>
 
-The attacker impersonates an executive to increase
-compliance and reduce questioning.
+The offender uses executive identity to increase
+victim compliance.
+
+This exploits workplace hierarchy and trust.
 
 </p>
 
 
 </div>
-
 
 
 
@@ -475,8 +556,8 @@ Urgency Creation
 
 <p>
 
-The message creates pressure through deadlines and
-immediate action requests.
+Time pressure reduces opportunity for verification
+and encourages rapid decision-making.
 
 </p>
 
@@ -486,19 +567,18 @@ immediate action requests.
 
 
 
-
 <div class="learn-card">
 
 
 <h3>
-Isolation Technique
+Isolation Strategy
 </h3>
 
 
 <p>
 
-The attacker discourages communication with others
-to prevent verification.
+The request to avoid discussing the payment prevents
+social verification from coworkers.
 
 </p>
 
@@ -528,15 +608,13 @@ Investigator Assessment
 </h2>
 
 
-
 <div class="card">
 
 
 <p>
 
-Which combination of findings provides the strongest
-evidence that this email is part of a social engineering
-attack?
+Which conclusion is best supported by the available
+evidence?
 
 </p>
 
@@ -548,9 +626,11 @@ attack?
 <input type="radio" name="answer" id="a">
 
 <label>
-A) The email was received during business hours and contained a signature.
-</label>
 
+A) The email is legitimate because it contains a
+professional signature.
+
+</label>
 
 
 <br><br>
@@ -560,9 +640,12 @@ A) The email was received during business hours and contained a signature.
 <input type="radio" name="answer" id="b">
 
 <label>
-B) The sender domain differs from the official organization domain, the reply address is unrelated, and verification procedures are bypassed.
-</label>
 
+B) The email shows multiple indicators of social
+engineering, including domain impersonation,
+reply manipulation, and attempts to bypass verification.
+
+</label>
 
 
 <br><br>
@@ -572,9 +655,11 @@ B) The sender domain differs from the official organization domain, the reply ad
 <input type="radio" name="answer" id="c">
 
 <label>
-C) The email requested a vendor payment and contained an attachment.
-</label>
 
+C) The email is fraudulent only because it contains
+an attachment.
+
+</label>
 
 
 <br><br>
@@ -584,16 +669,18 @@ C) The email requested a vendor payment and contained an attachment.
 <input type="radio" name="answer" id="d">
 
 <label>
-D) The sender used professional language and addressed the employee by name.
-</label>
 
+D) There is not enough evidence to examine digital
+communication.
+
+</label>
 
 
 <br><br>
 
 
 
-<button class="primary-btn" onclick="submitEvidence()">
+<button class="primary-btn" onclick="submitFinding()">
 
 Submit Investigation Finding →
 
@@ -602,7 +689,6 @@ Submit Investigation Finding →
 
 
 <p id="message"></p>
-
 
 
 </div>
@@ -624,9 +710,7 @@ Submit Investigation Finding →
 © 2026 Dossier
 </p>
 
-
 </footer>
-
 
 
 
@@ -638,19 +722,17 @@ Submit Investigation Finding →
 <script>
 
 
-function analyzeDomain(){
+function domainAnalysis(){
 
 
-document.getElementById("domainResult")
+document.getElementById("domain")
 .classList.remove("hidden");
 
 
-setTimeout(function(){
+setTimeout(()=>{
 
-
-document.getElementById("riskFill")
+document.getElementById("risk")
 .style.width="90%";
-
 
 },300);
 
@@ -660,10 +742,20 @@ document.getElementById("riskFill")
 
 
 
+function replyAnalysis(){
+
+
+document.getElementById("reply")
+.classList.remove("hidden");
+
+
+}
 
 
 
-function submitEvidence(){
+
+
+function submitFinding(){
 
 
 let message=document.getElementById("message");
@@ -681,18 +773,16 @@ localStorage.setItem(
 
 
 message.innerHTML=
-"✓ Evidence successfully analyzed. Returning to Case File 002...";
+"✓ Evidence analyzed successfully. Investigator conclusion accepted.";
 
 
 message.className="correct";
 
 
 
-setTimeout(function(){
-
+setTimeout(()=>{
 
 window.location.href="case002.html";
-
 
 },2500);
 
@@ -705,7 +795,7 @@ else{
 
 
 message.innerHTML=
-"✕ Incorrect conclusion. Re-examine the email evidence and social engineering indicators.";
+"✕ Conclusion unsupported. Review the evidence indicators again.";
 
 
 message.className="incorrect";
@@ -720,8 +810,6 @@ message.className="incorrect";
 
 
 </script>
-
-
 
 
 
