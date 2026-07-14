@@ -357,7 +357,7 @@ Forensic Audio Scanner
 </h2>
 
 
-<div class="card" style="max-width:700px;">
+<div class="card scanner-card">
 
 
 <p class="case-label">
@@ -375,9 +375,15 @@ The forensic scanner will analyze speech patterns, frequency changes, and possib
 </p>
 
 
+<br>
+
+
 <button class="primary-btn" onclick="runAnalysis()">
+
 Run Audio Analysis →
+
 </button>
+
 
 
 
@@ -385,29 +391,45 @@ Run Audio Analysis →
 
 
 <p id="analysisText">
+
 Initializing forensic tools...
+
 </p>
+
 
 
 <div class="progress-container">
 
-<div id="progressBar"></div>
+<div id="progressBar">
 
 </div>
+
+</div>
+
 
 
 <p id="progressNumber">
+
 0%
+
 </p>
 
 
+<p id="scanComplete" class="hidden correct">
+
+✓ Forensic analysis complete. Review the findings below.
+
+</p>
+
+
+
 </div>
 
 
 </div>
+
 
 </section>
-
 
 
 
