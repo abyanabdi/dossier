@@ -42,7 +42,7 @@ line-height:1.8;
 }
 
 
-.analysis-card {
+.analysis-box {
 
 background:#111;
 padding:20px;
@@ -59,14 +59,14 @@ display:none;
 }
 
 
-.success {
+.correct {
 
 color:#42ff8a;
 
 }
 
 
-.failure {
+.incorrect {
 
 color:#ff6767;
 
@@ -76,7 +76,7 @@ color:#ff6767;
 .risk-bar {
 
 width:100%;
-height:15px;
+height:14px;
 background:#222;
 border-radius:10px;
 overflow:hidden;
@@ -95,13 +95,6 @@ transition:1s;
 }
 
 
-button {
-
-cursor:pointer;
-
-}
-
-
 </style>
 
 
@@ -113,8 +106,8 @@ cursor:pointer;
 
 
 
-<nav>
 
+<nav>
 
 <div class="logo">
 DOSSIER
@@ -141,6 +134,7 @@ DOSSIER
 
 
 
+
 <section class="hero">
 
 
@@ -156,8 +150,9 @@ Email Header & Phishing Analysis
 
 <p class="hero-text">
 
-Analyze the recovered email communication to identify
-indicators of impersonation and social engineering.
+Analyze the recovered email communication to determine
+whether the message represents a legitimate request or
+a targeted social engineering attack.
 
 </p>
 
@@ -171,15 +166,43 @@ indicators of impersonation and social engineering.
 
 
 
+
 <section>
 
 
 <h2>
-Recovered Email
+Recovered Email Evidence
 </h2>
 
 
 <div class="email-box">
+
+
+<h3>
+Email Archive
+</h3>
+
+
+<p>
+<strong>Evidence Type:</strong> Email Communication
+</p>
+
+
+<p>
+<strong>File Format:</strong> .eml Archive
+</p>
+
+
+<p>
+<strong>Source:</strong> Corporate Email Server Extraction
+</p>
+
+
+<p>
+<strong>Timestamp:</strong> March 14, 2026 — 9:42 AM
+</p>
+
+
 
 
 <div class="email-header">
@@ -204,12 +227,19 @@ URGENT: Confidential Vendor Payment Request
 
 
 <p>
-<strong>TIME:</strong>
-9:42 AM
+<strong>REPLY-TO:</strong>
+Michael.Reynolds.finance@gmail.com
+</p>
+
+
+<p>
+<strong>ATTACHMENT:</strong>
+Vendor_Payment_Instructions.pdf
 </p>
 
 
 </div>
+
 
 
 
@@ -225,31 +255,39 @@ Jordan,
 
 <p>
 
-I need you to process the attached vendor payment
-immediately.
+I am contacting you regarding an urgent financial matter
+that requires immediate assistance.
 
 </p>
 
 
 <p>
 
-This request is time-sensitive and must be completed
-before the end of the business day.
+A vendor payment must be processed before the end of
+the business day to avoid delays.
 
 </p>
 
 
 <p>
 
-Due to confidentiality concerns, please do not forward
-this request or discuss it with other departments.
+Due to the confidential nature of this request, please do
+not discuss this matter with other departments until the
+transfer has been completed.
 
 </p>
 
 
 <p>
 
-Confirm once the transfer has been completed.
+The required payment instructions are attached.
+
+</p>
+
+
+<p>
+
+Please confirm once the transaction has been submitted.
 
 </p>
 
@@ -267,7 +305,6 @@ Michael Reynolds
 Executive Office
 
 </p>
-
 
 
 </div>
@@ -294,11 +331,15 @@ Email Header Investigation
 </h2>
 
 
+
 <div class="card">
 
 
 <p>
-Review the email metadata for suspicious indicators.
+
+Investigators must verify whether the sender identity
+matches the organization being represented.
+
 </p>
 
 
@@ -311,42 +352,64 @@ Analyze Sender Domain →
 
 
 
-<div id="domainResult" class="analysis-card hidden">
+
+<div id="domainResult" class="analysis-box hidden">
 
 
 <h3>
-Domain Analysis
+Domain Forensic Report
 </h3>
 
 
 <p>
-Domain:
-<strong>
+<strong>Domain:</strong>
 company-executive-support.com
-</strong>
 </p>
 
 
 <p>
-Registration:
-14 days old
+<strong>Domain Age:</strong>
+14 Days
 </p>
 
 
 <p>
-Risk Assessment:
-HIGH RISK
+<strong>Registrar:</strong>
+Unknown
+</p>
+
+
+<p>
+<strong>Official Domain:</strong>
+company.com
+</p>
+
+
+<p>
+<strong>Risk Classification:</strong>
+HIGH
 </p>
 
 
 
 <div class="risk-bar">
 
-<div id="riskFill" class="risk-fill">
+<div id="riskFill" class="risk-fill"></div>
 
 </div>
 
-</div>
+
+
+<br>
+
+
+<p>
+
+Finding:
+The sender domain was recently created and appears
+designed to imitate a legitimate organization.
+
+</p>
 
 
 
@@ -371,7 +434,7 @@ HIGH RISK
 
 
 <h2>
-Social Engineering Indicators
+Social Engineering Analysis
 </h2>
 
 
@@ -384,35 +447,14 @@ Social Engineering Indicators
 
 
 <h3>
-Urgency Tactics
+Authority Manipulation
 </h3>
 
 
 <p>
 
-The message pressures the employee to act quickly
-without normal verification.
-
-</p>
-
-
-</div>
-
-
-
-
-<div class="learn-card">
-
-
-<h3>
-Authority Impersonation
-</h3>
-
-
-<p>
-
-The attacker pretends to represent an executive
-to increase trust.
+The attacker impersonates an executive to increase
+compliance and reduce questioning.
 
 </p>
 
@@ -427,14 +469,36 @@ to increase trust.
 
 
 <h3>
-Confidentiality Request
+Urgency Creation
 </h3>
 
 
 <p>
 
-The attacker attempts to prevent communication
-with other employees.
+The message creates pressure through deadlines and
+immediate action requests.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="learn-card">
+
+
+<h3>
+Isolation Technique
+</h3>
+
+
+<p>
+
+The attacker discourages communication with others
+to prevent verification.
 
 </p>
 
@@ -447,6 +511,7 @@ with other employees.
 
 
 </section>
+
 
 
 
@@ -463,16 +528,17 @@ Investigator Assessment
 </h2>
 
 
+
 <div class="card">
 
 
 <p>
 
-Which indicator provides the strongest evidence that
-this email is fraudulent?
+Which combination of findings provides the strongest
+evidence that this email is part of a social engineering
+attack?
 
 </p>
-
 
 
 <br>
@@ -482,8 +548,9 @@ this email is fraudulent?
 <input type="radio" name="answer" id="a">
 
 <label>
-A) The email was received in the morning.
+A) The email was received during business hours and contained a signature.
 </label>
+
 
 
 <br><br>
@@ -493,8 +560,9 @@ A) The email was received in the morning.
 <input type="radio" name="answer" id="b">
 
 <label>
-B) The sender domain does not match the official company domain.
+B) The sender domain differs from the official organization domain, the reply address is unrelated, and verification procedures are bypassed.
 </label>
+
 
 
 <br><br>
@@ -504,8 +572,9 @@ B) The sender domain does not match the official company domain.
 <input type="radio" name="answer" id="c">
 
 <label>
-C) The email contains a professional signature.
+C) The email requested a vendor payment and contained an attachment.
 </label>
+
 
 
 <br><br>
@@ -515,8 +584,9 @@ C) The email contains a professional signature.
 <input type="radio" name="answer" id="d">
 
 <label>
-D) The executive requested a payment.
+D) The sender used professional language and addressed the employee by name.
 </label>
+
 
 
 <br><br>
@@ -525,7 +595,7 @@ D) The executive requested a payment.
 
 <button class="primary-btn" onclick="submitEvidence()">
 
-Submit Finding →
+Submit Investigation Finding →
 
 </button>
 
@@ -556,6 +626,7 @@ Submit Finding →
 
 
 </footer>
+
 
 
 
@@ -613,7 +684,7 @@ message.innerHTML=
 "✓ Evidence successfully analyzed. Returning to Case File 002...";
 
 
-message.className="success";
+message.className="correct";
 
 
 
@@ -634,10 +705,10 @@ else{
 
 
 message.innerHTML=
-"✕ Incorrect conclusion. Review the email indicators again.";
+"✕ Incorrect conclusion. Re-examine the email evidence and social engineering indicators.";
 
 
-message.className="failure";
+message.className="incorrect";
 
 
 }
@@ -649,6 +720,7 @@ message.className="failure";
 
 
 </script>
+
 
 
 
