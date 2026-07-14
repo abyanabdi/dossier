@@ -16,7 +16,14 @@
 <style>
 
 
-.transaction-box {
+.hidden {
+
+display:none;
+
+}
+
+
+.analysis-box {
 
 background:#111;
 padding:25px;
@@ -26,19 +33,12 @@ margin-top:20px;
 }
 
 
-.analysis-box {
+.transaction-box {
 
 background:#111;
-padding:20px;
+padding:25px;
 border-radius:12px;
 margin-top:20px;
-
-}
-
-
-.hidden {
-
-display:none;
 
 }
 
@@ -57,10 +57,25 @@ color:#ff6767;
 }
 
 
+.timeline {
+
+border-left:2px solid white;
+padding-left:25px;
+
+}
+
+
+.timeline-item {
+
+margin-bottom:30px;
+
+}
+
+
 .risk-bar {
 
+height:12px;
 width:100%;
-height:14px;
 background:#222;
 border-radius:10px;
 overflow:hidden;
@@ -78,26 +93,10 @@ transition:1s;
 }
 
 
-.timeline {
-
-border-left:2px solid white;
-padding-left:20px;
-
-}
-
-
-.timeline p {
-
-margin-bottom:25px;
-
-}
-
-
 </style>
 
 
 </head>
-
 
 
 <body>
@@ -131,8 +130,6 @@ DOSSIER
 
 
 
-
-
 <section class="hero">
 
 
@@ -148,9 +145,9 @@ Financial Transaction Analysis
 
 <p class="hero-text">
 
-Analyze recovered financial records to determine
-whether the payment activity represents legitimate
-business operations or unauthorized financial fraud.
+Analyze recovered financial records to determine whether
+a payment was part of legitimate business activity or a
+coordinated cybercrime operation.
 
 </p>
 
@@ -158,6 +155,65 @@ business operations or unauthorized financial fraud.
 </section>
 
 
+
+
+
+
+
+<section>
+
+
+<h2>
+Case Update
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Previous investigation stages revealed evidence of a
+possible executive impersonation attack.
+
+</p>
+
+
+<p>
+
+Investigators discovered:
+
+</p>
+
+
+<ul>
+
+<li>
+A suspicious AI-generated voice recording requesting urgent action.
+</li>
+
+<li>
+A fraudulent email containing payment instructions.
+</li>
+
+</ul>
+
+
+<p>
+
+The next question:
+
+<strong>
+Did these communications result in an unauthorized financial transfer?
+</strong>
+
+</p>
+
+
+</div>
+
+
+</section>
 
 
 
@@ -178,18 +234,18 @@ Investigation Objective
 
 <p>
 
-Investigators must examine the transaction record and
-compare financial activity with previously collected
-digital evidence.
+Your role is to examine the recovered transaction record
+and determine whether financial evidence supports the
+theory of a coordinated fraud attempt.
 
 </p>
 
 
 <p>
 
-The goal is not simply to identify suspicious activity,
-but to determine how communication, opportunity, and
-financial access combined to enable the offense.
+Financial investigators do not rely on one suspicious
+indicator. They analyze patterns, timelines, and
+connections between multiple evidence sources.
 
 </p>
 
@@ -206,12 +262,11 @@ financial access combined to enable the offense.
 
 
 
-
 <section>
 
 
 <h2>
-Recovered Transaction Record
+Recovered Financial Evidence
 </h2>
 
 
@@ -219,14 +274,13 @@ Recovered Transaction Record
 
 
 <h3>
-Financial Evidence File
+Transaction Record
 </h3>
-
 
 
 <p>
 <strong>Evidence Type:</strong>
-Financial Transaction Record
+Financial Transaction Log
 </p>
 
 
@@ -238,7 +292,7 @@ Corporate Banking System Export
 
 <p>
 <strong>File Format:</strong>
-CSV Transaction Log
+CSV Financial Record
 </p>
 
 
@@ -248,11 +302,7 @@ Under Investigation
 </p>
 
 
-
-
 <hr>
-
-
 
 
 <p>
@@ -303,7 +353,6 @@ Completed
 </p>
 
 
-
 </div>
 
 
@@ -316,12 +365,11 @@ Completed
 
 
 
-
 <section>
 
 
 <h2>
-Transaction Timeline Reconstruction
+Evidence Timeline Reconstruction
 </h2>
 
 
@@ -329,60 +377,124 @@ Transaction Timeline Reconstruction
 <div class="card">
 
 
-<div class="timeline">
-
-
 <p>
 
-<strong>9:42 AM</strong><br>
-
-Employee receives suspicious executive payment request email.
+Investigators reconstructed the events surrounding
+the transfer.
 
 </p>
 
 
 
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+
+<strong>
+9:42 AM
+</strong>
+
+
 <p>
 
-<strong>10:01 AM</strong><br>
+Employee receives an email appearing to originate
+from an executive requesting a confidential payment.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="timeline-item">
+
+
+<strong>
+10:01 AM
+</strong>
+
+
+<p>
 
 Employee confirms payment instructions.
 
 </p>
 
 
+</div>
+
+
+
+
+
+<div class="timeline-item">
+
+
+<strong>
+10:07 AM
+</strong>
+
 
 <p>
 
-<strong>10:07 AM</strong><br>
-
-Wire transfer initiated.
+Financial transfer is initiated.
 
 </p>
 
 
+</div>
+
+
+
+
+
+<div class="timeline-item">
+
+
+<strong>
+10:10 AM
+</strong>
+
 
 <p>
 
-<strong>10:10 AM</strong><br>
-
-AI-generated voice call received requesting confirmation.
+Employee receives a voice call requesting confirmation.
 
 </p>
 
 
+</div>
+
+
+
+
+
+<div class="timeline-item">
+
+
+<strong>
+10:45 AM
+</strong>
+
 
 <p>
-
-<strong>10:45 AM</strong><br>
 
 Recipient account receives funds.
 
 </p>
 
 
+</div>
+
+
 
 </div>
+
 
 
 </div>
@@ -397,12 +509,11 @@ Recipient account receives funds.
 
 
 
-
 <section>
 
 
 <h2>
-Financial Intelligence Analysis
+Financial Investigation Tools
 </h2>
 
 
@@ -410,7 +521,7 @@ Financial Intelligence Analysis
 <div class="card">
 
 
-<button class="primary-btn" onclick="analyzeAccount()">
+<button class="primary-btn" onclick="accountAnalysis()">
 
 Analyze Recipient Account →
 
@@ -418,7 +529,7 @@ Analyze Recipient Account →
 
 
 
-<div id="account" class="analysis-box hidden">
+<div id="accountReport" class="analysis-box hidden">
 
 
 <h3>
@@ -427,32 +538,47 @@ Recipient Account Report
 
 
 <p>
-<strong>Recipient:</strong>
+<strong>
+Organization:
+</strong>
+
 Global Vendor Solutions Ltd.
 </p>
 
 
 <p>
-<strong>Account Age:</strong>
+<strong>
+Account Age:
+</strong>
+
 21 days
 </p>
 
 
 <p>
-<strong>Previous Transactions:</strong>
+<strong>
+Previous Transactions:
+</strong>
+
 None
 </p>
 
 
 <p>
-<strong>Location:</strong>
+<strong>
+Location:
+</strong>
+
 Foreign Jurisdiction
 </p>
 
 
 <p>
-<strong>Risk Level:</strong>
-HIGH
+<strong>
+Risk Level:
+</strong>
+
+High Risk
 </p>
 
 
@@ -464,21 +590,20 @@ HIGH
 </div>
 
 
-
 <br>
 
 
 <p>
 
-Investigator Note:
+Investigator finding:
 
-A newly created account receiving a large transfer
-may indicate preparation for fraudulent activity.
+A recently created account receiving a large
+international transfer may indicate preparation
+for fraudulent activity.
 
-Additional evidence must be considered.
+Additional evidence must still be considered.
 
 </p>
-
 
 
 </div>
@@ -489,7 +614,6 @@ Additional evidence must be considered.
 
 
 </section>
-
 
 
 
@@ -510,18 +634,18 @@ Fraud Pattern Analysis
 <div class="grid">
 
 
-
 <div class="learn-card">
 
 
 <h3>
-New Recipient</h3>
+Unusual Recipient
+</h3>
 
 
 <p>
 
-The organization had no previous transaction history
-with the recipient.
+The company had no previous relationship with the
+recipient organization.
 
 </p>
 
@@ -531,17 +655,18 @@ with the recipient.
 
 
 
+
 <div class="learn-card">
 
 
 <h3>
-Unusual Amount</h3>
+Financial Pressure</h3>
 
 
 <p>
 
-The payment exceeded normal approval patterns for
-routine business activity.
+The request created urgency and bypassed normal
+financial review procedures.
 
 </p>
 
@@ -551,30 +676,29 @@ routine business activity.
 
 
 
+
 <div class="learn-card">
 
 
 <h3>
-Verification Bypass</h3>
+Multiple Attack Methods</h3>
 
 
 <p>
 
-The request avoided standard financial confirmation
-procedures.
+The offender combined email impersonation and AI
+voice technology to increase credibility.
 
 </p>
 
 
 </div>
-
 
 
 </div>
 
 
 </section>
-
 
 
 
@@ -587,41 +711,43 @@ procedures.
 
 
 <h2>
-Criminological Analysis
+Criminological Connection
 </h2>
-
 
 
 <div class="card">
 
 
 <h3>
-Routine Activity Theory</h3>
+Routine Activity Theory
+</h3>
 
 
 <p>
 
-The offense required three conditions:
+This offense occurred because three conditions
+aligned:
 
 </p>
 
 
-
 <ul>
 
-
 <li>
-Motivated offender using AI and impersonation techniques
+<strong>Motivated Offender:</strong>
+A criminal actor using impersonation and AI technology.
 </li>
 
 
 <li>
-Suitable target with financial access
+<strong>Suitable Target:</strong>
+An employee with access to financial systems.
 </li>
 
 
 <li>
-Lack of guardianship through missing verification procedures
+<strong>Lack of Guardianship:</strong>
+No additional verification before payment approval.
 </li>
 
 
@@ -630,14 +756,15 @@ Lack of guardianship through missing verification procedures
 
 
 <h3>
-Opportunity Structure</h3>
+Opportunity Structure
+</h3>
 
 
 <p>
 
-The offender exploited existing workplace systems,
-trust relationships, and digital communication channels
-to increase the chance of successful fraud.
+The offender exploited workplace procedures,
+digital communication systems, and employee trust
+to create an opportunity for fraud.
 
 </p>
 
@@ -646,7 +773,6 @@ to increase the chance of successful fraud.
 
 
 </section>
-
 
 
 
@@ -663,14 +789,13 @@ Investigator Assessment
 </h2>
 
 
-
 <div class="card">
 
 
 <p>
 
-Which conclusion is best supported by the transaction
-evidence?
+Based on the financial evidence, which conclusion is
+most supported?
 
 </p>
 
@@ -679,19 +804,17 @@ evidence?
 
 
 
-
 <input type="radio" name="answer" id="a">
 
 <label>
 
-A) The transaction is legitimate because the employee authorized it.
+A) The payment is legitimate because an employee
+authorized the transfer.
 
 </label>
 
 
-
 <br><br>
-
 
 
 
@@ -699,10 +822,12 @@ A) The transaction is legitimate because the employee authorized it.
 
 <label>
 
-B) The transaction shows indicators of financial fraud because it followed suspicious communication, involved a new recipient account, and bypassed verification procedures.
+B) The transaction supports a coordinated fraud
+attempt because it followed suspicious communication,
+involved a new recipient account, and bypassed normal
+verification procedures.
 
 </label>
-
 
 
 <br><br>
@@ -713,10 +838,10 @@ B) The transaction shows indicators of financial fraud because it followed suspi
 
 <label>
 
-C) The transaction cannot be investigated because financial records are private.
+C) The transaction cannot be analyzed because only
+banks can investigate financial activity.
 
 </label>
-
 
 
 <br><br>
@@ -727,14 +852,14 @@ C) The transaction cannot be investigated because financial records are private.
 
 <label>
 
-D) The transaction is fraudulent only because it was international.
+D) The transaction is suspicious only because it was
+international.
 
 </label>
 
 
 
 <br><br>
-
 
 
 <button class="primary-btn" onclick="submitEvidence()">
@@ -748,12 +873,10 @@ Submit Investigation Finding →
 <p id="message"></p>
 
 
-
 </div>
 
 
 </section>
-
 
 
 
@@ -775,30 +898,25 @@ Submit Investigation Finding →
 
 
 
-
-
 <script>
 
 
-function analyzeAccount(){
+function accountAnalysis(){
 
 
-document.getElementById("account")
+document.getElementById("accountReport")
 .classList.remove("hidden");
 
 
 setTimeout(function(){
 
-
 document.getElementById("risk")
 .style.width="90%";
-
 
 },300);
 
 
 }
-
 
 
 
@@ -822,7 +940,7 @@ localStorage.setItem(
 
 
 message.innerHTML=
-"✓ Transaction analysis completed. Evidence added to investigation file.";
+"✓ Financial evidence successfully analyzed. Investigation file updated.";
 
 
 message.className="correct";
@@ -831,9 +949,7 @@ message.className="correct";
 
 setTimeout(function(){
 
-
 window.location.href="case002.html";
-
 
 },2500);
 
@@ -841,13 +957,11 @@ window.location.href="case002.html";
 
 }
 
-
 else{
 
 
 message.innerHTML=
-"✕ Conclusion unsupported. Review transaction patterns and evidence connections again.";
-
+"✕ Conclusion unsupported. Review the evidence timeline and financial indicators.";
 
 message.className="incorrect";
 
@@ -861,8 +975,6 @@ message.className="incorrect";
 
 
 </script>
-
-
 
 
 
