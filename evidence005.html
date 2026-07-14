@@ -6,19 +6,115 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Evidence 002-B | Email Communication</title>
+<title>Evidence 002-B | Email Header Analysis</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
+<style>
+
+
+.email-box {
+
+background:#111;
+padding:25px;
+border-radius:12px;
+margin-top:20px;
+
+}
+
+
+.email-header {
+
+border-bottom:1px solid #333;
+padding-bottom:20px;
+margin-bottom:20px;
+
+}
+
+
+.email-body {
+
+line-height:1.8;
+
+}
+
+
+.analysis-card {
+
+background:#111;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+
+}
+
+
+.hidden {
+
+display:none;
+
+}
+
+
+.success {
+
+color:#42ff8a;
+
+}
+
+
+.failure {
+
+color:#ff6767;
+
+}
+
+
+.risk-bar {
+
+width:100%;
+height:15px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+margin-top:15px;
+
+}
+
+
+.risk-fill {
+
+height:100%;
+width:0%;
+background:white;
+transition:1s;
+
+}
+
+
+button {
+
+cursor:pointer;
+
+}
+
+
+</style>
+
+
 </head>
+
 
 
 <body>
 
 
+
 <nav>
+
 
 <div class="logo">
 DOSSIER
@@ -35,7 +131,11 @@ DOSSIER
 
 </div>
 
+
 </nav>
+
+
+
 
 
 
@@ -50,18 +150,22 @@ CASE FILE 002 / EVIDENCE 002-B
 
 
 <h1>
-Email Communication Analysis
+Email Header & Phishing Analysis
 </h1>
 
 
 <p class="hero-text">
 
-Analyze communication records connected to the fraudulent request.
+Analyze the recovered email communication to identify
+indicators of impersonation and social engineering.
 
 </p>
 
 
 </section>
+
+
+
 
 
 
@@ -75,34 +179,107 @@ Recovered Email
 </h2>
 
 
-<div class="card">
+<div class="email-box">
+
+
+<div class="email-header">
 
 
 <p>
-<strong>Sender:</strong>
-finance-director@company-support.com
+<strong>FROM:</strong>
+Michael.Reynolds@company-executive-support.com
 </p>
 
 
 <p>
-<strong>Subject:</strong>
-Urgent Transfer Required
+<strong>TO:</strong>
+jordan.finance@company.com
 </p>
 
 
 <p>
+<strong>SUBJECT:</strong>
+URGENT: Confidential Vendor Payment Request
+</p>
 
-"Please complete this transfer immediately.
-This request is confidential and should not
-be discussed with other employees."
 
+<p>
+<strong>TIME:</strong>
+9:42 AM
 </p>
 
 
 </div>
 
 
+
+
+
+<div class="email-body">
+
+
+<p>
+Jordan,
+</p>
+
+
+<p>
+
+I need you to process the attached vendor payment
+immediately.
+
+</p>
+
+
+<p>
+
+This request is time-sensitive and must be completed
+before the end of the business day.
+
+</p>
+
+
+<p>
+
+Due to confidentiality concerns, please do not forward
+this request or discuss it with other departments.
+
+</p>
+
+
+<p>
+
+Confirm once the transfer has been completed.
+
+</p>
+
+
+<p>
+
+Thank you,
+
+<br>
+
+Michael Reynolds
+
+<br>
+
+Executive Office
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
 </section>
+
+
+
 
 
 
@@ -113,45 +290,259 @@ be discussed with other employees."
 
 
 <h2>
-Evidence Indicators
+Email Header Investigation
 </h2>
 
 
 <div class="card">
 
 
-<ul>
-
-<li>
-Sender domain does not match company domain.
-</li>
-
-<li>
-Creates urgency and secrecy.
-</li>
-
-<li>
-Requests bypassing normal procedures.
-</li>
-
-<li>
-Uses authority-based manipulation.
-</li>
-
-</ul>
+<p>
+Review the email metadata for suspicious indicators.
+</p>
 
 
-<button class="primary-btn" onclick="completeEvidence()">
 
-Confirm Findings
+<button class="primary-btn" onclick="analyzeDomain()">
+
+Analyze Sender Domain →
 
 </button>
+
+
+
+<div id="domainResult" class="analysis-card hidden">
+
+
+<h3>
+Domain Analysis
+</h3>
+
+
+<p>
+Domain:
+<strong>
+company-executive-support.com
+</strong>
+</p>
+
+
+<p>
+Registration:
+14 days old
+</p>
+
+
+<p>
+Risk Assessment:
+HIGH RISK
+</p>
+
+
+
+<div class="risk-bar">
+
+<div id="riskFill" class="risk-fill">
+
+</div>
+
+</div>
+
+
+
+</div>
+
 
 
 </div>
 
 
 </section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Social Engineering Indicators
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="learn-card">
+
+
+<h3>
+Urgency Tactics
+</h3>
+
+
+<p>
+
+The message pressures the employee to act quickly
+without normal verification.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="learn-card">
+
+
+<h3>
+Authority Impersonation
+</h3>
+
+
+<p>
+
+The attacker pretends to represent an executive
+to increase trust.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="learn-card">
+
+
+<h3>
+Confidentiality Request
+</h3>
+
+
+<p>
+
+The attacker attempts to prevent communication
+with other employees.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Investigator Assessment
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Which indicator provides the strongest evidence that
+this email is fraudulent?
+
+</p>
+
+
+
+<br>
+
+
+
+<input type="radio" name="answer" id="a">
+
+<label>
+A) The email was received in the morning.
+</label>
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="b">
+
+<label>
+B) The sender domain does not match the official company domain.
+</label>
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="c">
+
+<label>
+C) The email contains a professional signature.
+</label>
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="d">
+
+<label>
+D) The executive requested a payment.
+</label>
+
+
+<br><br>
+
+
+
+<button class="primary-btn" onclick="submitEvidence()">
+
+Submit Finding →
+
+</button>
+
+
+
+<p id="message"></p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
 
 
 
@@ -163,7 +554,12 @@ Confirm Findings
 © 2026 Dossier
 </p>
 
+
 </footer>
+
+
+
+
 
 
 
@@ -171,7 +567,40 @@ Confirm Findings
 <script>
 
 
-function completeEvidence(){
+function analyzeDomain(){
+
+
+document.getElementById("domainResult")
+.classList.remove("hidden");
+
+
+setTimeout(function(){
+
+
+document.getElementById("riskFill")
+.style.width="90%";
+
+
+},300);
+
+
+}
+
+
+
+
+
+
+
+function submitEvidence(){
+
+
+let message=document.getElementById("message");
+
+
+
+if(document.getElementById("b").checked){
+
 
 localStorage.setItem(
 "evidence005",
@@ -179,17 +608,49 @@ localStorage.setItem(
 );
 
 
-alert(
-"Evidence 002-B analyzed successfully."
-);
+
+message.innerHTML=
+"✓ Evidence successfully analyzed. Returning to Case File 002...";
+
+
+message.className="success";
+
+
+
+setTimeout(function(){
 
 
 window.location.href="case002.html";
 
+
+},2500);
+
+
+
 }
 
 
+else{
+
+
+message.innerHTML=
+"✕ Incorrect conclusion. Review the email indicators again.";
+
+
+message.className="failure";
+
+
+}
+
+
+
+}
+
+
+
 </script>
+
+
 
 
 </body>
