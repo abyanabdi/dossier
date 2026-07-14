@@ -287,9 +287,10 @@ Select all observations that apply.
 
 <ul>
 
+
 <li>
 <label>
-<input type="checkbox">
+<input type="checkbox" id="obs1">
 Unnatural pauses between responses
 </label>
 </li>
@@ -297,7 +298,7 @@ Unnatural pauses between responses
 
 <li>
 <label>
-<input type="checkbox">
+<input type="checkbox" id="obs2">
 Limited emotional variation during the conversation
 </label>
 </li>
@@ -305,7 +306,7 @@ Limited emotional variation during the conversation
 
 <li>
 <label>
-<input type="checkbox">
+<input type="checkbox" id="obs3">
 Repeated speech patterns or responses
 </label>
 </li>
@@ -313,7 +314,7 @@ Repeated speech patterns or responses
 
 <li>
 <label>
-<input type="checkbox">
+<input type="checkbox" id="obs4">
 Slight distortion during pronunciation changes
 </label>
 </li>
@@ -321,7 +322,7 @@ Slight distortion during pronunciation changes
 
 <li>
 <label>
-<input type="checkbox">
+<input type="checkbox" id="obs5">
 The recording quality is poor, but no unusual speech patterns are present
 </label>
 </li>
@@ -330,12 +331,23 @@ The recording quality is poor, but no unusual speech patterns are present
 </ul>
 
 
+<br>
+
+
+<button class="primary-btn" onclick="submitObservations()">
+
+Submit Observations →
+
+</button>
+
+
+<p id="observationMessage"></p>
+
+
 </div>
 
 
 </section>
-
-
 
 
 
