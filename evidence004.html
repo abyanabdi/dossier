@@ -287,7 +287,6 @@ Select all observations that apply.
 
 <ul>
 
-
 <li>
 <label>
 <input type="checkbox" id="obs1">
@@ -335,9 +334,7 @@ The recording quality is poor, but no unusual speech patterns are present
 
 
 <button class="primary-btn" onclick="submitObservations()">
-
 Submit Observations →
-
 </button>
 
 
@@ -346,14 +343,13 @@ Submit Observations →
 
 </div>
 
-
 </section>
 
 
 
 
 
-<section>
+<section id="scannerSection" class="hidden">
 
 
 <h2>
@@ -380,9 +376,7 @@ The forensic scanner will analyze speech patterns, frequency changes, and possib
 
 
 <button class="primary-btn" onclick="runAnalysis()">
-
 Run Audio Analysis →
-
 </button>
 
 
@@ -391,17 +385,13 @@ Run Audio Analysis →
 
 
 <p id="analysisText">
-
 Initializing forensic tools...
-
 </p>
 
 
 <div class="progress-container">
 
-<div id="progressBar">
-
-</div>
+<div id="progressBar"></div>
 
 </div>
 
@@ -411,22 +401,12 @@ Initializing forensic tools...
 </p>
 
 
-<p id="nextStep" class="hidden">
-
-✓ Analysis complete. Continue below to review forensic findings and submit your investigation conclusion.
-
-</p>
-
-
 </div>
 
 
 </div>
-
 
 </section>
-
-
 
 
 
@@ -454,7 +434,7 @@ Digital Audio Results
 
 
 <p>
-The forensic scanner has completed analysis of the recovered audio file. Review the findings before making your final assessment.
+The forensic scanner identified several indicators requiring investigator review.
 </p>
 
 
@@ -464,21 +444,17 @@ The forensic scanner has completed analysis of the recovered audio file. Review 
 ✓ Speech pattern comparison completed
 </li>
 
-
 <li>
 ✓ Frequency irregularities detected
 </li>
-
 
 <li>
 ✓ Voice consistency analysis completed
 </li>
 
-
 <li>
 ✓ Synthetic voice indicators identified
 </li>
-
 
 </ul>
 
@@ -492,9 +468,7 @@ The forensic scanner has completed analysis of the recovered audio file. Review 
 
 
 
-
-
-<section>
+<section id="assessmentSection" class="hidden">
 
 
 <h2>
@@ -526,7 +500,6 @@ A) The voice is confirmed authentic because it sounds familiar.
 <br><br>
 
 
-
 <input type="radio" name="answer" id="b">
 
 <label>
@@ -535,7 +508,6 @@ B) The recording contains indicators consistent with possible AI voice manipulat
 
 
 <br><br>
-
 
 
 <input type="radio" name="answer" id="c">
@@ -548,7 +520,6 @@ C) The employee created the fraudulent request.
 <br><br>
 
 
-
 <input type="radio" name="answer" id="d">
 
 <label>
@@ -556,15 +527,11 @@ D) Audio evidence cannot be used in cybercrime investigations.
 </label>
 
 
-
 <br><br>
 
 
-
 <button class="primary-btn" onclick="submitEvidence()">
-
 Submit Investigation Finding →
-
 </button>
 
 
@@ -573,10 +540,7 @@ Submit Investigation Finding →
 
 </div>
 
-
 </section>
-
-
 
 
 
@@ -599,9 +563,7 @@ Investigation Summary
 
 
 <p>
-
-The recording contains multiple indicators consistent with possible AI voice manipulation. However, investigators must consider alternative explanations including compression issues, poor recording quality, or intentional voice modification.
-
+The recording contains multiple indicators consistent with possible AI voice manipulation. Investigators should still consider alternative explanations such as compression issues, poor recording quality, or intentional voice modification.
 </p>
 
 
@@ -623,10 +585,11 @@ Repeated speech patterns
 Slight distortion during pronunciation changes
 </li>
 
-
 </ul>
 
+
 <br>
+
 
 <a class="primary-btn" href="case002.html">
 Return to Case File →
@@ -637,22 +600,6 @@ Return to Case File →
 
 
 </section>
-
-
-
-
-
-
-
-<footer>
-
-<p>
-© 2026 Dossier
-</p>
-
-</footer>
-
-
 
 
 
@@ -674,26 +621,32 @@ document.getElementById("obs4").checked &&
 !document.getElementById("obs5").checked;
 
 
+
 if(correct){
 
 message.innerHTML =
-"✓ All observation indicators identified. Continue to forensic analysis.";
+"✓ Observation assessment complete. Forensic scanner unlocked.";
 
 message.className="correct";
+
+document.getElementById("scannerSection").classList.remove("hidden");
+
 
 }
 
 else{
+
 
 message.innerHTML =
 "✕ There are still more indicators to identify. Review the recording and select all relevant observations.";
 
 message.className="incorrect";
 
-}
 
 }
 
+
+}
 
 
 
@@ -703,6 +656,9 @@ function runAnalysis(){
 
 let box=document.getElementById("loadingBox");
 
+box.classList.remove("hidden");
+
+
 let text=document.getElementById("analysisText");
 
 let bar=document.getElementById("progressBar");
@@ -710,22 +666,12 @@ let bar=document.getElementById("progressBar");
 let number=document.getElementById("progressNumber");
 
 
-box.classList.remove("hidden");
-
-
-
 let steps=[
-
 "Extracting waveform data...",
-
 "Analyzing speech frequency...",
-
 "Comparing voice patterns...",
-
 "Scanning synthetic indicators...",
-
 "Generating forensic report..."
-
 ];
 
 
@@ -733,7 +679,6 @@ let values=[20,40,60,80,100];
 
 
 let i=0;
-
 
 
 let interval=setInterval(function(){
@@ -755,13 +700,14 @@ if(i===steps.length){
 clearInterval(interval);
 
 
-
 setTimeout(function(){
 
-document.getElementById("nextStep").classList.remove("hidden");
+document.getElementById("results").classList.remove("hidden");
+
+document.getElementById("assessmentSection").classList.remove("hidden");
+
 
 },1000);
-
 
 
 }
@@ -770,10 +716,7 @@ document.getElementById("nextStep").classList.remove("hidden");
 },1200);
 
 
-
 }
-
-
 
 
 
@@ -785,7 +728,6 @@ function submitEvidence(){
 let message=document.getElementById("message");
 
 
-
 if(document.getElementById("b").checked){
 
 
@@ -795,16 +737,14 @@ localStorage.setItem(
 );
 
 
-
 message.innerHTML=
-"✓ Evidence successfully analyzed. Returning to case file...";
+"✓ Correct conclusion. Analyst notes unlocked.";
 
 
 message.className="correct";
 
+
 document.getElementById("analystNotes").classList.remove("hidden");
-
-
 
 
 }
@@ -814,7 +754,8 @@ else{
 
 
 message.innerHTML=
-"✕ Incorrect conclusion. Review the forensic findings again.";
+"✕ Incorrect conclusion. Review the forensic findings and try again.";
+
 
 message.className="incorrect";
 
@@ -822,15 +763,8 @@ message.className="incorrect";
 }
 
 
-
 }
 
 
 
 </script>
-
-
-
-</body>
-
-</html>
