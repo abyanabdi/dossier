@@ -633,6 +633,44 @@ Slight distortion during pronunciation changes
 <script>
 
 
+function submitObservations(){
+
+let message=document.getElementById("observationMessage");
+
+
+let correct =
+document.getElementById("obs1").checked &&
+document.getElementById("obs2").checked &&
+document.getElementById("obs3").checked &&
+document.getElementById("obs4").checked &&
+!document.getElementById("obs5").checked;
+
+
+
+if(correct){
+
+message.innerHTML =
+"✓ Observation assessment complete. Your findings align with the forensic indicators.";
+
+message.className="correct";
+
+}
+
+else{
+
+message.innerHTML =
+"✕ Review your observations. Some selected indicators do not match the evidence.";
+
+message.className="incorrect";
+
+}
+
+}
+
+
+
+
+
 function runAnalysis(){
 
 
@@ -690,11 +728,13 @@ if(i===steps.length){
 clearInterval(interval);
 
 
+
 setTimeout(function(){
 
 document.getElementById("results").classList.remove("hidden");
 
 },1000);
+
 
 
 }
@@ -705,6 +745,8 @@ document.getElementById("results").classList.remove("hidden");
 
 
 }
+
+
 
 
 
