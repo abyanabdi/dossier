@@ -646,11 +646,10 @@ document.getElementById("obs4").checked &&
 !document.getElementById("obs5").checked;
 
 
-
 if(correct){
 
 message.innerHTML =
-"✓ Observation assessment complete. Your findings align with the forensic indicators.";
+"✓ All observation indicators identified. Continue to forensic analysis.";
 
 message.className="correct";
 
@@ -659,7 +658,7 @@ message.className="correct";
 else{
 
 message.innerHTML =
-"✕ Review your observations. Some selected indicators do not match the evidence.";
+"✕ There are still more indicators to identify. Review the recording and select all relevant observations.";
 
 message.className="incorrect";
 
@@ -793,7 +792,6 @@ else{
 
 message.innerHTML=
 "✕ Incorrect conclusion. Review the forensic findings again.";
-
 
 message.className="incorrect";
 
