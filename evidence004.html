@@ -15,7 +15,6 @@
 
 <style>
 
-
 .waveform {
 
 display:flex;
@@ -37,52 +36,25 @@ animation:pulse 1s infinite ease-in-out;
 }
 
 
-.wave:nth-child(2){
-animation-delay:.1s;
-}
-
-.wave:nth-child(3){
-animation-delay:.2s;
-}
-
-.wave:nth-child(4){
-animation-delay:.3s;
-}
-
-.wave:nth-child(5){
-animation-delay:.4s;
-}
-
-.wave:nth-child(6){
-animation-delay:.5s;
-}
-
-.wave:nth-child(7){
-animation-delay:.6s;
-}
-
-.wave:nth-child(8){
-animation-delay:.7s;
-}
+.wave:nth-child(2){animation-delay:.1s;}
+.wave:nth-child(3){animation-delay:.2s;}
+.wave:nth-child(4){animation-delay:.3s;}
+.wave:nth-child(5){animation-delay:.4s;}
+.wave:nth-child(6){animation-delay:.5s;}
+.wave:nth-child(7){animation-delay:.6s;}
+.wave:nth-child(8){animation-delay:.7s;}
 
 
 
 @keyframes pulse {
 
-
 0%,100%{
-
 height:25px;
-
 }
-
 
 50%{
-
 height:80px;
-
 }
-
 
 }
 
@@ -96,8 +68,27 @@ display:none;
 
 
 
-.progress-container{
+.audio-player {
 
+margin-top:30px;
+padding:20px;
+background:#111;
+border-radius:12px;
+
+}
+
+
+
+.audio-player audio {
+
+width:100%;
+margin-top:15px;
+
+}
+
+
+
+.progress-container {
 
 width:100%;
 height:12px;
@@ -106,26 +97,33 @@ border-radius:10px;
 overflow:hidden;
 margin-top:20px;
 
-
 }
 
 
 
-#progressBar{
-
+#progressBar {
 
 height:100%;
 width:0%;
 background:white;
-transition:width .5s ease;
-
+transition:.5s;
 
 }
 
 
 
-.correct{
+.analysis-box {
 
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+background:#111;
+
+}
+
+
+
+.correct {
 
 color:#42ff8a;
 
@@ -133,106 +131,46 @@ color:#42ff8a;
 
 
 
-.incorrect{
-
+.incorrect {
 
 color:#ff6767;
 
 }
 
 
+.hidden {
 
-
-.analysis-box{
-
-
-padding:20px;
-margin-top:20px;
-border-radius:10px;
-background:#111;
-
+display:none;
 
 }
-
-
-
-.audio-player {
-
-
-margin-top:30px;
-padding:20px;
-background:#111;
-border-radius:12px;
-
-
-}
-
-
-
-.audio-player audio {
-
-
-width:100%;
-margin-top:15px;
-
-
-}
-
 
 
 </style>
 
+
 </head>
-
-
-
 
 
 <body>
 
 
 
-
 <nav>
-
 
 <div class="logo">
 DOSSIER
 </div>
 
 
-
 <div class="nav-links">
 
-
-<a href="index.html">
-Home
-</a>
-
-
-<a href="casefiles.html">
-Case Files
-</a>
-
-
-<a href="library.html">
-Evidence Library
-</a>
-
-
-<a href="research.html">
-Research
-</a>
-
-
-<a href="about.html">
-About
-</a>
-
-
+<a href="index.html">Home</a>
+<a href="casefiles.html">Case Files</a>
+<a href="library.html">Evidence Library</a>
+<a href="research.html">Research</a>
+<a href="about.html">About</a>
 
 </div>
-
 
 </nav>
 
@@ -245,30 +183,22 @@ About
 <section class="hero">
 
 
-
 <p class="eyebrow">
-
 CASE FILE 002 / EVIDENCE 002-A
-
 </p>
 
 
-
 <h1>
-
 Audio Recording Analysis
-
 </h1>
-
 
 
 <p class="hero-text">
 
-Forensic examination of a suspected AI-generated
-voice recording connected to a fraudulent financial request.
+Analyze the suspected AI-generated voice recording
+used during a fraudulent financial request.
 
 </p>
-
 
 
 </section>
@@ -284,48 +214,30 @@ voice recording connected to a fraudulent financial request.
 
 
 <h2>
-
-Evidence File
-
+Recovered Evidence
 </h2>
-
 
 
 <div class="card">
 
 
-
 <p>
-<strong>File:</strong>
-Executive_Call_Recording.wav
+<strong>Evidence Type:</strong> Digital Audio Recording
 </p>
 
 
-
 <p>
-<strong>Evidence Type:</strong>
-Digital Audio Recording
+<strong>File:</strong> Executive_Call_Recording.wav
 </p>
 
 
-
 <p>
-<strong>Source:</strong>
-Employee phone recording
+<strong>Source:</strong> Employee mobile device
 </p>
 
 
-
 <p>
-<strong>Duration:</strong>
-03:42 minutes
-</p>
-
-
-
-<p>
-<strong>Classification:</strong>
-Digital Forensic Evidence
+<strong>Status:</strong> Awaiting Investigator Review
 </p>
 
 
@@ -334,7 +246,6 @@ Digital Forensic Evidence
 
 <div class="waveform">
 
-
 <div class="wave"></div>
 <div class="wave"></div>
 <div class="wave"></div>
@@ -343,22 +254,25 @@ Digital Forensic Evidence
 <div class="wave"></div>
 <div class="wave"></div>
 <div class="wave"></div>
-
-
 
 </div>
+
+
+
+
 
 <div class="audio-player">
 
 
 <h3>
-Recovered Audio Recording
+Audio Playback
 </h3>
 
 
 <p>
-Listen to the recovered phone call before completing the forensic analysis.
+Listen carefully before conducting forensic analysis.
 </p>
+
 
 
 <audio controls>
@@ -377,7 +291,28 @@ Your browser does not support audio.
 
 
 
-<div id="analysisButton">
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Forensic Audio Scanner
+</h2>
+
+
+
+<div class="card">
 
 
 <button class="primary-btn" onclick="runAnalysis()">
@@ -385,10 +320,6 @@ Your browser does not support audio.
 Run Audio Analysis →
 
 </button>
-
-
-</div>
-
 
 
 
@@ -406,22 +337,17 @@ Initializing forensic tools...
 
 <div class="progress-container">
 
-
 <div id="progressBar">
 
 </div>
-
 
 </div>
 
 
 
 <p id="progressNumber">
-
 0%
-
 </p>
-
 
 
 </div>
@@ -442,27 +368,16 @@ Initializing forensic tools...
 
 
 
-<section id="analysis" class="hidden">
+<section id="results" class="hidden">
 
 
 <h2>
-
-Forensic Analysis Results
-
+Forensic Findings
 </h2>
 
 
 
 <div class="card">
-
-
-
-<div class="analysis-box">
-
-
-<p>
-✓ Waveform extraction completed
-</p>
 
 
 <p>
@@ -476,79 +391,54 @@ Forensic Analysis Results
 
 
 <p>
+✓ Voice consistency analysis completed
+</p>
+
+
+<p>
 ✓ Synthetic voice indicators identified
 </p>
 
 
 
-</div>
-
-
-
-
-
 <h3>
-
-Analyst Interpretation
-
+Analyst Notes
 </h3>
-
 
 
 
 <p>
 
-
-The audio contains multiple indicators consistent
-with AI-generated voice manipulation.
-
+The recording contains multiple indicators consistent
+with possible AI voice manipulation.
 
 However, investigators must consider alternative
 explanations including compression issues,
-recording quality, or intentional voice modification.
-
+poor recording quality, or intentional voice modification.
 
 </p>
 
 
 
-
-
 <ul>
 
-
 <li>
-
-Unnatural pauses before responses
-
+Unnatural pauses between responses
 </li>
 
-
 <li>
-
-Repeated speech patterns
-
-</li>
-
-
-<li>
-
 Limited emotional variation
-
 </li>
-
 
 <li>
-
-Digital distortion during pronunciation changes
-
+Repeated speech patterns
 </li>
 
-
+<li>
+Slight distortion during pronunciation changes
+</li>
 
 </ul>
-
-
 
 
 
@@ -569,26 +459,18 @@ Digital distortion during pronunciation changes
 
 
 <h2>
-
 Investigator Assessment
-
 </h2>
-
-
 
 
 <div class="card">
 
 
-
 <p>
 
-Based on the forensic analysis, what conclusion
-is most supported by the evidence?
+What conclusion is best supported by the evidence?
 
 </p>
-
-
 
 
 
@@ -598,64 +480,43 @@ is most supported by the evidence?
 
 <input type="radio" name="answer" id="a">
 
-
-<label for="a">
-
-A) The recording is authentic because the voice sounds familiar.
-
+<label>
+A) The voice is confirmed authentic because it sounds familiar.
 </label>
 
 
-
 <br><br>
-
-
 
 
 
 <input type="radio" name="answer" id="b">
 
-
-<label for="b">
-
+<label>
 B) The recording contains indicators consistent with AI-generated voice manipulation.
-
 </label>
 
 
 
-
 <br><br>
-
-
 
 
 
 <input type="radio" name="answer" id="c">
 
-
-<label for="c">
-
-C) The employee created the fraudulent phone call.
-
+<label>
+C) The employee created the fraudulent request.
 </label>
 
 
 
-
 <br><br>
-
-
 
 
 
 <input type="radio" name="answer" id="d">
 
-
-<label for="d">
-
+<label>
 D) Audio evidence cannot be used in cybercrime investigations.
-
 </label>
 
 
@@ -665,24 +526,19 @@ D) Audio evidence cannot be used in cybercrime investigations.
 
 
 
-
 <button class="primary-btn" onclick="submitEvidence()">
 
-Submit Investigator Conclusion →
+Submit Investigation Finding →
 
 </button>
 
 
 
-
-<p id="message">
-
-</p>
+<p id="message"></p>
 
 
 
 </div>
-
 
 
 </section>
@@ -696,17 +552,11 @@ Submit Investigator Conclusion →
 
 <footer>
 
-
 <p>
-
 © 2026 Dossier
-
 </p>
 
-
 </footer>
-
-
 
 
 
@@ -717,106 +567,60 @@ Submit Investigator Conclusion →
 <script>
 
 
-
-
 function runAnalysis(){
 
 
+let box=document.getElementById("loadingBox");
 
-let loading =
-document.getElementById("loadingBox");
+let text=document.getElementById("analysisText");
 
+let bar=document.getElementById("progressBar");
 
-
-let button =
-document.getElementById("analysisButton");
-
+let number=document.getElementById("progressNumber");
 
 
-let text =
-document.getElementById("analysisText");
+box.classList.remove("hidden");
 
 
 
-let progress =
-document.getElementById("progressBar");
-
-
-
-let number =
-document.getElementById("progressNumber");
-
-
-
-
-button.style.display="none";
-
-
-
-loading.classList.remove("hidden");
-
-
-
-
-let steps = [
-
+let steps=[
 
 "Extracting waveform data...",
 
+"Analyzing speech frequency...",
 
-"Analyzing speech frequency patterns...",
+"Comparing voice patterns...",
 
-
-"Comparing voice characteristics...",
-
-
-"Scanning synthetic voice indicators...",
-
+"Scanning synthetic indicators...",
 
 "Generating forensic report..."
-
-
 
 ];
 
 
-
-let values = [20,40,60,80,100];
-
+let values=[20,40,60,80,100];
 
 
-let index=0;
-
+let i=0;
 
 
 
 let interval=setInterval(function(){
 
 
+text.innerHTML=steps[i];
 
-text.innerHTML =
-steps[index];
+bar.style.width=values[i]+"%";
 
-
-
-progress.style.width =
-values[index]+"%";
+number.innerHTML=values[i]+"%";
 
 
 
-number.innerHTML =
-values[index]+"%";
+i++;
 
 
 
-
-index++;
-
-
-
-
-if(index===steps.length){
-
+if(i===steps.length){
 
 
 clearInterval(interval);
@@ -825,21 +629,13 @@ clearInterval(interval);
 
 setTimeout(function(){
 
-
-
-loading.classList.add("hidden");
-
-
-document.getElementById("analysis").classList.remove("hidden");
-
-
+document.getElementById("results").classList.remove("hidden");
 
 },1000);
 
 
 
 }
-
 
 
 },1200);
@@ -854,20 +650,14 @@ document.getElementById("analysis").classList.remove("hidden");
 
 
 
-
-
 function submitEvidence(){
 
 
-
-let message =
-document.getElementById("message");
-
+let message=document.getElementById("message");
 
 
 
 if(document.getElementById("b").checked){
-
 
 
 localStorage.setItem(
@@ -877,22 +667,17 @@ localStorage.setItem(
 
 
 
-
-message.innerHTML =
-"✓ Correct. Evidence 002-A successfully analyzed. Returning to case file...";
-
+message.innerHTML=
+"✓ Evidence successfully analyzed. Returning to case file...";
 
 
 message.className="correct";
 
 
 
-
 setTimeout(function(){
 
-
 window.location.href="case002.html";
-
 
 },2500);
 
@@ -901,35 +686,25 @@ window.location.href="case002.html";
 }
 
 
-
 else{
 
 
-
-message.innerHTML =
-"✕ Incorrect. Review the forensic findings and reconsider your conclusion.";
-
+message.innerHTML=
+"✕ Incorrect conclusion. Review the forensic findings again.";
 
 
 message.className="incorrect";
 
 
-
 }
 
 
 
-
 }
-
-
 
 
 
 </script>
-
-
-
 
 
 
