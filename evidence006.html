@@ -6,19 +6,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Evidence 002-C | Transaction Records</title>
+<title>Evidence 002-C | Financial Transaction Analysis</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+
+<style>
+
+
+.transaction-box {
+
+background:#111;
+padding:25px;
+border-radius:12px;
+margin-top:20px;
+
+}
+
+
+.analysis-box {
+
+background:#111;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+
+}
+
+
+.hidden {
+
+display:none;
+
+}
+
+
+.correct {
+
+color:#42ff8a;
+
+}
+
+
+.incorrect {
+
+color:#ff6767;
+
+}
+
+
+.risk-bar {
+
+width:100%;
+height:14px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+
+}
+
+
+.risk-fill {
+
+height:100%;
+width:0%;
+background:white;
+transition:1s;
+
+}
+
+
+.timeline {
+
+border-left:2px solid white;
+padding-left:20px;
+
+}
+
+
+.timeline p {
+
+margin-bottom:25px;
+
+}
+
+
+</style>
+
+
 </head>
+
 
 
 <body>
 
 
+
+
 <nav>
+
 
 <div class="logo">
 DOSSIER
@@ -35,7 +123,11 @@ DOSSIER
 
 </div>
 
+
 </nav>
+
+
+
 
 
 
@@ -43,24 +135,30 @@ DOSSIER
 
 <section class="hero">
 
+
 <p class="eyebrow">
 CASE FILE 002 / EVIDENCE 002-C
 </p>
 
 
 <h1>
-Transaction Records Analysis
+Financial Transaction Analysis
 </h1>
 
 
 <p class="hero-text">
 
-Analyze financial activity and determine whether
-the transaction matches normal company behavior.
+Analyze recovered financial records to determine
+whether the payment activity represents legitimate
+business operations or unauthorized financial fraud.
 
 </p>
 
+
 </section>
+
+
+
 
 
 
@@ -71,7 +169,7 @@ the transaction matches normal company behavior.
 
 
 <h2>
-Evidence Overview
+Investigation Objective
 </h2>
 
 
@@ -79,22 +177,20 @@ Evidence Overview
 
 
 <p>
-<strong>Evidence Type:</strong> Financial Records
+
+Investigators must examine the transaction record and
+compare financial activity with previously collected
+digital evidence.
+
 </p>
 
 
 <p>
-<strong>Transaction Amount:</strong> $48,500
-</p>
 
+The goal is not simply to identify suspicious activity,
+but to determine how communication, opportunity, and
+financial access combined to enable the offense.
 
-<p>
-<strong>Transaction Time:</strong> 9:15 AM
-</p>
-
-
-<p>
-<strong>Destination:</strong> International Account
 </p>
 
 
@@ -109,52 +205,103 @@ Evidence Overview
 
 
 
+
+
 <section>
 
 
 <h2>
-Transaction Findings
+Recovered Transaction Record
 </h2>
 
 
-<div class="card">
+<div class="transaction-box">
 
 
-<p>
+<h3>
+Financial Evidence File
+</h3>
 
-Investigators discovered several irregularities
-within the transaction history.
-
-</p>
-
-
-<ul>
-
-<li>
-Transfer was completed outside normal approval procedures.
-</li>
-
-<li>
-Recipient account was created recently.
-</li>
-
-<li>
-Funds were transferred internationally.
-</li>
-
-<li>
-Transaction occurred shortly after the suspicious call.
-</li>
-
-</ul>
 
 
 <p>
-
-The financial timeline supports the possibility
-of a coordinated social engineering attack.
-
+<strong>Evidence Type:</strong>
+Financial Transaction Record
 </p>
+
+
+<p>
+<strong>Source:</strong>
+Corporate Banking System Export
+</p>
+
+
+<p>
+<strong>File Format:</strong>
+CSV Transaction Log
+</p>
+
+
+<p>
+<strong>Status:</strong>
+Under Investigation
+</p>
+
+
+
+
+<hr>
+
+
+
+
+<p>
+<strong>Transaction ID:</strong>
+TX-48291
+</p>
+
+
+<p>
+<strong>Date:</strong>
+March 14, 2026
+</p>
+
+
+<p>
+<strong>Time:</strong>
+10:07 AM
+</p>
+
+
+<p>
+<strong>Amount:</strong>
+$48,750.00
+</p>
+
+
+<p>
+<strong>Recipient:</strong>
+Global Vendor Solutions Ltd.
+</p>
+
+
+<p>
+<strong>Payment Type:</strong>
+International Wire Transfer
+</p>
+
+
+<p>
+<strong>Authorized By:</strong>
+Jordan Finance Department
+</p>
+
+
+<p>
+<strong>Status:</strong>
+Completed
+</p>
+
 
 
 </div>
@@ -167,33 +314,448 @@ of a coordinated social engineering attack.
 
 
 
+
+
+
 <section>
 
 
 <h2>
-Investigation Decision
+Transaction Timeline Reconstruction
 </h2>
+
 
 
 <div class="card">
 
 
+<div class="timeline">
+
+
 <p>
-Does the transaction record support evidence of fraud?
+
+<strong>9:42 AM</strong><br>
+
+Employee receives suspicious executive payment request email.
+
 </p>
 
 
-<button class="primary-btn" onclick="completeEvidence()">
 
-Confirm Findings
+<p>
+
+<strong>10:01 AM</strong><br>
+
+Employee confirms payment instructions.
+
+</p>
+
+
+
+<p>
+
+<strong>10:07 AM</strong><br>
+
+Wire transfer initiated.
+
+</p>
+
+
+
+<p>
+
+<strong>10:10 AM</strong><br>
+
+AI-generated voice call received requesting confirmation.
+
+</p>
+
+
+
+<p>
+
+<strong>10:45 AM</strong><br>
+
+Recipient account receives funds.
+
+</p>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Financial Intelligence Analysis
+</h2>
+
+
+
+<div class="card">
+
+
+<button class="primary-btn" onclick="analyzeAccount()">
+
+Analyze Recipient Account →
 
 </button>
 
 
+
+<div id="account" class="analysis-box hidden">
+
+
+<h3>
+Recipient Account Report
+</h3>
+
+
+<p>
+<strong>Recipient:</strong>
+Global Vendor Solutions Ltd.
+</p>
+
+
+<p>
+<strong>Account Age:</strong>
+21 days
+</p>
+
+
+<p>
+<strong>Previous Transactions:</strong>
+None
+</p>
+
+
+<p>
+<strong>Location:</strong>
+Foreign Jurisdiction
+</p>
+
+
+<p>
+<strong>Risk Level:</strong>
+HIGH
+</p>
+
+
+
+<div class="risk-bar">
+
+<div id="risk" class="risk-fill"></div>
+
+</div>
+
+
+
+<br>
+
+
+<p>
+
+Investigator Note:
+
+A newly created account receiving a large transfer
+may indicate preparation for fraudulent activity.
+
+Additional evidence must be considered.
+
+</p>
+
+
+
+</div>
+
+
+
 </div>
 
 
 </section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Fraud Pattern Analysis
+</h2>
+
+
+
+<div class="grid">
+
+
+
+<div class="learn-card">
+
+
+<h3>
+New Recipient</h3>
+
+
+<p>
+
+The organization had no previous transaction history
+with the recipient.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="learn-card">
+
+
+<h3>
+Unusual Amount</h3>
+
+
+<p>
+
+The payment exceeded normal approval patterns for
+routine business activity.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="learn-card">
+
+
+<h3>
+Verification Bypass</h3>
+
+
+<p>
+
+The request avoided standard financial confirmation
+procedures.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Criminological Analysis
+</h2>
+
+
+
+<div class="card">
+
+
+<h3>
+Routine Activity Theory</h3>
+
+
+<p>
+
+The offense required three conditions:
+
+</p>
+
+
+
+<ul>
+
+
+<li>
+Motivated offender using AI and impersonation techniques
+</li>
+
+
+<li>
+Suitable target with financial access
+</li>
+
+
+<li>
+Lack of guardianship through missing verification procedures
+</li>
+
+
+</ul>
+
+
+
+<h3>
+Opportunity Structure</h3>
+
+
+<p>
+
+The offender exploited existing workplace systems,
+trust relationships, and digital communication channels
+to increase the chance of successful fraud.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Investigator Assessment
+</h2>
+
+
+
+<div class="card">
+
+
+<p>
+
+Which conclusion is best supported by the transaction
+evidence?
+
+</p>
+
+
+<br>
+
+
+
+
+<input type="radio" name="answer" id="a">
+
+<label>
+
+A) The transaction is legitimate because the employee authorized it.
+
+</label>
+
+
+
+<br><br>
+
+
+
+
+<input type="radio" name="answer" id="b">
+
+<label>
+
+B) The transaction shows indicators of financial fraud because it followed suspicious communication, involved a new recipient account, and bypassed verification procedures.
+
+</label>
+
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="c">
+
+<label>
+
+C) The transaction cannot be investigated because financial records are private.
+
+</label>
+
+
+
+<br><br>
+
+
+
+<input type="radio" name="answer" id="d">
+
+<label>
+
+D) The transaction is fraudulent only because it was international.
+
+</label>
+
+
+
+<br><br>
+
+
+
+<button class="primary-btn" onclick="submitEvidence()">
+
+Submit Investigation Finding →
+
+</button>
+
+
+
+<p id="message"></p>
+
+
+
+</div>
+
+
+</section>
+
+
+
 
 
 
@@ -211,10 +773,46 @@ Confirm Findings
 
 
 
+
+
+
+
 <script>
 
 
-function completeEvidence(){
+function analyzeAccount(){
+
+
+document.getElementById("account")
+.classList.remove("hidden");
+
+
+setTimeout(function(){
+
+
+document.getElementById("risk")
+.style.width="90%";
+
+
+},300);
+
+
+}
+
+
+
+
+
+
+function submitEvidence(){
+
+
+let message=document.getElementById("message");
+
+
+
+if(document.getElementById("b").checked){
+
 
 localStorage.setItem(
 "evidence006",
@@ -222,17 +820,50 @@ localStorage.setItem(
 );
 
 
-alert(
-"Evidence 002-C analyzed successfully."
-);
+
+message.innerHTML=
+"✓ Transaction analysis completed. Evidence added to investigation file.";
+
+
+message.className="correct";
+
+
+
+setTimeout(function(){
 
 
 window.location.href="case002.html";
 
+
+},2500);
+
+
+
 }
 
 
+else{
+
+
+message.innerHTML=
+"✕ Conclusion unsupported. Review transaction patterns and evidence connections again.";
+
+
+message.className="incorrect";
+
+
+}
+
+
+
+}
+
+
+
 </script>
+
+
+
 
 
 </body>
