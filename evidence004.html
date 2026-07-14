@@ -6,11 +6,84 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Evidence 002-A | Audio Recording</title>
+<title>Evidence 002-A | Audio Recording Analysis</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+.waveform {
+display:flex;
+align-items:center;
+gap:5px;
+height:80px;
+margin:25px 0;
+}
+
+.wave {
+width:5px;
+background:#888;
+animation:pulse 1s infinite ease-in-out;
+}
+
+.wave:nth-child(2){animation-delay:.1s;}
+.wave:nth-child(3){animation-delay:.2s;}
+.wave:nth-child(4){animation-delay:.3s;}
+.wave:nth-child(5){animation-delay:.4s;}
+.wave:nth-child(6){animation-delay:.5s;}
+.wave:nth-child(7){animation-delay:.6s;}
+.wave:nth-child(8){animation-delay:.7s;}
+
+
+@keyframes pulse {
+
+0%,100%{
+height:20px;
+}
+
+50%{
+height:70px;
+}
+
+}
+
+
+.analysis-box {
+
+padding:20px;
+border-radius:10px;
+background:#111;
+margin-top:20px;
+
+}
+
+
+.hidden {
+
+display:none;
+
+}
+
+
+.correct {
+
+color:#3cff8f;
+
+}
+
+
+.incorrect {
+
+color:#ff6b6b;
+
+}
+
+
+</style>
+
 
 </head>
 
@@ -18,11 +91,13 @@
 <body>
 
 
+
 <nav>
 
 <div class="logo">
 DOSSIER
 </div>
+
 
 <div class="nav-links">
 
@@ -55,8 +130,8 @@ Audio Recording Analysis
 
 <p class="hero-text">
 
-Investigate the suspected AI-generated voice recording
-used during the fraudulent financial request.
+Forensic examination of a suspected AI-generated
+voice recording connected to a fraudulent financial request.
 
 </p>
 
@@ -68,11 +143,12 @@ used during the fraudulent financial request.
 
 
 
+
+
 <section>
 
-
 <h2>
-Evidence Overview
+Evidence File
 </h2>
 
 
@@ -80,121 +156,243 @@ Evidence Overview
 
 
 <p>
-<strong>Evidence Type:</strong> Audio File
+<strong>File:</strong> Executive_Call_Recording.wav
 </p>
 
 
 <p>
-<strong>File Format:</strong> WAV Recording
+<strong>Source:</strong> Employee mobile recording
 </p>
 
 
 <p>
-<strong>Source:</strong> Employee phone recording
+<strong>Duration:</strong> 03:42
 </p>
 
 
 <p>
-<strong>Status:</strong> Under Analysis
+<strong>Classification:</strong> Digital Audio Evidence
 </p>
 
+
+
+<div class="waveform">
+
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
+<div class="wave"></div>
 
 </div>
 
 
-</section>
+<button class="primary-btn" onclick="runAnalysis()">
 
-
-
-
-
-
-
-<section>
-
-
-<h2>
-Investigator Findings
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-Audio analysts identified several irregularities
-within the recording.
-
-</p>
-
-
-<ul>
-
-<li>
-Unnatural pauses between sentences.
-</li>
-
-<li>
-Repeated speech patterns.
-</li>
-
-<li>
-Limited emotional variation.
-</li>
-
-<li>
-Slight distortion during pronunciation changes.
-</li>
-
-</ul>
-
-
-<p>
-
-These indicators suggest the possibility of
-AI-generated voice manipulation.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section>
-
-
-<h2>
-Investigation Decision
-</h2>
-
-
-<div class="card">
-
-
-<p>
-Does the audio provide evidence of AI voice manipulation?
-</p>
-
-
-<button class="primary-btn" onclick="completeEvidence()">
-
-Confirm Finding
+Run Audio Analysis
 
 </button>
 
 
 </div>
 
+</section>
+
+
+
+
+
+
+
+<section id="analysis" class="hidden">
+
+
+<h2>
+Forensic Analysis Results
+</h2>
+
+
+
+<div class="card">
+
+
+<div class="analysis-box">
+
+
+<p>
+✓ Voice pattern comparison completed
+</p>
+
+
+<p>
+✓ Frequency irregularities detected
+</p>
+
+
+<p>
+✓ Speech timing anomalies identified
+</p>
+
+
+<p>
+✓ Emotional response inconsistency detected
+</p>
+
+
+</div>
+
+
+
+<br>
+
+
+<h3>
+Analyst Interpretation
+</h3>
+
+
+<p>
+
+The recording demonstrates multiple characteristics
+consistent with synthetic voice generation.
+
+However, investigators must consider whether these
+indicators could also result from compression,
+poor recording quality, or voice modification software.
+
+</p>
+
+
+
+<ul>
+
+<li>
+Unnatural pauses before responses
+</li>
+
+
+<li>
+Repeated vocal patterns
+</li>
+
+
+<li>
+Limited emotional variation
+</li>
+
+
+<li>
+Digital distortion during pronunciation changes
+</li>
+
+
+</ul>
+
+
+</div>
+
 
 </section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Investigator Assessment
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Based on the forensic findings, what is the most
+supported conclusion?
+
+</p>
+
+
+
+<label>
+
+<input type="radio" name="answer" id="wrong1">
+
+A) The audio is completely authentic because the voice sounds familiar.
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="radio" name="answer" id="correct">
+
+B) The audio contains multiple indicators consistent with AI-generated voice manipulation.
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="radio" name="answer" id="wrong2">
+
+C) The recording proves the employee created the fraud.
+
+</label>
+
+
+<br><br>
+
+
+
+<label>
+
+<input type="radio" name="answer" id="wrong3">
+
+D) Audio evidence cannot contribute to a cybercrime investigation.
+
+</label>
+
+
+
+<br><br>
+
+
+
+<button class="primary-btn" onclick="submitEvidence()">
+
+Submit Investigator Conclusion
+
+</button>
+
+
+<p id="message"></p>
+
+
+</div>
+
+
+</section>
+
+
+
 
 
 
@@ -209,10 +407,33 @@ Confirm Finding
 
 
 
+
+
+
+
 <script>
 
 
-function completeEvidence(){
+function runAnalysis(){
+
+
+document.getElementById("analysis").classList.remove("hidden");
+
+
+}
+
+
+function submitEvidence(){
+
+
+let message =
+document.getElementById("message");
+
+
+
+if(document.getElementById("correct").checked){
+
+
 
 localStorage.setItem(
 "evidence004",
@@ -220,18 +441,43 @@ localStorage.setItem(
 );
 
 
-alert(
-"Evidence 002-A analyzed successfully."
-);
 
+message.innerHTML =
+"✓ Evidence verified. Audio analysis completed. Returning to case file...";
+
+message.className="correct";
+
+
+
+setTimeout(function(){
 
 window.location.href="case002.html";
+
+},2500);
+
+
+
+}
+
+else{
+
+
+message.innerHTML =
+"✕ Incorrect conclusion. Review the forensic indicators and analyze the evidence again.";
+
+message.className="incorrect";
 
 
 }
 
 
+}
+
+
+
 </script>
+
+
 
 
 </body>
