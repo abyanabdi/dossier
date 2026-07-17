@@ -10,7 +10,6 @@
 
 <link rel="stylesheet" href="../style-v2.css">
 
-
 <style>
 
 
@@ -21,7 +20,6 @@ margin:auto;
 padding:40px;
 
 }
-
 
 
 .terminal{
@@ -37,7 +35,6 @@ margin-bottom:30px;
 }
 
 
-
 .header{
 
 background:#141c2b;
@@ -49,14 +46,13 @@ margin-bottom:25px;
 }
 
 
-
 .label{
 
 color:#5aa2ff;
 letter-spacing:3px;
+font-size:14px;
 
 }
-
 
 
 .header h1{
@@ -64,7 +60,6 @@ letter-spacing:3px;
 font-size:50px;
 
 }
-
 
 
 .status{
@@ -78,10 +73,10 @@ font-weight:bold;
 
 
 
-.evidence-grid{
+.dashboard{
 
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:2fr 1fr;
 gap:25px;
 
 }
@@ -89,27 +84,36 @@ gap:25px;
 
 
 
+.evidence-grid{
 
-.card{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+
+}
+
+
+
+.evidence-card{
 
 background:#141c2b;
 border:1px solid #2d3b54;
 border-radius:20px;
-padding:30px;
+padding:25px;
 
 }
 
 
 
-.card h2{
+.evidence-card h2{
 
-margin-top:15px;
+margin:15px 0;
 
 }
 
 
 
-.card p{
+.evidence-card p{
 
 color:#aab6cb;
 line-height:1.7;
@@ -118,36 +122,30 @@ line-height:1.7;
 
 
 
-.tag{
+.status-box{
 
-display:inline-block;
 background:#1b2537;
-padding:8px 14px;
-border-radius:20px;
-font-size:13px;
+padding:10px;
+border-radius:10px;
+margin-top:15px;
 
 }
-
-
 
 
 
 button{
 
 width:100%;
-margin-top:20px;
 padding:15px;
+margin-top:15px;
 border:none;
 border-radius:12px;
 background:#5aa2ff;
 color:white;
-font-size:16px;
 font-weight:bold;
 cursor:pointer;
 
 }
-
-
 
 
 
@@ -157,6 +155,64 @@ transform:translateY(-2px);
 
 }
 
+
+
+
+
+
+.progress-panel{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:25px;
+height:max-content;
+
+}
+
+
+
+.progress-bar{
+
+height:12px;
+background:#1b2537;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+
+
+.progress-fill{
+
+height:100%;
+width:0%;
+background:#39d98a;
+transition:.5s;
+
+}
+
+
+
+
+
+.notes{
+
+background:#1b2537;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+
+}
+
+
+
+.note{
+
+margin:10px 0;
+color:#aab6cb;
+
+}
 
 
 
@@ -175,77 +231,61 @@ height:100%;
 
 background:rgba(0,0,0,.75);
 
-align-items:center;
 justify-content:center;
+align-items:center;
 
 }
 
 
 
-.modal-box{
+
+.modal-content{
 
 background:#141c2b;
-
 border:1px solid #2d3b54;
-
 border-radius:20px;
-
 padding:35px;
 
-max-width:600px;
-
 width:90%;
+max-width:650px;
 
 }
 
 
 
-.modal-box p{
+.modal-content p{
 
 color:#aab6cb;
-
 line-height:1.8;
 
 }
 
 
 
-.close{
-
-background:#1b2537;
-
-}
-
-
-
-.status-update{
-
-color:#39d98a;
-
-font-weight:bold;
-
-}
-
-
-
-.chain{
-
-background:#141c2b;
-border:1px solid #2d3b54;
-border-radius:20px;
-padding:30px;
-margin-top:30px;
-
-}
-
-
-
-.chain div{
+.observation{
 
 background:#1b2537;
 padding:15px;
-border-radius:10px;
+border-radius:12px;
 margin:10px 0;
+cursor:pointer;
+
+}
+
+
+
+.observation:hover{
+
+border:1px solid #5aa2ff;
+
+}
+
+
+
+.complete{
+
+color:#39d98a;
+font-weight:bold;
 
 }
 
@@ -258,21 +298,26 @@ margin:10px 0;
 display:block;
 margin-top:30px;
 background:#5aa2ff;
-color:white;
 padding:20px;
-text-align:center;
 border-radius:15px;
-text-decoration:none;
+text-align:center;
+color:white;
 font-size:20px;
 font-weight:bold;
+text-decoration:none;
 
 }
 
 
 
+@media(max-width:900px){
 
+.dashboard{
 
-@media(max-width:800px){
+grid-template-columns:1fr;
+
+}
+
 
 .evidence-grid{
 
@@ -288,9 +333,7 @@ grid-template-columns:1fr;
 </head>
 
 
-
 <body>
-
 
 
 <nav>
@@ -329,14 +372,14 @@ DOSSIER
 
 <p>DOSSIER EVIDENCE MANAGEMENT SYSTEM</p>
 
+<p>CASE FILE 003 CONNECTED</p>
+
 <p>VERIFYING CHAIN OF CUSTODY...</p>
 
-<p>EVIDENCE DATABASE ACCESSED</p>
+<p>EVIDENCE REVIEW MODE ENABLED</p>
 
-<p>CASE FILE 003 LOADED</p>
 
 </div>
-
 
 
 
@@ -363,13 +406,20 @@ SILENT DOSE
 
 
 <p class="status">
-● EVIDENCE SECURED
+● ACTIVE EVIDENCE REVIEW
 </p>
 
 
 </div>
 
 
+
+
+
+
+
+
+<div class="dashboard">
 
 
 
@@ -382,39 +432,32 @@ SILENT DOSE
 
 
 
-<div class="card">
+<div class="evidence-card">
 
 <p class="label">
 EVIDENCE 001
 </p>
 
-
 <h2>
 ☕ Coffee Mug
 </h2>
 
-
 <p>
+Recovered from dining area.
 
-Recovered from the dining area where Dr. Hayes was discovered.
-
-The remaining liquid has been preserved for laboratory examination.
-
+Possible connection to unknown compound exposure.
 </p>
 
 
-<span class="tag">
-Potential Toxicology Evidence
-</span>
-
+<div class="status-box" id="mug-status">
+STATUS:
+Unexamined
+</div>
 
 
 <button onclick="openEvidence('mug')">
-
-Examine Evidence →
-
+Open Evidence Bag →
 </button>
-
 
 </div>
 
@@ -424,37 +467,31 @@ Examine Evidence →
 
 
 
-<div class="card">
+<div class="evidence-card">
 
 <p class="label">
 EVIDENCE 002
 </p>
 
-
 <h2>
 💊 Medication Bottle
 </h2>
 
-
 <p>
+Recovered beside victim's belongings.
 
-Recovered near the victim's personal belongings.
-
-Investigators must determine whether the medication matches the original prescription.
-
+Requires verification.
 </p>
 
 
-<span class="tag">
-Medical Evidence
-</span>
+<div class="status-box" id="med-status">
+STATUS:
+Unexamined
+</div>
 
 
-
-<button onclick="openEvidence('medication')">
-
-Examine Evidence →
-
+<button onclick="openEvidence('med')">
+Open Evidence Bag →
 </button>
 
 
@@ -466,35 +503,31 @@ Examine Evidence →
 
 
 
-<div class="card">
+<div class="evidence-card">
 
 <p class="label">
 EVIDENCE 003
 </p>
 
-
 <h2>
-📱 Victim Mobile Device
+📱 Victim Phone
 </h2>
 
-
 <p>
+Digital device recovered at scene.
 
-The victim's phone may contain communication records, contacts, and information related to her research.
-
+Potential communications evidence.
 </p>
 
 
-<span class="tag">
-Digital Evidence
-</span>
-
+<div class="status-box" id="phone-status">
+STATUS:
+Locked
+</div>
 
 
 <button onclick="openEvidence('phone')">
-
-Examine Evidence →
-
+Open Evidence Bag →
 </button>
 
 
@@ -506,37 +539,29 @@ Examine Evidence →
 
 
 
-<div class="card">
+<div class="evidence-card">
 
 <p class="label">
 EVIDENCE 004
 </p>
 
-
 <h2>
 📓 Research Notebook
 </h2>
 
-
 <p>
-
-A handwritten notebook recovered from Dr. Hayes' workspace.
-
-The contents may reveal information about ongoing experiments.
-
+Private research documentation recovered.
 </p>
 
 
-<span class="tag">
-Investigative Document
-</span>
+<div class="status-box" id="note-status">
+STATUS:
+Locked
+</div>
 
 
-
-<button onclick="openEvidence('notebook')">
-
-Examine Evidence →
-
+<button onclick="openEvidence('note')">
+Open Evidence Bag →
 </button>
 
 
@@ -546,7 +571,6 @@ Examine Evidence →
 
 
 
-
 </div>
 
 
@@ -557,36 +581,64 @@ Examine Evidence →
 
 
 
-<div class="chain">
+<div class="progress-panel">
 
 
 <h2>
-Chain of Custody
+Investigation Progress
 </h2>
 
 
-<div>
-✓ Evidence photographed at scene
+<div class="progress-bar">
+
+<div class="progress-fill" id="progress"></div>
+
+</div>
+
+
+<p id="percentage">
+0% Complete
+</p>
+
+
+
+
+<div class="notes">
+
+
+<h3>
+Detective Notebook
+</h3>
+
+
+<div class="note">
+• No forced entry identified
 </div>
 
 
-<div>
-✓ Evidence collected by investigators
+<div class="note">
+• Unknown compound suspected
 </div>
 
 
-<div>
-✓ Evidence transferred to secure storage
-</div>
-
-
-<div>
-✓ Awaiting laboratory examination
+<div class="note" id="new-note">
+• Awaiting evidence analysis
 </div>
 
 
 
 </div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
 
 
 
@@ -596,9 +648,10 @@ Chain of Custody
 
 <a class="next" href="lab.html">
 
-ENTER FORENSIC LAB →
+CONTINUE TO FORENSIC LAB →
 
 </a>
+
 
 
 
@@ -622,8 +675,7 @@ ENTER FORENSIC LAB →
 <div class="modal" id="mug">
 
 
-<div class="modal-box">
-
+<div class="modal-content">
 
 <h2>
 Evidence 001: Coffee Mug
@@ -632,50 +684,36 @@ Evidence 001: Coffee Mug
 
 <p>
 
-LOCATION:
-Dining Area
+Initial inspection:
 
 <br><br>
 
-INITIAL OBSERVATIONS:
+✓ Ceramic mug recovered from dining table
 
 <br>
-• Partially consumed beverage recovered
+
+✓ Beverage residue preserved
 
 <br>
-• Residue present inside container
+
+✓ No visible damage
 
 <br>
-• No visible damage detected
 
-<br><br>
-
-INVESTIGATION QUESTION:
-
-Was the beverage used as a delivery method for the unknown compound?
+✓ Possible contamination source
 
 </p>
 
 
-<button onclick="submitEvidence('mug')">
 
-Submit For Toxicology Analysis
+<div class="observation" onclick="completeEvidence('mug')">
 
-</button>
-
-
-<button class="close" onclick="closeEvidence('mug')">
-
-Close
-
-</button>
-
-
-<p id="mug-status"></p>
-
+Submit Sample For Toxicology Analysis
 
 </div>
 
+
+</div>
 
 </div>
 
@@ -685,11 +723,10 @@ Close
 
 
 
+<div class="modal" id="med">
 
-<div class="modal" id="medication">
 
-
-<div class="modal-box">
+<div class="modal-content">
 
 
 <h2>
@@ -699,53 +736,33 @@ Evidence 002: Medication Bottle
 
 <p>
 
-LOCATION:
-Dining Area
+Initial inspection:
 
 <br><br>
 
-INITIAL OBSERVATIONS:
+✓ Prescription label present
 
 <br>
-• Prescription label appears legitimate
+
+✓ Contents require comparison
 
 <br>
-• Contents require verification
 
-<br>
-• Possible contamination or substitution
-
-<br><br>
-
-INVESTIGATION QUESTION:
-
-Was the medication altered before reaching the victim?
+✓ Possible substitution risk
 
 </p>
 
 
-<button onclick="submitEvidence('medication')">
+<div class="observation" onclick="completeEvidence('med')">
 
-Submit For Medical Analysis
-
-</button>
-
-
-<button class="close" onclick="closeEvidence('medication')">
-
-Close
-
-</button>
-
-
-<p id="medication-status"></p>
-
+Submit Medication For Analysis
 
 </div>
 
 
 </div>
 
+</div>
 
 
 
@@ -756,58 +773,49 @@ Close
 <div class="modal" id="phone">
 
 
-<div class="modal-box">
+<div class="modal-content">
 
 
 <h2>
-Evidence 003: Victim Mobile Device
+Evidence 003: Victim Phone
 </h2>
 
 
 <p>
 
-DEVICE STATUS:
-
-Locked
+Device status:
 
 <br><br>
 
-Potential data:
+LOCKED
+
+<br><br>
+
+Available actions:
 
 <br>
-• Messages
+
+✓ Extract messages
 
 <br>
-• Calls
+
+✓ Review calls
 
 <br>
-• Research communications
 
-<br>
-• Location history
+✓ Analyze contacts
 
 </p>
 
 
-<button onclick="submitEvidence('phone')">
+<div class="observation" onclick="completeEvidence('phone')">
 
 Begin Digital Extraction
 
-</button>
-
-
-<button class="close" onclick="closeEvidence('phone')">
-
-Close
-
-</button>
-
-
-<p id="phone-status"></p>
+</div>
 
 
 </div>
-
 
 </div>
 
@@ -817,11 +825,10 @@ Close
 
 
 
+<div class="modal" id="note">
 
-<div class="modal" id="notebook">
 
-
-<div class="modal-box">
+<div class="modal-content">
 
 
 <h2>
@@ -831,48 +838,31 @@ Evidence 004: Research Notebook
 
 <p>
 
-DOCUMENT TYPE:
-
-Private research notes
+Document examination:
 
 <br><br>
 
-Potential findings:
+✓ Chemical formulas detected
 
 <br>
-• Chemical formulas
+
+✓ Research references identified
 
 <br>
-• Experimental records
 
-<br>
-• Research partners
-
-<br>
-• Unfinished projects
+✓ Additional review required
 
 </p>
 
 
-<button onclick="submitEvidence('notebook')">
+<div class="observation" onclick="completeEvidence('note')">
 
-Analyze Document
-
-</button>
-
-
-<button class="close" onclick="closeEvidence('notebook')">
-
-Close
-
-</button>
-
-
-<p id="notebook-status"></p>
-
+Scan Document
 
 </div>
 
+
+</div>
 
 </div>
 
@@ -887,6 +877,10 @@ Close
 <script>
 
 
+let completed = [];
+
+
+
 function openEvidence(id){
 
 document.getElementById(id).style.display="flex";
@@ -895,20 +889,54 @@ document.getElementById(id).style.display="flex";
 
 
 
-function closeEvidence(id){
 
-document.getElementById(id).style.display="none";
+function completeEvidence(id){
+
+
+if(!completed.includes(id)){
+
+
+completed.push(id);
+
+
+updateProgress();
+
 
 }
 
 
 
-function submitEvidence(id){
+document.getElementById(id).style.display="none";
 
 
-document.getElementById(id+"-status").innerHTML=
+}
 
-"✓ Evidence submitted. Analysis pending.";
+
+
+function updateProgress(){
+
+
+let percent =
+(completed.length / 4) * 100;
+
+
+document.getElementById("progress").style.width =
+percent+"%";
+
+
+document.getElementById("percentage").innerHTML =
+percent+"% Complete";
+
+
+
+if(percent===100){
+
+
+document.getElementById("new-note").innerHTML =
+"✓ All evidence reviewed. Laboratory analysis unlocked.";
+
+
+}
 
 
 }
