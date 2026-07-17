@@ -15,7 +15,6 @@
 
 <style>
 
-
 .briefing-page{
 
 max-width:1200px;
@@ -25,11 +24,66 @@ padding:40px;
 }
 
 
+/* terminal */
 
-/* header */
+.terminal{
+
+background:#0d1626;
+
+border:1px solid #2d3b54;
+
+border-radius:18px;
+
+padding:30px;
+
+font-family:monospace;
+
+color:#7fc2ff;
+
+margin-bottom:30px;
+
+}
 
 
-.briefing-header{
+.terminal p{
+
+margin:10px 0;
+
+}
+
+
+.scan{
+
+height:8px;
+
+background:#1b2537;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:20px;
+
+}
+
+
+.scan span{
+
+display:block;
+
+height:100%;
+
+width:100%;
+
+background:#5aa2ff;
+
+}
+
+
+
+
+
+.header-card{
 
 background:#141c2b;
 
@@ -44,7 +98,7 @@ margin-bottom:25px;
 }
 
 
-.label{
+.case-label{
 
 color:#5aa2ff;
 
@@ -55,9 +109,9 @@ font-size:14px;
 }
 
 
-.briefing-header h1{
+.header-card h1{
 
-font-size:50px;
+font-size:48px;
 
 margin:15px 0;
 
@@ -74,7 +128,6 @@ font-weight:bold;
 
 
 
-/* cards */
 
 
 .section{
@@ -85,16 +138,17 @@ border:1px solid #2d3b54;
 
 border-radius:20px;
 
-padding:30px;
+padding:35px;
 
 margin-bottom:25px;
 
 }
 
 
+
 .section h2{
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 }
 
@@ -104,20 +158,21 @@ margin-bottom:20px;
 
 color:#aab6cb;
 
-line-height:1.8;
-
 font-size:17px;
+
+line-height:1.8;
 
 }
 
 
 
 
-.report-grid{
+
+.case-grid{
 
 display:grid;
 
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(3,1fr);
 
 gap:15px;
 
@@ -125,7 +180,7 @@ gap:15px;
 
 
 
-.report-card{
+.case-card{
 
 background:#1b2537;
 
@@ -138,7 +193,7 @@ border:1px solid #2d3b54;
 }
 
 
-.report-card span{
+.case-card span{
 
 display:block;
 
@@ -154,9 +209,32 @@ margin-bottom:8px;
 
 
 
+.check-list{
+
+background:#1b2537;
+
+padding:20px;
+
+border-radius:15px;
+
+border:1px solid #2d3b54;
+
+}
+
+
+.check-list p{
+
+margin:12px 0;
+
+}
+
+
+
+
+
 .timeline{
 
-border-left:2px solid #5aa2ff;
+border-left:3px solid #5aa2ff;
 
 padding-left:25px;
 
@@ -164,7 +242,7 @@ padding-left:25px;
 
 
 
-.timeline-item{
+.timeline div{
 
 margin-bottom:25px;
 
@@ -172,7 +250,7 @@ margin-bottom:25px;
 
 
 
-.timeline-item strong{
+.timeline strong{
 
 color:#5aa2ff;
 
@@ -181,55 +259,24 @@ color:#5aa2ff;
 
 
 
-.audio-box{
 
-background:#1b2537;
-
-padding:20px;
-
-border-radius:15px;
-
-}
-
-
-
-
-
-.evidence{
-
-background:#1b2537;
-
-padding:15px;
-
-border-radius:12px;
-
-margin:10px 0;
-
-border:1px solid #2d3b54;
-
-}
-
-
-
-
-
-.next{
+.next-btn{
 
 display:block;
-
-text-align:center;
-
-padding:22px;
 
 background:#5aa2ff;
 
 color:white;
 
+text-align:center;
+
+padding:22px;
+
+border-radius:15px;
+
 font-size:22px;
 
 font-weight:bold;
-
-border-radius:15px;
 
 text-decoration:none;
 
@@ -237,15 +284,25 @@ text-decoration:none;
 
 
 
+.next-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+
+
+
 @media(max-width:800px){
 
-.report-grid{
+.case-grid{
 
 grid-template-columns:1fr;
 
 }
 
 }
+
 
 
 </style>
@@ -291,30 +348,53 @@ DOSSIER
 
 
 
+<div class="terminal">
 
-<div class="briefing-header">
+<p>
+DOSSIER INVESTIGATION TERMINAL
+</p>
+
+<p>
+CASE ACCEPTED
+</p>
+
+<p>
+ACCESSING MAJOR CRIMES DATABASE...
+</p>
+
+<p>
+LOADING OFFICIAL BRIEFING...
+</p>
 
 
-<p class="label">
-MAJOR CRIMES DIVISION
+<div class="scan">
+<span></span>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="header-card">
+
+
+<p class="case-label">
+CASE FILE 003
 </p>
 
 
 <h1>
-INVESTIGATION BRIEFING
+SILENT DOSE
 </h1>
 
 
-<p>
-CASE FILE 003:
-<strong>
-SILENT DOSE
-</strong>
-</p>
-
-
 <p class="status">
-● CASE ACCEPTED
+● ACTIVE INVESTIGATION
 </p>
 
 
@@ -326,19 +406,31 @@ SILENT DOSE
 
 
 
+
+
 <div class="section">
 
 
 <h2>
-Official Incident Report
+Official Case Information
 </h2>
 
 
+<div class="case-grid">
 
-<div class="report-grid">
+
+<div class="case-card">
+
+<span>
+CASE ID
+</span>
+
+DOS-003-SD
+
+</div>
 
 
-<div class="report-card">
+<div class="case-card">
 
 <span>
 DATE
@@ -349,20 +441,7 @@ April 18, 2026
 </div>
 
 
-
-<div class="report-card">
-
-<span>
-TIME
-</span>
-
-20:12
-
-</div>
-
-
-
-<div class="report-card">
+<div class="case-card">
 
 <span>
 LOCATION
@@ -373,40 +452,252 @@ LOCATION
 </div>
 
 
-
-<div class="report-card">
+<div class="case-card">
 
 <span>
-INITIAL STATUS
+LEAD UNIT
 </span>
 
-Possible Natural Death
+Major Crimes Division
+
+</div>
+
+
+<div class="case-card">
+
+<span>
+CLASSIFICATION
+</span>
+
+Suspected Homicide
+
+</div>
+
+
+<div class="case-card">
+
+<span>
+PRIORITY
+</span>
+
+HIGH
+
+</div>
+
+
+</div>
+
 
 </div>
 
 
 
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+Incident Summary
+</h2>
+
+
+<p>
+
+On April 18, 2026, at approximately 20:12 hours, emergency services were dispatched to a private residence located at 14 Willow Crescent after a neighbor reported an unconscious individual inside the property.
+
+</p>
+
+
+<p>
+
+The victim was identified as Dr. Eleanor Hayes, a 54-year-old professor of Organic Chemistry. Responding officers discovered the victim unconscious in the dining area.
+
+</p>
+
+
+<p>
+
+Initial observations showed no obvious signs of forced entry, physical struggle, or property disturbance. The residence appeared organized and personal belongings remained in their expected locations.
+
+</p>
+
+
+<p>
+
+The incident was initially classified as a possible natural death. Following medical examination, investigators discovered traces of an unidentified synthetic compound within the victim's system.
+
+</p>
+
+
+<p>
+
+The discovery resulted in the reclassification of the incident as a suspected homicide investigation.
+
+</p>
+
+
 </div>
 
+
+
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+Initial Officer Observations
+</h2>
+
+
+
+<div class="check-list">
+
+
+<p>
+✓ No signs of forced entry identified
+</p>
+
+
+<p>
+✓ Residence appeared undisturbed
+</p>
+
+
+<p>
+✓ Victim located in dining area
+</p>
+
+
+<p>
+✓ Partially consumed beverage recovered
+</p>
+
+
+<p>
+✓ Medication container located nearby
+</p>
+
+
+<p>
+✓ No weapon recovered at scene
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+Medical Examination Findings
+</h2>
+
+
+<p>
+
+Preliminary toxicology testing revealed the presence of an unidentified synthetic compound.
+
+</p>
+
+
+<div class="check-list">
+
+
+<p>
+Cause of Death:
+Pending Further Analysis
+</p>
+
+
+<p>
+Toxicology:
+Unknown Compound Detected
+</p>
+
+
+<p>
+Substance Classification:
+Experimental Synthetic Agent
+</p>
+
+
+<p>
+Estimated Exposure:
+Under Investigation
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="section">
+
+
+<h2>
+Investigative Concerns
+</h2>
+
+
+<p>
+
+Investigators must determine:
+
+<br><br>
+
+• How the compound entered the victim's system
 
 <br>
 
+• Whether the substance was intentionally administered
 
-<p>
+<br>
 
-At approximately 8:12 PM, emergency services responded to a residence after a neighbor reported the homeowner was unconscious.
+• Who had access to the victim before death
 
-The responding officer initially observed no signs of forced entry or physical struggle.
+<br>
 
-The case was escalated after medical examination revealed traces of an unidentified experimental compound.
+• Whether Dr. Hayes' research activities are connected
 
-The incident has now been classified as a suspected homicide.
+<br>
+
+• Whether enough evidence exists for an arrest
 
 </p>
 
 
-
 </div>
+
 
 
 
@@ -419,147 +710,63 @@ The incident has now been classified as a suspected homicide.
 
 
 <h2>
-Emergency Call Transcript
+Current Investigation Status
 </h2>
-
-
-
-<div class="audio-box">
-
-
-<p>
-Incoming emergency recording:
-</p>
-
-
-<audio controls>
-
-<source src="../audio/911-call.mp3" type="audio/mpeg">
-
-Your browser does not support audio.
-
-</audio>
-
-
-
-<p>
-
-Caller:
-Sarah Mitchell (Neighbor)
-
-Duration:
-01:42
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="section">
-
-
-<h2>
-Known Timeline
-</h2>
-
 
 
 <div class="timeline">
 
 
-<div class="timeline-item">
+<div>
 
 <strong>
-07:18 AM
+Crime Scene
 </strong>
 
 <br>
 
-Dr. Hayes leaves residence.
+Residence secured for evidence collection.
 
 </div>
 
 
-
-<div class="timeline-item">
+<div>
 
 <strong>
-08:03 AM
+Medical Review
 </strong>
 
 <br>
 
-Arrives at university laboratory.
+Toxicology analysis initiated.
 
 </div>
 
 
-
-<div class="timeline-item">
+<div>
 
 <strong>
-12:27 PM
+Suspect Identification
 </strong>
 
 <br>
 
-Private meeting with research assistant Daniel Brooks.
+Persons of interest identified.
 
 </div>
 
 
-
-
-<div class="timeline-item">
+<div>
 
 <strong>
-16:31 PM
+Investigation Phase
 </strong>
 
 <br>
 
-Medication collected from local pharmacy.
+Evidence collection beginning.
 
 </div>
-
-
-
-
-<div class="timeline-item">
-
-<strong>
-18:03 PM
-</strong>
-
-<br>
-
-Neighbor Sarah Mitchell visits residence.
-
-</div>
-
-
-
-<div class="timeline-item">
-
-<strong>
-20:12 PM
-</strong>
-
-<br>
-
-Emergency call placed.
-
-</div>
-
 
 
 </div>
@@ -579,79 +786,45 @@ Emergency call placed.
 
 
 <h2>
-Initial Evidence Available
+Investigator Objectives
 </h2>
 
 
 
-<div class="evidence">
-
-✓ Crime Scene Access Granted
-
-</div>
-
-
-<div class="evidence">
-
-✓ Victim Medical Report
-
-</div>
-
-
-<div class="evidence">
-
-✓ Medication Container
-
-</div>
-
-
-<div class="evidence">
-
-✓ Victim Mobile Device
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="section">
-
-
-<h2>
-Investigation Objectives
-</h2>
+<div class="check-list">
 
 
 <p>
-
-Your task:
-
-<br><br>
-
-1. Determine how the compound entered the victim's system.
-
-<br><br>
-
-2. Identify who had opportunity and access.
-
-<br><br>
-
-3. Establish a timeline of events.
-
-<br><br>
-
-4. Collect enough evidence to support an arrest.
-
+✓ Examine the crime scene
 </p>
 
+
+<p>
+✓ Collect forensic evidence
+</p>
+
+
+<p>
+✓ Identify method of exposure
+</p>
+
+
+<p>
+✓ Establish timeline of events
+</p>
+
+
+<p>
+✓ Determine responsible individual
+</p>
+
+
+<p>
+✓ Submit evidence-supported arrest recommendation
+</p>
+
+
+</div>
 
 
 </div>
@@ -663,7 +836,7 @@ Your task:
 
 
 
-<a class="next" href="crime-scene.html">
+<a class="next-btn" href="crime-scene.html">
 
 ENTER CRIME SCENE →
 
@@ -673,11 +846,7 @@ ENTER CRIME SCENE →
 
 
 
-
-
 </div>
-
-
 
 
 </body>
