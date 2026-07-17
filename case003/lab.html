@@ -1025,6 +1025,10 @@ No evidence recorded.
 
 </div>
 
+</div>
+
+</div>
+
 <!-- ================================= -->
 <!-- EVIDENCE BOARD -->
 <!-- ================================= -->
@@ -1524,902 +1528,142 @@ ${mugAnswer.explanation}
 
 function completeEvidence(name){
 
+    if(!completed.includes(name)){
 
-if(!completed.includes(name)){
+        completed.push(name);
 
+        updateProgress();
 
-completed.push(name);
+        updateEvidenceBoard();
 
-
-updateProgress();
-
-
-}
-
-
+    }
 
 }
 
 
 
-loadMug();
-// ======================================
-// MEDICATION ANALYSIS SYSTEM
-// ======================================
 
 
-let medicationAnswer=null;
-
-
-
-let medicationAnswers=[
-
-
-{
-
-text:
-"Compare the chemical contents with the victim's prescription records",
-
-correct:true,
-
-explanation:
-"The label only shows what the bottle claims to contain. Chemical comparison determines whether the actual contents match."
-
-},
-
-
-
-{
-
-text:
-"Check whether the bottle is expensive",
-
-correct:false,
-
-explanation:
-"The price of the container does not indicate whether the medication was altered."
-
-},
-
-
-
-{
-
-text:
-"Immediately accuse the person with access to the medicine",
-
-correct:false,
-
-explanation:
-"Access alone does not prove responsibility. Investigators need supporting evidence."
-
-},
-
-
-
-{
-
-text:
-"Return the medication because the label appears correct",
-
-correct:false,
-
-explanation:
-"Evidence must be tested, not judged by appearance."
-
-}
-
-
-];
-
-
-
-
-
-
-
-function loadMedication(){
-
-
-let area=document.getElementById("medQuestion");
-
-
-let answers=[...medicationAnswers];
-
-
-answers.sort(()=>Math.random()-0.5);
-
-
-
-answers.forEach(answer=>{
-
-
-let option=document.createElement("div");
-
-
-option.className="option";
-
-
-option.innerHTML=answer.text;
-
-
-
-option.onclick=function(){
-
-
-document.querySelectorAll("#medQuestion .option")
-.forEach(x=>x.classList.remove("selected"));
-
-
-
-option.classList.add("selected");
-
-
-medicationAnswer=answer;
-
-
-
-};
-
-
-
-area.appendChild(option);
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-function submitMedication(){
-
-
-if(!medicationAnswer){
-
-alert("Select a forensic decision.");
-
-return;
-
-}
-
-
-
-document.getElementById("medScanner").style.display="block";
-
-
-
-setTimeout(()=>{
-
-
-document.getElementById("medScanner").style.display="none";
-
-
-
-let result=document.getElementById("medResult");
-
-
-result.style.display="block";
-
-
-
-if(medicationAnswer.correct){
-
-
-
-result.innerHTML=
-
-`
-
-<p class="correct">
-
-✓ PHARMACEUTICAL ANALYSIS COMPLETE
-
-</p>
-
-
-<p>
-
-${medicationAnswer.explanation}
-
-</p>
-
-
-<p>
-
-Finding:
-
-Medication contents do not match prescription records.
-
-Possible unauthorized substitution detected.
-
-</p>
-
-
-`;
-
-
-
-addNote(
-"Medication bottle shows possible unauthorized alteration."
-);
-
-
-
-completeEvidence("Medication Bottle");
-
-
-
-}
-
-
-else{
-
-
-result.innerHTML=
-
-`
-
-<p class="wrong">
-
-✕ ANALYSIS INSUFFICIENT
-
-</p>
-
-
-<p>
-
-${medicationAnswer.explanation}
-
-</p>
-
-`;
-
-
-
-}
-
-
-
-},2500);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ======================================
-// DIGITAL FORENSICS SYSTEM
-// ======================================
-
-
-
-let phoneAnswer=null;
-
-
-
-let phoneAnswers=[
-
-
-{
-
-
-text:
-"Create a forensic copy of the device before examining information",
-
-correct:true,
-
-
-explanation:
-"Digital investigators preserve original data first because accessing files incorrectly can change or destroy evidence."
-
-},
-
-
-
-{
-
-
-text:
-"Immediately search through messages without preservation",
-
-correct:false,
-
-
-explanation:
-"Changing data before documentation can compromise evidence."
-
-},
-
-
-
-{
-
-
-text:
-"Give the phone to the victim's family for review",
-
-correct:false,
-
-
-explanation:
-"Evidence must remain controlled during an investigation."
-
-},
-
-
-
-{
-
-
-text:
-"Repeatedly guess the password until it unlocks",
-
-correct:false,
-
-
-explanation:
-"Uncontrolled attempts may damage or lock the device."
-
-}
-
-
-
-];
-
-
-
-
-
-
-
-
-function loadPhone(){
-
-
-let area=document.getElementById("phoneQuestion");
-
-
-let answers=[...phoneAnswers];
-
-
-answers.sort(()=>Math.random()-0.5);
-
-
-
-answers.forEach(answer=>{
-
-
-let option=document.createElement("div");
-
-
-option.className="option";
-
-
-option.innerHTML=answer.text;
-
-
-
-option.onclick=function(){
-
-
-document.querySelectorAll("#phoneQuestion .option")
-.forEach(x=>x.classList.remove("selected"));
-
-
-
-option.classList.add("selected");
-
-
-phoneAnswer=answer;
-
-
-};
-
-
-
-area.appendChild(option);
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-
-function submitPhone(){
-
-
-if(!phoneAnswer){
-
-alert("Choose an investigation method.");
-
-return;
-
-}
-
-
-
-document.getElementById("phoneScanner").style.display="block";
-
-
-
-setTimeout(()=>{
-
-
-document.getElementById("phoneScanner").style.display="none";
-
-
-
-let result=document.getElementById("phoneResult");
-
-
-result.style.display="block";
-
-
-
-if(phoneAnswer.correct){
-
-
-result.innerHTML=
-
-`
-
-<p class="correct">
-
-✓ DIGITAL EXTRACTION COMPLETE
-
-</p>
-
-
-<p>
-
-${phoneAnswer.explanation}
-
-</p>
-
-
-<p>
-
-Recovered Communication:
-
-"Daniel, we need to discuss the H-17 compound before the presentation."
-
-</p>
-
-
-`;
-
-
-
-addNote(
-"Phone records connect Daniel Brooks to Project Helix."
-);
-
-
-
-completeEvidence("Victim Phone");
-
-
-
-}
-
-
-else{
-
-
-result.innerHTML=
-
-`
-
-<p class="wrong">
-
-✕ DIGITAL PROCEDURE ERROR
-
-</p>
-
-
-<p>
-
-${phoneAnswer.explanation}
-
-</p>
-
-`;
-
-
-
-}
-
-
-
-},2500);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-// ======================================
-// DOCUMENT EXAMINATION SYSTEM
-// ======================================
-
-
-
-let notebookAnswer=null;
-
-
-
-let notebookAnswers=[
-
-
-{
-
-
-text:
-"Analyze the missing page location and physical traces",
-
-correct:true,
-
-
-explanation:
-"Document investigators examine physical clues before assuming why information is missing."
-
-},
-
-
-
-{
-
-
-text:
-"Assume the missing page proves someone is guilty",
-
-correct:false,
-
-
-explanation:
-"Missing evidence creates questions but does not immediately identify a suspect."
-
-},
-
-
-
-{
-
-
-text:
-"Ignore the missing page because it cannot be recovered",
-
-correct:false,
-
-
-explanation:
-"Missing sections can contain important investigative information."
-
-},
-
-
-
-{
-
-
-text:
-"Release the notebook publicly",
-
-correct:false,
-
-
-explanation:
-"Investigators must protect evidence during an active case."
-
-}
-
-
-
-];
-
-
-
-
-
-
-
-
-function loadNotebook(){
-
-
-let area=document.getElementById("noteQuestion");
-
-
-let answers=[...notebookAnswers];
-
-
-answers.sort(()=>Math.random()-0.5);
-
-
-
-answers.forEach(answer=>{
-
-
-let option=document.createElement("div");
-
-
-option.className="option";
-
-
-option.innerHTML=answer.text;
-
-
-
-option.onclick=function(){
-
-
-document.querySelectorAll("#noteQuestion .option")
-.forEach(x=>x.classList.remove("selected"));
-
-
-
-option.classList.add("selected");
-
-
-notebookAnswer=answer;
-
-
-};
-
-
-
-area.appendChild(option);
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-
-function submitNotebook(){
-
-
-if(!notebookAnswer){
-
-alert("Select document analysis.");
-
-return;
-
-}
-
-
-
-document.getElementById("noteScanner").style.display="block";
-
-
-
-setTimeout(()=>{
-
-
-document.getElementById("noteScanner").style.display="none";
-
-
-
-let result=document.getElementById("noteResult");
-
-
-result.style.display="block";
-
-
-
-if(notebookAnswer.correct){
-
-
-result.innerHTML=
-
-`
-
-<p class="correct">
-
-✓ DOCUMENT ANALYSIS COMPLETE
-
-</p>
-
-
-<p>
-
-${notebookAnswer.explanation}
-
-</p>
-
-
-<p>
-
-Discovery:
-
-Notebook references restricted research project:
-
-PROJECT HELIX
-
-</p>
-
-
-`;
-
-
-
-addNote(
-"Research notebook reveals Project Helix connection."
-);
-
-
-
-completeEvidence("Research Notebook");
-
-
-
-}
-
-
-
-else{
-
-
-result.innerHTML=
-
-`
-
-<p class="wrong">
-
-✕ REVIEW DOCUMENT PROCEDURE
-
-</p>
-
-
-<p>
-
-${notebookAnswer.explanation}
-
-</p>
-
-`;
-
-
-
-}
-
-
-
-},2500);
-
-
-
-}
-
-
-
-
-
-
-
-loadMedication();
-
-loadPhone();
-
-loadNotebook();
 // ======================================
 // EVIDENCE BOARD SYSTEM
 // ======================================
 
 
-
 function updateEvidenceBoard(){
-
 
 
 let board=document.getElementById("evidenceBoard");
 
 
+if(!board){
 
-if(completed.length < 4){
-
-return;
+    return;
 
 }
 
 
 
-board.innerHTML=`
+if(completed.length < 4){
+
+    return;
+
+}
+
+
+
+board.innerHTML=
+
+`
 
 <div class="note">
 
 ☕ Coffee Mug
 
+<br><br>
+
 ↓
 
-Synthetic compound detected
+Synthetic compound detected in beverage sample.
+
+<br><br>
+
+Connection:
+
+Possible delivery method.
 
 </div>
+
 
 
 <div class="note">
 
 💊 Medication Bottle
 
+<br><br>
+
 ↓
 
-Prescription substitution identified
+Prescription contents replaced.
+
+<br><br>
+
+Connection:
+
+Unauthorized chemical substitution.
 
 </div>
+
 
 
 <div class="note">
 
-📱 Victim Phone
+📱 Victim Mobile Device
+
+<br><br>
 
 ↓
 
-Daniel Brooks connected to Project Helix
+Recovered message referencing Project Helix.
+
+<br><br>
+
+Connection:
+
+Links research activity to investigation.
 
 </div>
+
 
 
 <div class="note">
 
 📓 Research Notebook
 
+<br><br>
+
 ↓
 
-Project Helix research discovered
+Project Helix documentation discovered.
+
+<br><br>
+
+Connection:
+
+Provides motive and research background.
 
 </div>
+
 
 
 <div class="note">
 
-🔎 Investigation Link Established
+🔎 CASE CONNECTION ESTABLISHED
 
-↓
+<br><br>
 
-Evidence suggests intentional exposure
+Multiple evidence sources indicate intentional exposure.
 
 </div>
-
 
 `;
 
@@ -2433,38 +1677,8 @@ Evidence suggests intentional exposure
 
 
 
-
-// update original completion function
-
-
-let oldCompleteEvidence = completeEvidence;
-
-
-
-completeEvidence=function(name){
-
-
-
-oldCompleteEvidence(name);
-
-
-
-updateEvidenceBoard();
-
-
-
-}
-
-
-
-
-
-
-
-
-
 // ======================================
-// THEORY SYSTEM
+// INVESTIGATOR THEORY SYSTEM
 // ======================================
 
 
@@ -2473,9 +1687,13 @@ function selectTheory(element,type){
 
 
 
-document.querySelectorAll("#theoryOptions .option")
+document
+.querySelectorAll("#theoryOptions .option")
+.forEach(option=>{
 
-.forEach(x=>x.classList.remove("selected"));
+option.classList.remove("selected");
+
+});
 
 
 
@@ -2488,6 +1706,7 @@ let result=document.getElementById("theoryResult");
 
 
 result.style.display="block";
+
 
 
 
@@ -2507,16 +1726,22 @@ result.innerHTML=
 </p>
 
 
+
 <p>
 
-Your conclusion uses multiple evidence sources instead of relying on a single clue.
+Your conclusion is supported by multiple evidence sources.
+
+Investigators must connect physical evidence, digital evidence, and documentation before identifying responsibility.
 
 </p>
 
 
+
 <p>
 
-Next step unlocked: Interview suspects and evaluate statements.
+Next stage unlocked:
+
+Suspect interviews.
 
 </p>
 
@@ -2535,20 +1760,22 @@ document.getElementById("nextStage").style.display="block";
 else{
 
 
+
 result.innerHTML=
 
 `
 
 <p class="wrong">
 
-✕ THEORY NEEDS MORE SUPPORT
+✕ THEORY REQUIRES MORE EVIDENCE
 
 </p>
 
 
+
 <p>
 
-Investigators must connect physical, digital, and documentary evidence before reaching conclusions.
+A strong investigation requires multiple confirmed connections, not assumptions based on one clue.
 
 </p>
 
@@ -2561,4 +1788,17 @@ Investigators must connect physical, digital, and documentary evidence before re
 
 
 }
+
+
+
+
+
+
+// ======================================
+// INITIALIZE SYSTEMS
+// ======================================
+
+
+updateProgress();
+
 </script>
