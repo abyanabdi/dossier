@@ -2359,7 +2359,9 @@ response = sarahData[number];
 }
 
 
-
+if(currentSuspect==="michael"){
+response = michaelData[number];
+}
 
 
 addMessage(
@@ -2381,7 +2383,9 @@ setTimeout(function(){
 
 addMessage(
 
-currentSuspect==="sarah" ? "Sarah Mitchell" : "Daniel Brooks",
+currentSuspect==="daniel" ? "Daniel Brooks" :
+currentSuspect==="sarah" ? "Sarah Mitchell" :
+"Michael Hayes"
 
 response.answer
 
