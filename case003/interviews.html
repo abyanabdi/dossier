@@ -1837,6 +1837,251 @@ score:
 
 
 
+// ================================
+// SARAH MITCHELL INTERVIEW DATA
+// ================================
+
+
+let sarahData = {
+
+
+1:{
+
+answer:
+
+"I worked the evening shift when the incident happened. I remember seeing Daniel leaving the research wing later than usual.",
+
+emotion:
+
+"Helpful",
+
+body:
+
+"Maintaining eye contact",
+
+stress:
+
+5,
+
+score:
+
+15
+
+},
+
+
+
+2:{
+
+answer:
+
+"Project Helix was supposed to be confidential, but everyone in the department knew something important was happening.",
+
+emotion:
+
+"Concerned",
+
+body:
+
+"Looking through notes",
+
+stress:
+
+10,
+
+score:
+
+20
+
+},
+
+
+
+3:{
+
+answer:
+
+"The compound storage area was normally restricted. Daniel had temporary access because he was assisting the research team.",
+
+emotion:
+
+"Serious",
+
+body:
+
+"Speaking carefully",
+
+stress:
+
+15,
+
+score:
+
+25
+
+},
+
+
+
+4:{
+
+answer:
+
+"I noticed Daniel seemed nervous after the missing sample was reported. He kept asking who knew about it.",
+
+emotion:
+
+"Uncomfortable",
+
+body:
+
+"Hands clasped together",
+
+stress:
+
+10,
+
+score:
+
+20
+
+},
+
+
+
+5:{
+
+answer:
+
+"Olivia Grant supervised the medication verification process. She would know more about the official procedures.",
+
+emotion:
+
+"Confident",
+
+body:
+
+"Relaxed posture",
+
+stress:
+
+5,
+
+score:
+
+15
+
+},
+
+
+
+6:{
+
+answer:
+
+"I don't think Daniel acted alone. Someone else may have helped him access information.",
+
+emotion:
+
+"Certain",
+
+body:
+
+"Leaning forward",
+
+stress:
+
+15,
+
+score:
+
+30
+
+}
+
+
+
+};
+
+// ================================
+// SUSPECT SWITCHING SYSTEM
+// ================================
+
+
+function selectSuspect(name){
+
+
+currentSuspect = name;
+
+
+
+if(name==="daniel"){
+
+
+document.getElementById("suspectName").innerHTML =
+"Daniel Brooks";
+
+
+document.getElementById("suspectRole").innerHTML =
+"Research Assistant";
+
+
+document.getElementById("emotion").innerHTML =
+"Confident";
+
+
+document.getElementById("bodyLanguage").innerHTML =
+"Relaxed";
+
+
+document.getElementById("stressLevel").innerHTML =
+"LOW";
+
+
+}
+
+
+
+
+
+if(name==="sarah"){
+
+
+document.getElementById("suspectName").innerHTML =
+"Sarah Mitchell";
+
+
+document.getElementById("suspectRole").innerHTML =
+"Laboratory Technician";
+
+
+document.getElementById("emotion").innerHTML =
+"Cooperative";
+
+
+document.getElementById("bodyLanguage").innerHTML =
+"Open posture";
+
+
+document.getElementById("stressLevel").innerHTML =
+"LOW";
+
+
+addMessage(
+
+"System",
+
+"Sarah Mitchell interview loaded. Timeline witness mode activated."
+
+);
+
+
+}
+
+
+
+}
+
 
 
 
@@ -1852,7 +2097,21 @@ questionsAsked++;
 
 
 
-let response = danielData[number];
+let response;
+
+
+if(currentSuspect==="daniel"){
+
+response = danielData[number];
+
+}
+
+
+if(currentSuspect==="sarah"){
+
+response = sarahData[number];
+
+}
 
 
 
