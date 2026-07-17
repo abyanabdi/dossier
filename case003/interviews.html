@@ -2067,16 +2067,61 @@ document.getElementById("stressLevel").innerHTML =
 "LOW";
 
 
+loadInterviewDialogue("sarah");
+
+}
+
+
+
+}
+
+
+function loadInterviewDialogue(name){
+
+let box = document.getElementById("chatBox");
+
+
+box.innerHTML = "";
+
+
+if(name==="daniel"){
+
+
+addMessage(
+"Detective",
+"Daniel Brooks, thank you for meeting with us today. We are investigating the Silent Dose incident and the possible connection to Project Helix. Explain your role within the research department."
+);
+
+
+addMessage(
+"Daniel Brooks",
+"I was a research assistant. My job was mostly organizing samples, updating records, and helping senior researchers. I don't know why my name keeps coming up."
+);
 
 
 }
 
 
 
+if(name==="sarah"){
+
+
+addMessage(
+"Detective",
+"Sarah Mitchell, thank you for speaking with us. You were working during the night of the missing compound incident. We need your timeline of events."
+);
+
+
+addMessage(
+"Sarah Mitchell",
+"I want to help. I remember the laboratory was unusually busy that night. I noticed some people acting differently than normal."
+);
+
+
 }
 
 
-
+}
 
 
 
