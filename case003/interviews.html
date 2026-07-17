@@ -1999,7 +1999,165 @@ score:
 
 }
 
+// ================================
+// MICHAEL HAYES INTERVIEW DATA
+// ================================
 
+
+let michaelData = {
+
+
+1:{
+
+answer:
+
+"Daniel has been under a lot of pressure lately. I think he was trying to prove himself.",
+
+emotion:
+
+"Concerned",
+
+body:
+
+"Looking down",
+
+stress:
+
+10,
+
+score:
+
+15
+
+},
+
+
+2:{
+
+answer:
+
+"Project Helix was important to him. He talked about changing the future of research.",
+
+emotion:
+
+"Emotional",
+
+body:
+
+"Hands shaking slightly",
+
+stress:
+
+15,
+
+score:
+
+20
+
+},
+
+
+3:{
+
+answer:
+
+"My sister was never involved in anything illegal. She only worked with the approved research team.",
+
+emotion:
+
+"Defensive",
+
+body:
+
+"Protective posture",
+
+stress:
+
+20,
+
+score:
+
+15
+
+},
+
+
+4:{
+
+answer:
+
+"I remember Daniel staying late many nights. He was obsessed with finishing his work.",
+
+emotion:
+
+"Thoughtful",
+
+body:
+
+"Maintaining eye contact",
+
+stress:
+
+10,
+
+score:
+
+20
+
+},
+
+
+5:{
+
+answer:
+
+"He believed the project would change medicine forever.",
+
+emotion:
+
+"Sad",
+
+body:
+
+"Quiet voice",
+
+stress:
+
+5,
+
+score:
+
+15
+
+},
+
+
+6:{
+
+answer:
+
+"I don't know what happened that night. I just want the truth.",
+
+emotion:
+
+"Frustrated",
+
+body:
+
+"Arms crossed",
+
+stress:
+
+15,
+
+score:
+
+25
+
+}
+
+
+};
 
 };
 
@@ -2037,7 +2195,8 @@ document.getElementById("bodyLanguage").innerHTML =
 document.getElementById("stressLevel").innerHTML =
 "LOW";
 
-
+loadInterviewDialogue("daniel");
+  
 }
 
 
@@ -2071,7 +2230,32 @@ loadInterviewDialogue("sarah");
 
 }
 
+if(name==="michael"){
 
+
+document.getElementById("suspectName").innerHTML =
+"Michael Hayes";
+
+
+document.getElementById("suspectRole").innerHTML =
+"Family Contact";
+
+
+document.getElementById("emotion").innerHTML =
+"Emotional";
+
+
+document.getElementById("bodyLanguage").innerHTML =
+"Protective";
+
+
+document.getElementById("stressLevel").innerHTML =
+"LOW";
+
+
+loadInterviewDialogue("michael");
+
+}
 
 }
 
@@ -2119,7 +2303,28 @@ addMessage(
 
 
 }
+if(name==="michael"){
 
+
+addMessage(
+
+"Detective",
+
+"Michael Hayes, thank you for speaking with us. We need to understand your connection to Daniel Brooks and Project Helix."
+
+);
+
+
+addMessage(
+
+"Michael Hayes",
+
+"I want to help. Daniel has been under a lot of pressure lately, but I never believed he would hurt anyone."
+
+);
+
+
+}
 
 }
 
