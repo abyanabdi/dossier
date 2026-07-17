@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DOSSIER | Case 003 Interviews</title>
+<title>DOSSIER | Case 003 Suspect Interviews</title>
 
 <link rel="stylesheet" href="../style-v2.css">
 
@@ -14,28 +14,13 @@
 <style>
 
 
-*{
-box-sizing:border-box;
-}
-
-
-body{
-
-background:#0b1220;
-
-}
-
-
-
 .page{
 
-max-width:1250px;
+max-width:1200px;
 margin:auto;
 padding:40px;
 
 }
-
-
 
 
 .terminal{
@@ -51,27 +36,6 @@ margin-bottom:30px;
 }
 
 
-
-.cursor{
-
-animation:blink 1s infinite;
-
-}
-
-
-@keyframes blink{
-
-50%{
-
-opacity:0;
-
-}
-
-}
-
-
-
-
 .card{
 
 background:#141c2b;
@@ -83,7 +47,6 @@ margin-bottom:25px;
 }
 
 
-
 .card p{
 
 color:#aab6cb;
@@ -93,41 +56,14 @@ line-height:1.8;
 
 
 
-.case-title{
-
-font-size:42px;
-
-}
-
-
-
-.label{
-
-color:#5aa2ff;
-letter-spacing:3px;
-
-}
-
-
-
-.suspect-grid{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
-
-}
-
-
-
 .suspect{
 
 background:#1b2537;
-padding:25px;
+padding:20px;
 border-radius:15px;
 cursor:pointer;
+margin:15px 0;
 border:1px solid transparent;
-transition:.3s;
 
 }
 
@@ -135,43 +71,6 @@ transition:.3s;
 .suspect:hover{
 
 border-color:#5aa2ff;
-transform:translateY(-5px);
-
-}
-
-
-
-button{
-
-width:100%;
-padding:15px;
-border-radius:12px;
-border:none;
-background:#5aa2ff;
-color:white;
-font-weight:bold;
-cursor:pointer;
-margin-top:15px;
-
-}
-
-
-
-button:hover{
-
-transform:translateY(-2px);
-
-}
-
-
-
-.dialogue{
-
-background:#060b14;
-padding:25px;
-border-radius:15px;
-font-family:monospace;
-color:#eef3fb;
 
 }
 
@@ -180,30 +79,28 @@ color:#eef3fb;
 .question{
 
 background:#1b2537;
-padding:18px;
+padding:15px;
+margin:10px 0;
 border-radius:12px;
-margin:12px 0;
 cursor:pointer;
 
 }
 
 
-
 .question:hover{
 
-border:1px solid #5aa2ff;
+background:#24364d;
 
 }
 
 
+.answer{
 
-.result{
-
-background:#1b2537;
+display:none;
+background:#101827;
 padding:20px;
 border-radius:15px;
-margin-top:20px;
-display:none;
+margin-top:15px;
 
 }
 
@@ -219,7 +116,6 @@ margin:10px 0;
 }
 
 
-
 .success{
 
 color:#39d98a;
@@ -228,24 +124,25 @@ font-weight:bold;
 }
 
 
-
 .warning{
 
-color:#ff7070;
+color:#ffcc66;
 font-weight:bold;
 
 }
 
 
 
+button{
 
-@media(max-width:900px){
-
-.suspect-grid{
-
-grid-template-columns:1fr;
-
-}
+width:100%;
+padding:16px;
+background:#5aa2ff;
+border:none;
+border-radius:12px;
+color:white;
+font-weight:bold;
+cursor:pointer;
 
 }
 
@@ -256,28 +153,20 @@ grid-template-columns:1fr;
 </head>
 
 
-
 <body>
 
 
 <nav>
 
 <div class="logo">
-
 DOSSIER
-
 </div>
 
 
 <div class="nav-links">
 
 <a href="../index.html">Home</a>
-
 <a href="../casefiles.html">Case Files</a>
-
-<a href="../library.html">Evidence Library</a>
-
-<a href="../about.html">About</a>
 
 </div>
 
@@ -291,8 +180,6 @@ DOSSIER
 
 
 
-
-
 <div class="terminal">
 
 
@@ -300,27 +187,17 @@ DOSSIER INVESTIGATION TERMINAL
 
 <br><br>
 
-ACCESSING CASE FILE 003...
+CASE FILE 003
 
 <br><br>
 
-INTERVIEW MODULE ACTIVATED
+INTERVIEW DIVISION ACTIVATED
 
 <br><br>
 
-CASE:
-
-SILENT DOSE
-
-<br><br>
-
-AUTHORIZATION VERIFIED
-
-<span class="cursor">_</span>
-
+AUTHORIZED PERSONNEL ONLY
 
 </div>
-
 
 
 
@@ -330,23 +207,27 @@ AUTHORIZATION VERIFIED
 <div class="card">
 
 
-<p class="label">
+<h1>
 
 CASE FILE 003
-
-</p>
-
-
-<h1 class="case-title">
-
-Suspect Interviews
 
 </h1>
 
 
+<h2>
+
+SILENT DOSE
+
+</h2>
+
+
 <p>
 
-Review witness statements, identify inconsistencies, and determine which information requires further investigation.
+Laboratory analysis has confirmed the victim was exposed to an unidentified synthetic compound.
+
+The evidence suggests the substance was intentionally delivered.
+
+Investigators must now determine who had motive, access, and opportunity.
 
 </p>
 
@@ -358,146 +239,79 @@ Review witness statements, identify inconsistencies, and determine which informa
 
 
 
-
-
-<div class="card" id="suspectSelection">
+<div class="card">
 
 
 <h2>
 
-Select Interview Subject
+Persons of Interest
 
 </h2>
 
 
 
-<div class="suspect-grid">
-
-
-
 <div class="suspect" onclick="openInterview('daniel')">
 
+🧪 Daniel Brooks
 
-<h3>
-
-Daniel Brooks
-
-</h3>
-
-
-<p>
+<br>
 
 Research Assistant
 
-</p>
+<br>
 
-
-<p>
-
-Access:
-
-Laboratory
-
-</p>
-
+Access: Laboratory
 
 </div>
 
 
 
 
+<div class="suspect" onclick="openInterview('sarah')">
 
-<div class="suspect">
+🏠 Sarah Mitchell
 
-
-<h3>
-
-Sarah Mitchell
-
-</h3>
-
-
-<p>
+<br>
 
 Neighbor
 
-</p>
+<br>
 
-
-<p>
-
-Access:
-
-Residence
-
-</p>
-
+Access: Residence
 
 </div>
 
 
 
 
+<div class="suspect" onclick="openInterview('michael')">
 
+👤 Michael Hayes
 
-<div class="suspect">
+<br>
 
+Victim's Brother
 
-<h3>
+<br>
 
-Michael Hayes
-
-</h3>
-
-
-<p>
-
-Brother
-
-</p>
-
-
-<p>
-
-Access:
-
-Family Records
-
-</p>
-
+Access: Family Records
 
 </div>
 
 
 
 
+<div class="suspect" onclick="openInterview('olivia')">
 
+💊 Olivia Grant
 
-<div class="suspect">
-
-
-<h3>
-
-Olivia Grant
-
-</h3>
-
-
-<p>
+<br>
 
 Pharmacist
 
-</p>
+<br>
 
-
-<p>
-
-Access:
-
-Medication Records
-
-</p>
-
+Access: Medication Records
 
 </div>
 
@@ -506,24 +320,13 @@ Medication Records
 </div>
 
 
-</div>
 
 
 
 
 
 
-
-
-
-<div class="card" id="interviewRoom" style="display:none;">
-
-
-<p class="label">
-
-INTERVIEW ROOM 01
-
-</p>
+<div class="card" id="interviewBox" style="display:none;">
 
 
 
@@ -533,17 +336,28 @@ INTERVIEW ROOM 01
 
 
 
-<div class="dialogue" id="statement">
+<p id="background">
 
-
-</div>
-
+</p>
 
 
 
 <h3>
 
-Ask Question
+Initial Statement
+
+</h3>
+
+
+<p id="statement">
+
+</p>
+
+
+
+<h3>
+
+Select Interview Question
 
 </h3>
 
@@ -551,14 +365,11 @@ Ask Question
 
 <div id="questions">
 
-
 </div>
 
 
 
-
-<div class="result" id="analysis">
-
+<div class="answer" id="response">
 
 </div>
 
@@ -584,13 +395,13 @@ Investigator Notes
 </h2>
 
 
-
 <div id="notes">
-
 
 <div class="note">
 
-No statements recorded.
+No observations recorded.
+
+</div>
 
 </div>
 
@@ -599,10 +410,65 @@ No statements recorded.
 
 
 
+
+
+
+
+
+<div class="card" id="assessment" style="display:none;">
+
+
+<h2>
+
+Interview Assessment
+
+</h2>
+
+
+<p>
+
+Based on statements and evidence, identify the strongest investigative conclusion.
+
+</p>
+
+
+
+<div class="question" onclick="assessment(true)">
+
+Daniel Brooks provided inconsistent information about Project Helix and laboratory access.
+
 </div>
 
 
 
+<div class="question" onclick="assessment(false)">
+
+The neighbor is responsible because she discovered the victim.
+
+</div>
+
+
+
+<div class="question" onclick="assessment(false)">
+
+The pharmacist is automatically guilty because medication was involved.
+
+</div>
+
+
+
+<div class="answer" id="finalResult">
+
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
 
 
 
@@ -612,42 +478,233 @@ No statements recorded.
 <script>
 
 
-let notes=[];
+let interviewCount=0;
 
 
 
-function addNote(text){
-
-
-let box=document.getElementById("notes");
+let data={
 
 
 
-if(box.innerHTML.includes("No statements recorded.")){
+daniel:{
 
 
-box.innerHTML="";
+name:"Daniel Brooks - Research Assistant",
 
+
+background:
+
+"Daniel worked directly with Dr. Hayes on chemical research projects. Laboratory records show he had access to restricted research areas.",
+
+
+
+statement:
+
+"I was at the university laboratory earlier that day, but I left before Dr. Hayes returned home. I don't know anything about Project Helix.",
+
+
+
+questions:[
+
+
+{
+
+q:"Ask about Project Helix",
+
+a:
+
+"Daniel pauses before answering. He claims Project Helix was only a theoretical experiment, but laboratory records show he accessed files related to the project three times that week.",
+
+note:"Daniel denied knowledge of Project Helix despite having documented access."
+
+},
+
+
+
+{
+
+q:"Ask about laboratory access",
+
+a:
+
+"Daniel admits he still had an active access card after his research assignment ended.",
+
+note:"Daniel had opportunity to access restricted materials."
+
+},
+
+
+
+{
+
+q:"Ask about the victim's final day",
+
+a:
+
+"Daniel states he never communicated with Dr. Hayes. However, phone evidence shows a message referencing the H-17 compound.",
+
+note:"Daniel's statement conflicts with digital evidence."
 
 }
 
 
 
-box.innerHTML +=
+]
 
-`
-
-<div class="note">
-
-✓ ${text}
-
-</div>
-
-`;
+},
 
 
+
+
+sarah:{
+
+
+name:"Sarah Mitchell - Neighbor",
+
+
+background:
+
+"Sarah reported the incident after noticing unusual activity at the residence.",
+
+
+statement:
+
+"I heard movement earlier that evening. I thought everything was normal until I saw emergency services arrive.",
+
+
+questions:[
+
+
+{
+
+q:"Ask about activity at the residence",
+
+a:"Sarah reports seeing someone leaving the property around 7:45 PM.",
+
+note:"Witness observed possible unidentified visitor."
+
+},
+
+
+{
+
+q:"Ask about relationship with victim",
+
+a:"Sarah explains she knew Dr. Hayes for several years but had no involvement with her research.",
+
+note:"No direct connection to Project Helix identified."
 
 }
+
+
+
+]
+
+},
+
+
+
+
+
+michael:{
+
+
+name:"Michael Hayes - Victim's Brother",
+
+
+background:
+
+"Michael had access to family information but no documented laboratory access.",
+
+
+statement:
+
+"My sister had been stressed recently because of her research. I don't know why anyone would want to harm her.",
+
+
+questions:[
+
+
+{
+
+q:"Ask about financial issues",
+
+a:"Michael denies financial conflicts and provides no evidence connecting him to the investigation.",
+
+note:"No immediate financial motive discovered."
+
+},
+
+
+{
+
+q:"Ask about research conflicts",
+
+a:"Michael explains Dr. Hayes was concerned someone might misuse her research.",
+
+note:"Victim feared possible research misuse."
+
+}
+
+
+
+]
+
+},
+
+
+
+
+
+olivia:{
+
+
+name:"Olivia Grant - Pharmacist",
+
+
+background:
+
+"Olivia managed prescription records connected to the victim.",
+
+
+statement:
+
+"The medication records were normal. I had no reason to believe anything was wrong.",
+
+
+questions:[
+
+
+{
+
+q:"Ask about medication records",
+
+a:"Olivia confirms the prescription history but explains the bottle contents did not match records.",
+
+note:"Medication substitution confirmed."
+
+},
+
+
+{
+
+q:"Ask about access",
+
+a:"Olivia states multiple employees could access medication information.",
+
+note:"Access alone does not establish responsibility."
+
+}
+
+
+
+]
+
+}
+
+
+
+};
 
 
 
@@ -659,199 +716,100 @@ box.innerHTML +=
 function openInterview(person){
 
 
-document.getElementById("interviewRoom").style.display="block";
+let suspect=data[person];
 
 
-document.getElementById("suspectSelection").style.display="none";
+document.getElementById("interviewBox").style.display="block";
 
 
+document.getElementById("suspectName").innerHTML=suspect.name;
 
-if(person==="daniel"){
 
+document.getElementById("background").innerHTML=suspect.background;
 
-document.getElementById("suspectName").innerHTML=
-"Daniel Brooks";
 
+document.getElementById("statement").innerHTML=suspect.statement;
 
-document.getElementById("statement").innerHTML=
 
-`
 
-<strong>Daniel Brooks:</strong>
+let q=document.getElementById("questions");
 
-<br><br>
+q.innerHTML="";
 
-"I don't understand why I am being questioned.
 
-Dr. Hayes was my mentor.
 
-I was at the university laboratory most of the evening.
+suspect.questions.forEach(item=>{
 
-I had nothing to do with what happened."
 
-`;
+let div=document.createElement("div");
 
 
+div.className="question";
 
-loadDanielQuestions();
 
+div.innerHTML=item.q;
 
-}
 
+div.onclick=function(){
 
 
-}
+document.getElementById("response").style.display="block";
 
 
-
-
-
-
-
-
-
-function loadDanielQuestions(){
-
-
-let area=document.getElementById("questions");
-
-
-
-area.innerHTML=
-
-`
-
-
-<div class="question" onclick="askDaniel(1)">
-
-Ask about laboratory access
-
-</div>
-
-
-
-<div class="question" onclick="askDaniel(2)">
-
-Ask about Project Helix
-
-</div>
-
-
-
-<div class="question" onclick="askDaniel(3)">
-
-Ask about timeline
-
-</div>
-
-
-
-<div class="question" onclick="askDaniel(4)">
-
-End interview
-
-</div>
-
-
-`;
-
-
-}
-
-
-
-
-
-
-
-function askDaniel(choice){
-
-
-
-let analysis=document.getElementById("analysis");
-
-analysis.style.display="block";
-
-
-
-if(choice===1){
-
-
-analysis.innerHTML=
+document.getElementById("response").innerHTML=
 
 `
 
 <p class="success">
 
-STATEMENT ANALYSIS
+INTERVIEW RESPONSE RECORDED
 
 </p>
 
 
-Daniel:
+<p>
 
-"I had access because I worked on Dr. Hayes' research."
+${item.a}
 
-
-<br><br>
-
-
-Investigator Finding:
-
-Subject confirms laboratory access.
-
-Access creates opportunity but does not prove involvement.
+</p>
 
 `;
 
 
 
-addNote(
-"Daniel Brooks confirmed laboratory access."
-);
-
-
-}
-
-
-
-
-
-if(choice===2){
-
-
-analysis.innerHTML=
+document.getElementById("notes").innerHTML+=
 
 `
 
-<p class="warning">
+<div class="note">
 
-POTENTIAL INCONSISTENCY DETECTED
+✓ ${item.note}
 
-</p>
-
-
-Daniel:
-
-"Project Helix was just normal research."
-
-
-<br><br>
-
-
-Investigator Finding:
-
-Subject minimized the importance of restricted research.
-
-Further investigation required.
+</div>
 
 `;
 
 
 
-addNote(
-"Daniel minimized Project Helix involvement."
-);
+interviewCount++;
+
+
+if(interviewCount>=4){
+
+document.getElementById("assessment").style.display="block";
+
+}
+
+
+};
+
+
+
+q.appendChild(div);
+
+
+
+});
 
 
 }
@@ -860,80 +818,43 @@ addNote(
 
 
 
-if(choice===3){
+
+function assessment(correct){
 
 
-analysis.innerHTML=
-
-`
-
-<p class="warning">
-
-TIMELINE CONFLICT DETECTED
-
-</p>
+let result=document.getElementById("finalResult");
 
 
-Daniel:
-
-"I left the laboratory around 7:30 PM."
-
-
-<br><br>
-
-
-Digital Evidence:
-
-Recovered message timestamp:
-
-8:03 PM
-
-
-"Daniel, we need to discuss the H-17 compound before the presentation."
-
-<br><br>
-
-
-Investigator Finding:
-
-Statement requires verification.
-
-`;
+result.style.display="block";
 
 
 
-addNote(
-"Daniel timeline conflicts with recovered phone evidence."
-);
+if(correct){
 
 
-}
-
-
-
-
-
-if(choice===4){
-
-
-analysis.innerHTML=
+result.innerHTML=
 
 `
 
 <p class="success">
 
-INTERVIEW COMPLETE
+✓ INTERVIEW ANALYSIS COMPLETE
 
 </p>
 
 
-Daniel Brooks requires further investigation based on:
+<p>
 
-✓ Laboratory access
+Evidence indicates Daniel Brooks requires further investigation due to contradictions between his statement, digital evidence, and laboratory access records.
 
-✓ Project Helix connection
+</p>
 
-✓ Timeline inconsistency
+
+<a class="question" href="quiz.html">
+
+Continue to Final Investigation Quiz →
+
+</a>
 
 `;
 
@@ -941,12 +862,37 @@ Daniel Brooks requires further investigation based on:
 
 }
 
+else{
+
+
+result.innerHTML=
+
+`
+
+<p class="warning">
+
+✕ CONCLUSION NOT SUPPORTED
+
+</p>
+
+
+<p>
+
+Investigators must rely on evidence connections, not assumptions.
+
+</p>
+
+`;
 
 }
 
+
+
+}
 
 
 </script>
+
 
 
 </body>
