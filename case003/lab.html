@@ -1226,38 +1226,32 @@ Continue to Witness Interviews →
 
 <script>
 
-
 // ======================================
-// INVESTIGATION DATA
+// DOSSIER CASE 003 FORENSIC LAB SYSTEM
+// PART 1
 // ======================================
 
 
 let completed = [];
 
-let mugComplete=false;
-
-let medicationComplete=false;
-
-let phoneComplete=false;
-
-let notebookComplete=false;
+let mugAnswer = null;
 
 
+// ======================================
+// PROGRESS SYSTEM
+// ======================================
 
 
 function updateProgress(){
 
-
-let total=completed.length;
+let total = completed.length;
 
 
 document.getElementById("progressBar").style.width =
 (total * 25) + "%";
 
 
-
 document.getElementById("progressText").innerHTML =
-
 total + " / 4 Evidence Stations Complete";
 
 
@@ -1265,13 +1259,25 @@ total + " / 4 Evidence Stations Complete";
 
 
 
-
+// ======================================
+// NOTEBOOK SYSTEM
+// ======================================
 
 
 function addNote(text){
 
 
-document.getElementById("notes").innerHTML +=
+let notes = document.getElementById("notes");
+
+
+if(notes.innerHTML.includes("No evidence recorded.")){
+
+notes.innerHTML="";
+
+}
+
+
+notes.innerHTML +=
 
 `
 
@@ -1290,20 +1296,43 @@ document.getElementById("notes").innerHTML +=
 
 
 
-
-
 // ======================================
-// COFFEE MUG
+// COMPLETE EVIDENCE
 // ======================================
 
 
-
-let mugAnswer=null;
-
+function completeEvidence(name){
 
 
-let mugAnswers=[
+if(!completed.includes(name)){
 
+
+completed.push(name);
+
+
+updateProgress();
+
+
+updateEvidenceBoard();
+
+
+}
+
+
+}
+
+
+
+
+
+
+// ======================================
+// EVIDENCE STATION 001
+// COFFEE MUG ANALYSIS
+// ======================================
+
+
+let mugAnswers = [
 
 
 {
@@ -1322,12 +1351,12 @@ explanation:
 {
 
 text:
-"Find out how much the mug costs",
+"Check whether the mug belongs to the victim",
 
 correct:false,
 
 explanation:
-"The value of an object does not help determine whether it contributed to the crime."
+"Ownership does not determine whether the object contains forensic evidence."
 
 },
 
@@ -1335,12 +1364,12 @@ explanation:
 {
 
 text:
-"Ask the victim's family if they liked the mug",
+"Clean the mug to remove possible contamination",
 
 correct:false,
 
 explanation:
-"Personal preference does not provide forensic information."
+"Cleaning evidence can destroy important forensic information."
 
 },
 
@@ -1348,12 +1377,12 @@ explanation:
 {
 
 text:
-"Throw the mug away because it appears normal",
+"Assume the mug is irrelevant because it looks normal",
 
 correct:false,
 
 explanation:
-"Crime scene evidence must be preserved even when it looks ordinary."
+"Many important forensic discoveries come from ordinary-looking objects."
 
 }
 
@@ -1370,17 +1399,21 @@ function loadMug(){
 let area=document.getElementById("mugQuestion");
 
 
-mugAnswers.sort(()=>Math.random()-0.5);
+let answers=[...mugAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
 
 
 
-mugAnswers.forEach(answer=>{
+answers.forEach(answer=>{
 
 
 let option=document.createElement("div");
 
 
 option.className="option";
+
 
 option.innerHTML=answer.text;
 
@@ -1405,10 +1438,12 @@ mugAnswer=answer;
 area.appendChild(option);
 
 
+
 });
 
 
 }
+
 
 
 
@@ -1419,9 +1454,11 @@ function submitMug(){
 
 if(!mugAnswer){
 
-alert("Select an investigative decision.");
+
+alert("Select an investigative decision first.");
 
 return;
+
 
 }
 
@@ -1448,7 +1485,9 @@ result.style.display="block";
 if(mugAnswer.correct){
 
 
+
 result.innerHTML=
+
 
 `
 
@@ -1468,9 +1507,49 @@ ${mugAnswer.explanation}
 
 <p>
 
-Finding:
+FORENSIC FINDING:
 
-Unknown synthetic compound detected in beverage sample.
+Chemical analysis detected traces of an unidentified synthetic compound.
+
+The beverage is now considered a possible delivery method.
+
+</p>
+
+
+`;
+
+
+
+addNote(
+"Coffee Mug: Synthetic compound detected. Possible delivery method identified."
+);
+
+
+
+completeEvidence("Coffee Mug");
+
+
+
+}
+
+else{
+
+
+result.innerHTML=
+
+
+`
+
+<p class="wrong">
+
+✕ ANALYSIS REVIEW REQUIRED
+
+</p>
+
+
+<p>
+
+${mugAnswer.explanation}
 
 </p>
 
@@ -1478,12 +1557,225 @@ Unknown synthetic compound detected in beverage sample.
 
 
 
+}
+
+
+
+},2500);
+
+
+
+}
+
+
+
+
+loadMug();
+// ======================================
+// EVIDENCE STATION 002
+// MEDICATION BOTTLE ANALYSIS
+// ======================================
+
+
+let medicationAnswer = null;
+
+
+let medicationAnswers = [
+
+
+{
+
+text:
+"Compare the chemical contents with the victim's prescription records",
+
+correct:true,
+
+explanation:
+"The label only shows what the bottle claims to contain. Chemical analysis determines whether the actual contents match."
+
+},
+
+
+{
+
+text:
+"Assume the medication is safe because the bottle has a prescription label",
+
+correct:false,
+
+explanation:
+"Labels can be altered. Investigators must verify the substance inside."
+
+},
+
+
+{
+
+text:
+"Immediately accuse everyone who had access to the medication",
+
+correct:false,
+
+explanation:
+"Access creates a possibility but does not prove responsibility."
+
+},
+
+
+{
+
+text:
+"Discard the medication because it is no longer useful",
+
+correct:false,
+
+explanation:
+"Potential evidence must be preserved and examined."
+
+}
+
+
+];
+
+
+
+
+
+function loadMedication(){
+
+
+let area=document.getElementById("medQuestion");
+
+
+let answers=[...medicationAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
+
+
+
+answers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#medQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+option.classList.add("selected");
+
+
+medicationAnswer=answer;
+
+
+};
+
+
+
+area.appendChild(option);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+function submitMedication(){
+
+
+if(!medicationAnswer){
+
+
+alert("Select a forensic decision first.");
+
+return;
+
+
+}
+
+
+
+document.getElementById("medScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("medScanner").style.display="none";
+
+
+
+let result=document.getElementById("medResult");
+
+
+result.style.display="block";
+
+
+
+if(medicationAnswer.correct){
+
+
+result.innerHTML=
+
+
+`
+
+<p class="correct">
+
+✓ PHARMACEUTICAL ANALYSIS COMPLETE
+
+</p>
+
+
+<p>
+
+${medicationAnswer.explanation}
+
+</p>
+
+
+<p>
+
+FORENSIC FINDING:
+
+Medication contents do not match the recorded prescription.
+
+Possible unauthorized substitution detected.
+
+</p>
+
+
+`;
+
+
+
 addNote(
-"Coffee mug contains possible delivery method evidence."
+"Medication Bottle: Prescription mismatch detected. Possible chemical substitution."
 );
 
 
-completeEvidence("Coffee Mug");
+
+completeEvidence("Medication Bottle");
 
 
 
@@ -1498,18 +1790,20 @@ result.innerHTML=
 
 <p class="wrong">
 
-✕ REVIEW REQUIRED
+✕ ANALYSIS INSUFFICIENT
 
 </p>
 
 
 <p>
 
-${mugAnswer.explanation}
+${medicationAnswer.explanation}
 
 </p>
 
 `;
+
+
 
 }
 
@@ -1526,26 +1820,525 @@ ${mugAnswer.explanation}
 
 
 
-function completeEvidence(name){
 
-if(!completed.includes(name)){
+// ======================================
+// EVIDENCE STATION 003
+// DIGITAL PHONE EXTRACTION
+// ======================================
 
-completed.push(name);
 
-updateProgress();
+let phoneAnswer=null;
 
-updateEvidenceBoard();
+
+
+let phoneAnswers=[
+
+
+{
+
+text:
+"Create a forensic image of the phone before examining files",
+
+correct:true,
+
+explanation:
+"Digital investigators preserve original data before reviewing messages or files to prevent evidence changes."
+
+},
+
+
+{
+
+text:
+"Immediately open messages and search for suspects",
+
+correct:false,
+
+explanation:
+"Accessing information without preservation can compromise digital evidence."
+
+},
+
+
+{
+
+text:
+"Give the phone to a family member for information",
+
+correct:false,
+
+explanation:
+"Evidence must remain controlled during an investigation."
+
+},
+
+
+{
+
+text:
+"Reset the phone to make analysis easier",
+
+correct:false,
+
+explanation:
+"Resetting a device destroys possible evidence."
 
 }
 
+
+];
+
+
+
+
+
+
+
+function loadPhone(){
+
+
+let area=document.getElementById("phoneQuestion");
+
+
+let answers=[...phoneAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
+
+
+
+answers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#phoneQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+option.classList.add("selected");
+
+
+phoneAnswer=answer;
+
+
+};
+
+
+
+area.appendChild(option);
+
+
+
+});
+
+
 }
 
+
+
+
+
+
+
+function submitPhone(){
+
+
+if(!phoneAnswer){
+
+
+alert("Choose a digital investigation method first.");
+
+return;
+
+
+}
+
+
+
+document.getElementById("phoneScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("phoneScanner").style.display="none";
+
+
+
+let result=document.getElementById("phoneResult");
+
+
+result.style.display="block";
+
+
+
+if(phoneAnswer.correct){
+
+
+result.innerHTML=
+
+`
+
+<p class="correct">
+
+✓ DIGITAL EXTRACTION COMPLETE
+
+</p>
+
+
+<p>
+
+${phoneAnswer.explanation}
+
+</p>
+
+
+<p>
+
+RECOVERED DATA:
+
+Message recovered:
+
+"Daniel, we need to discuss the H-17 compound before the presentation."
+
+</p>
+
+
+`;
+
+
+
+addNote(
+"Victim Phone: Communication recovered linking Daniel Brooks to Project Helix."
+);
+
+
+
+completeEvidence("Victim Phone");
+
+
+
+}
+
+else{
+
+
+result.innerHTML=
+
+`
+
+<p class="wrong">
+
+✕ DIGITAL PROCEDURE ERROR
+
+</p>
+
+
+<p>
+
+${phoneAnswer.explanation}
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+},2500);
+
+
+
+}
+
+
+
+
+
+
+
+loadMedication();
+
+loadPhone();
+// ======================================
+// EVIDENCE STATION 004
+// RESEARCH NOTEBOOK ANALYSIS
+// ======================================
+
+
+let notebookAnswer=null;
+
+
+
+let notebookAnswers=[
+
+
+{
+
+text:
+"Examine the missing page location, handwriting, and physical traces",
+
+correct:true,
+
+explanation:
+"Document examiners analyze physical evidence before making assumptions about why information is missing."
+
+},
+
+
+{
+
+text:
+"Assume the missing page proves the identity of the offender",
+
+correct:false,
+
+explanation:
+"Missing information creates questions but does not immediately prove guilt."
+
+},
+
+
+{
+
+text:
+"Ignore the missing page because it cannot be recovered",
+
+correct:false,
+
+explanation:
+"Missing documents may contain important investigative information."
+
+},
+
+
+{
+
+text:
+"Release the notebook publicly",
+
+correct:false,
+
+explanation:
+"Evidence must remain protected during an active investigation."
+
+}
+
+
+];
+
+
+
+
+
+
+
+function loadNotebook(){
+
+
+let area=document.getElementById("noteQuestion");
+
+
+let answers=[...notebookAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
+
+
+
+answers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#noteQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+option.classList.add("selected");
+
+
+notebookAnswer=answer;
+
+
+};
+
+
+
+area.appendChild(option);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+function submitNotebook(){
+
+
+if(!notebookAnswer){
+
+
+alert("Select a document analysis method first.");
+
+return;
+
+
+}
+
+
+
+document.getElementById("noteScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("noteScanner").style.display="none";
+
+
+
+let result=document.getElementById("noteResult");
+
+
+result.style.display="block";
+
+
+
+if(notebookAnswer.correct){
+
+
+
+result.innerHTML=
+
+
+`
+
+<p class="correct">
+
+✓ DOCUMENT EXAMINATION COMPLETE
+
+</p>
+
+
+<p>
+
+${notebookAnswer.explanation}
+
+</p>
+
+
+<p>
+
+DISCOVERY:
+
+The notebook contains references to:
+
+PROJECT HELIX
+
+Restricted chemical research involving experimental compounds.
+
+</p>
+
+
+`;
+
+
+
+addNote(
+"Research Notebook: Project Helix documentation discovered."
+);
+
+
+
+completeEvidence("Research Notebook");
+
+
+
+}
+
+else{
+
+
+result.innerHTML=
+
+`
+
+<p class="wrong">
+
+✕ DOCUMENT REVIEW REQUIRED
+
+</p>
+
+
+<p>
+
+${notebookAnswer.explanation}
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+},2500);
+
+
+
+}
+
+
+
+
+
+
+
+loadNotebook();
 
 
 
 
 // ======================================
-// EVIDENCE BOARD SYSTEM
+// INVESTIGATION EVIDENCE BOARD
 // ======================================
 
 
@@ -1557,7 +2350,7 @@ let board=document.getElementById("evidenceBoard");
 
 if(!board){
 
-    return;
+return;
 
 }
 
@@ -1565,7 +2358,9 @@ if(!board){
 
 if(completed.length < 4){
 
-    return;
+
+return;
+
 
 }
 
@@ -1573,19 +2368,20 @@ if(completed.length < 4){
 
 board.innerHTML=
 
+
 `
 
 <div class="note">
 
-☕ Coffee Mug
+☕ COFFEE MUG
 
 <br><br>
 
-↓
+Finding:
 
-Synthetic compound detected in beverage sample.
+Synthetic compound detected.
 
-<br><br>
+<br>
 
 Connection:
 
@@ -1597,19 +2393,19 @@ Possible delivery method.
 
 <div class="note">
 
-💊 Medication Bottle
+💊 MEDICATION BOTTLE
 
 <br><br>
 
-↓
+Finding:
 
-Prescription contents replaced.
+Prescription mismatch identified.
 
-<br><br>
+<br>
 
 Connection:
 
-Unauthorized chemical substitution.
+Possible chemical substitution.
 
 </div>
 
@@ -1617,19 +2413,19 @@ Unauthorized chemical substitution.
 
 <div class="note">
 
-📱 Victim Mobile Device
+📱 VICTIM PHONE
 
 <br><br>
 
-↓
+Finding:
 
-Recovered message referencing Project Helix.
+Communication referencing H-17 compound recovered.
 
-<br><br>
+<br>
 
 Connection:
 
-Links research activity to investigation.
+Links investigation to Project Helix.
 
 </div>
 
@@ -1637,19 +2433,19 @@ Links research activity to investigation.
 
 <div class="note">
 
-📓 Research Notebook
+📓 RESEARCH NOTEBOOK
 
 <br><br>
 
-↓
+Finding:
 
-Project Helix documentation discovered.
+Restricted research documentation discovered.
 
-<br><br>
+<br>
 
 Connection:
 
-Provides motive and research background.
+Provides motive and background.
 
 </div>
 
@@ -1665,6 +2461,7 @@ Multiple evidence sources indicate intentional exposure.
 
 </div>
 
+
 `;
 
 
@@ -1678,9 +2475,8 @@ Multiple evidence sources indicate intentional exposure.
 
 
 // ======================================
-// INVESTIGATOR THEORY SYSTEM
+// FINAL INVESTIGATOR THEORY
 // ======================================
-
 
 
 function selectTheory(element,type){
@@ -1704,7 +2500,6 @@ element.classList.add("selected");
 let result=document.getElementById("theoryResult");
 
 
-
 result.style.display="block";
 
 
@@ -1721,7 +2516,7 @@ result.innerHTML=
 
 <p class="correct">
 
-✓ INVESTIGATIVE THEORY SUPPORTED
+✓ INVESTIGATION THEORY SUPPORTED
 
 </p>
 
@@ -1729,9 +2524,17 @@ result.innerHTML=
 
 <p>
 
-Your conclusion is supported by multiple evidence sources.
+Your conclusion uses multiple forms of evidence:
 
-Investigators must connect physical evidence, digital evidence, and documentation before identifying responsibility.
+Physical evidence
+
++
+
+Digital evidence
+
++
+
+Document evidence
 
 </p>
 
@@ -1739,11 +2542,10 @@ Investigators must connect physical evidence, digital evidence, and documentatio
 
 <p>
 
-Next stage unlocked:
-
-Suspect interviews.
+Investigators can now proceed to suspect interviews.
 
 </p>
+
 
 `;
 
@@ -1755,10 +2557,7 @@ document.getElementById("nextStage").style.display="block";
 
 }
 
-
-
 else{
-
 
 
 result.innerHTML=
@@ -1767,17 +2566,19 @@ result.innerHTML=
 
 <p class="wrong">
 
-✕ THEORY REQUIRES MORE EVIDENCE
+✕ THEORY NOT SUPPORTED
 
 </p>
-
 
 
 <p>
 
-A strong investigation requires multiple confirmed connections, not assumptions based on one clue.
+Investigators must avoid conclusions based on assumptions.
+
+Evidence must support the theory.
 
 </p>
+
 
 `;
 
@@ -1786,7 +2587,6 @@ A strong investigation requires multiple confirmed connections, not assumptions 
 }
 
 
-
 }
 
 
@@ -1795,10 +2595,9 @@ A strong investigation requires multiple confirmed connections, not assumptions 
 
 
 // ======================================
-// INITIALIZE SYSTEMS
+// START SYSTEM
 // ======================================
 
 
 updateProgress();
-
 </script>
