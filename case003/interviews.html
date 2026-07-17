@@ -2101,6 +2101,105 @@ score:
 };
 
 // ================================
+// INTERVIEW QUESTION SETS
+// ================================
+
+
+let questionSets = {
+
+
+daniel:[
+
+"Explain your involvement with Project Helix.",
+
+"Why was your access badge used after hours?",
+
+"What do you know about the missing compound?",
+
+"Why did you delete messages from your phone?",
+
+"Who else had access to the laboratory?",
+
+"Are you protecting someone?"
+
+],
+
+
+
+sarah:[
+
+"Describe what happened during the night of the incident.",
+
+"Who was acting differently inside the laboratory?",
+
+"What did you observe near the compound storage area?",
+
+"Did Daniel appear nervous after the incident?",
+
+"Who had access to Project Helix information?",
+
+"Do you believe Daniel acted alone?"
+
+],
+
+
+
+michael:[
+
+"When did you last speak with Daniel before the incident?",
+
+"How was Daniel behaving recently?",
+
+"Did Daniel ever mention Project Helix?",
+
+"Was Daniel under unusual pressure?",
+
+"Did Daniel tell you anything about the missing compound?",
+
+"Do you believe Daniel is hiding something?"
+
+]
+
+
+};
+
+function loadQuestions(name){
+
+let panel = document.getElementById("questionPanel");
+
+panel.innerHTML="";
+
+
+questionSets[name].forEach(function(question,index){
+
+
+let div=document.createElement("div");
+
+
+div.className="question";
+
+
+div.innerHTML=
+
+(index+1)+". "+question;
+
+
+div.onclick=function(){
+
+askQuestion(index+1);
+
+};
+
+
+panel.appendChild(div);
+
+
+});
+
+
+}
+
+// ================================
 // SUSPECT SWITCHING SYSTEM
 // ================================
 
@@ -2135,6 +2234,7 @@ document.getElementById("stressLevel").innerHTML =
 "LOW";
 
 loadInterviewDialogue("daniel");
+loadQuestions("daniel");
   
 }
 
@@ -2166,6 +2266,7 @@ document.getElementById("stressLevel").innerHTML =
 
 
 loadInterviewDialogue("sarah");
+loadQuestions("sarah");
 
 }
 
@@ -2194,6 +2295,7 @@ document.getElementById("stressLevel").innerHTML =
 
 
 loadInterviewDialogue("michael");
+loadQuestions("michael");
 
 }
 
