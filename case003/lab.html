@@ -6,66 +6,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DOSSIER | Forensic Laboratory</title>
+<title>DOSSIER | Case 003 Forensic Laboratory</title>
 
 <link rel="stylesheet" href="../style-v2.css">
 
-
 <style>
+
+*{
+box-sizing:border-box;
+}
+
+
+body{
+background:#0b1220;
+}
+
+
+/* PAGE */
 
 .page{
 
-max-width:1200px;
+max-width:1250px;
 margin:auto;
 padding:40px;
 
 }
 
 
+
+/* TERMINAL */
+
 .terminal{
 
-background:#0d1626;
+background:#060b14;
 border:1px solid #2d3b54;
-border-radius:18px;
+border-radius:20px;
 padding:30px;
 font-family:monospace;
 color:#7fc2ff;
+margin-bottom:30px;
+min-height:180px;
+
+}
+
+
+.cursor{
+
+animation:blink 1s infinite;
+
+}
+
+
+@keyframes blink{
+
+50%{
+
+opacity:0;
+
+}
+
+}
+
+
+
+/* HEADER */
+
+
+.case-header{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:22px;
+padding:35px;
 margin-bottom:30px;
 
 }
 
 
-
-.header{
-
-background:#141c2b;
-border:1px solid #2d3b54;
-border-radius:20px;
-padding:35px;
-margin-bottom:25px;
-
-}
-
-
-
-.label{
+.case-label{
 
 color:#5aa2ff;
 letter-spacing:3px;
+font-size:13px;
 
 }
 
 
-
-.header h1{
+.case-header h1{
 
 font-size:48px;
+margin:15px 0;
 
 }
 
 
-
-.status{
+.active{
 
 color:#39d98a;
 font-weight:bold;
@@ -75,19 +110,41 @@ font-weight:bold;
 
 
 
-.lab-card{
+/* GRID */
 
-background:#141c2b;
-border:1px solid #2d3b54;
-border-radius:20px;
-padding:35px;
-margin-bottom:25px;
+
+.lab-grid{
+
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
 
 }
 
 
 
-.lab-card p{
+/* CARDS */
+
+
+.card{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:30px;
+margin-bottom:25px;
+
+}
+
+
+.card h2{
+
+margin-top:0;
+
+}
+
+
+.card p{
 
 color:#aab6cb;
 line-height:1.8;
@@ -95,6 +152,8 @@ line-height:1.8;
 }
 
 
+
+/* OPTIONS */
 
 
 .option{
@@ -105,43 +164,47 @@ border-radius:12px;
 margin:12px 0;
 cursor:pointer;
 border:1px solid transparent;
+transition:.25s;
 
 }
-
 
 
 .option:hover{
 
 border-color:#5aa2ff;
+transform:translateX(5px);
 
 }
 
 
 
-.selected{
+.option.selected{
 
 border-color:#5aa2ff;
-background:#22324a;
+background:#24364d;
 
 }
 
+
+
+
+/* BUTTON */
 
 
 button{
 
 width:100%;
-padding:18px;
-margin-top:20px;
-border:none;
+padding:17px;
 border-radius:12px;
+border:none;
 background:#5aa2ff;
 color:white;
+font-size:16px;
 font-weight:bold;
-font-size:17px;
 cursor:pointer;
+margin-top:15px;
 
 }
-
 
 
 button:hover{
@@ -152,13 +215,16 @@ transform:translateY(-2px);
 
 
 
+/* RESULTS */
+
+
 .result{
 
 display:none;
+margin-top:20px;
+padding:20px;
 background:#1b2537;
-padding:25px;
 border-radius:15px;
-margin-top:25px;
 
 }
 
@@ -172,7 +238,6 @@ font-weight:bold;
 }
 
 
-
 .wrong{
 
 color:#ff7070;
@@ -182,40 +247,96 @@ font-weight:bold;
 
 
 
-.notebook{
+/* SCANNER */
 
-background:#141c2b;
-border:1px solid #2d3b54;
-border-radius:20px;
-padding:25px;
+
+.scanner{
+
+display:none;
+margin-top:25px;
+text-align:center;
+font-family:monospace;
+color:#7fc2ff;
 
 }
 
 
 
-.clue{
+.scan-bar{
+
+height:5px;
+background:#5aa2ff;
+animation:scan 1.5s infinite;
+
+}
+
+
+@keyframes scan{
+
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+
+100%{
+
+transform:translateX(100%);
+
+}
+
+}
+
+
+
+
+/* PROGRESS */
+
+
+.progress{
+
+height:12px;
+background:#1b2537;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+
+.progress-fill{
+
+height:100%;
+width:0%;
+background:#39d98a;
+transition:1s;
+
+}
+
+
+
+/* NOTES */
+
+
+.note{
 
 background:#1b2537;
 padding:15px;
 border-radius:12px;
-margin:10px 0;
+margin-bottom:10px;
 
 }
 
 
 
+@media(max-width:900px){
 
-.next{
+.lab-grid{
 
-display:none;
-background:#5aa2ff;
-color:white;
-padding:20px;
-border-radius:15px;
-text-align:center;
-font-size:20px;
-font-weight:bold;
-text-decoration:none;
+grid-template-columns:1fr;
+
+}
 
 }
 
@@ -226,15 +347,16 @@ text-decoration:none;
 
 </head>
 
-
-
 <body>
+
 
 
 <nav>
 
 <div class="logo">
+
 DOSSIER
+
 </div>
 
 
@@ -253,9 +375,6 @@ DOSSIER
 
 
 
-
-
-
 <div class="page">
 
 
@@ -264,13 +383,25 @@ DOSSIER
 
 <div class="terminal">
 
-<p>DOSSIER FORENSIC ANALYSIS TERMINAL</p>
+<p id="terminal">
 
-<p>CASE FILE 003 CONNECTED</p>
+DOSSIER FORENSIC SYSTEM INITIALIZING...
 
-<p>EVIDENCE REVIEW REQUIRED</p>
+<br><br>
 
-<p>LABORATORY MODE ACTIVE</p>
+ACCESSING CASE DATABASE...
+
+<br><br>
+
+LOADING CASE FILE 003...
+
+<br><br>
+
+AUTHORIZATION VERIFIED
+
+<span class="cursor">_</span>
+
+</p>
 
 
 </div>
@@ -281,26 +412,34 @@ DOSSIER
 
 
 
-<div class="header">
+<div class="case-header">
 
 
-<p class="label">
+<p class="case-label">
+
 CASE FILE 003
+
 </p>
 
 
 <h1>
+
 FORENSIC LABORATORY
+
 </h1>
 
 
-<p>
+<h2>
+
 SILENT DOSE
-</p>
+
+</h2>
 
 
-<p class="status">
-● INVESTIGATION IN PROGRESS
+<p class="active">
+
+● ACTIVE INVESTIGATION
+
 </p>
 
 
@@ -313,135 +452,620 @@ SILENT DOSE
 
 
 
-<div class="lab-card">
+
+<div class="lab-grid">
+
+
+
+
+
+<div>
+
+
+
+
+
+<div class="card">
 
 
 <h2>
-Evidence Submitted: Coffee Mug
+
+Evidence Station 001
+
 </h2>
+
+
+
+<h3>
+
+☕ Coffee Mug Analysis
+
+</h3>
+
 
 
 <p>
 
 Recovered from the dining room table.
 
-The victim was believed to have consumed the beverage shortly before becoming unconscious.
+The victim consumed part of the beverage shortly before becoming unconscious.
 
-Your task is to determine what analysis should be performed and interpret the results.
+The object appears ordinary, but forensic investigators must determine whether hidden evidence exists.
 
 </p>
 
 
 
+
 <h3>
-Available Tests
+
+Initial Observation
+
 </h3>
 
 
+<p>
 
-<div class="option" onclick="selectOption(this,'fingerprint')">
+A common mistake in investigations is assuming an object is harmless because it looks normal.
 
-Fingerprint Examination
+Investigators must identify what information is missing before forming conclusions.
+
+</p>
+
+
+
+
+<h3>
+
+Investigator Decision
+
+</h3>
+
+
+<p>
+
+What should investigators determine first?
+
+</p>
+
+
+
+
+<div id="mugQuestion">
+
 
 </div>
 
 
 
-<div class="option" onclick="selectOption(this,'chemical')">
-
-Chemical Residue Analysis
-
-</div>
 
 
+<button onclick="submitMug()">
 
-<div class="option" onclick="selectOption(this,'dna')">
-
-DNA Collection
-
-</div>
-
-
-
-<div class="option" onclick="selectOption(this,'none')">
-
-No Further Testing Required
-
-</div>
-
-
-
-
-<button onclick="runTest()">
-
-Submit Analysis Request
+Submit Analysis Decision
 
 </button>
 
 
 
 
-<div class="result" id="test-result">
+
+
+<div class="scanner" id="mugScanner">
+
+
+<p>
+
+ANALYZING SAMPLE...
+
+</p>
+
+
+<div class="scan-bar"></div>
+
+
+<p>
+
+Comparing chemical properties...
+
+</p>
 
 
 </div>
 
 
 
+
+
+<div class="result" id="mugResult">
+
+
 </div>
 
 
 
 
 
+</div>
+<!-- ============================= -->
+<!-- MEDICATION STATION -->
+<!-- ============================= -->
 
 
-
-
-<div class="lab-card" id="interpret" style="display:none;">
+<div class="card">
 
 
 <h2>
-Investigator Assessment
+
+Evidence Station 002
+
+</h2>
+
+
+
+<h3>
+
+💊 Medication Bottle Analysis
+
+</h3>
+
+
+
+<p>
+
+Recovered beside Dr. Eleanor Hayes' personal belongings.
+
+The container matches the victim's prescription records, but investigators must determine whether the medication inside is authentic.
+
+</p>
+
+
+
+
+<h3>
+
+Forensic Question
+
+</h3>
+
+
+
+<p>
+
+A medication bottle can appear legitimate while containing different substances.
+
+What should investigators compare?
+
+</p>
+
+
+
+
+<div id="medQuestion">
+
+</div>
+
+
+
+
+
+<button onclick="submitMedication()">
+
+Submit Medication Analysis
+
+</button>
+
+
+
+
+
+<div class="scanner" id="medScanner">
+
+
+<p>
+
+ANALYZING MEDICATION SAMPLE...
+
+</p>
+
+
+<div class="scan-bar"></div>
+
+
+<p>
+
+Comparing chemical composition...
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="result" id="medResult">
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ============================= -->
+<!-- PHONE STATION -->
+<!-- ============================= -->
+
+
+
+<div class="card">
+
+
+<h2>
+
+Evidence Station 003
+
+</h2>
+
+
+
+<h3>
+
+📱 Victim Mobile Device
+
+</h3>
+
+
+
+
+<p>
+
+The victim's phone was recovered at the residence.
+
+Digital investigators must preserve the device before analyzing information.
+
+</p>
+
+
+
+
+<h3>
+
+Digital Evidence Question
+
+</h3>
+
+
+
+<p>
+
+What should investigators do before examining the phone's contents?
+
+</p>
+
+
+
+
+<div id="phoneQuestion">
+
+</div>
+
+
+
+
+
+
+<button onclick="submitPhone()">
+
+Begin Digital Examination
+
+</button>
+
+
+
+
+
+<div class="scanner" id="phoneScanner">
+
+
+<p>
+
+CREATING FORENSIC IMAGE...
+
+</p>
+
+
+<div class="scan-bar"></div>
+
+
+<p>
+
+Preserving original device data...
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="result" id="phoneResult">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ============================= -->
+<!-- NOTEBOOK STATION -->
+<!-- ============================= -->
+
+
+
+
+<div class="card">
+
+
+<h2>
+
+Evidence Station 004
+
+</h2>
+
+
+
+
+<h3>
+
+📓 Research Notebook Examination
+
+</h3>
+
+
+
+
+<p>
+
+A handwritten notebook was recovered from Dr. Hayes' laboratory.
+
+The document may reveal research information, chemical formulas, or individuals connected to the investigation.
+
+</p>
+
+
+
+
+
+<h3>
+
+Document Examination Question
+
+</h3>
+
+
+
+
+<p>
+
+A missing page is discovered inside the notebook.
+
+What should investigators examine first?
+
+</p>
+
+
+
+
+
+<div id="noteQuestion">
+
+</div>
+
+
+
+
+
+
+<button onclick="submitNotebook()">
+
+Analyze Document Evidence
+
+</button>
+
+
+
+
+
+<div class="scanner" id="noteScanner">
+
+
+<p>
+
+PROCESSING DOCUMENT...
+
+</p>
+
+
+<div class="scan-bar"></div>
+
+
+<p>
+
+Examining physical evidence...
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="result" id="noteResult">
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ============================= -->
+<!-- SIDEBAR -->
+<!-- ============================= -->
+
+
+<div>
+
+
+
+<div class="card">
+
+
+<h2>
+
+Investigation Progress
+
+</h2>
+
+
+
+<div class="progress">
+
+
+<div class="progress-fill" id="progressBar">
+
+</div>
+
+
+</div>
+
+
+
+<p id="progressText">
+
+0 / 4 Evidence Stations Complete
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+
+Detective Notebook
+
+</h2>
+
+
+
+<div id="notes">
+
+
+<div class="note">
+
+No evidence recorded.
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+<!-- ================================= -->
+<!-- EVIDENCE BOARD -->
+<!-- ================================= -->
+
+
+<div class="card">
+
+
+<h2>
+
+🧩 Investigation Evidence Board
+
 </h2>
 
 
 
 <p>
 
-The laboratory has returned preliminary findings.
+Collected evidence must be connected before investigators can make conclusions.
 
-Based on the evidence, what is the most likely explanation?
+A single piece of evidence rarely proves a case. Investigators look for patterns between multiple findings.
 
 </p>
 
 
 
-<div class="option" onclick="chooseConclusion(this,'correct')">
 
-The beverage may have been used to deliver an unknown compound.
 
-</div>
+<div id="evidenceBoard">
 
 
 
-<div class="option" onclick="chooseConclusion(this,'wrong')">
+<div class="note">
 
-The victim likely died from a normal medical event.
+🔒 Evidence connections unavailable.
 
-</div>
-
-
-
-<div class="option" onclick="chooseConclusion(this,'wrong')">
-
-The evidence should be ignored because the mug appeared normal.
+Complete laboratory analysis first.
 
 </div>
 
 
-
-<div class="result" id="final-result">
 
 </div>
 
@@ -457,26 +1081,85 @@ The evidence should be ignored because the mug appeared normal.
 
 
 
-<div class="notebook">
+<!-- ================================= -->
+<!-- INVESTIGATOR THEORY -->
+<!-- ================================= -->
+
+
+
+<div class="card">
 
 
 <h2>
-Detective Notebook
+
+Detective Assessment
+
 </h2>
 
 
-<div id="clues">
 
-<div class="clue">
+<p>
 
-No laboratory findings recorded.
+Based on the evidence collected, what is the strongest current theory?
+
+</p>
+
+
+
+<div id="theoryOptions">
+
+
+
+<div class="option" onclick="selectTheory(this,'correct')">
+
+The victim was exposed to a synthetic compound connected to Project Helix, and someone with access may have intentionally delivered it.
 
 </div>
 
 
+
+
+<div class="option" onclick="selectTheory(this,'wrong')">
+
+The victim experienced a natural medical emergency unrelated to the evidence.
+
 </div>
 
 
+
+
+<div class="option" onclick="selectTheory(this,'wrong')">
+
+The missing notebook page alone proves who committed the crime.
+
+</div>
+
+
+
+
+<div class="option" onclick="selectTheory(this,'wrong')">
+
+The medication bottle should be ignored because the label was correct.
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="result" id="theoryResult">
+
+
+</div>
+
+
+
+
 </div>
 
 
@@ -486,15 +1169,43 @@ No laboratory findings recorded.
 
 
 
+<!-- ================================= -->
+<!-- NEXT STAGE -->
+<!-- ================================= -->
 
-<a class="next" id="next" href="interviews.html">
 
-CONTINUE TO INTERVIEWS →
+
+<div class="card" id="nextStage" style="display:none;">
+
+
+
+<h2>
+
+Investigation Update
+
+</h2>
+
+
+
+<p>
+
+Laboratory analysis is complete.
+
+The collected evidence suggests the case requires suspect interviews.
+
+</p>
+
+
+
+<a class="primary-btn" href="interviews.html">
+
+Continue to Witness Interviews →
 
 </a>
 
 
 
+</div>
 
 
 </div>
@@ -502,6 +1213,8 @@ CONTINUE TO INTERVIEWS →
 
 
 
+
+</div>
 
 
 
@@ -510,24 +1223,38 @@ CONTINUE TO INTERVIEWS →
 <script>
 
 
-let selectedTest="";
+// ======================================
+// INVESTIGATION DATA
+// ======================================
+
+
+let completed = [];
+
+let mugComplete=false;
+
+let medicationComplete=false;
+
+let phoneComplete=false;
+
+let notebookComplete=false;
 
 
 
-function selectOption(element,value){
+
+function updateProgress(){
 
 
-document.querySelectorAll(".option").forEach(function(item){
-
-item.classList.remove("selected");
-
-});
+let total=completed.length;
 
 
-element.classList.add("selected");
+document.getElementById("progressBar").style.width =
+(total * 25) + "%";
 
 
-selectedTest=value;
+
+document.getElementById("progressText").innerHTML =
+
+total + " / 4 Evidence Stations Complete";
 
 
 }
@@ -537,68 +1264,244 @@ selectedTest=value;
 
 
 
-function runTest(){
+function addNote(text){
 
 
-let result=document.getElementById("test-result");
+document.getElementById("notes").innerHTML +=
 
+`
 
+<div class="note">
 
-if(selectedTest==="chemical"){
-
-
-result.style.display="block";
-
-
-result.innerHTML=`
-
-<p class="correct">
-✓ Correct Analysis Selected
-</p>
-
-<p>
-
-Chemical residue testing detects traces of an unidentified synthetic compound.
-
-The substance is consistent with the compound found during medical examination.
-
-</p>
-
-`;
-
-
-document.getElementById("interpret").style.display="block";
-
-
-document.getElementById("clues").innerHTML=`
-
-<div class="clue">
-
-✓ Unknown synthetic compound detected in beverage sample
+✓ ${text}
 
 </div>
 
 `;
 
 
+}
+
+
+
+
+
+
+
+// ======================================
+// COFFEE MUG
+// ======================================
+
+
+
+let mugAnswer=null;
+
+
+
+let mugAnswers=[
+
+
+
+{
+
+text:
+"Determine whether the beverage contains an unknown substance",
+
+correct:true,
+
+explanation:
+"Chemical testing identifies whether a foreign substance is present before investigators create a theory."
+
+},
+
+
+{
+
+text:
+"Find out how much the mug costs",
+
+correct:false,
+
+explanation:
+"The value of an object does not help determine whether it contributed to the crime."
+
+},
+
+
+{
+
+text:
+"Ask the victim's family if they liked the mug",
+
+correct:false,
+
+explanation:
+"Personal preference does not provide forensic information."
+
+},
+
+
+{
+
+text:
+"Throw the mug away because it appears normal",
+
+correct:false,
+
+explanation:
+"Crime scene evidence must be preserved even when it looks ordinary."
+
+}
+
+
+];
+
+
+
+
+
+function loadMug(){
+
+
+let area=document.getElementById("mugQuestion");
+
+
+mugAnswers.sort(()=>Math.random()-0.5);
+
+
+
+mugAnswers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#mugQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+option.classList.add("selected");
+
+
+mugAnswer=answer;
+
+
+};
+
+
+area.appendChild(option);
+
+
+});
+
+
+}
+
+
+
+
+
+function submitMug(){
+
+
+if(!mugAnswer){
+
+alert("Select an investigative decision.");
+
+return;
+
+}
+
+
+
+document.getElementById("mugScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("mugScanner").style.display="none";
+
+
+
+let result=document.getElementById("mugResult");
+
+
+result.style.display="block";
+
+
+
+if(mugAnswer.correct){
+
+
+result.innerHTML=
+
+`
+
+<p class="correct">
+
+✓ ANALYSIS APPROVED
+
+</p>
+
+
+<p>
+
+${mugAnswer.explanation}
+
+</p>
+
+
+<p>
+
+Finding:
+
+Unknown synthetic compound detected in beverage sample.
+
+</p>
+
+`;
+
+
+
+addNote(
+"Coffee mug contains possible delivery method evidence."
+);
+
+
+completeEvidence("Coffee Mug");
+
+
 
 }
 
 else{
 
 
-result.style.display="block";
+result.innerHTML=
 
-
-result.innerHTML=`
+`
 
 <p class="wrong">
-Analysis completed, but this test does not directly answer the primary question.
+
+✕ REVIEW REQUIRED
+
 </p>
+
 
 <p>
 
-Investigators should prioritize identifying whether the beverage contained a foreign substance.
+${mugAnswer.explanation}
 
 </p>
 
@@ -607,6 +1510,11 @@ Investigators should prioritize identifying whether the beverage contained a for
 }
 
 
+
+},2500);
+
+
+
 }
 
 
@@ -614,31 +1522,1001 @@ Investigators should prioritize identifying whether the beverage contained a for
 
 
 
-function chooseConclusion(element,type){
+function completeEvidence(name){
 
 
-let result=document.getElementById("final-result");
+if(!completed.includes(name)){
+
+
+completed.push(name);
+
+
+updateProgress();
+
+
+}
+
+
+
+}
+
+
+
+loadMug();
+// ======================================
+// MEDICATION ANALYSIS SYSTEM
+// ======================================
+
+
+let medicationAnswer=null;
+
+
+
+let medicationAnswers=[
+
+
+{
+
+text:
+"Compare the chemical contents with the victim's prescription records",
+
+correct:true,
+
+explanation:
+"The label only shows what the bottle claims to contain. Chemical comparison determines whether the actual contents match."
+
+},
+
+
+
+{
+
+text:
+"Check whether the bottle is expensive",
+
+correct:false,
+
+explanation:
+"The price of the container does not indicate whether the medication was altered."
+
+},
+
+
+
+{
+
+text:
+"Immediately accuse the person with access to the medicine",
+
+correct:false,
+
+explanation:
+"Access alone does not prove responsibility. Investigators need supporting evidence."
+
+},
+
+
+
+{
+
+text:
+"Return the medication because the label appears correct",
+
+correct:false,
+
+explanation:
+"Evidence must be tested, not judged by appearance."
+
+}
+
+
+];
+
+
+
+
+
+
+
+function loadMedication(){
+
+
+let area=document.getElementById("medQuestion");
+
+
+let answers=[...medicationAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
+
+
+
+answers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#medQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+
+option.classList.add("selected");
+
+
+medicationAnswer=answer;
+
+
+
+};
+
+
+
+area.appendChild(option);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+function submitMedication(){
+
+
+if(!medicationAnswer){
+
+alert("Select a forensic decision.");
+
+return;
+
+}
+
+
+
+document.getElementById("medScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("medScanner").style.display="none";
+
+
+
+let result=document.getElementById("medResult");
 
 
 result.style.display="block";
+
+
+
+if(medicationAnswer.correct){
+
+
+
+result.innerHTML=
+
+`
+
+<p class="correct">
+
+✓ PHARMACEUTICAL ANALYSIS COMPLETE
+
+</p>
+
+
+<p>
+
+${medicationAnswer.explanation}
+
+</p>
+
+
+<p>
+
+Finding:
+
+Medication contents do not match prescription records.
+
+Possible unauthorized substitution detected.
+
+</p>
+
+
+`;
+
+
+
+addNote(
+"Medication bottle shows possible unauthorized alteration."
+);
+
+
+
+completeEvidence("Medication Bottle");
+
+
+
+}
+
+
+else{
+
+
+result.innerHTML=
+
+`
+
+<p class="wrong">
+
+✕ ANALYSIS INSUFFICIENT
+
+</p>
+
+
+<p>
+
+${medicationAnswer.explanation}
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+},2500);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ======================================
+// DIGITAL FORENSICS SYSTEM
+// ======================================
+
+
+
+let phoneAnswer=null;
+
+
+
+let phoneAnswers=[
+
+
+{
+
+
+text:
+"Create a forensic copy of the device before examining information",
+
+correct:true,
+
+
+explanation:
+"Digital investigators preserve original data first because accessing files incorrectly can change or destroy evidence."
+
+},
+
+
+
+{
+
+
+text:
+"Immediately search through messages without preservation",
+
+correct:false,
+
+
+explanation:
+"Changing data before documentation can compromise evidence."
+
+},
+
+
+
+{
+
+
+text:
+"Give the phone to the victim's family for review",
+
+correct:false,
+
+
+explanation:
+"Evidence must remain controlled during an investigation."
+
+},
+
+
+
+{
+
+
+text:
+"Repeatedly guess the password until it unlocks",
+
+correct:false,
+
+
+explanation:
+"Uncontrolled attempts may damage or lock the device."
+
+}
+
+
+
+];
+
+
+
+
+
+
+
+
+function loadPhone(){
+
+
+let area=document.getElementById("phoneQuestion");
+
+
+let answers=[...phoneAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
+
+
+
+answers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#phoneQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+
+option.classList.add("selected");
+
+
+phoneAnswer=answer;
+
+
+};
+
+
+
+area.appendChild(option);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+function submitPhone(){
+
+
+if(!phoneAnswer){
+
+alert("Choose an investigation method.");
+
+return;
+
+}
+
+
+
+document.getElementById("phoneScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("phoneScanner").style.display="none";
+
+
+
+let result=document.getElementById("phoneResult");
+
+
+result.style.display="block";
+
+
+
+if(phoneAnswer.correct){
+
+
+result.innerHTML=
+
+`
+
+<p class="correct">
+
+✓ DIGITAL EXTRACTION COMPLETE
+
+</p>
+
+
+<p>
+
+${phoneAnswer.explanation}
+
+</p>
+
+
+<p>
+
+Recovered Communication:
+
+"Daniel, we need to discuss the H-17 compound before the presentation."
+
+</p>
+
+
+`;
+
+
+
+addNote(
+"Phone records connect Daniel Brooks to Project Helix."
+);
+
+
+
+completeEvidence("Victim Phone");
+
+
+
+}
+
+
+else{
+
+
+result.innerHTML=
+
+`
+
+<p class="wrong">
+
+✕ DIGITAL PROCEDURE ERROR
+
+</p>
+
+
+<p>
+
+${phoneAnswer.explanation}
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+},2500);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ======================================
+// DOCUMENT EXAMINATION SYSTEM
+// ======================================
+
+
+
+let notebookAnswer=null;
+
+
+
+let notebookAnswers=[
+
+
+{
+
+
+text:
+"Analyze the missing page location and physical traces",
+
+correct:true,
+
+
+explanation:
+"Document investigators examine physical clues before assuming why information is missing."
+
+},
+
+
+
+{
+
+
+text:
+"Assume the missing page proves someone is guilty",
+
+correct:false,
+
+
+explanation:
+"Missing evidence creates questions but does not immediately identify a suspect."
+
+},
+
+
+
+{
+
+
+text:
+"Ignore the missing page because it cannot be recovered",
+
+correct:false,
+
+
+explanation:
+"Missing sections can contain important investigative information."
+
+},
+
+
+
+{
+
+
+text:
+"Release the notebook publicly",
+
+correct:false,
+
+
+explanation:
+"Investigators must protect evidence during an active case."
+
+}
+
+
+
+];
+
+
+
+
+
+
+
+
+function loadNotebook(){
+
+
+let area=document.getElementById("noteQuestion");
+
+
+let answers=[...notebookAnswers];
+
+
+answers.sort(()=>Math.random()-0.5);
+
+
+
+answers.forEach(answer=>{
+
+
+let option=document.createElement("div");
+
+
+option.className="option";
+
+
+option.innerHTML=answer.text;
+
+
+
+option.onclick=function(){
+
+
+document.querySelectorAll("#noteQuestion .option")
+.forEach(x=>x.classList.remove("selected"));
+
+
+
+option.classList.add("selected");
+
+
+notebookAnswer=answer;
+
+
+};
+
+
+
+area.appendChild(option);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+function submitNotebook(){
+
+
+if(!notebookAnswer){
+
+alert("Select document analysis.");
+
+return;
+
+}
+
+
+
+document.getElementById("noteScanner").style.display="block";
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("noteScanner").style.display="none";
+
+
+
+let result=document.getElementById("noteResult");
+
+
+result.style.display="block";
+
+
+
+if(notebookAnswer.correct){
+
+
+result.innerHTML=
+
+`
+
+<p class="correct">
+
+✓ DOCUMENT ANALYSIS COMPLETE
+
+</p>
+
+
+<p>
+
+${notebookAnswer.explanation}
+
+</p>
+
+
+<p>
+
+Discovery:
+
+Notebook references restricted research project:
+
+PROJECT HELIX
+
+</p>
+
+
+`;
+
+
+
+addNote(
+"Research notebook reveals Project Helix connection."
+);
+
+
+
+completeEvidence("Research Notebook");
+
+
+
+}
+
+
+
+else{
+
+
+result.innerHTML=
+
+`
+
+<p class="wrong">
+
+✕ REVIEW DOCUMENT PROCEDURE
+
+</p>
+
+
+<p>
+
+${notebookAnswer.explanation}
+
+</p>
+
+`;
+
+
+
+}
+
+
+
+},2500);
+
+
+
+}
+
+
+
+
+
+
+
+loadMedication();
+
+loadPhone();
+
+loadNotebook();
+// ======================================
+// EVIDENCE BOARD SYSTEM
+// ======================================
+
+
+
+function updateEvidenceBoard(){
+
+
+
+let board=document.getElementById("evidenceBoard");
+
+
+
+if(completed.length < 4){
+
+return;
+
+}
+
+
+
+board.innerHTML=`
+
+<div class="note">
+
+☕ Coffee Mug
+
+↓
+
+Synthetic compound detected
+
+</div>
+
+
+<div class="note">
+
+💊 Medication Bottle
+
+↓
+
+Prescription substitution identified
+
+</div>
+
+
+<div class="note">
+
+📱 Victim Phone
+
+↓
+
+Daniel Brooks connected to Project Helix
+
+</div>
+
+
+<div class="note">
+
+📓 Research Notebook
+
+↓
+
+Project Helix research discovered
+
+</div>
+
+
+<div class="note">
+
+🔎 Investigation Link Established
+
+↓
+
+Evidence suggests intentional exposure
+
+</div>
+
+
+`;
+
+
+
+}
+
+
+
+
+
+
+
+
+// update original completion function
+
+
+let oldCompleteEvidence = completeEvidence;
+
+
+
+completeEvidence=function(name){
+
+
+
+oldCompleteEvidence(name);
+
+
+
+updateEvidenceBoard();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ======================================
+// THEORY SYSTEM
+// ======================================
+
+
+
+function selectTheory(element,type){
+
+
+
+document.querySelectorAll("#theoryOptions .option")
+
+.forEach(x=>x.classList.remove("selected"));
+
+
+
+element.classList.add("selected");
+
+
+
+let result=document.getElementById("theoryResult");
+
+
+
+result.style.display="block";
+
+
 
 
 if(type==="correct"){
 
 
-result.innerHTML=`
+
+result.innerHTML=
+
+`
 
 <p class="correct">
 
-✓ Strong Investigative Conclusion
+✓ INVESTIGATIVE THEORY SUPPORTED
 
 </p>
 
+
 <p>
 
-Your conclusion connects the evidence logically.
+Your conclusion uses multiple evidence sources instead of relying on a single clue.
 
-The beverage is now considered a possible delivery method.
+</p>
+
+
+<p>
+
+Next step unlocked: Interview suspects and evaluate statements.
 
 </p>
 
@@ -646,39 +2524,41 @@ The beverage is now considered a possible delivery method.
 
 
 
-document.getElementById("next").style.display="block";
+document.getElementById("nextStage").style.display="block";
+
 
 
 }
+
+
 
 else{
 
 
-result.innerHTML=`
+result.innerHTML=
+
+`
 
 <p class="wrong">
 
-Incorrect conclusion.
+✕ THEORY NEEDS MORE SUPPORT
 
-Review the evidence before making assumptions.
+</p>
+
+
+<p>
+
+Investigators must connect physical, digital, and documentary evidence before reaching conclusions.
 
 </p>
 
 `;
 
-}
 
 
 }
 
 
 
+}
 </script>
-
-
-
-
-
-</body>
-
-</html>
