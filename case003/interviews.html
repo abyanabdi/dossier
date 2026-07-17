@@ -807,3 +807,1510 @@ Pressure Level
 
 
 </aside>
+<!-- CENTER PANEL: INTERVIEW ROOM -->
+
+
+<main>
+
+
+
+
+<div class="card">
+
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
+
+
+
+<div>
+
+
+<p class="case-label">
+
+ACTIVE INTERVIEW
+
+</p>
+
+
+
+<h2 id="suspectName">
+
+Daniel Brooks
+
+</h2>
+
+
+
+<p id="suspectRole">
+
+Research Assistant
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+<p style="color:#39d98a;font-weight:bold;">
+
+● RECORDING ACTIVE
+
+</p>
+
+
+<p style="font-size:13px;color:#aab6cb;">
+
+SESSION 003-A
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- SUSPECT CONDITION -->
+
+
+<div class="card">
+
+
+<h2>
+
+Behavior Analysis
+
+</h2>
+
+
+
+<div class="status">
+
+<span>
+
+Current Emotion
+
+</span>
+
+
+<strong id="emotion">
+
+Confident
+
+</strong>
+
+
+</div>
+
+
+
+
+<div class="status">
+
+<span>
+
+Body Language
+
+</span>
+
+
+<strong id="bodyLanguage">
+
+Relaxed
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="status">
+
+<span>
+
+Stress Indicators
+
+</span>
+
+
+<strong id="stressLevel">
+
+LOW
+
+</strong>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- TRANSCRIPT -->
+
+
+
+<div class="chat" id="chatBox">
+
+
+
+<div class="message detective">
+
+
+<strong>
+
+Detective:
+
+</strong>
+
+
+<br>
+
+
+Daniel Brooks, thank you for meeting with us today.
+
+
+We are investigating the events surrounding the Silent Dose incident and the possible connection to Project Helix.
+
+
+Before we discuss specific evidence, can you explain your role within the research department?
+
+
+</div>
+
+
+
+
+
+
+
+<div class="message suspectMsg">
+
+
+<strong>
+
+Daniel Brooks:
+
+</strong>
+
+
+<br>
+
+
+I was a research assistant.
+
+
+My job was mostly organizing samples, updating records, and helping senior researchers.
+
+
+I don't know why my name keeps coming up.
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- QUESTION PANEL -->
+
+
+
+<div class="card">
+
+
+<h2>
+
+Interview Questions
+
+</h2>
+
+
+
+<p style="color:#aab6cb;margin-bottom:20px;">
+
+Choose your approach carefully. Evidence and questioning style affect suspect behavior.
+
+</p>
+
+
+
+
+
+<div class="question" onclick="askQuestion(1)">
+
+
+1. Explain your involvement with Project Helix.
+
+</div>
+
+
+
+
+
+<div class="question" onclick="askQuestion(2)">
+
+
+2. Why was your access badge used after hours?
+
+</div>
+
+
+
+
+
+<div class="question" onclick="askQuestion(3)">
+
+
+3. What do you know about the missing compound?
+
+</div>
+
+
+
+
+
+<div class="question" onclick="askQuestion(4)">
+
+
+4. Why did you delete messages from your phone?
+
+</div>
+
+
+
+
+
+<div class="question" onclick="askQuestion(5)">
+
+
+5. Who else had access to the laboratory?
+
+</div>
+
+
+
+
+
+<div class="question" onclick="askQuestion(6)">
+
+
+6. Are you protecting someone?
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- EVIDENCE PRESENTATION -->
+
+
+<div class="card">
+
+
+<h2>
+
+Present Evidence
+
+</h2>
+
+
+<p style="color:#aab6cb;margin-bottom:20px;">
+
+Select evidence to observe the suspect's reaction.
+
+</p>
+
+
+
+
+
+<button onclick="presentEvidence('phone')">
+
+📱 Present Phone Message
+
+</button>
+
+
+
+<br><br>
+
+
+
+<button onclick="presentEvidence('helix')">
+
+🧬 Present Project Helix File
+
+</button>
+
+
+
+<br><br>
+
+
+
+<button onclick="presentEvidence('sample')">
+
+🧪 Present Compound Analysis
+
+</button>
+
+
+
+
+</div>
+
+
+
+
+
+</main>
+<!-- RIGHT PANEL: INTELLIGENCE DASHBOARD -->
+
+
+<aside>
+
+
+
+<div class="card">
+
+
+<h2>
+
+Suspect Profile
+
+</h2>
+
+
+
+
+<div id="profileBox">
+
+
+<p>
+
+<strong>Name:</strong>
+
+Daniel Brooks
+
+</p>
+
+
+
+<p>
+
+<strong>Age:</strong>
+
+29
+
+</p>
+
+
+
+<p>
+
+<strong>Occupation:</strong>
+
+Research Assistant
+
+</p>
+
+
+
+<p>
+
+<strong>Department:</strong>
+
+Synthetic Compound Research
+
+</p>
+
+
+
+<p>
+
+<strong>Access Level:</strong>
+
+Laboratory Level 3
+
+</p>
+
+
+
+
+<p>
+
+<strong>Current Assessment:</strong>
+
+<span style="color:#ff7675;">
+
+HIGH INTEREST
+
+</span>
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+
+Evidence Drawer
+
+</h2>
+
+
+
+
+<div class="note">
+
+🎧 Audio Recording
+
+<br>
+
+Recovered conversation fragment
+
+</div>
+
+
+
+
+
+<div class="note">
+
+📱 Phone Extraction
+
+<br>
+
+Encrypted message recovered
+
+</div>
+
+
+
+
+
+<div class="note">
+
+🧪 Compound Analysis
+
+<br>
+
+Synthetic compound identified
+
+</div>
+
+
+
+
+
+
+<div class="note locked">
+
+🔒 Project Helix Files
+
+</div>
+
+
+
+
+
+
+<div class="note locked">
+
+🔒 Laboratory Access Logs
+
+</div>
+
+
+
+
+
+
+<div class="note locked">
+
+🔒 Deleted Communications
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+
+Detective Notebook
+
+</h2>
+
+
+
+
+<div class="note">
+
+✓ Daniel was present during the missing compound incident
+
+</div>
+
+
+
+
+
+<div class="note">
+
+✓ Badge activity shows unusual access time
+
+</div>
+
+
+
+
+
+
+<div class="note locked" id="clue1">
+
+🔒 Daniel mentioned Project Helix
+
+</div>
+
+
+
+
+
+
+<div class="note locked" id="clue2">
+
+🔒 Phone message contradicts statement
+
+</div>
+
+
+
+
+
+
+<div class="note locked" id="clue3">
+
+🔒 Connection to final motive
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+
+Contradiction Board
+
+</h2>
+
+
+
+
+<p style="color:#aab6cb;margin-bottom:15px;">
+
+Evidence conflicts appear here.
+
+</p>
+
+
+
+
+
+
+<div class="note" id="contradictionBox">
+
+
+No contradictions discovered yet.
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+
+Interview Score
+
+</h2>
+
+
+
+
+<div class="status">
+
+<span>
+
+Evidence Used
+
+</span>
+
+
+<strong id="evidenceUsed">
+
+0 / 3
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="status">
+
+<span>
+
+Questions Asked
+
+</span>
+
+
+<strong id="questionsAsked">
+
+0 / 6
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+<div class="status">
+
+<span>
+
+Interview Rating
+
+</span>
+
+
+<strong id="score">
+
+Pending
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</aside>
+</div> <!-- closes layout -->
+
+
+</div> <!-- closes page -->
+
+<script>
+
+
+// ================================
+// CASE 003 INTERVIEW ENGINE
+// DANIEL BROOKS
+// ================================
+
+
+
+let currentSuspect = "daniel";
+
+
+let questionsAsked = 0;
+
+let evidenceUsed = 0;
+
+
+let score = 0;
+
+
+
+let cooperation = 70;
+
+
+let pressure = 45;
+
+
+
+let danielData = {
+
+
+1:{
+
+answer:
+
+"Project Helix was a research project. I helped organize files, but I was not involved in any decisions.",
+
+
+emotion:
+
+"Calm",
+
+
+body:
+
+"Controlled",
+
+
+stress:
+
+10,
+
+
+score:
+
+10
+
+},
+
+
+
+2:{
+
+answer:
+
+"My badge was probably used because I was working late. Researchers often access the lab after hours.",
+
+
+emotion:
+
+"Nervous",
+
+
+body:
+
+"Avoiding eye contact",
+
+
+stress:
+
+20,
+
+
+score:
+
+15
+
+},
+
+
+
+
+3:{
+
+answer:
+
+"I only worked with approved samples. I don't know anything about a missing compound.",
+
+
+emotion:
+
+"Defensive",
+
+
+body:
+
+"Hands becoming tense",
+
+
+stress:
+
+25,
+
+
+score:
+
+20
+
+},
+
+
+
+
+4:{
+
+answer:
+
+"I deleted old messages because my phone storage was full. It has nothing to do with this case.",
+
+
+emotion:
+
+"Anxious",
+
+
+body:
+
+"Looking away",
+
+
+stress:
+
+30,
+
+
+score:
+
+25
+
+},
+
+
+
+
+
+5:{
+
+answer:
+
+"Several researchers had access. Senior staff, supervisors, and authorized assistants.",
+
+
+emotion:
+
+"Careful",
+
+
+body:
+
+"Choosing words carefully",
+
+
+stress:
+
+15,
+
+
+score:
+
+10
+
+},
+
+
+
+
+
+6:{
+
+answer:
+
+"No. I am not protecting anyone.",
+
+
+emotion:
+
+"Panicked",
+
+
+body:
+
+"Rapid movements detected",
+
+
+stress:
+
+40,
+
+
+score:
+
+30
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+function askQuestion(number){
+
+
+
+questionsAsked++;
+
+
+
+
+
+let response = danielData[number];
+
+
+
+
+
+addMessage(
+
+"Detective",
+
+"Question selected: "+number
+
+);
+
+
+
+
+
+
+
+setTimeout(function(){
+
+
+
+addMessage(
+
+"Daniel Brooks",
+
+response.answer
+
+);
+
+
+
+document.getElementById("emotion").innerHTML=response.emotion;
+
+
+document.getElementById("bodyLanguage").innerHTML=response.body;
+
+
+
+document.getElementById("stressLevel").innerHTML=
+
+response.stress+"%";
+
+
+
+
+
+pressure += response.stress/5;
+
+
+
+cooperation -= response.stress/10;
+
+
+
+
+
+updateAnalysis();
+
+
+
+
+
+},500);
+
+
+
+
+
+
+
+if(number===4){
+
+
+unlockClue("clue2");
+
+
+}
+
+
+
+
+
+if(number===1){
+
+
+unlockClue("clue1");
+
+
+}
+
+
+
+}
+
+
+
+
+
+function presentEvidence(type){
+
+
+
+evidenceUsed++;
+
+
+
+
+
+if(type==="phone"){
+
+
+
+addMessage(
+
+"Detective",
+
+"Evidence presented: Recovered phone message."
+
+);
+
+
+
+setTimeout(function(){
+
+
+
+addMessage(
+
+"Daniel Brooks",
+
+"Where did you get that message? That was a private conversation."
+
+);
+
+
+
+},600);
+
+
+
+document.getElementById("contradictionBox").innerHTML=
+
+"⚠ Daniel claimed no knowledge of Project Helix communications.";
+
+
+
+
+
+score+=30;
+
+
+unlockClue("clue2");
+
+
+}
+
+
+
+
+
+
+
+
+if(type==="helix"){
+
+
+
+addMessage(
+
+"Detective",
+
+"Evidence presented: Project Helix research file."
+
+);
+
+
+
+setTimeout(function(){
+
+
+
+addMessage(
+
+"Daniel Brooks",
+
+"I was only helping with documentation. I never created the compound."
+
+);
+
+
+
+},600);
+
+
+
+score+=20;
+
+
+unlockClue("clue1");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+if(type==="sample"){
+
+
+
+addMessage(
+
+"Detective",
+
+"Evidence presented: Compound analysis results."
+
+);
+
+
+
+setTimeout(function(){
+
+
+
+addMessage(
+
+"Daniel Brooks",
+
+"That sample should not have existed anymore."
+
+);
+
+
+
+},600);
+
+
+
+score+=40;
+
+
+unlockClue("clue3");
+
+
+
+}
+
+
+
+
+
+updateAnalysis();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+function unlockClue(id){
+
+
+let clue=document.getElementById(id);
+
+
+if(clue){
+
+
+clue.classList.remove("locked");
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+function addMessage(sender,text){
+
+
+
+let box=document.getElementById("chatBox");
+
+
+
+let message=document.createElement("div");
+
+
+
+message.className="message";
+
+
+
+
+if(sender==="Detective"){
+
+
+message.classList.add("detective");
+
+
+}
+
+else{
+
+
+message.classList.add("suspectMsg");
+
+
+}
+
+
+
+
+message.innerHTML=
+
+"<strong>"+sender+":</strong><br>"+text;
+
+
+
+box.appendChild(message);
+
+
+
+box.scrollTop=box.scrollHeight;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function updateAnalysis(){
+
+
+
+document.getElementById("cooperation").innerHTML=
+
+Math.max(0,Math.round(cooperation))+"%";
+
+
+
+
+
+document.getElementById("pressure").innerHTML=
+
+Math.min(100,Math.round(pressure))+"%";
+
+
+
+
+
+document.getElementById("cooperationBar").style.width=
+
+Math.max(0,cooperation)+"%";
+
+
+
+
+
+document.getElementById("pressureBar").style.width=
+
+Math.min(100,pressure)+"%";
+
+
+
+
+
+document.getElementById("questionsAsked").innerHTML=
+
+questionsAsked+" / 6";
+
+
+
+
+
+document.getElementById("evidenceUsed").innerHTML=
+
+evidenceUsed+" / 3";
+
+
+
+
+
+}
+
+
+
+
+
+let seconds=0;
+
+
+
+setInterval(function(){
+
+
+
+seconds++;
+
+
+
+let min=Math.floor(seconds/60);
+
+
+
+let sec=seconds%60;
+
+
+
+if(sec<10){
+
+sec="0"+sec;
+
+}
+
+
+
+document.getElementById("timer").innerHTML=
+
+"0"+min+":"+sec;
+
+
+
+},1000);
+
+
+
+
+
+</script>
+</body>
+
+</html>
