@@ -17,58 +17,33 @@
 .page{
 
 max-width:1200px;
-
 margin:auto;
-
 padding:40px;
 
 }
 
 
 
-/* TERMINAL */
-
 .terminal{
 
 background:#0d1626;
-
 border:1px solid #2d3b54;
-
 border-radius:18px;
-
 padding:30px;
-
 font-family:monospace;
-
 color:#7fc2ff;
-
 margin-bottom:30px;
 
 }
 
 
 
-.loading{
-
-margin:10px 0;
-
-}
-
-
-
-/* HEADER */
-
-
 .header{
 
 background:#141c2b;
-
 border:1px solid #2d3b54;
-
 border-radius:20px;
-
 padding:35px;
-
 margin-bottom:25px;
 
 }
@@ -78,10 +53,7 @@ margin-bottom:25px;
 .label{
 
 color:#5aa2ff;
-
 letter-spacing:3px;
-
-font-size:14px;
 
 }
 
@@ -91,13 +63,162 @@ font-size:14px;
 
 font-size:50px;
 
-margin:15px 0;
-
 }
 
 
 
 .status{
+
+color:#39d98a;
+font-weight:bold;
+
+}
+
+
+
+
+
+.evidence-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+
+}
+
+
+
+
+
+.card{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:30px;
+
+}
+
+
+
+.card h2{
+
+margin-top:15px;
+
+}
+
+
+
+.card p{
+
+color:#aab6cb;
+line-height:1.7;
+
+}
+
+
+
+.tag{
+
+display:inline-block;
+background:#1b2537;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+
+}
+
+
+
+
+
+button{
+
+width:100%;
+margin-top:20px;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#5aa2ff;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+
+
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+
+
+
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.75);
+
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+.modal-box{
+
+background:#141c2b;
+
+border:1px solid #2d3b54;
+
+border-radius:20px;
+
+padding:35px;
+
+max-width:600px;
+
+width:90%;
+
+}
+
+
+
+.modal-box p{
+
+color:#aab6cb;
+
+line-height:1.8;
+
+}
+
+
+
+.close{
+
+background:#1b2537;
+
+}
+
+
+
+.status-update{
 
 color:#39d98a;
 
@@ -107,149 +228,23 @@ font-weight:bold;
 
 
 
-
-
-/* EVIDENCE */
-
-
-.evidence-grid{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:25px;
-
-}
-
-
-
-
-
-.evidence-card{
-
-background:#141c2b;
-
-border:1px solid #2d3b54;
-
-border-radius:20px;
-
-padding:30px;
-
-}
-
-
-
-
-
-.evidence-number{
-
-color:#5aa2ff;
-
-font-size:14px;
-
-letter-spacing:2px;
-
-}
-
-
-
-.evidence-card h2{
-
-margin:15px 0;
-
-}
-
-
-
-
-
-.evidence-card p{
-
-color:#aab6cb;
-
-line-height:1.7;
-
-}
-
-
-
-
-
-.tag{
-
-display:inline-block;
-
-background:#1b2537;
-
-border:1px solid #2d3b54;
-
-padding:8px 14px;
-
-border-radius:20px;
-
-font-size:13px;
-
-margin-top:10px;
-
-}
-
-
-
-
-
-.analyze{
-
-display:block;
-
-margin-top:20px;
-
-background:#5aa2ff;
-
-color:white;
-
-text-align:center;
-
-padding:15px;
-
-border-radius:12px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-/* CHAIN */
-
 .chain{
 
 background:#141c2b;
-
 border:1px solid #2d3b54;
-
 border-radius:20px;
-
 padding:30px;
-
 margin-top:30px;
 
 }
 
 
 
-.chain-item{
+.chain div{
 
 background:#1b2537;
-
 padding:15px;
-
-border-radius:12px;
-
+border-radius:10px;
 margin:10px 0;
 
 }
@@ -261,26 +256,19 @@ margin:10px 0;
 .next{
 
 display:block;
-
 margin-top:30px;
-
-padding:22px;
-
 background:#5aa2ff;
-
 color:white;
-
+padding:20px;
 text-align:center;
-
-font-size:22px;
-
+border-radius:15px;
+text-decoration:none;
+font-size:20px;
 font-weight:bold;
 
-border-radius:15px;
-
-text-decoration:none;
-
 }
+
+
 
 
 
@@ -297,9 +285,7 @@ grid-template-columns:1fr;
 
 </style>
 
-
 </head>
-
 
 
 
@@ -317,13 +303,9 @@ DOSSIER
 <div class="nav-links">
 
 <a href="../index.html">Home</a>
-
 <a href="../casefiles.html">Case Files</a>
-
 <a href="../library.html">Evidence Library</a>
-
 <a href="../research.html">Research</a>
-
 <a href="../about.html">About</a>
 
 </div>
@@ -343,30 +325,15 @@ DOSSIER
 
 
 
-
 <div class="terminal">
 
+<p>DOSSIER EVIDENCE MANAGEMENT SYSTEM</p>
 
-<div class="loading">
-DOSSIER EVIDENCE MANAGEMENT SYSTEM
-</div>
+<p>VERIFYING CHAIN OF CUSTODY...</p>
 
+<p>EVIDENCE DATABASE ACCESSED</p>
 
-<div class="loading">
-ACCESSING CASE DATABASE...
-</div>
-
-
-<div class="loading">
-VERIFYING CHAIN OF CUSTODY...
-</div>
-
-
-<div class="loading">
-EVIDENCE LOCKER OPENED
-</div>
-
-
+<p>CASE FILE 003 LOADED</p>
 
 </div>
 
@@ -408,8 +375,6 @@ SILENT DOSE
 
 
 
-
-
 <div class="evidence-grid">
 
 
@@ -417,169 +382,165 @@ SILENT DOSE
 
 
 
-<div class="evidence-card">
+<div class="card">
 
-
-<p class="evidence-number">
+<p class="label">
 EVIDENCE 001
 </p>
 
 
 <h2>
-Coffee Mug
+☕ Coffee Mug
 </h2>
 
 
 <p>
 
-Recovered from the dining area where the victim was discovered.
+Recovered from the dining area where Dr. Hayes was discovered.
 
-The mug contained a partially consumed beverage believed to have been present shortly before the victim became unconscious.
-
-Investigators have submitted the item for chemical analysis to determine whether contamination or foreign substances are present.
+The remaining liquid has been preserved for laboratory examination.
 
 </p>
 
 
-<div class="tag">
+<span class="tag">
 Potential Toxicology Evidence
+</span>
+
+
+
+<button onclick="openEvidence('mug')">
+
+Examine Evidence →
+
+</button>
+
+
 </div>
 
 
-<a class="analyze">
-Submit For Analysis →
-</a>
-
-
-</div>
 
 
 
 
 
+<div class="card">
 
-
-
-<div class="evidence-card">
-
-
-<p class="evidence-number">
+<p class="label">
 EVIDENCE 002
 </p>
 
 
 <h2>
-Medication Bottle
+💊 Medication Bottle
 </h2>
 
 
 <p>
 
-Recovered beside the victim's personal belongings.
+Recovered near the victim's personal belongings.
 
-The medication container appears consistent with the victim's prescription history; however, investigators must verify whether the contents match the original prescription.
-
-Possible concerns include substitution, contamination, or unauthorized modification.
+Investigators must determine whether the medication matches the original prescription.
 
 </p>
 
 
-<div class="tag">
+<span class="tag">
 Medical Evidence
+</span>
+
+
+
+<button onclick="openEvidence('medication')">
+
+Examine Evidence →
+
+</button>
+
+
 </div>
 
 
-<a class="analyze">
-Submit For Analysis →
-</a>
-
-
-</div>
 
 
 
 
 
+<div class="card">
 
-
-
-
-<div class="evidence-card">
-
-
-<p class="evidence-number">
+<p class="label">
 EVIDENCE 003
 </p>
 
 
 <h2>
-Victim Mobile Device
+📱 Victim Mobile Device
 </h2>
 
 
 <p>
 
-The victim's phone was recovered at the residence.
-
-Digital examination may reveal recent communications, unknown contacts, messages, location data, or information related to Dr. Hayes' professional research.
+The victim's phone may contain communication records, contacts, and information related to her research.
 
 </p>
 
 
-<div class="tag">
+<span class="tag">
 Digital Evidence
+</span>
+
+
+
+<button onclick="openEvidence('phone')">
+
+Examine Evidence →
+
+</button>
+
+
 </div>
 
 
-<a class="analyze">
-Begin Extraction →
-</a>
-
-
-</div>
 
 
 
 
 
+<div class="card">
 
-
-
-
-<div class="evidence-card">
-
-
-<p class="evidence-number">
+<p class="label">
 EVIDENCE 004
 </p>
 
 
 <h2>
-Research Notebook
+📓 Research Notebook
 </h2>
 
 
 <p>
 
-A handwritten research notebook recovered from the victim's workspace.
+A handwritten notebook recovered from Dr. Hayes' workspace.
 
-The notebook may contain information regarding ongoing experiments, chemical compounds, research partners, or individuals with knowledge of Dr. Hayes' work.
+The contents may reveal information about ongoing experiments.
 
 </p>
 
 
-<div class="tag">
+<span class="tag">
 Investigative Document
+</span>
+
+
+
+<button onclick="openEvidence('notebook')">
+
+Examine Evidence →
+
+</button>
+
+
 </div>
-
-
-<a class="analyze">
-Review Contents →
-</a>
-
-
-</div>
-
 
 
 
@@ -604,39 +565,28 @@ Chain of Custody
 </h2>
 
 
-
-<div class="chain-item">
-
-✓ Scene secured by responding officers
-
+<div>
+✓ Evidence photographed at scene
 </div>
 
 
-<div class="chain-item">
-
-✓ Evidence photographed and documented
-
+<div>
+✓ Evidence collected by investigators
 </div>
 
 
-<div class="chain-item">
-
-✓ Items transferred to Major Crimes Division
-
+<div>
+✓ Evidence transferred to secure storage
 </div>
 
 
-<div class="chain-item">
-
+<div>
 ✓ Awaiting laboratory examination
-
 </div>
 
 
 
 </div>
-
-
 
 
 
@@ -646,7 +596,7 @@ Chain of Custody
 
 <a class="next" href="lab.html">
 
-SEND EVIDENCE TO LABORATORY →
+ENTER FORENSIC LAB →
 
 </a>
 
@@ -655,8 +605,316 @@ SEND EVIDENCE TO LABORATORY →
 
 
 
+</div>
+
+
+
+
+
+
+
+
+
+<!-- MODALS -->
+
+
+
+<div class="modal" id="mug">
+
+
+<div class="modal-box">
+
+
+<h2>
+Evidence 001: Coffee Mug
+</h2>
+
+
+<p>
+
+LOCATION:
+Dining Area
+
+<br><br>
+
+INITIAL OBSERVATIONS:
+
+<br>
+• Partially consumed beverage recovered
+
+<br>
+• Residue present inside container
+
+<br>
+• No visible damage detected
+
+<br><br>
+
+INVESTIGATION QUESTION:
+
+Was the beverage used as a delivery method for the unknown compound?
+
+</p>
+
+
+<button onclick="submitEvidence('mug')">
+
+Submit For Toxicology Analysis
+
+</button>
+
+
+<button class="close" onclick="closeEvidence('mug')">
+
+Close
+
+</button>
+
+
+<p id="mug-status"></p>
+
 
 </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal" id="medication">
+
+
+<div class="modal-box">
+
+
+<h2>
+Evidence 002: Medication Bottle
+</h2>
+
+
+<p>
+
+LOCATION:
+Dining Area
+
+<br><br>
+
+INITIAL OBSERVATIONS:
+
+<br>
+• Prescription label appears legitimate
+
+<br>
+• Contents require verification
+
+<br>
+• Possible contamination or substitution
+
+<br><br>
+
+INVESTIGATION QUESTION:
+
+Was the medication altered before reaching the victim?
+
+</p>
+
+
+<button onclick="submitEvidence('medication')">
+
+Submit For Medical Analysis
+
+</button>
+
+
+<button class="close" onclick="closeEvidence('medication')">
+
+Close
+
+</button>
+
+
+<p id="medication-status"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal" id="phone">
+
+
+<div class="modal-box">
+
+
+<h2>
+Evidence 003: Victim Mobile Device
+</h2>
+
+
+<p>
+
+DEVICE STATUS:
+
+Locked
+
+<br><br>
+
+Potential data:
+
+<br>
+• Messages
+
+<br>
+• Calls
+
+<br>
+• Research communications
+
+<br>
+• Location history
+
+</p>
+
+
+<button onclick="submitEvidence('phone')">
+
+Begin Digital Extraction
+
+</button>
+
+
+<button class="close" onclick="closeEvidence('phone')">
+
+Close
+
+</button>
+
+
+<p id="phone-status"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal" id="notebook">
+
+
+<div class="modal-box">
+
+
+<h2>
+Evidence 004: Research Notebook
+</h2>
+
+
+<p>
+
+DOCUMENT TYPE:
+
+Private research notes
+
+<br><br>
+
+Potential findings:
+
+<br>
+• Chemical formulas
+
+<br>
+• Experimental records
+
+<br>
+• Research partners
+
+<br>
+• Unfinished projects
+
+</p>
+
+
+<button onclick="submitEvidence('notebook')">
+
+Analyze Document
+
+</button>
+
+
+<button class="close" onclick="closeEvidence('notebook')">
+
+Close
+
+</button>
+
+
+<p id="notebook-status"></p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function openEvidence(id){
+
+document.getElementById(id).style.display="flex";
+
+}
+
+
+
+function closeEvidence(id){
+
+document.getElementById(id).style.display="none";
+
+}
+
+
+
+function submitEvidence(id){
+
+
+document.getElementById(id+"-status").innerHTML=
+
+"✓ Evidence submitted. Analysis pending.";
+
+
+}
+
+
+</script>
 
 
 
