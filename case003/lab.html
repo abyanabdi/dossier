@@ -13,7 +13,6 @@
 
 <style>
 
-
 .page{
 
 max-width:1200px;
@@ -21,7 +20,6 @@ margin:auto;
 padding:40px;
 
 }
-
 
 
 .terminal{
@@ -49,6 +47,7 @@ margin-bottom:25px;
 }
 
 
+
 .label{
 
 color:#5aa2ff;
@@ -57,11 +56,13 @@ letter-spacing:3px;
 }
 
 
+
 .header h1{
 
-font-size:50px;
+font-size:48px;
 
 }
+
 
 
 .status{
@@ -74,66 +75,69 @@ font-weight:bold;
 
 
 
-
-.lab-grid{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-
-}
-
-
-
-
-
-.station{
+.lab-card{
 
 background:#141c2b;
 border:1px solid #2d3b54;
 border-radius:20px;
-padding:30px;
+padding:35px;
+margin-bottom:25px;
 
 }
 
 
 
-.station h2{
-
-margin-bottom:15px;
-
-}
-
-
-
-.station p{
+.lab-card p{
 
 color:#aab6cb;
-line-height:1.7;
+line-height:1.8;
 
 }
 
+
+
+
+.option{
+
+background:#1b2537;
+padding:18px;
+border-radius:12px;
+margin:12px 0;
+cursor:pointer;
+border:1px solid transparent;
+
+}
+
+
+
+.option:hover{
+
+border-color:#5aa2ff;
+
+}
+
+
+
+.selected{
+
+border-color:#5aa2ff;
+background:#22324a;
+
+}
 
 
 
 button{
 
 width:100%;
-padding:16px;
+padding:18px;
 margin-top:20px;
-
-background:#5aa2ff;
-
 border:none;
-
 border-radius:12px;
-
+background:#5aa2ff;
 color:white;
-
-font-size:16px;
-
 font-weight:bold;
-
+font-size:17px;
 cursor:pointer;
 
 }
@@ -148,92 +152,52 @@ transform:translateY(-2px);
 
 
 
-
-
-.progress{
-
-height:10px;
-
-background:#1b2537;
-
-border-radius:20px;
-
-overflow:hidden;
-
-margin-top:15px;
-
-}
-
-
-
-.progress span{
-
-display:block;
-
-height:100%;
-
-width:0%;
-
-background:#39d98a;
-
-transition:1s;
-
-}
-
-
-
-
-
 .result{
 
-background:#1b2537;
-
-padding:20px;
-
-border-radius:15px;
-
-margin-top:20px;
-
 display:none;
+background:#1b2537;
+padding:25px;
+border-radius:15px;
+margin-top:25px;
 
 }
 
 
 
-.result strong{
+.correct{
 
 color:#39d98a;
+font-weight:bold;
 
 }
 
 
 
+.wrong{
+
+color:#ff7070;
+font-weight:bold;
+
+}
 
 
-.findings{
+
+.notebook{
 
 background:#141c2b;
-
 border:1px solid #2d3b54;
-
 border-radius:20px;
-
-padding:30px;
-
-margin-top:30px;
+padding:25px;
 
 }
 
 
 
-.finding{
+.clue{
 
 background:#1b2537;
-
 padding:15px;
-
 border-radius:12px;
-
 margin:10px 0;
 
 }
@@ -241,40 +205,17 @@ margin:10px 0;
 
 
 
-
 .next{
 
-display:block;
-
-margin-top:30px;
-
+display:none;
 background:#5aa2ff;
-
 color:white;
-
-text-align:center;
-
 padding:20px;
-
 border-radius:15px;
-
-text-decoration:none;
-
+text-align:center;
 font-size:20px;
-
 font-weight:bold;
-
-}
-
-
-
-@media(max-width:900px){
-
-.lab-grid{
-
-grid-template-columns:1fr;
-
-}
+text-decoration:none;
 
 }
 
@@ -282,13 +223,12 @@ grid-template-columns:1fr;
 
 </style>
 
+
 </head>
 
 
 
-
 <body>
-
 
 
 <nav>
@@ -316,7 +256,6 @@ DOSSIER
 
 
 
-
 <div class="page">
 
 
@@ -325,13 +264,14 @@ DOSSIER
 
 <div class="terminal">
 
-<p>DOSSIER FORENSIC ANALYSIS SYSTEM</p>
+<p>DOSSIER FORENSIC ANALYSIS TERMINAL</p>
 
 <p>CASE FILE 003 CONNECTED</p>
 
-<p>LABORATORY ACCESS GRANTED</p>
+<p>EVIDENCE REVIEW REQUIRED</p>
 
-<p>ANALYSIS MODULES ONLINE</p>
+<p>LABORATORY MODE ACTIVE</p>
+
 
 </div>
 
@@ -343,13 +283,16 @@ DOSSIER
 
 <div class="header">
 
+
 <p class="label">
 CASE FILE 003
 </p>
 
+
 <h1>
 FORENSIC LABORATORY
 </h1>
+
 
 <p>
 SILENT DOSE
@@ -357,7 +300,7 @@ SILENT DOSE
 
 
 <p class="status">
-● ANALYSIS ACTIVE
+● INVESTIGATION IN PROGRESS
 </p>
 
 
@@ -370,207 +313,75 @@ SILENT DOSE
 
 
 
+<div class="lab-card">
 
-<div class="lab-grid">
-
-
-
-
-
-
-
-<div class="station">
 
 <h2>
-☕ Toxicology Analysis
+Evidence Submitted: Coffee Mug
 </h2>
 
 
 <p>
 
-Evidence:
+Recovered from the dining room table.
 
-Coffee Mug
+The victim was believed to have consumed the beverage shortly before becoming unconscious.
 
-
-<br><br>
-
-Objective:
-
-Determine whether the beverage contained any unknown substances connected to the victim's death.
+Your task is to determine what analysis should be performed and interpret the results.
 
 </p>
 
 
-<button onclick="runAnalysis('tox')">
 
-Run Chemical Analysis
+<h3>
+Available Tests
+</h3>
 
-</button>
 
 
-<div class="progress">
+<div class="option" onclick="selectOption(this,'fingerprint')">
 
-<span id="tox-bar"></span>
+Fingerprint Examination
 
 </div>
 
 
 
-<div class="result" id="tox-result">
+<div class="option" onclick="selectOption(this,'chemical')">
 
-<strong>
-Analysis Complete
-</strong>
-
-
-<p>
-
-Trace compounds detected.
-
-Sample contains a synthetic chemical agent matching the unknown substance found in the victim.
-
-</p>
-
+Chemical Residue Analysis
 
 </div>
 
 
+
+<div class="option" onclick="selectOption(this,'dna')">
+
+DNA Collection
+
+</div>
+
+
+
+<div class="option" onclick="selectOption(this,'none')">
+
+No Further Testing Required
 
 </div>
 
 
 
 
+<button onclick="runTest()">
 
-
-
-
-
-
-<div class="station">
-
-<h2>
-💊 Medication Examination
-</h2>
-
-
-<p>
-
-Evidence:
-
-Medication Bottle
-
-
-<br><br>
-
-Objective:
-
-Compare medication contents against prescription records.
-
-</p>
-
-
-<button onclick="runAnalysis('med')">
-
-Compare Medication
+Submit Analysis Request
 
 </button>
 
 
 
-<div class="progress">
 
-<span id="med-bar"></span>
-
-</div>
-
-
-
-<div class="result" id="med-result">
-
-
-<strong>
-Analysis Complete
-</strong>
-
-
-<p>
-
-Medication contents do not match the original prescription.
-
-Possible substitution occurred before the victim's death.
-
-</p>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="station">
-
-<h2>
-📱 Digital Extraction
-</h2>
-
-
-<p>
-
-Evidence:
-
-Victim Mobile Device
-
-
-<br><br>
-
-Objective:
-
-Recover communications and identify suspicious activity.
-
-</p>
-
-
-<button onclick="runAnalysis('phone')">
-
-Extract Device Data
-
-</button>
-
-
-
-<div class="progress">
-
-<span id="phone-bar"></span>
-
-</div>
-
-
-
-<div class="result" id="phone-result">
-
-
-<strong>
-Extraction Complete
-</strong>
-
-
-<p>
-
-Recovered messages reveal recent communication with a research assistant requesting access to restricted files.
-
-</p>
-
+<div class="result" id="test-result">
 
 
 </div>
@@ -587,100 +398,86 @@ Recovered messages reveal recent communication with a research assistant request
 
 
 
-<div class="station">
-
-<h2>
-📓 Document Analysis
-</h2>
-
-
-<p>
-
-Evidence:
-
-Research Notebook
-
-
-<br><br>
-
-Objective:
-
-Identify research information connected to the incident.
-
-</p>
-
-
-
-<button onclick="runAnalysis('note')">
-
-Scan Notebook
-
-</button>
-
-
-<div class="progress">
-
-<span id="note-bar"></span>
-
-</div>
-
-
-
-
-<div class="result" id="note-result">
-
-
-<strong>
-Document Scan Complete
-</strong>
-
-
-<p>
-
-Notebook references an experimental compound called Project Helix.
-
-Additional investigation required.
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="findings">
+<div class="lab-card" id="interpret" style="display:none;">
 
 
 <h2>
-Detective Findings
+Investigator Assessment
 </h2>
 
 
-<div class="finding">
-✓ Awaiting laboratory discoveries
+
+<p>
+
+The laboratory has returned preliminary findings.
+
+Based on the evidence, what is the most likely explanation?
+
+</p>
+
+
+
+<div class="option" onclick="chooseConclusion(this,'correct')">
+
+The beverage may have been used to deliver an unknown compound.
+
+</div>
+
+
+
+<div class="option" onclick="chooseConclusion(this,'wrong')">
+
+The victim likely died from a normal medical event.
+
+</div>
+
+
+
+<div class="option" onclick="chooseConclusion(this,'wrong')">
+
+The evidence should be ignored because the mug appeared normal.
+
+</div>
+
+
+
+<div class="result" id="final-result">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="notebook">
+
+
+<h2>
+Detective Notebook
+</h2>
+
+
+<div id="clues">
+
+<div class="clue">
+
+No laboratory findings recorded.
+
 </div>
 
 
 </div>
 
 
+</div>
 
 
 
@@ -688,12 +485,13 @@ Detective Findings
 
 
 
-<a class="next" href="interviews.html">
 
-CONTINUE TO WITNESS INTERVIEWS →
+
+<a class="next" id="next" href="interviews.html">
+
+CONTINUE TO INTERVIEWS →
 
 </a>
-
 
 
 
@@ -712,38 +510,163 @@ CONTINUE TO WITNESS INTERVIEWS →
 <script>
 
 
-function runAnalysis(type){
-
-
-let bar =
-document.getElementById(type+"-bar");
-
-
-let result =
-document.getElementById(type+"-result");
+let selectedTest="";
 
 
 
-bar.style.width="0%";
+function selectOption(element,value){
+
+
+document.querySelectorAll(".option").forEach(function(item){
+
+item.classList.remove("selected");
+
+});
+
+
+element.classList.add("selected");
+
+
+selectedTest=value;
+
+
+}
 
 
 
-setTimeout(()=>{
-
-bar.style.width="100%";
-
-},100);
 
 
 
-setTimeout(()=>{
+function runTest(){
+
+
+let result=document.getElementById("test-result");
+
+
+
+if(selectedTest==="chemical"){
 
 
 result.style.display="block";
 
 
-},1500);
+result.innerHTML=`
 
+<p class="correct">
+✓ Correct Analysis Selected
+</p>
+
+<p>
+
+Chemical residue testing detects traces of an unidentified synthetic compound.
+
+The substance is consistent with the compound found during medical examination.
+
+</p>
+
+`;
+
+
+document.getElementById("interpret").style.display="block";
+
+
+document.getElementById("clues").innerHTML=`
+
+<div class="clue">
+
+✓ Unknown synthetic compound detected in beverage sample
+
+</div>
+
+`;
+
+
+
+}
+
+else{
+
+
+result.style.display="block";
+
+
+result.innerHTML=`
+
+<p class="wrong">
+Analysis completed, but this test does not directly answer the primary question.
+</p>
+
+<p>
+
+Investigators should prioritize identifying whether the beverage contained a foreign substance.
+
+</p>
+
+`;
+
+}
+
+
+}
+
+
+
+
+
+
+function chooseConclusion(element,type){
+
+
+let result=document.getElementById("final-result");
+
+
+result.style.display="block";
+
+
+if(type==="correct"){
+
+
+result.innerHTML=`
+
+<p class="correct">
+
+✓ Strong Investigative Conclusion
+
+</p>
+
+<p>
+
+Your conclusion connects the evidence logically.
+
+The beverage is now considered a possible delivery method.
+
+</p>
+
+`;
+
+
+
+document.getElementById("next").style.display="block";
+
+
+}
+
+else{
+
+
+result.innerHTML=`
+
+<p class="wrong">
+
+Incorrect conclusion.
+
+Review the evidence before making assumptions.
+
+</p>
+
+`;
+
+}
 
 
 }
