@@ -5,68 +5,929 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DOSSIER | Case 003 Resolution</title>
 <link rel="stylesheet" href="../style-v2.css">
-<style>
-:root{--bg:#08101d;--panel:#141c2b;--panel2:#1b2537;--border:#2d3b54;--text:#eef3fb;--muted:#aab6cb;--accent:#5aa2ff;--accent2:#7fc2ff;--success:#39d98a;--warning:#ffb454;--danger:#ff7675;--purple:#b595ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0,#18365e 0,#0b1220 42%,#07101d 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}button{font:inherit}.page{max-width:1450px;margin:auto;padding:34px 4% 90px}.panel{background:rgba(20,28,43,.96);border:1px solid var(--border);border-radius:22px;padding:26px;margin-bottom:22px;box-shadow:0 18px 50px rgba(0,0,0,.2)}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:3px;font-weight:900}.muted{color:var(--muted)}.hidden{display:none!important}.action{border:0;border-radius:12px;padding:13px 18px;background:var(--accent);color:#fff;font-weight:900;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px);filter:brightness(1.08)}.action.secondary{background:#26344c}.action.success{background:var(--success);color:#06130d}.action:disabled{opacity:.45;cursor:not-allowed;transform:none}.gate{min-height:70vh;display:grid;place-items:center;text-align:center}.gate-card{max-width:680px}.hero{position:relative;overflow:hidden;padding:42px}.hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(90,162,255,.13);filter:blur(5px);right:-180px;top:-230px}.hero h1{font-size:clamp(42px,7vw,78px);line-height:1;margin:8px 0 14px;letter-spacing:-2px}.status-line{display:flex;gap:12px;flex-wrap:wrap}.chip{border:1px solid var(--border);background:#101a2a;border-radius:999px;padding:8px 12px;font-size:13px}.chip.live{border-color:var(--success);color:#bff5d8}.progress-wrap{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-top:22px}.meter{height:12px;background:#26344c;border-radius:20px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--success));transition:.5s}.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}.sidebar{position:sticky;top:88px}.step{display:flex;gap:12px;padding:13px;border:1px solid var(--border);border-radius:13px;margin-top:10px;background:var(--panel2)}.step span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#26344c;font-weight:900}.step.active{border-color:var(--accent)}.step.done{border-color:var(--success)}.scene{display:none}.scene.active{display:block;animation:fade .35s ease}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.timeline{display:grid;gap:12px;margin:22px 0}.timeline-item{display:grid;grid-template-columns:100px 34px 1fr;gap:14px;align-items:start;padding:15px;border:1px solid var(--border);border-radius:14px;background:var(--panel2);opacity:.42;transition:.35s}.timeline-item.revealed{opacity:1;border-color:var(--accent)}.timeline-item .dot{width:16px;height:16px;border:4px solid var(--accent);border-radius:50%;margin-top:4px}.timeline-item strong{color:var(--accent2)}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:18px}.evidence-card{border:1px solid var(--border);background:var(--panel2);border-radius:16px;padding:18px;cursor:pointer;transition:.2s}.evidence-card:hover{transform:translateY(-3px);border-color:var(--accent)}.evidence-card.open{border-color:var(--success);background:rgba(57,217,138,.06)}.evidence-detail{display:none;margin-top:12px;border-top:1px solid var(--border);padding-top:12px}.evidence-card.open .evidence-detail{display:block}.tag{display:inline-block;padding:5px 9px;background:#26344c;border-radius:20px;font-size:12px;margin:4px 5px 0 0}.replay-grid{display:grid;grid-template-columns:1fr 70px 1fr;gap:14px;align-items:center;margin-top:18px}.quote,.proof{border:1px solid var(--border);background:var(--panel2);border-radius:15px;padding:18px}.arrow{text-align:center;font-size:30px;color:var(--danger)}.contradiction{display:none;border-left:4px solid var(--danger);padding:12px 14px;background:rgba(255,118,117,.08);border-radius:10px;margin-top:12px}.contradiction.show{display:block}.reconstruction{position:relative;min-height:330px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(180deg,#101a2a,#0b1322);overflow:hidden;margin-top:18px;padding:24px}.room{position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.5%,rgba(255,255,255,.04) 50%,transparent 50.5%)}.actor{position:absolute;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:34px;border:2px solid var(--border);background:#1c2a40;transition:1s}.actor.daniel{left:8%;top:54%}.actor.eleanor{right:12%;top:54%}.actor.moved{left:55%;top:20%}.object{position:absolute;padding:10px 13px;border:1px solid var(--border);border-radius:12px;background:#17243a;transition:1s}.locker{left:42%;top:15%}.mug{right:28%;bottom:22%}.caption{position:absolute;left:24px;right:24px;bottom:18px;background:rgba(7,16,29,.9);border:1px solid var(--border);border-radius:12px;padding:12px}.dialogue{border:1px solid var(--border);background:#0f1929;border-radius:16px;padding:20px;min-height:150px;margin-top:16px}.speaker{color:var(--accent2);font-weight:900;letter-spacing:1px}.dialogue-text{font-size:19px}.choice-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.choice{border:1px solid var(--border);background:#26344c;color:white;border-radius:11px;padding:11px 14px;cursor:pointer}.choice:hover{border-color:var(--accent)}.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.score-box{background:var(--panel2);border:1px solid var(--border);border-radius:15px;padding:18px;text-align:center}.score-box b{display:block;font-size:34px;color:var(--accent2)}.rank{font-size:clamp(34px,6vw,62px);font-weight:950;color:var(--success);text-align:center;margin:18px}.stamp{display:inline-block;border:5px solid var(--success);color:var(--success);padding:13px 23px;font-size:30px;font-weight:950;letter-spacing:3px;transform:rotate(-3deg)}.center{text-align:center}.toast{position:fixed;right:22px;bottom:22px;z-index:9999;background:#101826;border:1px solid var(--accent);border-radius:12px;padding:14px 18px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:none}@media(max-width:950px){.layout{grid-template-columns:1fr}.sidebar{position:static}.score-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.page{padding:20px 14px}.panel,.hero{padding:20px}.evidence-grid,.score-grid{grid-template-columns:1fr}.replay-grid{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.timeline-item{grid-template-columns:78px 22px 1fr}.hero h1{letter-spacing:-1px}}
-</style>
 <link rel="stylesheet" href="case003-system.css">
+<style>
+:root{
+  --bg:#07101d;--panel:#141c2b;--panel2:#1b2537;--panel3:#101a2a;
+  --border:#2d3b54;--text:#eef3fb;--muted:#aab6cb;--accent:#5aa2ff;
+  --accent2:#7fc2ff;--success:#39d98a;--warning:#ffb454;--danger:#ff7675;
+  --purple:#b595ff;--shadow:0 22px 70px rgba(0,0,0,.28)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 92% 0,#183a65 0,#0b1220 42%,#07101d 100%);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  line-height:1.65
+}
+button,select{font:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid rgba(127,194,255,.5);outline-offset:3px}
+.page{max-width:1480px;margin:auto;padding:34px 4% 90px}
+.panel{
+  background:rgba(20,28,43,.96);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:var(--shadow)
+}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:3px;font-weight:900}
+.muted{color:var(--muted)}
+.hidden{display:none!important}
+.action{
+  border:0;border-radius:12px;padding:13px 18px;background:var(--accent);
+  color:#fff;font-weight:900;cursor:pointer;transition:.2s
+}
+.action:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.action.secondary{background:#26344c}
+.action.success{background:var(--success);color:#06130d}
+.action.danger{background:#a5424a}
+.action:disabled{opacity:.42;cursor:not-allowed;transform:none;filter:none}
+.hero{position:relative;overflow:hidden;padding:44px}
+.hero:before{
+  content:"";position:absolute;width:460px;height:460px;border-radius:50%;
+  background:rgba(90,162,255,.13);right:-190px;top:-250px
+}
+.hero h1{font-size:clamp(42px,7vw,78px);line-height:1;margin:8px 0 14px;letter-spacing:-2px}
+.status-line{display:flex;gap:12px;flex-wrap:wrap}
+.chip{border:1px solid var(--border);background:#101a2a;border-radius:999px;padding:8px 12px;font-size:13px}
+.chip.live{border-color:var(--success);color:#bff5d8}
+.progress-wrap{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-top:24px}
+.meter{height:12px;background:#26344c;border-radius:20px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--success));transition:.5s}
+.layout{display:grid;grid-template-columns:285px minmax(0,1fr);gap:22px;align-items:start}
+.sidebar{position:sticky;top:88px}
+.step{
+  display:flex;gap:12px;padding:13px;border:1px solid var(--border);
+  border-radius:13px;margin-top:10px;background:var(--panel2);transition:.2s
+}
+.step span{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#26344c;font-weight:900}
+.step.active{border-color:var(--accent);box-shadow:0 0 0 2px rgba(90,162,255,.1)}
+.step.done{border-color:var(--success)}
+.scene{display:none}
+.scene.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.timeline{display:grid;gap:12px;margin:22px 0}
+.timeline-item{
+  display:grid;grid-template-columns:100px 34px 1fr;gap:14px;align-items:start;
+  padding:15px;border:1px solid var(--border);border-radius:14px;background:var(--panel2);
+  opacity:.38;transform:translateX(-8px);transition:.35s
+}
+.timeline-item.revealed{opacity:1;transform:none;border-color:var(--accent)}
+.timeline-item .dot{width:16px;height:16px;border:4px solid var(--accent);border-radius:50%;margin-top:4px}
+.timeline-item strong{color:var(--accent2)}
+.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:18px}
+.evidence-card{
+  border:1px solid var(--border);background:var(--panel2);border-radius:16px;
+  padding:18px;cursor:pointer;transition:.2s
+}
+.evidence-card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.evidence-card.open{border-color:var(--success);background:rgba(57,217,138,.06)}
+.evidence-detail{display:none;margin-top:12px;border-top:1px solid var(--border);padding-top:12px}
+.evidence-card.open .evidence-detail{display:block}
+.tag{display:inline-block;padding:5px 9px;background:#26344c;border-radius:20px;font-size:12px;margin:4px 5px 0 0}
+.replay-grid{display:grid;grid-template-columns:1fr 70px 1fr;gap:14px;align-items:center;margin-top:18px}
+.quote,.proof{border:1px solid var(--border);background:var(--panel2);border-radius:15px;padding:18px}
+.arrow{text-align:center;font-size:30px;color:var(--danger)}
+.contradiction{
+  display:none;border-left:4px solid var(--danger);padding:12px 14px;
+  background:rgba(255,118,117,.08);border-radius:10px;margin-top:12px
+}
+.contradiction.show{display:block}
+.choice-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.choice{
+  border:1px solid var(--border);background:#26344c;color:white;
+  border-radius:11px;padding:11px 14px;cursor:pointer;transition:.2s
+}
+.choice:hover{border-color:var(--accent);transform:translateY(-1px)}
+.dialogue{border:1px solid var(--border);background:#0f1929;border-radius:16px;padding:20px;min-height:150px;margin-top:16px}
+.speaker{color:var(--accent2);font-weight:900;letter-spacing:1px}
+.dialogue-text{font-size:19px}
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}
+.score-box{background:var(--panel2);border:1px solid var(--border);border-radius:15px;padding:18px;text-align:center}
+.score-box b{display:block;font-size:34px;color:var(--accent2)}
+.rank{font-size:clamp(34px,6vw,62px);font-weight:950;color:var(--success);text-align:center;margin:18px}
+.stamp{display:inline-block;border:5px solid var(--success);color:var(--success);padding:13px 23px;font-size:30px;font-weight:950;letter-spacing:3px;transform:rotate(-3deg)}
+.center{text-align:center}
+.toast{
+  position:fixed;right:22px;bottom:22px;z-index:9999;background:#101826;
+  border:1px solid var(--accent);border-radius:12px;padding:14px 18px;
+  opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none
+}
+.toast.show{opacity:1;transform:none}
+
+/* RECONSTRUCTION REDESIGN */
+.recon-shell{
+  display:grid;grid-template-columns:minmax(0,1.6fr) minmax(310px,.8fr);
+  gap:18px;margin-top:20px
+}
+.recon-stage{
+  position:relative;min-height:610px;border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;background:
+  linear-gradient(180deg,rgba(10,19,34,.5),rgba(7,14,26,.95)),
+  radial-gradient(circle at 50% 20%,rgba(90,162,255,.12),transparent 45%)
+}
+.scene-map{
+  position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;gap:1px;background:var(--border)
+}
+.zone{
+  position:relative;background:linear-gradient(145deg,#101a2a,#0c1524);
+  padding:22px;overflow:hidden;transition:.45s
+}
+.zone:after{
+  content:"";position:absolute;inset:0;background:rgba(90,162,255,.08);
+  opacity:0;transition:.35s;pointer-events:none
+}
+.zone.active-zone{box-shadow:inset 0 0 0 2px var(--accent)}
+.zone.active-zone:after{opacity:1}
+.zone.complete-zone{box-shadow:inset 0 0 0 2px var(--success)}
+.zone-label{display:flex;align-items:center;gap:9px;color:var(--accent2);font-weight:900}
+.zone-time{font-size:12px;color:var(--muted);letter-spacing:1.5px;margin-top:5px}
+.zone-detail{font-size:14px;color:var(--muted);max-width:290px;margin-top:12px}
+.actor-token{
+  position:absolute;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;
+  border:2px solid var(--accent);background:#1d2d47;font-size:24px;font-weight:950;
+  box-shadow:0 0 0 8px rgba(90,162,255,.08),0 16px 35px rgba(0,0,0,.35);
+  left:18%;top:20%;z-index:8;transition:1s cubic-bezier(.22,.8,.25,1)
+}
+.actor-token.at-storage{left:64%;top:18%}
+.actor-token.at-residence{left:18%;top:63%}
+.actor-token.at-table{left:59%;top:64%}
+.evidence-node{
+  position:absolute;z-index:7;border:1px solid var(--border);background:#15243a;
+  border-radius:12px;padding:9px 12px;font-size:13px;font-weight:800;
+  opacity:.28;transform:scale(.92);transition:.4s;cursor:pointer
+}
+.evidence-node.visible{opacity:1;transform:scale(1);border-color:var(--accent)}
+.evidence-node.verified{border-color:var(--success);background:rgba(57,217,138,.12)}
+#nodeAccess{left:56%;top:12%}
+#nodeVial{left:72%;top:34%}
+#nodeCall{left:9%;top:54%}
+#nodeMug{left:63%;top:74%}
+#nodePhone{left:38%;top:88%}
+.recon-overlay{
+  position:absolute;left:18px;right:18px;bottom:18px;z-index:15;
+  background:rgba(7,14,26,.94);border:1px solid var(--border);
+  border-radius:15px;padding:16px;backdrop-filter:blur(8px)
+}
+.recon-overlay strong{color:var(--accent2)}
+.recon-side{display:grid;gap:14px;align-content:start}
+.recon-card{border:1px solid var(--border);background:var(--panel2);border-radius:16px;padding:18px}
+.recon-progress{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:14px 0}
+.recon-progress span{height:7px;background:#26344c;border-radius:999px;transition:.3s}
+.recon-progress span.done{background:var(--success)}
+.step-list{display:grid;gap:9px}
+.step-log{
+  border:1px solid var(--border);border-radius:11px;padding:11px;
+  background:#111c2d;color:var(--muted);opacity:.45;transition:.3s
+}
+.step-log.active{opacity:1;border-color:var(--accent);color:var(--text)}
+.step-log.done{opacity:1;border-color:var(--success);color:#c5f6dc}
+.recon-evidence{
+  display:none;border-top:1px solid var(--border);margin-top:12px;padding-top:12px
+}
+.recon-evidence.show{display:block}
+.decision-box{border:1px solid var(--warning);background:rgba(255,180,84,.07);border-radius:15px;padding:17px}
+.decision-options{display:grid;gap:9px;margin-top:12px}
+.decision-option{
+  border:1px solid var(--border);background:#17243a;color:white;
+  border-radius:11px;padding:11px;text-align:left;cursor:pointer
+}
+.decision-option:hover{border-color:var(--accent)}
+.decision-option.correct{border-color:var(--success);background:rgba(57,217,138,.1)}
+.decision-option.wrong{border-color:var(--danger);background:rgba(255,118,117,.1)}
+.recon-summary{
+  display:none;margin-top:18px;border:1px solid var(--success);
+  background:linear-gradient(135deg,rgba(57,217,138,.09),rgba(90,162,255,.08));
+  border-radius:18px;padding:22px
+}
+.recon-summary.show{display:block;animation:fade .4s ease}
+.chain{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:center;margin-top:16px
+}
+.chain-node{
+  border:1px solid var(--border);border-radius:12px;padding:12px;text-align:center;background:#101a2a
+}
+.chain-arrow{text-align:center;color:var(--accent);font-size:20px}
+.confidence-big{font-size:54px;font-weight:950;color:var(--success)}
+.gate{min-height:70vh;display:grid;place-items:center;text-align:center}
+.gate-card{max-width:680px}
+@media(max-width:1050px){
+  .layout{grid-template-columns:1fr}.sidebar{position:static}
+  .recon-shell{grid-template-columns:1fr}.recon-stage{min-height:560px}
+}
+@media(max-width:700px){
+  .page{padding:20px 14px}.panel,.hero{padding:20px}
+  .evidence-grid,.score-grid{grid-template-columns:1fr}
+  .replay-grid{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}
+  .timeline-item{grid-template-columns:78px 22px 1fr}.hero h1{letter-spacing:-1px}
+  .recon-stage{min-height:720px}.scene-map{grid-template-columns:1fr;grid-template-rows:repeat(4,1fr)}
+  .actor-token{left:72%;top:8%}.actor-token.at-storage{left:72%;top:31%}
+  .actor-token.at-residence{left:72%;top:55%}.actor-token.at-table{left:72%;top:78%}
+  #nodeAccess{left:8%;top:28%}#nodeVial{left:8%;top:39%}#nodeCall{left:8%;top:51%}
+  #nodeMug{left:8%;top:73%}#nodePhone{left:8%;top:84%}
+  .chain{grid-template-columns:1fr}.chain-arrow{transform:rotate(90deg)}
+}
+</style>
 </head>
 <body>
-<nav><div class="logo">DOSSIER</div><div class="nav-links"><a href="../index.html">Home</a><a href="../casefiles.html">Case Files</a><a href="investigation-board.html">Board</a></div></nav>
-<div id="lockedGate" class="page gate hidden"><div class="panel gate-card"><p class="eyebrow">ACCESS RESTRICTED</p><h1>Case Resolution Locked</h1><p class="muted">Complete the Investigation Board and obtain an approved warrant before opening the final reconstruction.</p><a class="action" href="investigation-board.html">Return to Investigation Board</a></div></div>
+<nav>
+  <div class="logo">DOSSIER</div>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../casefiles.html">Case Files</a>
+    <a href="investigation-board.html">Board</a>
+  </div>
+</nav>
+
+<div id="lockedGate" class="page gate hidden">
+  <div class="panel gate-card">
+    <p class="eyebrow">ACCESS RESTRICTED</p>
+    <h1>Case Resolution Locked</h1>
+    <p class="muted">Complete the Investigation Board and obtain an approved warrant before opening the final reconstruction.</p>
+    <a class="action" href="investigation-board.html">Return to Investigation Board</a>
+  </div>
+</div>
+
 <div id="resolutionApp" class="page hidden">
-<header class="panel hero"><p class="eyebrow">CASE FILE 003 · SILENT DOSE</p><h1>CASE RESOLUTION</h1><p>Review the complete chain of evidence, reconstruct the incident, confront the primary suspect, and close the investigation.</p><div class="status-line"><span class="chip live">● WARRANT APPROVED</span><span class="chip">PRIMARY SUSPECT: DANIEL BROOKS</span><span class="chip">CLASSIFICATION: HOMICIDE</span></div><div class="progress-wrap"><div class="meter"><div class="fill" id="chapterBar"></div></div><strong id="chapterPercent">0%</strong></div></header>
+<header class="panel hero">
+  <p class="eyebrow">CASE FILE 003 · SILENT DOSE</p>
+  <h1>CASE RESOLUTION</h1>
+  <p>Review the complete chain of evidence, reconstruct the incident, confront the primary suspect, and close the investigation.</p>
+  <div class="status-line">
+    <span class="chip live">● WARRANT APPROVED</span>
+    <span class="chip">PRIMARY SUSPECT: DANIEL BROOKS</span>
+    <span class="chip">CLASSIFICATION: HOMICIDE</span>
+  </div>
+  <div class="progress-wrap">
+    <div class="meter"><div class="fill" id="chapterBar"></div></div>
+    <strong id="chapterPercent">0%</strong>
+  </div>
+</header>
+
 <div class="layout">
-<aside class="panel sidebar"><p class="eyebrow">FINAL CHAPTER</p><h2>Resolution Sequence</h2><div id="step1" class="step active"><span>1</span><div><b>Chronology</b><br><small>Reconstruct the night.</small></div></div><div id="step2" class="step"><span>2</span><div><b>Evidence Review</b><br><small>Explain every clue.</small></div></div><div id="step3" class="step"><span>3</span><div><b>Contradictions</b><br><small>Expose the lies.</small></div></div><div id="step4" class="step"><span>4</span><div><b>Reconstruction</b><br><small>Replay the incident.</small></div></div><div id="step5" class="step"><span>5</span><div><b>Confrontation</b><br><small>Obtain the truth.</small></div></div><div id="step6" class="step"><span>6</span><div><b>Case Closure</b><br><small>Receive your rank.</small></div></div><hr style="border-color:var(--border);margin:20px 0"><p class="muted">Finale progress is saved automatically.</p><button class="action secondary" onclick="restartResolution()">Restart Finale</button></aside>
+<aside class="panel sidebar">
+  <p class="eyebrow">FINAL CHAPTER</p>
+  <h2>Resolution Sequence</h2>
+  <div id="step1" class="step active"><span>1</span><div><b>Chronology</b><br><small>Reconstruct the night.</small></div></div>
+  <div id="step2" class="step"><span>2</span><div><b>Evidence Review</b><br><small>Explain every clue.</small></div></div>
+  <div id="step3" class="step"><span>3</span><div><b>Contradictions</b><br><small>Expose the lies.</small></div></div>
+  <div id="step4" class="step"><span>4</span><div><b>Reconstruction</b><br><small>Replay and verify the incident.</small></div></div>
+  <div id="step5" class="step"><span>5</span><div><b>Confrontation</b><br><small>Obtain the truth.</small></div></div>
+  <div id="step6" class="step"><span>6</span><div><b>Case Closure</b><br><small>Receive your rank.</small></div></div>
+  <hr style="border-color:var(--border);margin:20px 0">
+  <p class="muted">Finale progress is saved automatically.</p>
+  <button class="action secondary" onclick="restartResolution()">Restart Finale</button>
+</aside>
+
 <main>
-<section id="scene1" class="panel scene active"><p class="eyebrow">SEQUENCE 01</p><h2>Verified Chronology</h2><p class="muted">Reveal each event to reconstruct the critical 92 minutes between Dr. Hayes leaving the university and the emergency call.</p><div id="timeline" class="timeline"></div><button id="revealTimelineBtn" class="action" onclick="revealNextTimeline()">Reveal Next Event</button><button id="continue1" class="action success hidden" onclick="goToScene(2)">Evidence Review →</button></section>
-<section id="scene2" class="panel scene"><p class="eyebrow">SEQUENCE 02</p><h2>Evidence Explained</h2><p class="muted">Open all six records. Each one answers a different part of means, motive, opportunity, or concealment.</p><div id="evidenceGrid" class="evidence-grid"></div><div id="evidenceStatus" class="panel" style="margin-top:18px;padding:16px">0 of 6 evidence records reviewed.</div><button id="continue2" class="action success hidden" onclick="goToScene(3)">Review Contradictions →</button></section>
-<section id="scene3" class="panel scene"><p class="eyebrow">SEQUENCE 03</p><h2>Interview Contradiction Replay</h2><p class="muted">Use the evidence reveal button on each statement to expose why Daniel's account failed.</p><div id="contradictionList"></div><button id="continue3" class="action success hidden" onclick="goToScene(4)">Reconstruct Incident →</button></section>
-<section id="scene4" class="panel scene"><p class="eyebrow">SEQUENCE 04</p><h2>Incident Reconstruction</h2><p class="muted">Advance through the forensic reconstruction to see how the evidence fits together.</p><div class="reconstruction"><div class="room"></div><div id="danielActor" class="actor daniel">DB</div><div class="actor eleanor">EH</div><div class="object locker">🔐 Restricted Storage</div><div class="object mug">☕ Coffee Mug</div><div id="reconCaption" class="caption">Ready to begin reconstruction.</div></div><div class="choice-row"><button id="reconBtn" class="action" onclick="advanceReconstruction()">Begin Reconstruction</button><button id="continue4" class="action success hidden" onclick="goToScene(5)">Confront Daniel →</button></div></section>
-<section id="scene5" class="panel scene"><p class="eyebrow">SEQUENCE 05</p><h2>Final Confrontation</h2><p class="muted">Present the strongest evidence in the correct order. Daniel will only confess when the case is made logically.</p><div class="dialogue"><div class="speaker" id="speaker">DANIEL BROOKS</div><p class="dialogue-text" id="dialogueText">You have a warrant, but you still cannot prove I harmed Dr. Hayes.</p></div><div id="choiceRow" class="choice-row"></div><div id="confrontFeedback" class="panel" style="margin-top:14px;padding:15px">Select the evidence that first proves Daniel had opportunity.</div><button id="continue5" class="action success hidden" onclick="goToScene(6)">Close Case →</button></section>
-<section id="scene6" class="panel scene center"><p class="eyebrow">SEQUENCE 06</p><h2>Investigation Complete</h2><div class="stamp">CASE SOLVED</div><p>Daniel Brooks used his laboratory access to remove an experimental compound associated with Project Helix. He entered the victim's residence under a work-related pretext, introduced the compound into her coffee, and deleted communications intended to expose his attempted transfer of research files.</p><div class="score-grid"><div class="score-box"><span>Evidence</span><b id="scoreEvidence">0</b><small>/100</small></div><div class="score-box"><span>Interviews</span><b id="scoreInterview">0</b><small>/100</small></div><div class="score-box"><span>Deduction</span><b id="scoreDeduction">0</b><small>/100</small></div><div class="score-box"><span>Accuracy</span><b id="scoreAccuracy">0</b><small>/100</small></div></div><p class="muted">FINAL INVESTIGATOR RANK</p><div class="rank" id="rankText">CALCULATING...</div><p id="scoreSummary"></p><button class="action success" onclick="completeCase()">Archive CASE 003 & View Certificate →</button></section>
-</main></div></div><div id="toast" class="toast"></div>
+<section id="scene1" class="panel scene active">
+  <p class="eyebrow">SEQUENCE 01</p>
+  <h2>Verified Chronology</h2>
+  <p class="muted">Reveal each event to reconstruct the critical 92 minutes between Dr. Hayes leaving the university and the emergency call.</p>
+  <div id="timeline" class="timeline"></div>
+  <button id="revealTimelineBtn" class="action" onclick="revealNextTimeline()">Reveal Next Event</button>
+  <button id="continue1" class="action success hidden" onclick="goToScene(2)">Evidence Review →</button>
+</section>
+
+<section id="scene2" class="panel scene">
+  <p class="eyebrow">SEQUENCE 02</p>
+  <h2>Evidence Explained</h2>
+  <p class="muted">Open all six records. Each one answers a different part of means, motive, opportunity, or concealment.</p>
+  <div id="evidenceGrid" class="evidence-grid"></div>
+  <div id="evidenceStatus" class="panel" style="margin-top:18px;padding:16px">0 of 6 evidence records reviewed.</div>
+  <button id="continue2" class="action success hidden" onclick="goToScene(3)">Review Contradictions →</button>
+</section>
+
+<section id="scene3" class="panel scene">
+  <p class="eyebrow">SEQUENCE 03</p>
+  <h2>Interview Contradiction Replay</h2>
+  <p class="muted">Expose how Daniel's statements conflict with the verified records.</p>
+  <div id="contradictionList"></div>
+  <button id="continue3" class="action success hidden" onclick="goToScene(4)">Reconstruct Incident →</button>
+</section>
+
+<section id="scene4" class="panel scene">
+  <p class="eyebrow">SEQUENCE 04</p>
+  <h2>Interactive Incident Reconstruction</h2>
+  <p class="muted">Advance through six verified phases. Inspect the evidence at each phase and answer the reconstruction question before the next event unlocks.</p>
+
+  <div class="recon-shell">
+    <div class="recon-stage">
+      <div class="scene-map">
+        <div class="zone" id="zoneLab">
+          <div class="zone-label">🏢 University Laboratory</div>
+          <div class="zone-time">6:40 PM · DEPARTURE</div>
+          <div class="zone-detail">Dr. Hayes leaves after recording concerns about unauthorized Project Helix access.</div>
+        </div>
+        <div class="zone" id="zoneStorage">
+          <div class="zone-label">🔐 Restricted Storage</div>
+          <div class="zone-time">7:18 PM · ACCESS EVENT</div>
+          <div class="zone-detail">Credential telemetry records Daniel entering the compound storage room.</div>
+        </div>
+        <div class="zone" id="zoneResidence">
+          <div class="zone-label">🏠 14 Willow Crescent</div>
+          <div class="zone-time">7:31 PM · ARRIVAL</div>
+          <div class="zone-detail">Daniel arrives under the pretext of an urgent Project Helix discussion.</div>
+        </div>
+        <div class="zone" id="zoneDining">
+          <div class="zone-label">☕ Dining Room</div>
+          <div class="zone-time">7:42–7:48 PM · POISONING AND CONCEALMENT</div>
+          <div class="zone-detail">The compound enters the coffee. The transfer discussion is later deleted.</div>
+        </div>
+      </div>
+
+      <div id="reconActor" class="actor-token">DB</div>
+      <button id="nodeAccess" class="evidence-node" onclick="inspectReconEvidence('access')">🔐 Access Log</button>
+      <button id="nodeVial" class="evidence-node" onclick="inspectReconEvidence('vial')">🧪 Compound Sample</button>
+      <button id="nodeCall" class="evidence-node" onclick="inspectReconEvidence('call')">📞 7:05 PM Call</button>
+      <button id="nodeMug" class="evidence-node" onclick="inspectReconEvidence('mug')">☕ Coffee Mug</button>
+      <button id="nodePhone" class="evidence-node" onclick="inspectReconEvidence('phone')">📱 Deleted Thread</button>
+
+      <div class="recon-overlay">
+        <strong id="reconTitle">Reconstruction ready</strong>
+        <div id="reconCaption">Select “Begin Phase 1” to start the evidence-supported replay.</div>
+      </div>
+    </div>
+
+    <div class="recon-side">
+      <div class="recon-card">
+        <p class="eyebrow">RECONSTRUCTION STATUS</p>
+        <div class="recon-progress" id="reconProgress">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="step-list" id="reconStepList"></div>
+      </div>
+
+      <div class="recon-card">
+        <p class="eyebrow">ACTIVE EVIDENCE</p>
+        <h3 id="activeEvidenceTitle">No record selected</h3>
+        <p class="muted" id="activeEvidenceText">Evidence nodes become clickable as each phase unlocks.</p>
+        <div class="recon-evidence" id="activeEvidenceDetail"></div>
+      </div>
+
+      <div class="decision-box" id="decisionBox">
+        <p class="eyebrow">INVESTIGATOR DECISION</p>
+        <h3 id="decisionQuestion">Begin the reconstruction to receive the first question.</h3>
+        <div class="decision-options" id="decisionOptions"></div>
+        <p class="muted" id="decisionFeedback">Every phase must be verified before the confrontation unlocks.</p>
+      </div>
+
+      <button id="reconAdvance" class="action" onclick="beginOrAdvanceRecon()">Begin Phase 1</button>
+    </div>
+  </div>
+
+  <div class="recon-summary" id="reconSummary">
+    <div class="confidence-big">97.6%</div>
+    <h3>Reconstruction Confidence</h3>
+    <p>The chemical source, access telemetry, phone metadata, coffee toxicology, and interview contradictions support one coherent sequence.</p>
+    <div class="chain">
+      <div class="chain-node">🔐 Access</div><div class="chain-arrow">→</div>
+      <div class="chain-node">🧪 Compound</div><div class="chain-arrow">→</div>
+      <div class="chain-node">☕ Delivery</div><div class="chain-arrow">→</div>
+      <div class="chain-node">📱 Concealment</div><div class="chain-arrow">→</div>
+      <div class="chain-node">🗣 Contradictions</div>
+    </div>
+  </div>
+
+  <div class="choice-row">
+    <button id="continue4" class="action success hidden" onclick="goToScene(5)">Confront Daniel →</button>
+  </div>
+</section>
+
+<section id="scene5" class="panel scene">
+  <p class="eyebrow">SEQUENCE 05</p>
+  <h2>Final Confrontation</h2>
+  <p class="muted">Present the strongest evidence in the correct order. Daniel will only confess when the case is made logically.</p>
+  <div class="dialogue">
+    <div class="speaker" id="speaker">DANIEL BROOKS</div>
+    <p class="dialogue-text" id="dialogueText">You have a warrant, but you still cannot prove I harmed Dr. Hayes.</p>
+  </div>
+  <div id="choiceRow" class="choice-row"></div>
+  <div id="confrontFeedback" class="panel" style="margin-top:14px;padding:15px">Select the evidence that first proves Daniel had opportunity.</div>
+  <button id="continue5" class="action success hidden" onclick="goToScene(6)">Close Case →</button>
+</section>
+
+<section id="scene6" class="panel scene center">
+  <p class="eyebrow">SEQUENCE 06</p>
+  <h2>Investigation Complete</h2>
+  <div class="stamp">CASE SOLVED</div>
+  <p>Daniel Brooks used his laboratory access to remove an experimental compound associated with Project Helix. He entered the victim's residence under a work-related pretext, introduced the compound into her coffee, and deleted communications intended to expose his attempted transfer of research files.</p>
+  <div class="score-grid">
+    <div class="score-box"><span>Evidence</span><b id="scoreEvidence">0</b><small>/100</small></div>
+    <div class="score-box"><span>Interviews</span><b id="scoreInterview">0</b><small>/100</small></div>
+    <div class="score-box"><span>Deduction</span><b id="scoreDeduction">0</b><small>/100</small></div>
+    <div class="score-box"><span>Accuracy</span><b id="scoreAccuracy">0</b><small>/100</small></div>
+  </div>
+  <p class="muted">FINAL INVESTIGATOR RANK</p>
+  <div class="rank" id="rankText">CALCULATING...</div>
+  <p id="scoreSummary"></p>
+  <button class="action success" onclick="completeCase()">Archive CASE 003 & View Certificate →</button>
+</section>
+</main>
+</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
 <script>
-const timelineData=[['6:40 PM','Dr. Eleanor Hayes leaves the university laboratory after documenting concerns about Project Helix.'],['7:05 PM','Daniel contacts Dr. Hayes and requests a private conversation about the project.'],['7:18 PM','Daniel’s credential opens restricted compound storage.'],['7:31 PM','Daniel arrives at 14 Willow Crescent under a work-related pretext.'],['7:42 PM','Dr. Hayes consumes coffee containing the experimental compound.'],['7:48 PM','Messages connected to the transfer discussion are deleted from her phone.'],['8:12 PM','Emergency services receive the 911 call.']];
+const timelineData=[
+  ['6:40 PM','Dr. Eleanor Hayes leaves the university laboratory after documenting concerns about Project Helix.'],
+  ['7:05 PM','Daniel contacts Dr. Hayes and requests a private conversation about the project.'],
+  ['7:18 PM','Daniel’s credential opens restricted compound storage.'],
+  ['7:31 PM','Daniel arrives at 14 Willow Crescent under a work-related pretext.'],
+  ['7:42 PM','Dr. Hayes consumes coffee containing the experimental compound.'],
+  ['7:48 PM','Messages connected to the transfer discussion are deleted from her phone.'],
+  ['8:12 PM','Emergency services receive the 911 call.']
+];
+
 const evidenceData=[
-{icon:'☕',title:'Coffee Mug',tag:'Cause',summary:'Trace compound was recovered from the remaining beverage.',detail:'The mug established the delivery method. The compound was dissolved in the coffee shortly before Dr. Hayes became unconscious.'},
-{icon:'🧪',title:'Impurity Profile',tag:'Source',summary:'The batch matched small-scale university equipment.',detail:'The chemical signature excluded ordinary medication and industrial production. It pointed to research-grade equipment available in the university laboratory.'},
-{icon:'🔐',title:'Access Log',tag:'Opportunity',summary:'Daniel’s credential entered storage at 7:18 PM.',detail:'This timestamp disproved Daniel’s claim that he left before 6:30 PM and placed him at the exact location where the compound was stored.'},
-{icon:'📱',title:'Deleted Messages',tag:'Concealment',summary:'A transfer discussion was removed at 7:48 PM.',detail:'Recovered metadata showed a conversation about moving Project Helix material. Deletion occurred after the poisoning and demonstrated deliberate concealment.'},
-{icon:'📄',title:'Compliance Report',tag:'Motive',summary:'Daniel offered accelerated access to Helix files.',detail:'The report established financial and career motive. Dr. Hayes intended to stop and report the unauthorized transfer.'},
-{icon:'📓',title:'Research Notebook',tag:'Intent',summary:'The victim documented concerns about unauthorized access.',detail:'Dr. Hayes recorded that a member of the research team had pressured her to release restricted work. Her notes explain why the confrontation occurred that evening.'}
+  {icon:'☕',title:'Coffee Mug',tag:'Cause',summary:'Trace compound was recovered from the remaining beverage.',detail:'The mug established the delivery method. The compound was dissolved in the coffee shortly before Dr. Hayes became unconscious.'},
+  {icon:'🧪',title:'Impurity Profile',tag:'Source',summary:'The batch matched small-scale university equipment.',detail:'The chemical signature excluded ordinary medication and industrial production. It pointed to research-grade equipment available in the university laboratory.'},
+  {icon:'🔐',title:'Access Log',tag:'Opportunity',summary:'Daniel’s credential entered storage at 7:18 PM.',detail:'This timestamp disproved Daniel’s claim that he left before 6:30 PM and placed him at the exact location where the compound was stored.'},
+  {icon:'📱',title:'Deleted Messages',tag:'Concealment',summary:'A transfer discussion was removed at 7:48 PM.',detail:'Recovered metadata showed a conversation about moving Project Helix material. Deletion occurred after the poisoning and demonstrated deliberate concealment.'},
+  {icon:'📄',title:'Compliance Report',tag:'Motive',summary:'Daniel offered accelerated access to Helix files.',detail:'The report established financial and career motive. Dr. Hayes intended to stop and report the unauthorized transfer.'},
+  {icon:'📓',title:'Research Notebook',tag:'Intent',summary:'The victim documented concerns about unauthorized access.',detail:'Dr. Hayes recorded that a member of the research team had pressured her to release restricted work. Her notes explain why the confrontation occurred that evening.'}
 ];
+
 const contradictionData=[
-{quote:'“I left the laboratory before 6:30 PM.”',proof:'Access log: Daniel’s credential entered restricted storage at 7:18 PM.',finding:'Daniel lied about his location and opportunity.'},
-{quote:'“I never accessed the restricted compound storage.”',proof:'Permission records and door telemetry identify Daniel’s authorized credential.',finding:'Daniel had both access and technical knowledge.'},
-{quote:'“I had no conversations about selling Project Helix.”',proof:'Compliance report and recovered message metadata document an attempted transfer.',finding:'Daniel concealed a motive tied to the research files.'}
+  {quote:'“I left the laboratory before 6:30 PM.”',proof:'Access log: Daniel’s credential entered restricted storage at 7:18 PM.',finding:'Daniel lied about his location and opportunity.'},
+  {quote:'“I never accessed the restricted compound storage.”',proof:'Permission records and door telemetry identify Daniel’s authorized credential.',finding:'Daniel had both access and technical knowledge.'},
+  {quote:'“I had no conversations about selling Project Helix.”',proof:'Compliance report and recovered message metadata document an attempted transfer.',finding:'Daniel concealed a motive tied to the research files.'}
 ];
-const reconSteps=['At 7:18 PM, Daniel uses his credential to enter restricted storage and removes a small quantity of the experimental compound.','He travels to Dr. Hayes’s residence and frames the visit as an urgent Project Helix discussion.','During the conversation, the compound is introduced into the coffee prepared for Dr. Hayes.','After symptoms begin, Daniel deletes the transfer discussion from the victim’s phone to conceal motive and contact.','The chemical profile, digital records, and interview contradictions converge on one supported reconstruction.'];
-let currentScene=1,timelineIndex=0,evidenceOpened=new Set(),contradictionsOpened=new Set(),reconIndex=0,confrontStage=0,wrongChoices=0;
-function boot(){const unlocked=localStorage.getItem('case003ResolutionUnlocked')==='true'||localStorage.getItem('case003BoardComplete')==='true';document.getElementById(unlocked?'resolutionApp':'lockedGate').classList.remove('hidden');if(!unlocked)return;renderTimeline();renderEvidence();renderContradictions();renderChoices();restoreProgress()}
-function renderTimeline(){timeline.innerHTML=timelineData.map((x,i)=>`<div class="timeline-item" id="time${i}"><strong>${x[0]}</strong><div class="dot"></div><div>${x[1]}</div></div>`).join('')}
-function revealNextTimeline(){if(timelineIndex<timelineData.length){document.getElementById('time'+timelineIndex).classList.add('revealed');timelineIndex++;save();if(timelineIndex===timelineData.length){revealTimelineBtn.classList.add('hidden');continue1.classList.remove('hidden');toastMsg('Chronology verified.')}}}
-function renderEvidence(){evidenceGrid.innerHTML=evidenceData.map((e,i)=>`<article class="evidence-card" id="ev${i}" onclick="openEvidence(${i})"><h3>${e.icon} ${e.title}</h3><span class="tag">${e.tag}</span><p>${e.summary}</p><div class="evidence-detail"><strong>INVESTIGATIVE SIGNIFICANCE</strong><p>${e.detail}</p></div></article>`).join('')}
-function openEvidence(i){evidenceOpened.add(i);document.getElementById('ev'+i).classList.add('open');evidenceStatus.textContent=`${evidenceOpened.size} of ${evidenceData.length} evidence records reviewed.`;if(evidenceOpened.size===evidenceData.length){continue2.classList.remove('hidden');evidenceStatus.textContent='Evidence chain complete. Means, motive, opportunity, and concealment are supported.';toastMsg('All evidence records reviewed.')}save()}
-function renderContradictions(){contradictionList.innerHTML=contradictionData.map((c,i)=>`<div class="replay-grid"><div class="quote"><span class="eyebrow">INTERVIEW STATEMENT</span><p>${c.quote}</p></div><div class="arrow">↔</div><div class="proof"><span class="eyebrow">CASE RECORD</span><p>${c.proof}</p><button class="choice" onclick="revealContradiction(${i})">Expose Contradiction</button><div id="contra${i}" class="contradiction"><b>FINDING:</b> ${c.finding}</div></div></div>`).join('')}
-function revealContradiction(i){contradictionsOpened.add(i);document.getElementById('contra'+i).classList.add('show');if(contradictionsOpened.size===contradictionData.length){continue3.classList.remove('hidden');toastMsg('All material contradictions documented.')}save()}
-function advanceReconstruction(){if(reconIndex<reconSteps.length){reconCaption.textContent=reconSteps[reconIndex];if(reconIndex===0)danielActor.classList.add('moved');reconIndex++;reconBtn.textContent=reconIndex<reconSteps.length?'Advance Reconstruction':'Reconstruction Complete';if(reconIndex===reconSteps.length){reconBtn.disabled=true;continue4.classList.remove('hidden');toastMsg('Incident reconstruction complete.')}save()}}
+
+const reconstructionPhases=[
+  {
+    title:'Phase 1 · Laboratory departure',
+    caption:'At 6:40 PM, Dr. Hayes leaves the laboratory after recording concerns about unauthorized access to Project Helix.',
+    zone:'zoneLab',actor:'',nodes:[],
+    question:'What does the research notebook establish at this stage?',
+    answers:[
+      ['It documents a developing conflict over restricted research.',true],
+      ['It proves Sarah prepared the coffee.',false],
+      ['It proves Daniel was already at the residence.',false]
+    ]
+  },
+  {
+    title:'Phase 2 · Contact initiated',
+    caption:'At 7:05 PM, Daniel contacts Dr. Hayes and arranges a private discussion at her residence.',
+    zone:'zoneResidence',actor:'at-residence',nodes:['call'],
+    question:'Why is the 7:05 PM call important?',
+    answers:[
+      ['It connects Daniel to the planned meeting shortly before the poisoning.',true],
+      ['It proves the compound was already inside the coffee.',false],
+      ['It removes Daniel from the suspect list.',false]
+    ]
+  },
+  {
+    title:'Phase 3 · Restricted access',
+    caption:'At 7:18 PM, Daniel’s credential opens restricted storage. The timing directly contradicts his interview statement.',
+    zone:'zoneStorage',actor:'at-storage',nodes:['access','vial'],
+    question:'What is the strongest conclusion supported by the access record?',
+    answers:[
+      ['Daniel had opportunity to obtain the compound after claiming he had left.',true],
+      ['Olivia entered the university storage room.',false],
+      ['Michael possessed Daniel’s credential.',false]
+    ]
+  },
+  {
+    title:'Phase 4 · Arrival at the residence',
+    caption:'At 7:31 PM, Daniel arrives at 14 Willow Crescent under the pretext of discussing Project Helix.',
+    zone:'zoneResidence',actor:'at-residence',nodes:['call','access'],
+    question:'What does this phase establish?',
+    answers:[
+      ['Daniel’s opportunity continues from the laboratory to the victim’s residence.',true],
+      ['The poisoning occurred before Daniel arrived.',false],
+      ['The compliance report was fabricated.',false]
+    ]
+  },
+  {
+    title:'Phase 5 · Delivery through coffee',
+    caption:'At approximately 7:42 PM, the experimental compound is introduced into the coffee consumed by Dr. Hayes.',
+    zone:'zoneDining',actor:'at-table',nodes:['mug','vial'],
+    question:'Which evidence best establishes the delivery method?',
+    answers:[
+      ['The toxicology result from the remaining coffee.',true],
+      ['Daniel’s emotional behavior during interview.',false],
+      ['Michael’s family dispute.',false]
+    ]
+  },
+  {
+    title:'Phase 6 · Digital concealment',
+    caption:'At 7:48 PM, the transfer discussion is deleted from the victim’s phone after symptoms begin.',
+    zone:'zoneDining',actor:'at-table',nodes:['phone','mug'],
+    question:'What does the deletion most strongly demonstrate?',
+    answers:[
+      ['Conscious concealment of motive and contact after the poisoning.',true],
+      ['An accidental phone malfunction.',false],
+      ['That the laboratory access record is irrelevant.',false]
+    ]
+  }
+];
+
+const reconEvidence={
+  access:{title:'7:18 PM Access Log',text:'Credential DB-214 was accepted at restricted storage. Door telemetry and permissions confirm Daniel’s authorized entry.',detail:'SIGNIFICANCE: Establishes opportunity and directly contradicts Daniel’s claim that he left before 6:30 PM.'},
+  vial:{title:'Compound Impurity Profile',text:'Trace impurities match small-batch research equipment used at the university.',detail:'SIGNIFICANCE: Establishes source and means. The batch is inconsistent with ordinary medication or industrial manufacture.'},
+  call:{title:'7:05 PM Contact Record',text:'Daniel contacted Dr. Hayes shortly before appearing at her residence.',detail:'SIGNIFICANCE: Connects Daniel to the private meeting and supports the pretext used to gain access.'},
+  mug:{title:'Coffee Toxicology',text:'The remaining beverage contains the same experimental compound found in the victim’s toxicology screen.',detail:'SIGNIFICANCE: Establishes the delivery method and links the compound to the critical exposure window.'},
+  phone:{title:'Deleted Message Thread',text:'Recovered metadata shows a Project Helix transfer discussion deleted at 7:48 PM.',detail:'SIGNIFICANCE: Demonstrates concealment and supports a motive tied to unauthorized transfer of research.'}
+};
+
 const confrontOptions=[
-[{id:'access',text:'Present the 7:18 PM access log',correct:true},{id:'motive',text:'Accuse him of disliking Dr. Hayes',correct:false},{id:'michael',text:'Discuss Michael’s family dispute',correct:false}],
-[{id:'compound',text:'Match the compound to university equipment',correct:true},{id:'phone',text:'Lead with the deleted phone thread',correct:false},{id:'coffee',text:'Only mention the coffee mug',correct:false}],
-[{id:'transfer',text:'Present the compliance report and deleted transfer messages',correct:true},{id:'emotion',text:'Tell him he appeared nervous',correct:false},{id:'guess',text:'Say another witness confessed',correct:false}]
+  [
+    {text:'Present the 7:18 PM access log',correct:true},
+    {text:'Accuse him of disliking Dr. Hayes',correct:false},
+    {text:'Discuss Michael’s family dispute',correct:false}
+  ],
+  [
+    {text:'Match the compound to university equipment',correct:true},
+    {text:'Lead only with the deleted phone thread',correct:false},
+    {text:'Only mention the coffee mug',correct:false}
+  ],
+  [
+    {text:'Present the compliance report and deleted transfer messages',correct:true},
+    {text:'Tell him he appeared nervous',correct:false},
+    {text:'Claim another witness confessed',correct:false}
+  ]
 ];
-function renderChoices(){if(confrontStage>=confrontOptions.length)return;choiceRow.innerHTML=confrontOptions[confrontStage].map(o=>`<button class="choice" onclick="chooseEvidence(${o.correct},'${o.id}')">${o.text}</button>`).join('')}
-function chooseEvidence(correct,id){if(!correct){wrongChoices++;confrontFeedback.textContent='That point is not yet the strongest logical step. Establish the chain in order: opportunity, means, then motive and concealment.';confrontFeedback.style.borderColor='var(--danger)';save();return}confrontFeedback.style.borderColor='var(--success)';if(confrontStage===0){speaker.textContent='DANIEL BROOKS';dialogueText.textContent='That credential record could be a system error. It does not prove what I removed.';confrontFeedback.textContent='Opportunity established. Now prove the source of the compound.'}if(confrontStage===1){dialogueText.textContent='Even if the batch came from the university, several people had access to laboratory equipment.';confrontFeedback.textContent='Means established. Now connect motive and concealment.'}if(confrontStage===2){dialogueText.textContent='I only wanted recognition for the project. She said she would report me and destroy everything I had worked for. I went there to convince her. I put the compound in the coffee, then panicked and deleted the messages.';confrontFeedback.textContent='CONFESSION RECORDED. Daniel confirms the evidence-supported reconstruction.'}confrontStage++;if(confrontStage<3)renderChoices();else{choiceRow.innerHTML='';continue5.classList.remove('hidden');localStorage.setItem('case003ConfessionRecorded','true');toastMsg('Confession recorded.')}save()}
-function goToScene(n){document.getElementById('scene'+currentScene).classList.remove('active');document.getElementById('step'+currentScene).classList.remove('active');document.getElementById('step'+currentScene).classList.add('done');currentScene=n;document.getElementById('scene'+n).classList.add('active');document.getElementById('step'+n).classList.add('active');updateProgress();if(n===6)calculateScore();window.scrollTo({top:0,behavior:'smooth'});save()}
-function updateProgress(){const pct=Math.round(((currentScene-1)/5)*100);chapterBar.style.width=pct+'%';chapterPercent.textContent=pct+'%'}
-function calculateScore(){const evidence=100;const interview=Math.max(70,100-wrongChoices*8);const deduction=100;const accuracy=Math.max(72,100-wrongChoices*10);animateScore(scoreEvidence,evidence);animateScore(scoreInterview,interview);animateScore(scoreDeduction,deduction);animateScore(scoreAccuracy,accuracy);const avg=Math.round((evidence+interview+deduction+accuracy)/4);let rank=avg>=95?'LEAD INVESTIGATOR':avg>=88?'SENIOR DETECTIVE':avg>=78?'DETECTIVE':'INVESTIGATOR';rankText.textContent=rank;scoreSummary.textContent=`Overall score: ${avg}%. Your evidence chain was complete and the warrant was supported by probable cause.`;localStorage.setItem('case003FinalScore',avg);localStorage.setItem('case003Rank',rank)}
-function animateScore(el,target){let n=0;const timer=setInterval(()=>{n+=4;if(n>=target){n=target;clearInterval(timer)}el.textContent=n},24)}
-function completeCase(){localStorage.setItem('case003Complete','true');location.href='casecomplete003.html'}
-function save(){localStorage.setItem('case003ResolutionState',JSON.stringify({currentScene,timelineIndex,evidenceOpened:[...evidenceOpened],contradictionsOpened:[...contradictionsOpened],reconIndex,confrontStage,wrongChoices}))}
-function restoreProgress(){try{const s=JSON.parse(localStorage.getItem('case003ResolutionState'));if(!s)return;timelineIndex=s.timelineIndex||0;for(let i=0;i<timelineIndex;i++)document.getElementById('time'+i)?.classList.add('revealed');if(timelineIndex===timelineData.length){revealTimelineBtn.classList.add('hidden');continue1.classList.remove('hidden')}evidenceOpened=new Set(s.evidenceOpened||[]);evidenceOpened.forEach(i=>document.getElementById('ev'+i)?.classList.add('open'));evidenceStatus.textContent=`${evidenceOpened.size} of ${evidenceData.length} evidence records reviewed.`;if(evidenceOpened.size===evidenceData.length)continue2.classList.remove('hidden');contradictionsOpened=new Set(s.contradictionsOpened||[]);contradictionsOpened.forEach(i=>document.getElementById('contra'+i)?.classList.add('show'));if(contradictionsOpened.size===contradictionData.length)continue3.classList.remove('hidden');reconIndex=s.reconIndex||0;if(reconIndex){reconCaption.textContent=reconSteps[Math.min(reconIndex-1,reconSteps.length-1)];danielActor.classList.add('moved')}if(reconIndex===reconSteps.length){reconBtn.disabled=true;reconBtn.textContent='Reconstruction Complete';continue4.classList.remove('hidden')}confrontStage=s.confrontStage||0;wrongChoices=s.wrongChoices||0;if(confrontStage>=3){dialogueText.textContent='I put the compound in the coffee, then panicked and deleted the messages.';choiceRow.innerHTML='';continue5.classList.remove('hidden')}else renderChoices()}catch(e){console.warn('Resolution state could not be restored.',e)}updateProgress()}
-function restartResolution(){if(!confirm('Restart the CASE 003 finale?'))return;localStorage.removeItem('case003ResolutionState');location.reload()}
-function toastMsg(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
+
+let currentScene=1;
+let timelineIndex=0;
+let evidenceOpened=new Set();
+let contradictionsOpened=new Set();
+let reconPhase=-1;
+let reconVerified=new Set();
+let reconInspected=new Set();
+let phaseAnswered=false;
+let confrontStage=0;
+let wrongChoices=0;
+
+function boot(){
+  const unlocked=
+    localStorage.getItem('case003ResolutionUnlocked')==='true' ||
+    localStorage.getItem('case003BoardComplete')==='true';
+
+  document.getElementById(unlocked?'resolutionApp':'lockedGate').classList.remove('hidden');
+  if(!unlocked)return;
+
+  renderTimeline();
+  renderEvidence();
+  renderContradictions();
+  renderChoices();
+  renderReconLog();
+  restoreProgress();
+}
+
+function renderTimeline(){
+  timeline.innerHTML=timelineData.map((x,i)=>`
+    <div class="timeline-item" id="time${i}">
+      <strong>${x[0]}</strong><div class="dot"></div><div>${x[1]}</div>
+    </div>`).join('');
+}
+
+function revealNextTimeline(){
+  if(timelineIndex<timelineData.length){
+    document.getElementById('time'+timelineIndex).classList.add('revealed');
+    timelineIndex++;
+    if(timelineIndex===timelineData.length){
+      revealTimelineBtn.classList.add('hidden');
+      continue1.classList.remove('hidden');
+      toastMsg('Chronology verified.');
+    }
+    save();
+  }
+}
+
+function renderEvidence(){
+  evidenceGrid.innerHTML=evidenceData.map((e,i)=>`
+    <article class="evidence-card" id="ev${i}" onclick="openEvidence(${i})">
+      <h3>${e.icon} ${e.title}</h3><span class="tag">${e.tag}</span>
+      <p>${e.summary}</p>
+      <div class="evidence-detail"><strong>INVESTIGATIVE SIGNIFICANCE</strong><p>${e.detail}</p></div>
+    </article>`).join('');
+}
+
+function openEvidence(i){
+  evidenceOpened.add(i);
+  document.getElementById('ev'+i).classList.add('open');
+  evidenceStatus.textContent=`${evidenceOpened.size} of ${evidenceData.length} evidence records reviewed.`;
+  if(evidenceOpened.size===evidenceData.length){
+    continue2.classList.remove('hidden');
+    evidenceStatus.textContent='Evidence chain complete. Means, motive, opportunity, and concealment are supported.';
+    toastMsg('All evidence records reviewed.');
+  }
+  save();
+}
+
+function renderContradictions(){
+  contradictionList.innerHTML=contradictionData.map((c,i)=>`
+    <div class="replay-grid">
+      <div class="quote"><span class="eyebrow">INTERVIEW STATEMENT</span><p>${c.quote}</p></div>
+      <div class="arrow">↔</div>
+      <div class="proof">
+        <span class="eyebrow">CASE RECORD</span><p>${c.proof}</p>
+        <button class="choice" onclick="revealContradiction(${i})">Expose Contradiction</button>
+        <div id="contra${i}" class="contradiction"><b>FINDING:</b> ${c.finding}</div>
+      </div>
+    </div>`).join('');
+}
+
+function revealContradiction(i){
+  contradictionsOpened.add(i);
+  document.getElementById('contra'+i).classList.add('show');
+  if(contradictionsOpened.size===contradictionData.length){
+    continue3.classList.remove('hidden');
+    toastMsg('All material contradictions documented.');
+  }
+  save();
+}
+
+function renderReconLog(){
+  reconStepList.innerHTML=reconstructionPhases.map((p,i)=>`
+    <div class="step-log" id="reconLog${i}">${i+1}. ${p.title.replace(/^Phase \d+ · /,'')}</div>
+  `).join('');
+}
+
+function beginOrAdvanceRecon(){
+  if(reconPhase===-1){
+    reconPhase=0;
+    loadReconPhase();
+    return;
+  }
+  if(!phaseAnswered){
+    toastMsg('Answer the investigator decision first.');
+    return;
+  }
+  if(reconPhase<reconstructionPhases.length-1){
+    reconPhase++;
+    phaseAnswered=false;
+    loadReconPhase();
+  }
+}
+
+function loadReconPhase(){
+  const phase=reconstructionPhases[reconPhase];
+  document.querySelectorAll('.zone').forEach(z=>z.classList.remove('active-zone'));
+  document.getElementById(phase.zone).classList.add('active-zone');
+
+  reconActor.className='actor-token';
+  if(phase.actor)reconActor.classList.add(phase.actor);
+
+  document.querySelectorAll('.evidence-node').forEach(n=>n.classList.remove('visible'));
+  phase.nodes.forEach(id=>document.getElementById('node'+id.charAt(0).toUpperCase()+id.slice(1))?.classList.add('visible'));
+
+  reconTitle.textContent=phase.title;
+  reconCaption.textContent=phase.caption;
+  decisionQuestion.textContent=phase.question;
+  decisionFeedback.textContent='Choose the conclusion best supported by the evidence.';
+  decisionOptions.innerHTML=phase.answers.map((a,i)=>`
+    <button class="decision-option" onclick="answerRecon(${i},${a[1]})">${a[0]}</button>
+  `).join('');
+
+  document.querySelectorAll('.step-log').forEach((el,i)=>{
+    el.classList.toggle('active',i===reconPhase);
+    el.classList.toggle('done',reconVerified.has(i));
+  });
+
+  document.querySelectorAll('#reconProgress span').forEach((el,i)=>el.classList.toggle('done',reconVerified.has(i)));
+  reconAdvance.disabled=true;
+  reconAdvance.textContent=reconPhase===reconstructionPhases.length-1?'Verify Final Phase':'Next Phase Locked';
+  save();
+}
+
+function answerRecon(index,isCorrect){
+  if(phaseAnswered)return;
+  const options=[...decisionOptions.children];
+  if(!isCorrect){
+    wrongChoices++;
+    options[index].classList.add('wrong');
+    decisionFeedback.textContent='That conclusion is not sufficiently supported. Review the active evidence and try again.';
+    save();
+    return;
+  }
+
+  options[index].classList.add('correct');
+  options.forEach((o,i)=>{if(i!==index)o.disabled=true});
+  phaseAnswered=true;
+  reconVerified.add(reconPhase);
+  decisionFeedback.textContent='Phase verified. The conclusion is supported by the record.';
+  document.getElementById('reconLog'+reconPhase).classList.remove('active');
+  document.getElementById('reconLog'+reconPhase).classList.add('done');
+  document.querySelectorAll('#reconProgress span')[reconPhase].classList.add('done');
+  document.getElementById(reconstructionPhases[reconPhase].zone).classList.add('complete-zone');
+
+  if(reconPhase===reconstructionPhases.length-1){
+    reconAdvance.classList.add('hidden');
+    reconSummary.classList.add('show');
+    continue4.classList.remove('hidden');
+    localStorage.setItem('case003ReconstructionComplete','true');
+    toastMsg('Reconstruction complete. Confrontation unlocked.');
+  }else{
+    reconAdvance.disabled=false;
+    reconAdvance.textContent='Advance to Phase '+(reconPhase+2);
+  }
+  save();
+}
+
+function inspectReconEvidence(key){
+  const data=reconEvidence[key];
+  const node=document.getElementById('node'+key.charAt(0).toUpperCase()+key.slice(1));
+  if(!node || !node.classList.contains('visible')){
+    toastMsg('That evidence is not active in the current phase.');
+    return;
+  }
+  reconInspected.add(key);
+  node.classList.add('verified');
+  activeEvidenceTitle.textContent=data.title;
+  activeEvidenceText.textContent=data.text;
+  activeEvidenceDetail.innerHTML=`<strong>${data.detail}</strong>`;
+  activeEvidenceDetail.classList.add('show');
+  save();
+}
+
+function renderChoices(){
+  if(confrontStage>=confrontOptions.length)return;
+  choiceRow.innerHTML=confrontOptions[confrontStage].map((o,i)=>`
+    <button class="choice" onclick="chooseEvidence(${o.correct},${i})">${o.text}</button>
+  `).join('');
+}
+
+function chooseEvidence(correct,index){
+  if(!correct){
+    wrongChoices++;
+    confrontFeedback.textContent='That point is not yet the strongest logical step. Establish the chain in order: opportunity, means, then motive and concealment.';
+    confrontFeedback.style.borderColor='var(--danger)';
+    save();
+    return;
+  }
+
+  confrontFeedback.style.borderColor='var(--success)';
+  if(confrontStage===0){
+    dialogueText.textContent='That credential record could be a system error. It does not prove what I removed.';
+    confrontFeedback.textContent='Opportunity established. Now prove the source of the compound.';
+  }
+  if(confrontStage===1){
+    dialogueText.textContent='Even if the batch came from the university, several people had access to laboratory equipment.';
+    confrontFeedback.textContent='Means established. Now connect motive and concealment.';
+  }
+  if(confrontStage===2){
+    dialogueText.textContent='I only wanted recognition for the project. She said she would report me and destroy everything I had worked for. I went there to convince her. I put the compound in the coffee, then panicked and deleted the messages.';
+    confrontFeedback.textContent='CONFESSION RECORDED. Daniel confirms the evidence-supported reconstruction.';
+  }
+
+  confrontStage++;
+  if(confrontStage<3)renderChoices();
+  else{
+    choiceRow.innerHTML='';
+    continue5.classList.remove('hidden');
+    localStorage.setItem('case003ConfessionRecorded','true');
+    toastMsg('Confession recorded.');
+  }
+  save();
+}
+
+function goToScene(n){
+  document.getElementById('scene'+currentScene).classList.remove('active');
+  document.getElementById('step'+currentScene).classList.remove('active');
+  document.getElementById('step'+currentScene).classList.add('done');
+  currentScene=n;
+  document.getElementById('scene'+n).classList.add('active');
+  document.getElementById('step'+n).classList.add('active');
+  updateProgress();
+  if(n===6)calculateScore();
+  window.scrollTo({top:0,behavior:'smooth'});
+  save();
+}
+
+function updateProgress(){
+  const pct=Math.round(((currentScene-1)/5)*100);
+  chapterBar.style.width=pct+'%';
+  chapterPercent.textContent=pct+'%';
+}
+
+function calculateScore(){
+  const evidence=100;
+  const interview=Math.max(70,100-wrongChoices*6);
+  const deduction=Math.max(76,100-wrongChoices*4);
+  const accuracy=Math.max(72,100-wrongChoices*8);
+  animateScore(scoreEvidence,evidence);
+  animateScore(scoreInterview,interview);
+  animateScore(scoreDeduction,deduction);
+  animateScore(scoreAccuracy,accuracy);
+  const avg=Math.round((evidence+interview+deduction+accuracy)/4);
+  const rank=avg>=95?'LEAD INVESTIGATOR':avg>=88?'SENIOR DETECTIVE':avg>=78?'DETECTIVE':'INVESTIGATOR';
+  rankText.textContent=rank;
+  scoreSummary.textContent=`Overall score: ${avg}%. Your evidence chain was complete and the warrant was supported by probable cause.`;
+  localStorage.setItem('case003FinalScore',avg);
+  localStorage.setItem('case003Rank',rank);
+}
+
+function animateScore(el,target){
+  let n=0;
+  const timer=setInterval(()=>{
+    n+=4;
+    if(n>=target){n=target;clearInterval(timer)}
+    el.textContent=n;
+  },24);
+}
+
+function completeCase(){
+  localStorage.setItem('case003Complete','true');
+  location.href='casecomplete003.html';
+}
+
+function save(){
+  localStorage.setItem('case003ResolutionStateV2',JSON.stringify({
+    currentScene,timelineIndex,
+    evidenceOpened:[...evidenceOpened],
+    contradictionsOpened:[...contradictionsOpened],
+    reconPhase,reconVerified:[...reconVerified],
+    reconInspected:[...reconInspected],
+    phaseAnswered,confrontStage,wrongChoices
+  }));
+}
+
+function restoreProgress(){
+  try{
+    const s=JSON.parse(localStorage.getItem('case003ResolutionStateV2'));
+    if(!s){updateProgress();return}
+
+    timelineIndex=s.timelineIndex||0;
+    for(let i=0;i<timelineIndex;i++)document.getElementById('time'+i)?.classList.add('revealed');
+    if(timelineIndex===timelineData.length){
+      revealTimelineBtn.classList.add('hidden');
+      continue1.classList.remove('hidden');
+    }
+
+    evidenceOpened=new Set(s.evidenceOpened||[]);
+    evidenceOpened.forEach(i=>document.getElementById('ev'+i)?.classList.add('open'));
+    evidenceStatus.textContent=`${evidenceOpened.size} of ${evidenceData.length} evidence records reviewed.`;
+    if(evidenceOpened.size===evidenceData.length)continue2.classList.remove('hidden');
+
+    contradictionsOpened=new Set(s.contradictionsOpened||[]);
+    contradictionsOpened.forEach(i=>document.getElementById('contra'+i)?.classList.add('show'));
+    if(contradictionsOpened.size===contradictionData.length)continue3.classList.remove('hidden');
+
+    reconPhase=Number.isInteger(s.reconPhase)?s.reconPhase:-1;
+    reconVerified=new Set(s.reconVerified||[]);
+    reconInspected=new Set(s.reconInspected||[]);
+    phaseAnswered=!!s.phaseAnswered;
+    confrontStage=s.confrontStage||0;
+    wrongChoices=s.wrongChoices||0;
+
+    if(reconPhase>=0){
+      loadReconPhase();
+      if(phaseAnswered && reconPhase<reconstructionPhases.length-1){
+        reconAdvance.disabled=false;
+        reconAdvance.textContent='Advance to Phase '+(reconPhase+2);
+      }
+    }
+
+    reconInspected.forEach(key=>document.getElementById('node'+key.charAt(0).toUpperCase()+key.slice(1))?.classList.add('verified'));
+
+    if(reconVerified.size===reconstructionPhases.length){
+      reconAdvance.classList.add('hidden');
+      reconSummary.classList.add('show');
+      continue4.classList.remove('hidden');
+    }
+
+    if(confrontStage>=3){
+      dialogueText.textContent='I put the compound in the coffee, then panicked and deleted the messages.';
+      choiceRow.innerHTML='';
+      continue5.classList.remove('hidden');
+    }else{
+      renderChoices();
+    }
+
+    currentScene=Math.min(Math.max(s.currentScene||1,1),6);
+    document.querySelectorAll('.scene').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.step').forEach(x=>x.classList.remove('active','done'));
+    for(let i=1;i<currentScene;i++)document.getElementById('step'+i)?.classList.add('done');
+    document.getElementById('scene'+currentScene)?.classList.add('active');
+    document.getElementById('step'+currentScene)?.classList.add('active');
+    updateProgress();
+  }catch(e){
+    console.warn('Resolution state could not be restored.',e);
+    updateProgress();
+  }
+}
+
+function restartResolution(){
+  if(!confirm('Restart the CASE 003 finale?'))return;
+  localStorage.removeItem('case003ResolutionStateV2');
+  location.reload();
+}
+
+function toastMsg(t){
+  toast.textContent=t;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),1800);
+}
+
 boot();
 </script>
 <script src="case003-system.js"></script>
