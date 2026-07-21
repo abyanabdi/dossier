@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta
+name="description"
+content="Explore Dossier research on cybercrime, digital forensics, synthetic media, investigative interviewing, forensic toxicology, and evidence-based reasoning."
+>
+
 <title>Research Division | Dossier</title>
 
 <link rel="stylesheet" href="style-v2.css">
@@ -13,22 +18,3210 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   CINEMATIC RESEARCH DIVISION
+========================================================= */
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+overflow-x:hidden;
+overflow-y:auto;
+}
+
+.research-page{
+min-height:100vh;
+background:
+radial-gradient(circle at 86% 5%,rgba(52,111,198,.2),transparent 34%),
+radial-gradient(circle at 8% 55%,rgba(82,59,145,.1),transparent 35%),
+linear-gradient(180deg,#09111d 0%,#0b1220 47%,#09111d 100%);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.research-nav{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 8%;
+border-bottom:1px solid rgba(127,194,255,.13);
+background:rgba(9,17,29,.88);
+backdrop-filter:blur(18px);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:13px;
+color:#ffffff;
+font-size:23px;
+font-weight:800;
+letter-spacing:7px;
+text-decoration:none;
+}
+
+.brand-mark{
+width:34px;
+height:34px;
+display:grid;
+place-items:center;
+border:1px solid rgba(127,194,255,.25);
+border-radius:10px;
+background:linear-gradient(135deg,#5aa2ff,#2867d8);
+box-shadow:0 0 24px rgba(90,162,255,.28);
+font-size:13px;
+letter-spacing:0;
+}
+
+.research-nav .nav-links{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.research-nav .nav-links a{
+position:relative;
+color:#c8d3e4;
+font-size:14px;
+font-weight:500;
+text-decoration:none;
+}
+
+.research-nav .nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-7px;
+width:0;
+height:2px;
+background:#7fc2ff;
+transition:.25s ease;
+}
+
+.research-nav .nav-links a:hover,
+.research-nav .nav-links a.active{
+color:#ffffff;
+}
+
+.research-nav .nav-links a:hover::after,
+.research-nav .nav-links a.active::after{
+width:100%;
+}
+
+.research-access{
+padding:11px 17px;
+border:1px solid rgba(127,194,255,.3);
+border-radius:10px;
+background:rgba(90,162,255,.07);
+}
+
+.research-access::after{
+display:none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.research-hero{
+position:relative;
+max-width:none;
+min-height:660px;
+padding:105px 8% 95px;
+display:grid;
+grid-template-columns:minmax(0,1.05fr) minmax(370px,.95fr);
+align-items:center;
+gap:70px;
+overflow:hidden;
+}
+
+.research-hero::before{
+content:"";
+position:absolute;
+top:-285px;
+right:-120px;
+width:780px;
+height:780px;
+border-radius:50%;
+background:rgba(56,112,199,.23);
+filter:blur(140px);
+pointer-events:none;
+}
+
+.research-hero::after{
+content:"RESEARCH";
+position:absolute;
+left:5%;
+bottom:-62px;
+font-size:clamp(110px,17vw,245px);
+font-weight:800;
+letter-spacing:-10px;
+color:rgba(255,255,255,.018);
+pointer-events:none;
+}
+
+.hero-copy{
+position:relative;
+z-index:2;
+max-width:810px;
+}
+
+.system-status{
+display:inline-flex;
+align-items:center;
+gap:10px;
+margin-bottom:24px;
+padding:8px 13px;
+border:1px solid rgba(57,217,138,.22);
+border-radius:999px;
+background:rgba(57,217,138,.055);
+color:#92eabb;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.system-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#39d98a;
+box-shadow:0 0 14px rgba(57,217,138,.9);
+animation:statusPulse 1.9s infinite;
+}
+
+@keyframes statusPulse{
+
+0%,100%{
+opacity:1;
+transform:scale(1);
+}
+
+50%{
+opacity:.45;
+transform:scale(.72);
+}
+
+}
+
+.eyebrow{
+margin-bottom:17px;
+color:#7fc2ff;
+font-size:12px;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.research-hero h1{
+max-width:810px;
+margin:0 0 24px;
+font-size:clamp(55px,7vw,91px);
+line-height:.96;
+letter-spacing:-5px;
+}
+
+.hero-gradient{
+background:linear-gradient(100deg,#ffffff 8%,#c0e1ff 48%,#5aa2ff 100%);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero-description{
+max-width:730px;
+margin:0;
+color:#a7b3c6;
+font-size:18px;
+line-height:1.8;
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:33px;
+}
+
+.hero-actions a{
+min-height:52px;
+padding:14px 23px;
+}
+
+.button-arrow{
+display:inline-block;
+margin-left:8px;
+transition:.25s ease;
+}
+
+.primary-btn:hover .button-arrow{
+transform:translateX(5px);
+}
+
+
+/* =========================================================
+   RESEARCH TERMINAL
+========================================================= */
+
+.research-terminal{
+position:relative;
+z-index:2;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.22);
+border-radius:22px;
+background:
+linear-gradient(180deg,rgba(20,29,45,.96),rgba(10,17,29,.99));
+box-shadow:
+0 32px 85px rgba(0,0,0,.45),
+0 0 0 1px rgba(255,255,255,.025) inset;
+}
+
+.research-terminal::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 50%,
+rgba(255,255,255,.012) 50%
+);
+background-size:100% 4px;
+pointer-events:none;
+}
+
+.terminal-bar{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 18px;
+border-bottom:1px solid rgba(127,194,255,.12);
+background:rgba(255,255,255,.018);
+}
+
+.terminal-lights{
+display:flex;
+gap:7px;
+}
+
+.terminal-light{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#445168;
+}
+
+.terminal-light:nth-child(1){
+background:#ff6b6b;
+}
+
+.terminal-light:nth-child(2){
+background:#ffd166;
+}
+
+.terminal-light:nth-child(3){
+background:#39d98a;
+}
+
+.terminal-title{
+color:#8493a9;
+font-size:10px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.terminal-content{
+position:relative;
+z-index:2;
+padding:27px;
+}
+
+.division-heading{
+display:flex;
+justify-content:space-between;
+gap:18px;
+padding-bottom:20px;
+border-bottom:1px solid rgba(127,194,255,.11);
+}
+
+.division-heading span{
+display:block;
+margin-bottom:5px;
+color:#718199;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.7px;
+text-transform:uppercase;
+}
+
+.division-heading strong{
+font-size:20px;
+color:#f4f8ff;
+}
+
+.security-tag{
+height:max-content;
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.22);
+border-radius:8px;
+background:rgba(57,217,138,.06);
+color:#80e2ad;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+}
+
+.terminal-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+margin:20px 0;
+}
+
+.terminal-stat{
+padding:14px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:11px;
+background:rgba(255,255,255,.022);
+}
+
+.terminal-stat span{
+display:block;
+margin-bottom:4px;
+color:#728198;
+font-size:9px;
+font-weight:700;
+letter-spacing:1.4px;
+text-transform:uppercase;
+}
+
+.terminal-stat strong{
+font-size:20px;
+color:#ffffff;
+}
+
+.terminal-stat small{
+margin-left:3px;
+color:#8291a7;
+font-size:10px;
+}
+
+.terminal-log{
+padding:15px;
+border:1px solid rgba(57,217,138,.12);
+border-radius:11px;
+background:rgba(57,217,138,.03);
+font-family:monospace;
+font-size:11px;
+line-height:1.9;
+color:#8abda3;
+}
+
+.log-time{
+color:#596b82;
+}
+
+.research-progress{
+margin-top:20px;
+}
+
+.progress-heading{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+color:#8b9bb1;
+font-size:10px;
+}
+
+.progress-track{
+height:7px;
+overflow:hidden;
+border-radius:999px;
+background:#08101b;
+}
+
+.progress-fill{
+width:88%;
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,#3478d6,#7fc2ff);
+box-shadow:0 0 15px rgba(90,162,255,.45);
+}
+
+
+/* =========================================================
+   SUMMARY STATISTICS
+========================================================= */
+
+.research-summary{
+position:relative;
+z-index:5;
+padding:0 8% 90px;
+}
+
+.summary-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:17px;
+}
+
+.summary-card{
+padding:22px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:16px;
+background:rgba(18,27,42,.72);
+backdrop-filter:blur(12px);
+}
+
+.summary-number{
+display:block;
+margin-bottom:6px;
+color:#ffffff;
+font-size:31px;
+font-weight:800;
+}
+
+.summary-label{
+color:#8291a7;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.3px;
+text-transform:uppercase;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.research-section{
+position:relative;
+max-width:1500px;
+margin:auto;
+padding:95px 8%;
+}
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:35px;
+margin-bottom:42px;
+}
+
+.section-heading h2{
+margin:0;
+font-size:clamp(34px,4vw,53px);
+letter-spacing:-2px;
+}
+
+.section-copy{
+max-width:650px;
+margin:0;
+color:#98a6ba;
+line-height:1.75;
+}
+
+.section-link{
+white-space:nowrap;
+color:#7fc2ff;
+font-size:13px;
+font-weight:600;
+text-decoration:none;
+}
+
+.section-link:hover{
+color:#ffffff;
+}
+
+
+/* =========================================================
+   FEATURED REPORT
+========================================================= */
+
+.featured-report{
+display:grid;
+grid-template-columns:.78fr 1.22fr;
+overflow:hidden;
+padding:0;
+border:1px solid rgba(127,194,255,.15);
+border-radius:22px;
+background:linear-gradient(180deg,#141d2d,#0d1624);
+box-shadow:0 28px 70px rgba(0,0,0,.26);
+}
+
+.report-visual{
+position:relative;
+min-height:520px;
+padding:35px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+overflow:hidden;
+border-right:1px solid rgba(127,194,255,.13);
+background:
+radial-gradient(circle at 24% 20%,rgba(89,111,255,.29),transparent 31%),
+linear-gradient(145deg,#202c58,#0a1421 72%);
+}
+
+.report-visual::after{
+content:"R-01";
+position:absolute;
+right:-28px;
+bottom:-55px;
+font-size:205px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.035);
+}
+
+.report-top,
+.report-bottom{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:18px;
+}
+
+.report-id{
+color:#b8ddff;
+font-size:11px;
+font-weight:800;
+letter-spacing:2.3px;
+}
+
+.report-tag{
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.25);
+border-radius:999px;
+background:rgba(57,217,138,.08);
+color:#83e6b1;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.report-symbol{
+position:relative;
+z-index:2;
+display:grid;
+place-items:center;
+width:126px;
+height:126px;
+margin:auto;
+border:1px solid rgba(255,255,255,.15);
+border-radius:50%;
+background:rgba(255,255,255,.035);
+box-shadow:
+0 0 0 22px rgba(255,255,255,.018),
+0 0 70px rgba(90,162,255,.12);
+font-size:47px;
+}
+
+.report-type{
+color:#9eafc3;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.report-content{
+padding:48px;
+}
+
+.report-content h3{
+margin:7px 0 17px;
+font-size:39px;
+letter-spacing:-1.4px;
+}
+
+.report-summary{
+color:#a5b2c5;
+font-size:15px;
+line-height:1.8;
+}
+
+.report-details{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:11px;
+margin:26px 0;
+}
+
+.report-detail{
+padding:14px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:10px;
+background:#0e1725;
+}
+
+.report-detail span{
+display:block;
+margin-bottom:5px;
+color:#6f8097;
+font-size:8px;
+font-weight:700;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.report-detail strong{
+color:#e7eef8;
+font-size:11px;
+}
+
+.report-findings{
+display:grid;
+gap:10px;
+margin:24px 0 30px;
+}
+
+.report-findings div{
+display:flex;
+gap:10px;
+color:#9caac0;
+font-size:13px;
+}
+
+.report-findings strong{
+color:#39d98a;
+}
+
+
+/* =========================================================
+   RESEARCH REPORT CARDS
+========================================================= */
+
+.research-filter{
+display:flex;
+gap:9px;
+flex-wrap:wrap;
+margin-bottom:31px;
+}
+
+.filter-button{
+padding:9px 13px;
+border:1px solid rgba(127,194,255,.13);
+border-radius:8px;
+background:#101827;
+color:#8f9eb4;
+font:inherit;
+font-size:11px;
+font-weight:600;
+cursor:pointer;
+transition:.25s ease;
+}
+
+.filter-button:hover,
+.filter-button.active{
+border-color:rgba(127,194,255,.34);
+background:rgba(90,162,255,.09);
+color:#ffffff;
+}
+
+.report-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:21px;
+}
+
+.research-card{
+position:relative;
+min-height:470px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+padding:29px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:19px;
+background:
+linear-gradient(180deg,rgba(20,29,44,.98),rgba(12,20,33,.99));
+box-shadow:0 22px 55px rgba(0,0,0,.2);
+transition:
+transform .3s ease,
+border-color .3s ease,
+box-shadow .3s ease;
+}
+
+.research-card:hover{
+transform:translateY(-6px);
+border-color:rgba(127,194,255,.29);
+box-shadow:
+0 30px 70px rgba(0,0,0,.33),
+0 0 38px rgba(53,115,200,.06);
+}
+
+.research-card::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,#5aa2ff,transparent);
+}
+
+.research-card.forensic::before{
+background:linear-gradient(90deg,#39d98a,transparent);
+}
+
+.research-card.behaviour::before{
+background:linear-gradient(90deg,#bb80ff,transparent);
+}
+
+.research-card.ai::before{
+background:linear-gradient(90deg,#ff8e8e,transparent);
+}
+
+.card-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:15px;
+margin-bottom:23px;
+}
+
+.report-icon{
+display:grid;
+place-items:center;
+width:52px;
+height:52px;
+border:1px solid rgba(127,194,255,.17);
+border-radius:14px;
+background:rgba(90,162,255,.06);
+font-size:22px;
+}
+
+.report-number{
+color:rgba(255,255,255,.065);
+font-size:47px;
+font-weight:800;
+line-height:1;
+}
+
+.research-category{
+margin-bottom:9px;
+color:#7fc2ff;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.6px;
+text-transform:uppercase;
+}
+
+.research-card h3{
+margin:0 0 13px;
+font-size:21px;
+letter-spacing:-.5px;
+}
+
+.research-card > p{
+flex-grow:1;
+margin:0;
+color:#98a6ba;
+font-size:13px;
+line-height:1.75;
+}
+
+.card-details{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:9px;
+margin-top:21px;
+}
+
+.card-detail{
+padding:10px;
+border:1px solid rgba(127,194,255,.09);
+border-radius:8px;
+background:#0e1725;
+}
+
+.card-detail span{
+display:block;
+margin-bottom:4px;
+color:#6c7b91;
+font-size:8px;
+font-weight:700;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.card-detail strong{
+color:#dce6f4;
+font-size:10px;
+}
+
+.card-tags{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-top:17px;
+}
+
+.card-tag{
+padding:6px 8px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:7px;
+background:rgba(90,162,255,.04);
+color:#8090a7;
+font-size:9px;
+font-weight:600;
+}
+
+.card-footer{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+margin-top:23px;
+padding-top:18px;
+border-top:1px solid rgba(127,194,255,.09);
+}
+
+.card-status{
+color:#6d7c92;
+font-size:9px;
+font-weight:700;
+letter-spacing:1.1px;
+text-transform:uppercase;
+}
+
+.card-link{
+color:#7fc2ff;
+font-size:11px;
+font-weight:700;
+text-decoration:none;
+}
+
+.card-link:hover{
+color:#ffffff;
+}
+
+
+/* =========================================================
+   METHODOLOGY
+========================================================= */
+
+.methodology-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
+counter-reset:method;
+}
+
+.method-card{
+position:relative;
+min-height:250px;
+padding:27px 23px;
+border:1px solid rgba(127,194,255,.11);
+border-radius:17px;
+background:linear-gradient(180deg,#141d2c,#0e1724);
+counter-increment:method;
+}
+
+.method-card::before{
+content:"0" counter(method);
+display:block;
+margin-bottom:25px;
+color:#5aa2ff;
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.method-icon{
+display:grid;
+place-items:center;
+width:44px;
+height:44px;
+margin-bottom:17px;
+border:1px solid rgba(90,162,255,.18);
+border-radius:12px;
+background:rgba(90,162,255,.06);
+font-size:18px;
+}
+
+.method-card h3{
+margin:0 0 9px;
+font-size:17px;
+}
+
+.method-card p{
+margin:0;
+color:#8f9db2;
+font-size:12px;
+line-height:1.7;
+}
+
+
+/* =========================================================
+   RESEARCH PRINCIPLES
+========================================================= */
+
+.principles-panel{
+display:grid;
+grid-template-columns:.85fr 1.15fr;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.14);
+border-radius:21px;
+background:linear-gradient(180deg,#141d2c,#0c1522);
+}
+
+.principles-intro{
+position:relative;
+padding:42px;
+border-right:1px solid rgba(127,194,255,.12);
+background:
+radial-gradient(circle at top left,rgba(90,162,255,.16),transparent 46%);
+}
+
+.principles-intro h3{
+margin:8px 0 16px;
+font-size:32px;
+letter-spacing:-1px;
+}
+
+.principles-intro p{
+color:#9eacc0;
+line-height:1.8;
+}
+
+.review-stamp{
+display:inline-block;
+margin-top:23px;
+padding:10px 14px;
+border:1px solid rgba(57,217,138,.24);
+border-radius:9px;
+color:#82e2ad;
+font-size:10px;
+font-weight:800;
+letter-spacing:1.5px;
+transform:rotate(-2deg);
+}
+
+.principles-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+}
+
+.principle{
+padding:29px;
+border-bottom:1px solid rgba(127,194,255,.09);
+}
+
+.principle:nth-child(odd){
+border-right:1px solid rgba(127,194,255,.09);
+}
+
+.principle:nth-last-child(-n+2){
+border-bottom:none;
+}
+
+.principle-number{
+display:block;
+margin-bottom:11px;
+color:#5aa2ff;
+font-size:10px;
+font-weight:800;
+letter-spacing:1.5px;
+}
+
+.principle h4{
+margin:0 0 8px;
+font-size:16px;
+}
+
+.principle p{
+margin:0;
+color:#8d9bb0;
+font-size:12px;
+line-height:1.7;
+}
+
+
+/* =========================================================
+   CASE CONNECTIONS
+========================================================= */
+
+.case-connections{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:21px;
+}
+
+.connection-card{
+position:relative;
+overflow:hidden;
+min-height:410px;
+display:flex;
+flex-direction:column;
+padding:29px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:19px;
+background:linear-gradient(180deg,#141d2c,#0d1624);
+transition:.3s ease;
+}
+
+.connection-card:hover{
+transform:translateY(-5px);
+border-color:rgba(127,194,255,.29);
+}
+
+.connection-card::after{
+position:absolute;
+right:-7px;
+top:8px;
+font-size:92px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.028);
+}
+
+.connection-card.case-one::after{
+content:"01";
+}
+
+.connection-card.case-two::after{
+content:"02";
+}
+
+.connection-card.case-three::after{
+content:"03";
+}
+
+.connection-label{
+position:relative;
+z-index:2;
+color:#7fc2ff;
+font-size:10px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.connection-card h3{
+position:relative;
+z-index:2;
+margin:16px 0 13px;
+font-size:23px;
+}
+
+.connection-card p{
+position:relative;
+z-index:2;
+color:#94a2b7;
+font-size:13px;
+line-height:1.75;
+}
+
+.connection-list{
+position:relative;
+z-index:2;
+display:grid;
+gap:8px;
+margin:18px 0 27px;
+}
+
+.connection-list div{
+display:flex;
+gap:8px;
+color:#9eacc0;
+font-size:12px;
+}
+
+.connection-list strong{
+color:#39d98a;
+}
+
+.connection-card .primary-btn{
+position:relative;
+z-index:2;
+align-self:flex-start;
+margin-top:auto;
+}
+
+
+/* =========================================================
+   ACTIVE PROJECTS
+========================================================= */
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.project-card{
+position:relative;
+overflow:hidden;
+min-height:310px;
+padding:28px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:18px;
+background:linear-gradient(180deg,#141d2c,#0d1624);
+}
+
+.project-status{
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-bottom:25px;
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.2);
+border-radius:999px;
+background:rgba(57,217,138,.055);
+color:#80e2ad;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.project-status::before{
+content:"";
+width:6px;
+height:6px;
+border-radius:50%;
+background:#39d98a;
+box-shadow:0 0 10px rgba(57,217,138,.8);
+}
+
+.project-card h3{
+margin:0 0 13px;
+font-size:21px;
+}
+
+.project-card p{
+color:#96a4b8;
+font-size:13px;
+line-height:1.75;
+}
+
+.project-progress{
+margin-top:25px;
+}
+
+.project-progress-heading{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+color:#8190a6;
+font-size:9px;
+font-weight:700;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.project-track{
+height:6px;
+overflow:hidden;
+border-radius:999px;
+background:#08101b;
+}
+
+.project-fill{
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,#3478d6,#7fc2ff);
+}
+
+.project-fill.one{
+width:72%;
+}
+
+.project-fill.two{
+width:54%;
+}
+
+.project-fill.three{
+width:38%;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.research-cta{
+padding:50px 8% 110px;
+}
+
+.cta-panel{
+position:relative;
+overflow:hidden;
+max-width:1500px;
+margin:auto;
+padding:60px;
+border:1px solid rgba(127,194,255,.18);
+border-radius:24px;
+background:
+linear-gradient(110deg,rgba(25,44,71,.95),rgba(13,23,38,.98));
+text-align:center;
+}
+
+.cta-panel::before{
+content:"";
+position:absolute;
+left:50%;
+top:-160px;
+width:520px;
+height:360px;
+transform:translateX(-50%);
+border-radius:50%;
+background:rgba(90,162,255,.16);
+filter:blur(95px);
+}
+
+.cta-panel > *{
+position:relative;
+z-index:2;
+}
+
+.cta-panel h2{
+max-width:770px;
+margin:0 auto 17px;
+font-size:clamp(32px,4vw,45px);
+letter-spacing:-1.5px;
+}
+
+.cta-panel p{
+max-width:690px;
+margin:0 auto;
+color:#a1aec2;
+line-height:1.75;
+}
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:13px;
+flex-wrap:wrap;
+margin-top:27px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.research-footer{
+padding:45px 8%;
+border-top:1px solid rgba(127,194,255,.1);
+background:#08101b;
+}
+
+.footer-top{
+display:flex;
+justify-content:space-between;
+gap:30px;
+margin-bottom:28px;
+}
+
+.footer-brand-copy{
+max-width:500px;
+margin-top:13px;
+color:#7f8da3;
+font-size:12px;
+line-height:1.7;
+}
+
+.footer-links{
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:#8795aa;
+font-size:12px;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#ffffff;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding-top:24px;
+border-top:1px solid rgba(127,194,255,.08);
+color:#637188;
+font-size:11px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(24px);
+transition:
+opacity .7s ease,
+transform .7s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1150px){
+
+.research-hero{
+grid-template-columns:1fr;
+padding-top:85px;
+}
+
+.research-terminal{
+max-width:720px;
+}
+
+.report-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.methodology-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:900px){
+
+.featured-report,
+.principles-panel{
+grid-template-columns:1fr;
+}
+
+.report-visual{
+min-height:360px;
+border-right:none;
+border-bottom:1px solid rgba(127,194,255,.13);
+}
+
+.principles-intro{
+border-right:none;
+border-bottom:1px solid rgba(127,194,255,.12);
+}
+
+.case-connections,
+.project-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:780px){
+
+.research-nav{
+position:relative;
+flex-direction:column;
+gap:17px;
+padding:18px 6%;
+}
+
+.research-nav .nav-links{
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.research-access{
+display:none;
+}
+
+.research-hero{
+min-height:auto;
+padding:75px 6% 70px;
+gap:45px;
+}
+
+.research-hero h1{
+font-size:51px;
+letter-spacing:-3px;
+}
+
+.hero-description{
+font-size:16px;
+}
+
+.research-summary,
+.research-section,
+.research-cta,
+.research-footer{
+padding-left:6%;
+padding-right:6%;
+}
+
+.summary-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.section-heading{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.report-content{
+padding:31px;
+}
+
+.report-content h3{
+font-size:31px;
+}
+
+.report-details{
+grid-template-columns:1fr;
+}
+
+.report-grid{
+grid-template-columns:1fr;
+}
+
+.methodology-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-top,
+.footer-bottom{
+flex-direction:column;
+}
+
+}
+
+@media(max-width:520px){
+
+.research-hero h1{
+font-size:42px;
+}
+
+.hero-actions{
+flex-direction:column;
+}
+
+.hero-actions a{
+width:100%;
+}
+
+.summary-grid,
+.terminal-grid,
+.methodology-grid,
+.principles-list{
+grid-template-columns:1fr;
+}
+
+.principle{
+border-right:none !important;
+border-bottom:1px solid rgba(127,194,255,.09) !important;
+}
+
+.principle:last-child{
+border-bottom:none !important;
+}
+
+.report-content{
+padding:26px 22px;
+}
+
+.research-card{
+padding:24px 21px;
+}
+
+.card-details{
+grid-template-columns:1fr;
+}
+
+.cta-panel{
+padding:42px 22px;
+}
+
+}
+
+</style>
 
 </head>
 
 
-<body>
+<body class="research-page">
 
 
-<nav>
+<nav class="research-nav">
 
-<div class="logo">
-DOSSIER
-</div>
+<a class="brand" href="index.html">
+
+<span class="brand-mark">D</span>
+
+<span>DOSSIER</span>
+
+</a>
 
 
 <div class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="casefiles.html">Case Files</a>
+<a href="library.html">Evidence Library</a>
+<a class="active" href="research.html">Research</a>
+<a href="about.html">About</a>
+
+<a class="research-access" href="#research-archive">
+Enter Division
+</a>
+
+</div>
+
+</nav>
+
+
+
+<main>
+
+
+<section class="research-hero">
+
+<div class="hero-copy reveal">
+
+<div class="system-status">
+
+<span class="system-dot"></span>
+
+Research Division Online
+
+</div>
+
+
+<p class="eyebrow">
+FORENSIC RESEARCH AND INTELLIGENCE
+</p>
+
+
+<h1>
+
+Research that strengthens
+
+<span class="hero-gradient">
+investigative judgment.
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+Enter the Dossier Research Division to explore the theories, methods, technologies, and ethical questions behind modern investigation. Each report connects academic knowledge with practical case analysis, evidence interpretation, and responsible decision-making.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a class="primary-btn" href="#research-archive">
+
+Access Research Archive
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<a class="secondary-btn" href="casefiles.html">
+
+Enter Case Database
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="research-terminal reveal">
+
+<div class="terminal-bar">
+
+<div class="terminal-lights">
+
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+
+</div>
+
+<span class="terminal-title">
+Dossier Research Intelligence System
+</span>
+
+</div>
+
+
+<div class="terminal-content">
+
+<div class="division-heading">
+
+<div>
+
+<span>Division Status</span>
+
+<strong>
+Research Active
+</strong>
+
+</div>
+
+<div class="security-tag">
+ANALYST ACCESS
+</div>
+
+</div>
+
+
+<div class="terminal-grid">
+
+<div class="terminal-stat">
+
+<span>Research Reports</span>
+
+<strong>06</strong>
+
+<small>available</small>
+
+</div>
+
+<div class="terminal-stat">
+
+<span>Research Fields</span>
+
+<strong>06</strong>
+
+<small>documented</small>
+
+</div>
+
+<div class="terminal-stat">
+
+<span>Connected Cases</span>
+
+<strong>03</strong>
+
+<small>operational</small>
+
+</div>
+
+<div class="terminal-stat">
+
+<span>Active Projects</span>
+
+<strong>03</strong>
+
+<small>in progress</small>
+
+</div>
+
+</div>
+
+
+<div class="terminal-log">
+
+<div>
+<span class="log-time">[19:31:05]</span>
+Research archive mounted
+</div>
+
+<div>
+<span class="log-time">[19:31:08]</span>
+Current reports indexed
+</div>
+
+<div>
+<span class="log-time">[19:31:10]</span>
+Case intelligence synchronized
+</div>
+
+<div>
+<span class="log-time">[19:31:12]</span>
+Awaiting research selection_
+</div>
+
+</div>
+
+
+<div class="research-progress">
+
+<div class="progress-heading">
+
+<span>Division readiness</span>
+
+<span>88%</span>
+
+</div>
+
+<div class="progress-track">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="research-summary reveal">
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="6">
+0
+</strong>
+
+<span class="summary-label">
+Research Reports
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="6">
+0
+</strong>
+
+<span class="summary-label">
+Research Fields
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="3">
+0
+</strong>
+
+<span class="summary-label">
+Case Connections
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="3">
+0
+</strong>
+
+<span class="summary-label">
+Active Projects
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="research-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+FEATURED INTELLIGENCE REPORT
+</p>
+
+<h2>
+Synthetic media and executive impersonation
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Modern fraud increasingly combines social engineering with artificial intelligence. Investigators must evaluate the full communication environment rather than relying on voice or appearance alone.
+
+</p>
+
+</div>
+
+
+<div class="featured-report">
+
+<div class="report-visual">
+
+<div class="report-top">
+
+<span class="report-id">
+RESEARCH FILE R-01
+</span>
+
+<span class="report-tag">
+Featured Report
+</span>
+
+</div>
+
+
+<div class="report-symbol">
+◉
+</div>
+
+
+<div class="report-bottom">
+
+<span class="report-type">
+Synthetic Media Intelligence Unit
+</span>
+
+</div>
+
+</div>
+
+
+<div class="report-content">
+
+<p class="case-label">
+AI FRAUD AND DIGITAL AUTHENTICATION
+</p>
+
+<h3>
+When a familiar voice can no longer be trusted
+</h3>
+
+<p class="report-summary">
+
+AI-generated voice technology can reproduce tone, pacing, accent, and speech patterns using limited source material. In an impersonation attack, credibility is created through familiarity, urgency, authority, and context. Investigators must therefore examine audio characteristics alongside email records, domain information, payment procedures, timing, and independent confirmation.
+
+</p>
+
+
+<div class="report-details">
+
+<div class="report-detail">
+
+<span>Research Field</span>
+
+<strong>Synthetic Media</strong>
+
+</div>
+
+<div class="report-detail">
+
+<span>Connected Case</span>
+
+<strong>Case File 002</strong>
+
+</div>
+
+<div class="report-detail">
+
+<span>Reading Level</span>
+
+<strong>Intermediate</strong>
+
+</div>
+
+</div>
+
+
+<div class="report-findings">
+
+<div>
+<strong>✓</strong>
+Familiarity does not establish authenticity
+</div>
+
+<div>
+<strong>✓</strong>
+Synthetic audio must be examined with surrounding evidence
+</div>
+
+<div>
+<strong>✓</strong>
+Urgency and authority are common social engineering tools
+</div>
+
+<div>
+<strong>✓</strong>
+Independent verification can interrupt an impersonation attack
+</div>
+
+</div>
+
+
+<a class="primary-btn" href="case002.html">
+
+Open Connected Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="research-section" id="research-archive">
+
+<div class="section-heading reveal">
+
+<div>
+
+<p class="eyebrow">
+RESEARCH ARCHIVE
+</p>
+
+<h2>
+Explore intelligence reports
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Each report introduces a major investigative issue and connects it to the practical decisions required inside the Dossier case simulations.
+
+</p>
+
+</div>
+
+
+<div class="research-filter reveal">
+
+<button class="filter-button active" data-filter="all">
+All Research
+</button>
+
+<button class="filter-button" data-filter="cybercrime">
+Cybercrime
+</button>
+
+<button class="filter-button" data-filter="digital">
+Digital Forensics
+</button>
+
+<button class="filter-button" data-filter="ai">
+AI and Deepfakes
+</button>
+
+<button class="filter-button" data-filter="behaviour">
+Behaviour
+</button>
+
+<button class="filter-button" data-filter="forensic">
+Forensic Science
+</button>
+
+</div>
+
+
+
+<div class="report-grid">
+
+
+<article
+class="research-card reveal"
+data-category="cybercrime"
+>
+
+<div class="card-top">
+
+<div class="report-icon">
+✉
+</div>
+
+<span class="report-number">
+01
+</span>
+
+</div>
+
+<p class="research-category">
+CYBERCRIME AND SOCIAL ENGINEERING
+</p>
+
+<h3>
+Why convincing scams succeed
+</h3>
+
+<p>
+
+Social engineering attacks exploit trust, urgency, opportunity, authority, and emotional pressure. Investigators must examine not only whether a message appears professional, but also what behaviour the sender is attempting to produce.
+
+</p>
+
+<div class="card-details">
+
+<div class="card-detail">
+
+<span>Connected Case</span>
+
+<strong>Case File 001</strong>
+
+</div>
+
+<div class="card-detail">
+
+<span>Reading Time</span>
+
+<strong>6 Minutes</strong>
+
+</div>
+
+</div>
+
+<div class="card-tags">
+
+<span class="card-tag">Phishing</span>
+<span class="card-tag">Recruitment Fraud</span>
+<span class="card-tag">Trust</span>
+
+</div>
+
+<div class="card-footer">
+
+<span class="card-status">
+Research File R-01
+</span>
+
+<a class="card-link" href="case001/case001.html">
+Apply in Case →
+</a>
+
+</div>
+
+</article>
+
+
+
+<article
+class="research-card reveal"
+data-category="digital"
+>
+
+<div class="card-top">
+
+<div class="report-icon">
+⌕
+</div>
+
+<span class="report-number">
+02
+</span>
+
+</div>
+
+<p class="research-category">
+DIGITAL FORENSICS
+</p>
+
+<h3>
+Digital evidence and verification
+</h3>
+
+<p>
+
+Emails, websites, metadata, access logs, account records, and device activity can establish important facts. Their value depends on proper preservation, authentication, context, and comparison with independent information.
+
+</p>
+
+<div class="card-details">
+
+<div class="card-detail">
+
+<span>Connected Cases</span>
+
+<strong>Cases 001–003</strong>
+
+</div>
+
+<div class="card-detail">
+
+<span>Reading Time</span>
+
+<strong>7 Minutes</strong>
+
+</div>
+
+</div>
+
+<div class="card-tags">
+
+<span class="card-tag">Metadata</span>
+<span class="card-tag">Authentication</span>
+<span class="card-tag">Preservation</span>
+
+</div>
+
+<div class="card-footer">
+
+<span class="card-status">
+Research File R-02
+</span>
+
+<a class="card-link" href="library.html">
+View Evidence Library →
+</a>
+
+</div>
+
+</article>
+
+
+
+<article
+class="research-card ai reveal"
+data-category="ai"
+>
+
+<div class="card-top">
+
+<div class="report-icon">
+◉
+</div>
+
+<span class="report-number">
+03
+</span>
+
+</div>
+
+<p class="research-category">
+AI AND SYNTHETIC MEDIA
+</p>
+
+<h3>
+Detecting voice and identity manipulation
+</h3>
+
+<p>
+
+Deepfakes and synthetic audio challenge traditional assumptions about authenticity. Detection requires technical examination, source verification, contextual analysis, and procedures that do not depend on appearance or voice alone.
+
+</p>
+
+<div class="card-details">
+
+<div class="card-detail">
+
+<span>Connected Case</span>
+
+<strong>Case File 002</strong>
+
+</div>
+
+<div class="card-detail">
+
+<span>Reading Time</span>
+
+<strong>8 Minutes</strong>
+
+</div>
+
+</div>
+
+<div class="card-tags">
+
+<span class="card-tag">Voice Cloning</span>
+<span class="card-tag">Deepfakes</span>
+<span class="card-tag">Authentication</span>
+
+</div>
+
+<div class="card-footer">
+
+<span class="card-status">
+Research File R-03
+</span>
+
+<a class="card-link" href="case002.html">
+Apply in Case →
+</a>
+
+</div>
+
+</article>
+
+
+
+<article
+class="research-card behaviour reveal"
+data-category="behaviour"
+>
+
+<div class="card-top">
+
+<div class="report-icon">
+◎
+</div>
+
+<span class="report-number">
+04
+</span>
+
+</div>
+
+<p class="research-category">
+INVESTIGATIVE INTERVIEWING
+</p>
+
+<h3>
+Behaviour is not proof of deception
+</h3>
+
+<p>
+
+Nervousness, eye contact, posture, hesitation, and emotion can have many explanations. Investigators should use behaviour to guide questions, not to replace evidence or automatically classify a person as truthful or deceptive.
+
+</p>
+
+<div class="card-details">
+
+<div class="card-detail">
+
+<span>Connected Case</span>
+
+<strong>Case File 003</strong>
+
+</div>
+
+<div class="card-detail">
+
+<span>Reading Time</span>
+
+<strong>7 Minutes</strong>
+
+</div>
+
+</div>
+
+<div class="card-tags">
+
+<span class="card-tag">Interviews</span>
+<span class="card-tag">Credibility</span>
+<span class="card-tag">Corroboration</span>
+
+</div>
+
+<div class="card-footer">
+
+<span class="card-status">
+Research File R-04
+</span>
+
+<a class="card-link" href="case003/case003.html">
+Apply in Case →
+</a>
+
+</div>
+
+</article>
+
+
+
+<article
+class="research-card forensic reveal"
+data-category="forensic"
+>
+
+<div class="card-top">
+
+<div class="report-icon">
+⚗
+</div>
+
+<span class="report-number">
+05
+</span>
+
+</div>
+
+<p class="research-category">
+FORENSIC TOXICOLOGY
+</p>
+
+<h3>
+Interpreting chemical evidence
+</h3>
+
+<p>
+
+Identifying a substance is only the beginning. Investigators must evaluate concentration, exposure pathway, timing, medical context, contamination risks, testing limitations, and whether the result is consistent with the reconstructed incident.
+
+</p>
+
+<div class="card-details">
+
+<div class="card-detail">
+
+<span>Connected Case</span>
+
+<strong>Case File 003</strong>
+
+</div>
+
+<div class="card-detail">
+
+<span>Reading Time</span>
+
+<strong>9 Minutes</strong>
+
+</div>
+
+</div>
+
+<div class="card-tags">
+
+<span class="card-tag">Toxicology</span>
+<span class="card-tag">Exposure</span>
+<span class="card-tag">Interpretation</span>
+
+</div>
+
+<div class="card-footer">
+
+<span class="card-status">
+Research File R-05
+</span>
+
+<a class="card-link" href="case003/case003.html">
+Apply in Case →
+</a>
+
+</div>
+
+</article>
+
+
+
+<article
+class="research-card reveal"
+data-category="digital"
+>
+
+<div class="card-top">
+
+<div class="report-icon">
+◇
+</div>
+
+<span class="report-number">
+06
+</span>
+
+</div>
+
+<p class="research-category">
+EVIDENCE-BASED REASONING
+</p>
+
+<h3>
+Building and testing a case theory
+</h3>
+
+<p>
+
+A case theory should explain the available evidence while remaining open to revision. Investigators must distinguish facts from assumptions, examine alternative explanations, seek contradictions, and report uncertainty honestly.
+
+</p>
+
+<div class="card-details">
+
+<div class="card-detail">
+
+<span>Connected Cases</span>
+
+<strong>All Cases</strong>
+
+</div>
+
+<div class="card-detail">
+
+<span>Reading Time</span>
+
+<strong>6 Minutes</strong>
+
+</div>
+
+</div>
+
+<div class="card-tags">
+
+<span class="card-tag">Case Theory</span>
+<span class="card-tag">Alternative Explanations</span>
+<span class="card-tag">Bias</span>
+
+</div>
+
+<div class="card-footer">
+
+<span class="card-status">
+Research File R-06
+</span>
+
+<a class="card-link" href="casefiles.html">
+Enter Case Database →
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<section class="research-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+RESEARCH METHODOLOGY
+</p>
+
+<h2>
+How knowledge becomes investigative guidance
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Dossier research is organized around a structured process that connects academic concepts, forensic methods, case evidence, and responsible conclusions.
+
+</p>
+
+</div>
+
+
+<div class="methodology-grid">
+
+<div class="method-card">
+
+<div class="method-icon">
+?
+</div>
+
+<h3>
+Define the Question
+</h3>
+
+<p>
+
+Identify the investigative problem, uncertainty, or evidence issue that requires further examination.
+
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<div class="method-icon">
+▤
+</div>
+
+<h3>
+Review the Evidence
+</h3>
+
+<p>
+
+Examine existing research, case records, forensic principles, and relevant analytical methods.
+
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<div class="method-icon">
+⌕
+</div>
+
+<h3>
+Evaluate Reliability
+</h3>
+
+<p>
+
+Assess source quality, limitations, competing explanations, and whether findings can be independently supported.
+
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<div class="method-icon">
+◇
+</div>
+
+<h3>
+Connect to Practice
+</h3>
+
+<p>
+
+Translate research into realistic investigative decisions, questions, warnings, and evidence procedures.
+
+</p>
+
+</div>
+
+
+<div class="method-card">
+
+<div class="method-icon">
+✓
+</div>
+
+<h3>
+Report Responsibly
+</h3>
+
+<p>
+
+Present conclusions clearly while identifying uncertainty, limitations, and what the evidence does not establish.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="research-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+RESEARCH STANDARDS
+</p>
+
+<h2>
+Principles for responsible investigation
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Research should improve judgment rather than create false certainty. Investigators must remain transparent about evidence quality, limitations, interpretation, and uncertainty.
+
+</p>
+
+</div>
+
+
+<div class="principles-panel">
+
+<div class="principles-intro">
+
+<p class="case-label">
+DIVISION PROTOCOL
+</p>
+
+<h3>
+Strong analysis can withstand challenge.
+</h3>
+
+<p>
+
+A reliable investigative conclusion is not based on confidence alone. It is built through transparent methods, verifiable evidence, competing explanations, and careful attention to what remains unknown.
+
+</p>
+
+<span class="review-stamp">
+RESEARCH REVIEWED
+</span>
+
+</div>
+
+
+<div class="principles-list">
+
+<div class="principle">
+
+<span class="principle-number">
+STANDARD 01
+</span>
+
+<h4>
+Use Reliable Sources
+</h4>
+
+<p>
+
+Prioritize credible research, documented methods, and verifiable evidence.
+
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<span class="principle-number">
+STANDARD 02
+</span>
+
+<h4>
+Separate Evidence From Assumption
+</h4>
+
+<p>
+
+Clearly identify what is known, inferred, disputed, or still unknown.
+
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<span class="principle-number">
+STANDARD 03
+</span>
+
+<h4>
+Test Alternative Explanations
+</h4>
+
+<p>
+
+Evaluate whether the evidence can reasonably support more than one account.
+
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<span class="principle-number">
+STANDARD 04
+</span>
+
+<h4>
+Recognize Bias
+</h4>
+
+<p>
+
+Consider how expectations, first impressions, and prior beliefs can influence interpretation.
+
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<span class="principle-number">
+STANDARD 05
+</span>
+
+<h4>
+Seek Corroboration
+</h4>
+
+<p>
+
+Compare findings with independent records, testing, statements, and observations.
+
+</p>
+
+</div>
+
+
+<div class="principle">
+
+<span class="principle-number">
+STANDARD 06
+</span>
+
+<h4>
+Report Limitations
+</h4>
+
+<p>
+
+Explain uncertainty, missing information, and the boundaries of the conclusion.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="research-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+CASE INTELLIGENCE
+</p>
+
+<h2>
+Research connected to investigations
+</h2>
+
+</div>
+
+<a class="section-link" href="casefiles.html">
+View complete case database →
+</a>
+
+</div>
+
+
+<div class="case-connections">
+
+
+<article class="connection-card case-one">
+
+<span class="connection-label">
+CASE FILE 001
+</span>
+
+<h3>
+The Internship Scam
+</h3>
+
+<p>
+
+Apply research on recruitment fraud, social engineering, digital identity verification, suspicious domains, and deceptive communication strategies.
+
+</p>
+
+<div class="connection-list">
+
+<div>
+<strong>✓</strong>
+Social engineering psychology
+</div>
+
+<div>
+<strong>✓</strong>
+Email and website authentication
+</div>
+
+<div>
+<strong>✓</strong>
+Digital footprint verification
+</div>
+
+<div>
+<strong>✓</strong>
+Fraud warning indicators
+</div>
+
+</div>
+
+<a class="primary-btn" href="case001/case001.html">
+
+Open Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</article>
+
+
+
+<article class="connection-card case-two">
+
+<span class="connection-label">
+CASE FILE 002
+</span>
+
+<h3>
+The Executive Impersonation Incident
+</h3>
+
+<p>
+
+Apply research on synthetic audio, authority-based manipulation, email authentication, financial controls, and independent identity verification.
+
+</p>
+
+<div class="connection-list">
+
+<div>
+<strong>✓</strong>
+AI-generated voice analysis
+</div>
+
+<div>
+<strong>✓</strong>
+Executive impersonation methods
+</div>
+
+<div>
+<strong>✓</strong>
+Domain and message verification
+</div>
+
+<div>
+<strong>✓</strong>
+Financial authorization procedures
+</div>
+
+</div>
+
+<a class="primary-btn" href="case002.html">
+
+Open Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</article>
+
+
+
+<article class="connection-card case-three">
+
+<span class="connection-label">
+CASE FILE 003
+</span>
+
+<h3>
+Silent Dose
+</h3>
+
+<p>
+
+Apply research on forensic toxicology, investigative interviewing, evidence comparison, timeline reconstruction, motive, access, and opportunity.
+
+</p>
+
+<div class="connection-list">
+
+<div>
+<strong>✓</strong>
+Chemical evidence interpretation
+</div>
+
+<div>
+<strong>✓</strong>
+Interview and statement analysis
+</div>
+
+<div>
+<strong>✓</strong>
+Timeline reconstruction
+</div>
+
+<div>
+<strong>✓</strong>
+Alternative case theories
+</div>
+
+</div>
+
+<a class="primary-btn" href="case003/case003.html">
+
+Open Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<section class="research-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+ACTIVE RESEARCH PROGRAMS
+</p>
+
+<h2>
+Current division projects
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+The Dossier Research Division continues to expand its investigation methods, evidence resources, and future case simulations.
+
+</p>
+
+</div>
+
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<span class="project-status">
+Research Active
+</span>
+
+<h3>
+Synthetic Identity and Deepfake Detection
+</h3>
+
+<p>
+
+Developing a future investigation involving manipulated video interviews, fabricated professional histories, synthetic identities, and employment fraud.
+
+</p>
+
+<div class="project-progress">
+
+<div class="project-progress-heading">
+
+<span>Research Completion</span>
+
+<span>72%</span>
+
+</div>
+
+<div class="project-track">
+
+<div class="project-fill one"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<span class="project-status">
+Research Active
+</span>
+
+<h3>
+Ransomware and Incident Reconstruction
+</h3>
+
+<p>
+
+Building an advanced digital forensics case involving phishing, compromised systems, attacker communication, system logs, and evidence recovery.
+
+</p>
+
+<div class="project-progress">
+
+<div class="project-progress-heading">
+
+<span>Research Completion</span>
+
+<span>54%</span>
+
+</div>
+
+<div class="project-track">
+
+<div class="project-fill two"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="project-card">
+
+<span class="project-status">
+Research Active
+</span>
+
+<h3>
+Investigative Interview Development
+</h3>
+
+<p>
+
+Expanding suspect interview systems with additional questioning paths, evidence presentation, contradiction tracking, and investigator performance feedback.
+
+</p>
+
+<div class="project-progress">
+
+<div class="project-progress-heading">
+
+<span>Research Completion</span>
+
+<span>38%</span>
+
+</div>
+
+<div class="project-track">
+
+<div class="project-fill three"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="research-cta reveal">
+
+<div class="cta-panel">
+
+<p class="eyebrow">
+RESEARCH DIRECTIVE
+</p>
+
+<h2>
+Knowledge is most valuable when it improves the investigation.
+</h2>
+
+<p>
+
+Explore the research archive, review evidence principles, and enter a case simulation where your conclusions must be supported by verified information and defensible reasoning.
+
+</p>
+
+
+<div class="cta-buttons">
+
+<a class="primary-btn" href="casefiles.html">
+
+Enter Case Database
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<a class="secondary-btn" href="library.html">
+
+Open Evidence Library
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="research-footer">
+
+<div class="footer-top">
+
+<div>
+
+<a class="brand" href="index.html">
+
+<span class="brand-mark">D</span>
+
+<span>DOSSIER</span>
+
+</a>
+
+<p class="footer-brand-copy">
+
+An interactive investigation platform combining research, criminology, forensic science, cybercrime, digital evidence, and evidence-based analytical reasoning.
+
+</p>
+
+</div>
+
+
+<div class="footer-links">
 
 <a href="index.html">Home</a>
 <a href="casefiles.html">Case Files</a>
@@ -38,672 +3231,178 @@ DOSSIER
 
 </div>
 
-</nav>
-
-
-
-<section class="hero">
-
-<p class="eyebrow">
-DOSSIER RESEARCH DIVISION
-</p>
-
-<h1>
-Investigation Reports
-</h1>
-
-<p class="hero-text">
-
-Explore the concepts, behaviours, forensic methods, and emerging technologies behind modern investigations. Each report connects academic knowledge with the evidence and decisions found throughout Dossier case simulations.
-
-</p>
-
-<div class="buttons">
-
-<a class="primary-btn" href="#reports">
-View Research Reports
-</a>
-
-<a class="secondary-btn" href="casefiles.html">
-Explore Case Files
-</a>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>
-Purpose of Research
-</h2>
-
-<div class="card">
-
-<p>
-
-The Dossier Research Division explores the theories, investigative methods, and technologies behind each case simulation. These reports examine how human behaviour, digital systems, physical evidence, and forensic reasoning shape modern investigations.
-
-</p>
-
-<p>
-
-While Case Files challenge users to solve specific incidents, Research Reports provide the background knowledge needed to understand why crimes occur, how evidence is interpreted, and how investigators build reliable conclusions.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<section id="reports">
-
-<p class="eyebrow">
-FEATURED ANALYSIS
-</p>
-
-<h2>
-Featured Research Reports
-</h2>
-
-<div class="grid">
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-REPORT 001
-</p>
-
-<h3>
-The Psychology Behind Social Engineering Attacks
-</h3>
-
-<p>
-
-<strong>Connected Case:</strong>
-<br>
-Case File 001: The Internship Scam
-
-</p>
-
-<p>
-
-Social engineering attacks target human decision-making by using trust, authority, urgency, fear, and opportunity. Instead of relying only on technical weaknesses, offenders manipulate victims into revealing information or completing harmful actions.
-
-</p>
-
-<strong>
-Key Concepts:
-</strong>
-
-<ul>
-
-<li>Trust manipulation</li>
-<li>False authority</li>
-<li>Urgency and pressure tactics</li>
-<li>Opportunity-based deception</li>
-<li>Victim information gathering</li>
-
-</ul>
-
-<p>
-
-<strong>Investigator Focus:</strong>
-<br>
-Understanding why victims respond to deceptive messages helps investigators identify manipulation strategies and recognize recurring attack patterns.
-
-</p>
-
 </div>
 
 
+<div class="footer-bottom">
 
-<div class="learn-card">
+<span>
+© 2026 Dossier. Interactive Investigation Platform.
+</span>
 
-<p class="case-label">
-REPORT 002
-</p>
-
-<h3>
-Digital Evidence in Modern Investigations
-</h3>
-
-<p>
-
-<strong>Connected Case:</strong>
-<br>
-Case File 001: The Internship Scam
-
-</p>
-
-<p>
-
-Digital evidence can help investigators reconstruct events, verify identities, trace communications, and determine whether online activity is authentic or suspicious.
-
-</p>
-
-<strong>
-Evidence Sources:
-</strong>
-
-<ul>
-
-<li>Emails and message headers</li>
-<li>Websites and domain records</li>
-<li>File and device metadata</li>
-<li>Account access history</li>
-<li>Online activity records</li>
-
-</ul>
-
-<p>
-
-<strong>Investigator Focus:</strong>
-<br>
-Evidence must be collected, preserved, verified, and compared with other sources before conclusions are made.
-
-</p>
+<span>
+Research division online.
+</span>
 
 </div>
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-REPORT 003
-</p>
-
-<h3>
-Artificial Intelligence and Impersonation Fraud
-</h3>
-
-<p>
-
-<strong>Connected Case:</strong>
-<br>
-Case File 002: The Executive Impersonation Incident
-
-</p>
-
-<p>
-
-Artificial intelligence is creating new investigative challenges through realistic synthetic voices, automated messages, manipulated media, and convincing identity impersonation.
-
-</p>
-
-<strong>
-Emerging Threats:
-</strong>
-
-<ul>
-
-<li>Voice cloning</li>
-<li>Deepfake media</li>
-<li>Synthetic identities</li>
-<li>AI-generated communications</li>
-<li>Automated fraud campaigns</li>
-
-</ul>
-
-<p>
-
-<strong>Investigator Focus:</strong>
-<br>
-Investigators must verify suspicious communications through independent channels and examine technical indicators before trusting digital content.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-REPORT 004
-</p>
-
-<h3>
-Forensic Toxicology and Suspicious Death Investigation
-</h3>
-
-<p>
-
-<strong>Connected Case:</strong>
-<br>
-Case File 003: Silent Dose
-
-</p>
-
-<p>
-
-Forensic toxicology examines drugs, chemicals, poisons, and unknown compounds found in biological or physical evidence. Investigators use laboratory findings to determine how a substance entered the body and whether it contributed to injury or death.
-
-</p>
-
-<strong>
-Key Concepts:
-</strong>
-
-<ul>
-
-<li>Unknown substance identification</li>
-<li>Dosage and concentration analysis</li>
-<li>Contamination prevention</li>
-<li>Exposure pathways</li>
-<li>Laboratory evidence interpretation</li>
-
-</ul>
-
-<p>
-
-<strong>Investigator Focus:</strong>
-<br>
-Laboratory results must be compared with scene evidence, witness accounts, medical history, and timeline information.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-REPORT 005
-</p>
-
-<h3>
-Interview Analysis and Deception Indicators
-</h3>
-
-<p>
-
-<strong>Connected Case:</strong>
-<br>
-Case File 003: Silent Dose
-
-</p>
-
-<p>
-
-Investigative interviews help establish timelines, clarify relationships, test explanations, and identify contradictions. Behaviour alone does not prove deception, but changes in language, detail, stress, and consistency can guide further investigation.
-
-</p>
-
-<strong>
-Investigators Examine:
-</strong>
-
-<ul>
-
-<li>Statement consistency</li>
-<li>Changes in detail</li>
-<li>Avoidance and deflection</li>
-<li>Timeline contradictions</li>
-<li>Evidence-based reactions</li>
-
-</ul>
-
-<p>
-
-<strong>Investigator Focus:</strong>
-<br>
-Interview observations should always be supported by independent evidence rather than assumptions about body language alone.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-REPORT 006
-</p>
-
-<h3>
-Reconstructing Events Through Evidence
-</h3>
-
-<p>
-
-<strong>Connected Cases:</strong>
-<br>
-Case Files 001, 002, and 003
-
-</p>
-
-<p>
-
-Investigators reconstruct events by organizing evidence into a reliable sequence. Communications, account activity, witness statements, physical evidence, and laboratory findings can reveal planning, opportunity, movement, and intent.
-
-</p>
-
-<strong>
-Reconstruction Sources:
-</strong>
-
-<ul>
-
-<li>Time-stamped communications</li>
-<li>Access and activity logs</li>
-<li>Witness statements</li>
-<li>Physical evidence</li>
-<li>Forensic examination results</li>
-
-</ul>
-
-<p>
-
-<strong>Investigator Focus:</strong>
-<br>
-A strong timeline should explain how each event is supported and identify where evidence remains incomplete.
-
-</p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<p class="eyebrow">
-RESEARCH CATEGORIES
-</p>
-
-<h2>
-Research Areas
-</h2>
-
-<div class="grid">
-
-
-
-<div class="learn-card">
-
-<h3>
-Digital Forensics
-</h3>
-
-<p>
-
-The collection, preservation, examination, and interpretation of evidence from computers, mobile devices, online accounts, files, and communication systems.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<h3>
-Cybercrime Behaviour
-</h3>
-
-<p>
-
-The study of offender strategies, victim targeting, online deception, social engineering, identity manipulation, and technology-enabled crime.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<h3>
-Artificial Intelligence
-</h3>
-
-<p>
-
-The examination of how AI can support investigations while also creating new risks through synthetic media, automation, impersonation, and misinformation.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<h3>
-Forensic Science
-</h3>
-
-<p>
-
-The application of scientific methods to physical evidence, chemical substances, biological materials, scene reconstruction, and laboratory analysis.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<h3>
-Investigative Interviewing
-</h3>
-
-<p>
-
-The structured process of gathering information, testing explanations, identifying contradictions, and evaluating statements against available evidence.
-
-</p>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<h3>
-Criminological Analysis
-</h3>
-
-<p>
-
-The study of criminal behaviour, opportunity, motivation, social conditions, victimization, and the broader causes and patterns of crime.
-
-</p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>
-Research Standards
-</h2>
-
-<div class="card">
-
-<p>
-
-Reliable investigative research should be evidence-based, transparent, and open to alternative explanations.
-
-</p>
-
-<ul>
-
-<li>Separate verified facts from assumptions.</li>
-<li>Use multiple sources whenever possible.</li>
-<li>Consider the reliability and limitations of each source.</li>
-<li>Avoid treating one piece of evidence as conclusive.</li>
-<li>Document how conclusions were reached.</li>
-<li>Revise conclusions when new evidence becomes available.</li>
-
-</ul>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>
-Case Connections
-</h2>
-
-<div class="grid">
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-CASE FILE 001
-</p>
-
-<h3>
-The Internship Scam
-</h3>
-
-<p>
-
-<strong>Research Areas:</strong>
-
-</p>
-
-<p>
-
-Social Engineering
-<br>
-Digital Evidence
-<br>
-Online Trust
-<br>
-Domain Verification
-<br>
-Victim Decision-Making
-
-</p>
-
-<a class="primary-btn" href="case001/case001.html">
-Open Investigation →
-</a>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-CASE FILE 002
-</p>
-
-<h3>
-The Executive Impersonation Incident
-</h3>
-
-<p>
-
-<strong>Research Areas:</strong>
-
-</p>
-
-<p>
-
-Artificial Intelligence
-<br>
-Voice Authentication
-<br>
-Executive Impersonation
-<br>
-Digital Authenticity
-<br>
-Fraud Detection
-
-</p>
-
-<a class="primary-btn" href="case002.html">
-Open Investigation →
-</a>
-
-</div>
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-CASE FILE 003
-</p>
-
-<h3>
-Silent Dose
-</h3>
-
-<p>
-
-<strong>Research Areas:</strong>
-
-</p>
-
-<p>
-
-Forensic Toxicology
-<br>
-Suspicious Death Investigation
-<br>
-Interview Analysis
-<br>
-Evidence Comparison
-<br>
-Timeline Reconstruction
-
-</p>
-
-<a class="primary-btn" href="case003/case003.html">
-Open Investigation →
-</a>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-<p>
-© 2026 Dossier • Research Division
-</p>
 
 </footer>
+
+
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+revealObserver.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:0.1
+}
+);
+
+revealItems.forEach((item) => {
+
+revealObserver.observe(item);
+
+});
+
+
+/* =========================================================
+   ANIMATED RESEARCH STATISTICS
+========================================================= */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(!entry.isIntersecting){
+return;
+}
+
+const counter = entry.target;
+const target = Number(counter.dataset.count);
+
+let current = 0;
+
+const animation = setInterval(() => {
+
+current += 1;
+counter.textContent = current;
+
+if(current >= target){
+
+counter.textContent = target;
+clearInterval(animation);
+
+}
+
+},110);
+
+counterObserver.unobserve(counter);
+
+});
+
+},
+{
+threshold:0.65
+}
+);
+
+counters.forEach((counter) => {
+
+counterObserver.observe(counter);
+
+});
+
+
+/* =========================================================
+   RESEARCH FILTERS
+========================================================= */
+
+const filterButtons = document.querySelectorAll(".filter-button");
+const researchCards = document.querySelectorAll(".research-card");
+
+filterButtons.forEach((button) => {
+
+button.addEventListener("click",() => {
+
+filterButtons.forEach((item) => {
+
+item.classList.remove("active");
+
+});
+
+button.classList.add("active");
+
+const selectedFilter = button.dataset.filter;
+
+researchCards.forEach((card) => {
+
+const category = card.dataset.category;
+
+const shouldShow =
+selectedFilter === "all" ||
+selectedFilter === category;
+
+if(shouldShow){
+
+card.style.display = "flex";
+
+requestAnimationFrame(() => {
+
+card.style.opacity = "1";
+card.style.transform = "translateY(0)";
+
+});
+
+}else{
+
+card.style.opacity = "0";
+card.style.transform = "translateY(15px)";
+
+setTimeout(() => {
+
+if(
+selectedFilter !== "all" &&
+selectedFilter !== card.dataset.category
+){
+
+card.style.display = "none";
+
+}
+
+},250);
+
+}
+
+});
+
+});
+
+});
+
+</script>
 
 
 </body>
