@@ -6,26 +6,2225 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<meta
+name="description"
+content="Browse interactive investigations involving cybercrime, digital evidence, forensic science, fraud, and suspicious deaths through the Dossier case database."
+>
+
 <title>Case Files | Dossier</title>
 
 <link rel="stylesheet" href="style-v2.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   CINEMATIC CASE FILE DATABASE
+========================================================= */
+
+body{
+overflow-x:hidden;
+overflow-y:auto;
+}
+
+.casefiles-page{
+min-height:100vh;
+background:
+radial-gradient(circle at 85% 8%,rgba(43,102,185,.19),transparent 35%),
+radial-gradient(circle at 10% 60%,rgba(31,77,133,.12),transparent 36%),
+linear-gradient(180deg,#09111d 0%,#0b1220 42%,#09111d 100%);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.case-nav{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 8%;
+border-bottom:1px solid rgba(127,194,255,.13);
+background:rgba(9,17,29,.88);
+backdrop-filter:blur(18px);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:13px;
+color:#ffffff;
+font-size:23px;
+font-weight:800;
+letter-spacing:7px;
+text-decoration:none;
+}
+
+.brand-mark{
+width:34px;
+height:34px;
+display:grid;
+place-items:center;
+border:1px solid rgba(127,194,255,.25);
+border-radius:10px;
+background:linear-gradient(135deg,#5aa2ff,#2867d8);
+box-shadow:0 0 24px rgba(90,162,255,.28);
+font-size:13px;
+letter-spacing:0;
+}
+
+.case-nav .nav-links{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.case-nav .nav-links a{
+position:relative;
+color:#c8d3e4;
+font-size:14px;
+font-weight:500;
+text-decoration:none;
+}
+
+.case-nav .nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-7px;
+width:0;
+height:2px;
+background:#7fc2ff;
+transition:.25s ease;
+}
+
+.case-nav .nav-links a:hover,
+.case-nav .nav-links a.active{
+color:#ffffff;
+}
+
+.case-nav .nav-links a:hover::after,
+.case-nav .nav-links a.active::after{
+width:100%;
+}
+
+.database-button{
+padding:11px 17px;
+border:1px solid rgba(127,194,255,.3);
+border-radius:10px;
+background:rgba(90,162,255,.07);
+}
+
+.database-button::after{
+display:none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.case-hero{
+position:relative;
+max-width:none;
+min-height:620px;
+padding:110px 8% 95px;
+display:grid;
+grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+align-items:center;
+gap:70px;
+overflow:hidden;
+}
+
+.case-hero::before{
+content:"";
+position:absolute;
+top:-260px;
+right:-120px;
+width:750px;
+height:750px;
+border-radius:50%;
+background:rgba(52,112,196,.22);
+filter:blur(135px);
+pointer-events:none;
+}
+
+.case-hero::after{
+content:"CASE DATABASE";
+position:absolute;
+left:7%;
+bottom:-25px;
+font-size:clamp(72px,11vw,170px);
+font-weight:800;
+letter-spacing:-7px;
+white-space:nowrap;
+color:rgba(255,255,255,.018);
+pointer-events:none;
+}
+
+.hero-copy{
+position:relative;
+z-index:2;
+max-width:780px;
+}
+
+.system-status{
+display:inline-flex;
+align-items:center;
+gap:10px;
+margin-bottom:24px;
+padding:8px 13px;
+border:1px solid rgba(57,217,138,.22);
+border-radius:999px;
+background:rgba(57,217,138,.055);
+color:#92eabb;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.system-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#39d98a;
+box-shadow:0 0 14px rgba(57,217,138,.9);
+animation:statusPulse 1.9s infinite;
+}
+
+@keyframes statusPulse{
+
+0%,100%{
+opacity:1;
+transform:scale(1);
+}
+
+50%{
+opacity:.45;
+transform:scale(.72);
+}
+
+}
+
+.hero-eyebrow{
+margin-bottom:17px;
+color:#7fc2ff;
+font-size:12px;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.case-hero h1{
+max-width:760px;
+margin:0 0 24px;
+font-size:clamp(57px,7vw,94px);
+line-height:.96;
+letter-spacing:-5px;
+}
+
+.hero-gradient{
+background:linear-gradient(100deg,#ffffff 8%,#b7ddff 48%,#5aa2ff 100%);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero-description{
+max-width:720px;
+margin:0;
+color:#a7b3c6;
+font-size:18px;
+line-height:1.8;
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:33px;
+}
+
+.hero-actions a{
+min-height:52px;
+padding:14px 23px;
+}
+
+.button-arrow{
+margin-left:8px;
+transition:.25s ease;
+}
+
+.primary-btn:hover .button-arrow{
+display:inline-block;
+transform:translateX(5px);
+}
+
+
+/* =========================================================
+   COMMAND TERMINAL
+========================================================= */
+
+.database-terminal{
+position:relative;
+z-index:2;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.22);
+border-radius:22px;
+background:
+linear-gradient(180deg,rgba(20,29,45,.96),rgba(10,17,29,.99));
+box-shadow:
+0 32px 85px rgba(0,0,0,.45),
+0 0 0 1px rgba(255,255,255,.025) inset;
+}
+
+.database-terminal::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 50%,
+rgba(255,255,255,.012) 50%
+);
+background-size:100% 4px;
+pointer-events:none;
+}
+
+.terminal-bar{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 18px;
+border-bottom:1px solid rgba(127,194,255,.12);
+background:rgba(255,255,255,.018);
+}
+
+.terminal-lights{
+display:flex;
+gap:7px;
+}
+
+.terminal-light{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#445168;
+}
+
+.terminal-light:nth-child(1){
+background:#ff6b6b;
+}
+
+.terminal-light:nth-child(2){
+background:#ffd166;
+}
+
+.terminal-light:nth-child(3){
+background:#39d98a;
+}
+
+.terminal-title{
+color:#8493a9;
+font-size:10px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.terminal-content{
+position:relative;
+z-index:2;
+padding:27px;
+}
+
+.database-heading{
+display:flex;
+justify-content:space-between;
+gap:18px;
+padding-bottom:20px;
+border-bottom:1px solid rgba(127,194,255,.11);
+}
+
+.database-heading span{
+display:block;
+margin-bottom:5px;
+color:#718199;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.7px;
+text-transform:uppercase;
+}
+
+.database-heading strong{
+font-size:20px;
+color:#f4f8ff;
+}
+
+.security-tag{
+height:max-content;
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.22);
+border-radius:8px;
+background:rgba(57,217,138,.06);
+color:#80e2ad;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+}
+
+.database-stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+margin:20px 0;
+}
+
+.database-stat{
+padding:14px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:11px;
+background:rgba(255,255,255,.022);
+}
+
+.database-stat span{
+display:block;
+margin-bottom:4px;
+color:#728198;
+font-size:9px;
+font-weight:700;
+letter-spacing:1.4px;
+text-transform:uppercase;
+}
+
+.database-stat strong{
+font-size:20px;
+color:#ffffff;
+}
+
+.database-stat small{
+margin-left:3px;
+color:#8291a7;
+font-size:10px;
+}
+
+.database-log{
+padding:15px;
+border:1px solid rgba(57,217,138,.12);
+border-radius:11px;
+background:rgba(57,217,138,.03);
+font-family:monospace;
+font-size:11px;
+line-height:1.9;
+color:#8abda3;
+}
+
+.log-time{
+color:#596b82;
+}
+
+.database-progress{
+margin-top:20px;
+}
+
+.progress-heading{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+color:#8b9bb1;
+font-size:10px;
+}
+
+.progress-track{
+height:7px;
+overflow:hidden;
+border-radius:999px;
+background:#08101b;
+}
+
+.progress-fill{
+width:60%;
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,#3478d6,#7fc2ff);
+box-shadow:0 0 15px rgba(90,162,255,.45);
+}
+
+
+/* =========================================================
+   DATABASE OVERVIEW
+========================================================= */
+
+.case-summary{
+position:relative;
+z-index:5;
+padding:0 8% 85px;
+}
+
+.summary-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:17px;
+}
+
+.summary-card{
+padding:22px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:16px;
+background:rgba(18,27,42,.72);
+backdrop-filter:blur(12px);
+}
+
+.summary-number{
+display:block;
+margin-bottom:6px;
+color:#ffffff;
+font-size:31px;
+font-weight:800;
+}
+
+.summary-label{
+color:#8291a7;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.3px;
+text-transform:uppercase;
+}
+
+
+/* =========================================================
+   MAIN CASE DATABASE
+========================================================= */
+
+.case-database{
+position:relative;
+max-width:1500px;
+margin:auto;
+padding:95px 8% 120px;
+}
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:35px;
+margin-bottom:42px;
+}
+
+.section-heading h2{
+margin:0;
+font-size:clamp(34px,4vw,53px);
+letter-spacing:-2px;
+}
+
+.section-copy{
+max-width:620px;
+margin:0;
+color:#98a6ba;
+line-height:1.75;
+}
+
+.database-filter{
+display:flex;
+gap:9px;
+flex-wrap:wrap;
+margin-bottom:32px;
+}
+
+.filter-button{
+padding:9px 13px;
+border:1px solid rgba(127,194,255,.13);
+border-radius:8px;
+background:#101827;
+color:#8f9eb4;
+font:inherit;
+font-size:11px;
+font-weight:600;
+cursor:pointer;
+transition:.25s ease;
+}
+
+.filter-button:hover,
+.filter-button.active{
+border-color:rgba(127,194,255,.34);
+background:rgba(90,162,255,.09);
+color:#ffffff;
+}
+
+.case-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:25px;
+}
+
+
+/* =========================================================
+   CINEMATIC CASE CARDS
+========================================================= */
+
+.case-card{
+position:relative;
+min-height:590px;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+border:1px solid rgba(127,194,255,.13);
+border-radius:22px;
+background:
+linear-gradient(180deg,rgba(20,29,44,.98),rgba(12,20,33,.99));
+box-shadow:0 25px 65px rgba(0,0,0,.24);
+transition:
+transform .35s ease,
+border-color .35s ease,
+box-shadow .35s ease;
+}
+
+.case-card:hover{
+transform:translateY(-7px);
+border-color:rgba(127,194,255,.3);
+box-shadow:
+0 34px 80px rgba(0,0,0,.38),
+0 0 45px rgba(51,112,196,.07);
+}
+
+.case-image{
+position:relative;
+min-height:240px;
+padding:26px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+overflow:hidden;
+border-bottom:1px solid rgba(127,194,255,.12);
+}
+
+.case-image::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(180deg,transparent 30%,rgba(8,15,25,.75) 100%);
+pointer-events:none;
+}
+
+.case-image::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 50%,
+rgba(255,255,255,.012) 50%
+);
+background-size:100% 4px;
+pointer-events:none;
+}
+
+.case-001{
+background:
+radial-gradient(circle at 20% 20%,rgba(90,162,255,.38),transparent 30%),
+linear-gradient(135deg,#19385d,#0a1422 72%);
+}
+
+.case-002{
+background:
+radial-gradient(circle at 75% 25%,rgba(109,118,255,.34),transparent 30%),
+linear-gradient(135deg,#28284e,#0d1424 72%);
+}
+
+.case-003{
+background:
+radial-gradient(circle at 20% 22%,rgba(57,217,138,.25),transparent 30%),
+linear-gradient(135deg,#183d3b,#0b1721 72%);
+}
+
+.case-004{
+background:
+radial-gradient(circle at 78% 20%,rgba(199,95,255,.23),transparent 32%),
+linear-gradient(135deg,#352247,#10131f 72%);
+}
+
+.case-005{
+background:
+radial-gradient(circle at 23% 22%,rgba(255,86,86,.24),transparent 32%),
+linear-gradient(135deg,#412225,#14131c 72%);
+}
+
+.case-image-top,
+.case-image-bottom{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:15px;
+}
+
+.case-id{
+color:#b4d9ff;
+font-size:10px;
+font-weight:800;
+letter-spacing:2.3px;
+}
+
+.status-badge{
+padding:7px 10px;
+border-radius:999px;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.status-available{
+border:1px solid rgba(57,217,138,.25);
+background:rgba(57,217,138,.08);
+color:#86e7b3;
+}
+
+.status-coming{
+border:1px solid rgba(255,209,102,.22);
+background:rgba(255,209,102,.07);
+color:#f0cf7d;
+}
+
+.case-symbol{
+position:relative;
+z-index:2;
+display:grid;
+place-items:center;
+width:95px;
+height:95px;
+margin:auto;
+border:1px solid rgba(255,255,255,.13);
+border-radius:50%;
+background:rgba(255,255,255,.035);
+box-shadow:
+0 0 0 17px rgba(255,255,255,.018),
+0 0 55px rgba(90,162,255,.09);
+font-size:38px;
+}
+
+.case-image-bottom{
+align-items:end;
+}
+
+.case-type{
+color:#aebbd0;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.case-watermark{
+position:absolute;
+right:-7px;
+bottom:-38px;
+z-index:1;
+font-size:145px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.035);
+}
+
+.case-content{
+flex:1;
+display:flex;
+flex-direction:column;
+padding:31px;
+}
+
+.case-content h3{
+margin:7px 0 15px;
+color:#ffffff;
+font-size:28px;
+letter-spacing:-1px;
+}
+
+.case-description{
+flex-grow:1;
+margin:0;
+color:#9eacc0;
+font-size:14px;
+line-height:1.75;
+}
+
+.case-details{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin:25px 0;
+}
+
+.case-detail{
+padding:12px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:10px;
+background:#0f1725;
+}
+
+.case-detail span{
+display:block;
+margin-bottom:4px;
+color:#6f7f96;
+font-size:8px;
+font-weight:700;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.case-detail strong{
+color:#e6edf8;
+font-size:11px;
+}
+
+.skill-tags{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.skill-tag{
+padding:6px 9px;
+border:1px solid rgba(127,194,255,.11);
+border-radius:7px;
+background:rgba(90,162,255,.045);
+color:#8fa1ba;
+font-size:9px;
+font-weight:600;
+}
+
+.case-action{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+margin-top:auto;
+}
+
+.case-action .primary-btn,
+.case-action .secondary-btn{
+margin:0;
+}
+
+.case-clearance{
+color:#65758c;
+font-size:9px;
+font-weight:700;
+letter-spacing:1.2px;
+text-align:right;
+text-transform:uppercase;
+}
+
+.locked-card{
+opacity:.78;
+}
+
+.locked-card:hover{
+transform:translateY(-4px);
+}
+
+.locked-card .secondary-btn{
+cursor:not-allowed;
+}
+
+
+/* =========================================================
+   DATABASE NOTICE
+========================================================= */
+
+.database-notice{
+margin-top:45px;
+padding:25px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
+border:1px solid rgba(127,194,255,.13);
+border-radius:16px;
+background:linear-gradient(90deg,rgba(26,42,65,.75),rgba(15,24,39,.86));
+}
+
+.notice-copy{
+display:flex;
+align-items:flex-start;
+gap:16px;
+}
+
+.notice-icon{
+display:grid;
+place-items:center;
+min-width:42px;
+height:42px;
+border:1px solid rgba(127,194,255,.18);
+border-radius:11px;
+background:rgba(90,162,255,.07);
+color:#7fc2ff;
+}
+
+.notice-copy h3{
+margin:0 0 6px;
+font-size:16px;
+}
+
+.notice-copy p{
+margin:0;
+color:#8e9db2;
+font-size:12px;
+}
+
+.notice-status{
+white-space:nowrap;
+color:#7fc2ff;
+font-size:10px;
+font-weight:800;
+letter-spacing:1.3px;
+text-transform:uppercase;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.case-cta{
+padding:0 8% 110px;
+}
+
+.cta-panel{
+position:relative;
+overflow:hidden;
+max-width:1500px;
+margin:auto;
+padding:58px;
+border:1px solid rgba(127,194,255,.18);
+border-radius:24px;
+background:
+linear-gradient(110deg,rgba(25,44,71,.95),rgba(13,23,38,.98));
+text-align:center;
+}
+
+.cta-panel::before{
+content:"";
+position:absolute;
+left:50%;
+top:-160px;
+width:520px;
+height:360px;
+transform:translateX(-50%);
+border-radius:50%;
+background:rgba(90,162,255,.16);
+filter:blur(95px);
+}
+
+.cta-panel > *{
+position:relative;
+z-index:2;
+}
+
+.cta-panel h2{
+max-width:760px;
+margin:0 auto 17px;
+font-size:clamp(32px,4vw,45px);
+letter-spacing:-1.5px;
+}
+
+.cta-panel p{
+max-width:680px;
+margin:0 auto;
+color:#a1aec2;
+line-height:1.75;
+}
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:13px;
+flex-wrap:wrap;
+margin-top:27px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.case-footer{
+padding:45px 8%;
+border-top:1px solid rgba(127,194,255,.1);
+background:#08101b;
+}
+
+.footer-top{
+display:flex;
+justify-content:space-between;
+gap:30px;
+margin-bottom:28px;
+}
+
+.footer-brand-copy{
+max-width:500px;
+margin-top:13px;
+color:#7f8da3;
+font-size:12px;
+line-height:1.7;
+}
+
+.footer-links{
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:#8795aa;
+font-size:12px;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#ffffff;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding-top:24px;
+border-top:1px solid rgba(127,194,255,.08);
+color:#637188;
+font-size:11px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(24px);
+transition:
+opacity .7s ease,
+transform .7s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+.case-hero{
+grid-template-columns:1fr;
+padding-top:85px;
+}
+
+.database-terminal{
+max-width:720px;
+}
+
+.summary-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:900px){
+
+.case-grid{
+grid-template-columns:1fr;
+}
+
+.case-card{
+min-height:auto;
+}
+
+}
+
+@media(max-width:780px){
+
+.case-nav{
+position:relative;
+flex-direction:column;
+gap:17px;
+padding:18px 6%;
+}
+
+.case-nav .nav-links{
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.database-button{
+display:none;
+}
+
+.case-hero{
+min-height:auto;
+padding:75px 6% 70px;
+gap:45px;
+}
+
+.case-hero h1{
+font-size:53px;
+letter-spacing:-3px;
+}
+
+.hero-description{
+font-size:16px;
+}
+
+.case-summary,
+.case-database,
+.case-cta,
+.case-footer{
+padding-left:6%;
+padding-right:6%;
+}
+
+.section-heading{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.case-details{
+grid-template-columns:1fr;
+}
+
+.database-notice{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.footer-top,
+.footer-bottom{
+flex-direction:column;
+}
+
+}
+
+@media(max-width:520px){
+
+.case-hero h1{
+font-size:44px;
+}
+
+.hero-actions{
+flex-direction:column;
+}
+
+.hero-actions a{
+width:100%;
+}
+
+.summary-grid{
+grid-template-columns:1fr;
+}
+
+.database-stats{
+grid-template-columns:1fr;
+}
+
+.case-image{
+min-height:220px;
+padding:22px;
+}
+
+.case-content{
+padding:25px 22px;
+}
+
+.case-content h3{
+font-size:24px;
+}
+
+.case-action{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.case-clearance{
+text-align:left;
+}
+
+.cta-panel{
+padding:42px 22px;
+}
+
+}
+
+</style>
 
 </head>
 
 
-<body>
+<body class="casefiles-page">
 
 
-<nav>
+<nav class="case-nav">
 
-<div class="logo">
-DOSSIER
-</div>
+<a class="brand" href="index.html">
+
+<span class="brand-mark">D</span>
+
+<span>DOSSIER</span>
+
+</a>
 
 
 <div class="nav-links">
+
+<a href="index.html">Home</a>
+<a class="active" href="casefiles.html">Case Files</a>
+<a href="library.html">Evidence Library</a>
+<a href="research.html">Research</a>
+<a href="about.html">About</a>
+
+<a class="database-button" href="#database">
+Access Database
+</a>
+
+</div>
+
+</nav>
+
+
+
+<main>
+
+
+<section class="case-hero">
+
+<div class="hero-copy reveal">
+
+<div class="system-status">
+
+<span class="system-dot"></span>
+
+Investigation Database Online
+
+</div>
+
+
+<p class="hero-eyebrow">
+RESTRICTED INVESTIGATION ARCHIVE
+</p>
+
+
+<h1>
+
+Enter the
+
+<span class="hero-gradient">
+case database.
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+Access active investigations involving cybercrime, financial fraud, synthetic media, digital evidence, suspicious deaths, and forensic analysis. Every case requires you to examine information carefully, test competing explanations, and support your final conclusion with evidence.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a class="primary-btn" href="#database">
+
+Browse Case Files
+
+<span class="button-arrow">→</span>
+
+</a>
+
+
+<a class="secondary-btn" href="library.html">
+
+Open Evidence Library
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="database-terminal reveal">
+
+<div class="terminal-bar">
+
+<div class="terminal-lights">
+
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+
+</div>
+
+<span class="terminal-title">
+Dossier Secure Archive
+</span>
+
+</div>
+
+
+<div class="terminal-content">
+
+<div class="database-heading">
+
+<div>
+
+<span>Database Status</span>
+
+<strong>
+Operational
+</strong>
+
+</div>
+
+<div class="security-tag">
+LEVEL 03 ACCESS
+</div>
+
+</div>
+
+
+<div class="database-stats">
+
+<div class="database-stat">
+
+<span>Total Files</span>
+
+<strong>05</strong>
+
+<small>registered</small>
+
+</div>
+
+
+<div class="database-stat">
+
+<span>Active Files</span>
+
+<strong>03</strong>
+
+<small>available</small>
+
+</div>
+
+
+<div class="database-stat">
+
+<span>Restricted Files</span>
+
+<strong>02</strong>
+
+<small>development</small>
+
+</div>
+
+
+<div class="database-stat">
+
+<span>Evidence Types</span>
+
+<strong>14</strong>
+
+<small>documented</small>
+
+</div>
+
+</div>
+
+
+<div class="database-log">
+
+<div>
+<span class="log-time">[18:41:03]</span>
+User credentials verified
+</div>
+
+<div>
+<span class="log-time">[18:41:05]</span>
+Case archive mounted
+</div>
+
+<div>
+<span class="log-time">[18:41:07]</span>
+Three investigations available
+</div>
+
+<div>
+<span class="log-time">[18:41:08]</span>
+Awaiting file selection_
+</div>
+
+</div>
+
+
+<div class="database-progress">
+
+<div class="progress-heading">
+
+<span>Archive completion</span>
+
+<span>60%</span>
+
+</div>
+
+<div class="progress-track">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="case-summary reveal">
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="5">
+0
+</strong>
+
+<span class="summary-label">
+Registered Case Files
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="3">
+0
+</strong>
+
+<span class="summary-label">
+Open Investigations
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="2">
+0
+</strong>
+
+<span class="summary-label">
+Restricted Files
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="3">
+0
+</strong>
+
+<span class="summary-label">
+Difficulty Levels
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="case-database" id="database">
+
+<div class="section-heading reveal">
+
+<div>
+
+<p class="hero-eyebrow">
+ACTIVE ARCHIVE
+</p>
+
+<h2>
+Select an investigation
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Each case file contains a different investigative environment, evidence structure, and decision-making challenge. Begin with a foundational cybercrime case or enter an advanced forensic homicide investigation.
+
+</p>
+
+</div>
+
+
+<div class="database-filter reveal">
+
+<button class="filter-button active" data-filter="all">
+All Files
+</button>
+
+<button class="filter-button" data-filter="available">
+Available
+</button>
+
+<button class="filter-button" data-filter="coming">
+Coming Soon
+</button>
+
+<button class="filter-button" data-filter="cybercrime">
+Cybercrime
+</button>
+
+<button class="filter-button" data-filter="forensic">
+Forensic Science
+</button>
+
+</div>
+
+
+
+<div class="case-grid">
+
+
+<article
+class="case-card reveal"
+data-status="available"
+data-category="cybercrime"
+>
+
+<div class="case-image case-001">
+
+<div class="case-image-top">
+
+<span class="case-id">
+CASE FILE 001
+</span>
+
+<span class="status-badge status-available">
+Available
+</span>
+
+</div>
+
+
+<div class="case-symbol">
+✉
+</div>
+
+
+<div class="case-image-bottom">
+
+<span class="case-type">
+Cybercrime Division
+</span>
+
+<span class="case-watermark">
+01
+</span>
+
+</div>
+
+</div>
+
+
+<div class="case-content">
+
+<p class="case-label">
+FOUNDATIONAL INVESTIGATION
+</p>
+
+<h3>
+The Internship Scam
+</h3>
+
+<p class="case-description">
+
+A university student receives an internship opportunity that appears legitimate. Examine recruiter communications, inspect the company website, trace the digital footprint, and determine whether the offer is genuine or part of a coordinated social engineering attack.
+
+</p>
+
+
+<div class="case-details">
+
+<div class="case-detail">
+
+<span>Difficulty</span>
+
+<strong>Beginner</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Estimated Time</span>
+
+<strong>20–30 Minutes</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Evidence Files</span>
+
+<strong>03 Items</strong>
+
+</div>
+
+</div>
+
+
+<div class="skill-tags">
+
+<span class="skill-tag">Email Analysis</span>
+<span class="skill-tag">Website Verification</span>
+<span class="skill-tag">Digital Footprints</span>
+<span class="skill-tag">Social Engineering</span>
+
+</div>
+
+
+<div class="case-action">
+
+<a class="primary-btn" href="case001/case001.html">
+
+Open Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<span class="case-clearance">
+Clearance Granted
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article
+class="case-card reveal"
+data-status="available"
+data-category="cybercrime"
+>
+
+<div class="case-image case-002">
+
+<div class="case-image-top">
+
+<span class="case-id">
+CASE FILE 002
+</span>
+
+<span class="status-badge status-available">
+Available
+</span>
+
+</div>
+
+
+<div class="case-symbol">
+◉
+</div>
+
+
+<div class="case-image-bottom">
+
+<span class="case-type">
+Financial Crimes Division
+</span>
+
+<span class="case-watermark">
+02
+</span>
+
+</div>
+
+</div>
+
+
+<div class="case-content">
+
+<p class="case-label">
+INTERMEDIATE INVESTIGATION
+</p>
+
+<h3>
+The Executive Impersonation Incident
+</h3>
+
+<p class="case-description">
+
+Investigate a coordinated financial fraud involving executive impersonation, AI-generated voice evidence, deceptive email communications, a newly registered domain, and an unauthorized payment request valued at $48,750.
+
+</p>
+
+
+<div class="case-details">
+
+<div class="case-detail">
+
+<span>Difficulty</span>
+
+<strong>Intermediate</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Estimated Time</span>
+
+<strong>30–45 Minutes</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Evidence Files</span>
+
+<strong>04 Items</strong>
+
+</div>
+
+</div>
+
+
+<div class="skill-tags">
+
+<span class="skill-tag">Audio Forensics</span>
+<span class="skill-tag">AI Fraud</span>
+<span class="skill-tag">Email Headers</span>
+<span class="skill-tag">Transaction Analysis</span>
+
+</div>
+
+
+<div class="case-action">
+
+<a class="primary-btn" href="case002.html">
+
+Open Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<span class="case-clearance">
+Clearance Granted
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article
+class="case-card reveal"
+data-status="available"
+data-category="forensic"
+>
+
+<div class="case-image case-003">
+
+<div class="case-image-top">
+
+<span class="case-id">
+CASE FILE 003
+</span>
+
+<span class="status-badge status-available">
+Available
+</span>
+
+</div>
+
+
+<div class="case-symbol">
+⚗
+</div>
+
+
+<div class="case-image-bottom">
+
+<span class="case-type">
+Major Crimes Division
+</span>
+
+<span class="case-watermark">
+03
+</span>
+
+</div>
+
+</div>
+
+
+<div class="case-content">
+
+<p class="case-label">
+ADVANCED INVESTIGATION
+</p>
+
+<h3>
+Silent Dose
+</h3>
+
+<p class="case-description">
+
+Investigate the suspicious death of Dr. Eleanor Hayes, a chemistry professor found unconscious inside her home. Analyze the crime scene, process physical evidence, question four persons of interest, reconstruct the timeline, and determine how an experimental compound was used.
+
+</p>
+
+
+<div class="case-details">
+
+<div class="case-detail">
+
+<span>Difficulty</span>
+
+<strong>Advanced</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Estimated Time</span>
+
+<strong>45–70 Minutes</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Evidence Files</span>
+
+<strong>04 Items</strong>
+
+</div>
+
+</div>
+
+
+<div class="skill-tags">
+
+<span class="skill-tag">Forensic Toxicology</span>
+<span class="skill-tag">Crime Scene Analysis</span>
+<span class="skill-tag">Suspect Interviews</span>
+<span class="skill-tag">Timeline Reconstruction</span>
+
+</div>
+
+
+<div class="case-action">
+
+<a class="primary-btn" href="case003/case003.html">
+
+Open Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<span class="case-clearance">
+Clearance Granted
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article
+class="case-card locked-card reveal"
+data-status="coming"
+data-category="cybercrime"
+>
+
+<div class="case-image case-004">
+
+<div class="case-image-top">
+
+<span class="case-id">
+CASE FILE 004
+</span>
+
+<span class="status-badge status-coming">
+Coming Soon
+</span>
+
+</div>
+
+
+<div class="case-symbol">
+▣
+</div>
+
+
+<div class="case-image-bottom">
+
+<span class="case-type">
+Synthetic Media Division
+</span>
+
+<span class="case-watermark">
+04
+</span>
+
+</div>
+
+</div>
+
+
+<div class="case-content">
+
+<p class="case-label">
+RESTRICTED INVESTIGATION
+</p>
+
+<h3>
+Deepfake Interview
+</h3>
+
+<p class="case-description">
+
+Investigate an AI-generated employment scam in which criminals use synthetic identities, manipulated video interviews, falsified professional profiles, and deceptive recruitment tactics to target job seekers.
+
+</p>
+
+
+<div class="case-details">
+
+<div class="case-detail">
+
+<span>Difficulty</span>
+
+<strong>Advanced</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Estimated Time</span>
+
+<strong>In Development</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Evidence Files</span>
+
+<strong>Classified</strong>
+
+</div>
+
+</div>
+
+
+<div class="skill-tags">
+
+<span class="skill-tag">Deepfake Detection</span>
+<span class="skill-tag">Identity Verification</span>
+<span class="skill-tag">Video Analysis</span>
+<span class="skill-tag">Recruitment Fraud</span>
+
+</div>
+
+
+<div class="case-action">
+
+<span class="secondary-btn">
+File Restricted
+</span>
+
+<span class="case-clearance">
+Awaiting Release
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+
+<article
+class="case-card locked-card reveal"
+data-status="coming"
+data-category="cybercrime"
+>
+
+<div class="case-image case-005">
+
+<div class="case-image-top">
+
+<span class="case-id">
+CASE FILE 005
+</span>
+
+<span class="status-badge status-coming">
+Coming Soon
+</span>
+
+</div>
+
+
+<div class="case-symbol">
+⌁
+</div>
+
+
+<div class="case-image-bottom">
+
+<span class="case-type">
+Digital Forensics Division
+</span>
+
+<span class="case-watermark">
+05
+</span>
+
+</div>
+
+</div>
+
+
+<div class="case-content">
+
+<p class="case-label">
+RESTRICTED INVESTIGATION
+</p>
+
+<h3>
+The Ransomware Attack
+</h3>
+
+<p class="case-description">
+
+Investigate a ransomware incident involving malicious emails, compromised systems, encrypted records, attacker communications, and the recovery of digital forensic evidence from affected devices.
+
+</p>
+
+
+<div class="case-details">
+
+<div class="case-detail">
+
+<span>Difficulty</span>
+
+<strong>Advanced</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Estimated Time</span>
+
+<strong>In Development</strong>
+
+</div>
+
+<div class="case-detail">
+
+<span>Evidence Files</span>
+
+<strong>Classified</strong>
+
+</div>
+
+</div>
+
+
+<div class="skill-tags">
+
+<span class="skill-tag">Malware Analysis</span>
+<span class="skill-tag">System Logs</span>
+<span class="skill-tag">Incident Response</span>
+<span class="skill-tag">Evidence Recovery</span>
+
+</div>
+
+
+<div class="case-action">
+
+<span class="secondary-btn">
+File Restricted
+</span>
+
+<span class="case-clearance">
+Awaiting Release
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+
+<div class="database-notice reveal">
+
+<div class="notice-copy">
+
+<div class="notice-icon">
+i
+</div>
+
+<div>
+
+<h3>
+Case archive expansion in progress
+</h3>
+
+<p>
+
+Additional investigations involving synthetic media, ransomware, forensic reconstruction, and organized fraud are currently being developed.
+
+</p>
+
+</div>
+
+</div>
+
+<span class="notice-status">
+Database Updating
+</span>
+
+</div>
+
+</section>
+
+
+
+<section class="case-cta reveal">
+
+<div class="cta-panel">
+
+<p class="hero-eyebrow">
+INVESTIGATOR DIRECTIVE
+</p>
+
+<h2>
+Every conclusion must be supported by evidence.
+</h2>
+
+<p>
+
+Review the available case files, identify what information matters, challenge assumptions, and document a conclusion that can withstand scrutiny.
+
+</p>
+
+
+<div class="cta-buttons">
+
+<a class="primary-btn" href="case001/case001.html">
+
+Begin First Investigation
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<a class="secondary-btn" href="library.html">
+
+Review Investigation Methods
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="case-footer">
+
+<div class="footer-top">
+
+<div>
+
+<a class="brand" href="index.html">
+
+<span class="brand-mark">D</span>
+
+<span>DOSSIER</span>
+
+</a>
+
+<p class="footer-brand-copy">
+
+An interactive investigation platform exploring cybercrime, forensic science, digital evidence, fraud, and evidence-based reasoning through immersive case simulations.
+
+</p>
+
+</div>
+
+
+<div class="footer-links">
 
 <a href="index.html">Home</a>
 <a href="casefiles.html">Case Files</a>
@@ -35,355 +2234,181 @@ DOSSIER
 
 </div>
 
-</nav>
-
-
-
-
-
-<section class="hero">
-
-
-<p class="eyebrow">
-INVESTIGATION DATABASE
-</p>
-
-
-<h1>
-Case Files
-</h1>
-
-
-<p class="hero-text">
-
-Browse active investigations and analyze digital
-evidence through realistic cybercrime scenarios.
-Each case challenges your ability to evaluate
-evidence, identify patterns, and apply investigative
-reasoning.
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section>
-
-
-<div class="grid">
-
-
-
-
-
-
-
-<div class="learn-card">
-
-
-<p class="case-label">
-CASE FILE 001
-</p>
-
-
-<h3>
-The Internship Scam
-</h3>
-
-
-<p>
-
-A university student receives an internship
-opportunity that appears legitimate. Investigate
-emails, websites, and digital footprints to determine
-whether the offer was genuine or a social engineering
-attack.
-
-</p>
-
-
-<p>
-<strong>
-Status:
-</strong>
-Available
-</p>
-
-
-<p>
-<strong>
-Difficulty:
-</strong>
-Beginner
-</p>
-
-
-
-<a class="primary-btn" href="case001/case001.html">
-    Open Investigation →
-</a>
-
-
 </div>
 
 
+<div class="footer-bottom">
 
+<span>
+© 2026 Dossier. Interactive Investigation Platform.
+</span>
 
-
-
-
-
-
-<div class="learn-card">
-
-
-<p class="case-label">
-CASE FILE 002
-</p>
-
-
-<h3>
-The Executive Impersonation Incident
-</h3>
-
-
-<p>
-
-Investigate a coordinated financial fraud operation
-involving AI-generated voice impersonation,
-fraudulent emails, and unauthorized payment
-requests.
-
-</p>
-
-
-<p>
-<strong>
-Status:
-</strong>
-Available
-</p>
-
-
-<p>
-<strong>
-Difficulty:
-</strong>
-Intermediate
-</p>
-
-
-
-<a class="primary-btn" href="case002.html">
-
-Open Investigation →
-
-</a>
-
+<span>
+Investigation database online.
+</span>
 
 </div>
-
-
-
-
-
-
-
-
-
-<div class="learn-card">
-
-
-<p class="case-label">
-CASE FILE 003
-</p>
-
-
-<h3>
-Silent Dose
-</h3>
-
-
-<p>
-
-Investigate the suspicious death of Dr. Eleanor Hayes,
-a chemistry professor found unconscious in her home.
-Analyze forensic evidence, investigate suspects, and
-determine how an experimental compound was used to
-commit a planned homicide.
-
-</p>
-
-
-<p>
-<strong>
-Status:
-</strong>
-Available
-</p>
-
-
-<p>
-<strong>
-Difficulty:
-</strong>
-Advanced
-</p>
-
-
-
-<a class="primary-btn" href="case003/case003.html">
-
-Open Investigation →
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="learn-card">
-
-
-<p class="case-label">
-CASE FILE 004
-</p>
-
-
-<h3>
-Deepfake Interview
-</h3>
-
-
-<p>
-
-Investigate an AI-generated employment scam where
-criminals use synthetic identities and manipulated
-video interviews to target job seekers.
-
-</p>
-
-
-<p>
-<strong>
-Status:
-</strong>
-Coming Soon
-</p>
-
-
-<p>
-<strong>
-Difficulty:
-</strong>
-Advanced
-</p>
-
-
-
-<a class="secondary-btn">
-
-Coming Soon
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="learn-card">
-
-
-<p class="case-label">
-CASE FILE 005
-</p>
-
-
-<h3>
-The Ransomware Attack
-</h3>
-
-
-<p>
-
-Investigate a ransomware incident involving
-malicious emails, compromised systems, and digital
-forensic evidence recovery.
-
-</p>
-
-
-<p>
-<strong>
-Status:
-</strong>
-Coming Soon
-</p>
-
-
-<p>
-<strong>
-Difficulty:
-</strong>
-Advanced
-</p>
-
-
-
-<a class="secondary-btn">
-
-Coming Soon
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<footer>
-
-<p>
-© 2026 Dossier
-</p>
 
 </footer>
 
+
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+revealObserver.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:0.1
+}
+);
+
+revealItems.forEach((item) => {
+
+revealObserver.observe(item);
+
+});
+
+
+/* =========================================================
+   ANIMATED DATABASE NUMBERS
+========================================================= */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(!entry.isIntersecting){
+return;
+}
+
+const counter = entry.target;
+const target = Number(counter.dataset.count);
+
+let current = 0;
+
+const animation = setInterval(() => {
+
+current += 1;
+counter.textContent = current;
+
+if(current >= target){
+
+counter.textContent = target;
+clearInterval(animation);
+
+}
+
+},120);
+
+counterObserver.unobserve(counter);
+
+});
+
+},
+{
+threshold:0.7
+}
+);
+
+counters.forEach((counter) => {
+
+counterObserver.observe(counter);
+
+});
+
+
+/* =========================================================
+   CASE FILTERS
+========================================================= */
+
+const filterButtons = document.querySelectorAll(".filter-button");
+const caseCards = document.querySelectorAll(".case-card");
+
+filterButtons.forEach((button) => {
+
+button.addEventListener("click",() => {
+
+filterButtons.forEach((item) => {
+
+item.classList.remove("active");
+
+});
+
+button.classList.add("active");
+
+const selectedFilter = button.dataset.filter;
+
+caseCards.forEach((card) => {
+
+const status = card.dataset.status;
+const category = card.dataset.category;
+
+const shouldShow =
+selectedFilter === "all" ||
+selectedFilter === status ||
+selectedFilter === category;
+
+if(shouldShow){
+
+card.style.display = "flex";
+
+requestAnimationFrame(() => {
+
+card.style.opacity = "1";
+card.style.transform = "translateY(0)";
+
+});
+
+}else{
+
+card.style.opacity = "0";
+card.style.transform = "translateY(15px)";
+
+setTimeout(() => {
+
+if(
+selectedFilter !== "all" &&
+selectedFilter !== card.dataset.status &&
+selectedFilter !== card.dataset.category
+){
+
+card.style.display = "none";
+
+}
+
+},250);
+
+}
+
+});
+
+});
+
+});
+
+</script>
 
 
 </body>
