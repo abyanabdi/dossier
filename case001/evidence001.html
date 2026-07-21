@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence 001-A | DOSSIER</title>
+<link rel="stylesheet" href="../style-v2.css">
+<link rel="stylesheet" href="case001-system.css">
+<style>
+:root{--bg:#07101d;--panel:#141c2b;--panel2:#1b2537;--border:#2d3b54;--text:#eef3fb;--muted:#aab6cb;--accent:#5aa2ff;--accent2:#7fc2ff;--success:#39d98a;--warning:#ffb454;--danger:#ff7675}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0,#17375f 0,#0b1220 43%,#07101d 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}
+button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px 4% 90px}.panel{background:rgba(20,28,43,.96);border:1px solid var(--border);border-radius:20px;padding:26px;margin-bottom:22px;box-shadow:0 20px 65px rgba(0,0,0,.22)}.hero{padding:42px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(90,162,255,.11);right:-180px;top:-230px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:1;margin:8px 0 14px;letter-spacing:-2px}.eyebrow{font-size:12px;letter-spacing:3px;color:var(--accent);font-weight:900}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.action{border:0;border-radius:12px;padding:13px 18px;background:var(--accent);color:white;font-weight:900;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px);filter:brightness(1.08)}.action.success{background:var(--success);color:#06130d}.action.secondary{background:#26344c}.action:disabled{opacity:.42;cursor:not-allowed;transform:none}.feedback{border:1px solid var(--border);border-radius:12px;padding:14px;background:#101a2a;margin-top:14px;min-height:52px}.feedback.good{border-color:var(--success);color:#c9f8de}.feedback.bad{border-color:var(--danger);color:#ffd1d1}.hidden{display:none!important}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#26344c;font-size:12px;margin:4px}.check-card{border:1px solid var(--border);border-radius:14px;background:var(--panel2);padding:16px;cursor:pointer;transition:.2s}.check-card:hover{border-color:var(--accent);transform:translateY(-2px)}.check-card.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(90,162,255,.11)}.check-card.correct{border-color:var(--success);background:rgba(57,217,138,.07)}.check-card.wrong{border-color:var(--danger);background:rgba(255,118,117,.07)}
+.email-shell{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.7fr);gap:18px}.email-window{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#f5f7fb;color:#142033}.email-head{padding:18px;border-bottom:1px solid #d7dfeb;background:#fff}.email-body{padding:24px}.email-line{padding:10px 0;border-bottom:1px solid #e5e9f0}.hotspot{border:2px dashed transparent;border-radius:8px;padding:3px;cursor:pointer}.hotspot:hover{border-color:#5aa2ff}.header-view{font-family:monospace;font-size:13px;white-space:pre-wrap;background:#091321;border-radius:12px;padding:16px;color:#cfe7ff}.indicator-list{display:grid;gap:9px}.indicator{border:1px solid var(--border);background:var(--panel2);border-radius:12px;padding:12px;opacity:.45}.indicator.found{opacity:1;border-color:var(--success)}
+@media(max-width:800px){.page{padding:20px 14px}.panel,.hero{padding:20px}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}}
+</style>
+</head>
+<body data-case-stage="email" data-objective="Authenticate the recruiter email">
+<div class="c1-hud"><div class="c1-hud-inner">
+ <div class="c1-brand">DOSSIER · 001</div>
+ <div><div class="c1-meta"><span>OBJECTIVE: <b data-c1-objective></b></span><span><b data-c1-progress>0%</b> · SCORE <b data-c1-score>0</b></span></div><div class="c1-meter"><div class="c1-meter-fill"></div></div></div>
+ <div class="c1-tools"><button class="c1-tool" onclick="Case001.toggleNotebook()">📓 <span>Notebook</span></button><button class="c1-tool" onclick="Case001.restart()">↻ <span>Restart</span></button></div>
+</div></div>
+<div class="c1-notebook"><h3>Investigator Notebook</h3><div data-c1-notes></div></div>
+<div class="c1-lock"><div class="c1-lock-card"><p class="eyebrow">STAGE LOCKED</p><h2>Complete the previous investigation stage.</h2><a class="action" href="case001.html">Return to CASE 001</a></div></div>
+
+<div class="page">
+<header class="panel hero"><p class="eyebrow">EVIDENCE 001-A</p><h1>RECRUITER EMAIL ANALYSIS</h1><p>Inspect the message, reveal the technical header, and identify five indicators that the sender is impersonating an employer.</p><div class="c1-stage-nav"></div></header>
+<div class="email-shell">
+<section class="panel">
+<div class="email-window">
+<div class="email-head">
+<div class="email-line"><b>From:</b> <span class="hotspot" onclick="findIndicator('sender')">NexaCore Careers &lt;recruitment@nexacore-careers.com&gt;</span></div>
+<div class="email-line"><b>To:</b> Maya Chen</div>
+<div class="email-line"><b>Subject:</b> <span class="hotspot" onclick="findIndicator('urgency')">Immediate Internship Placement — Response Required Today</span></div>
+</div>
+<div class="email-body">
+<p>Dear Maya,</p>
+<p>Your academic profile has been selected for our Remote Security Analyst Internship. <span class="hotspot" onclick="findIndicator('interview')">No additional interview is required</span> because your qualifications have already been approved.</p>
+<p>To begin, complete the attached identity form and deposit the enclosed mobile cheque. You must then <span class="hotspot" onclick="findIndicator('payment')">purchase approved equipment from our private vendor</span>.</p>
+<p>For confidentiality, <span class="hotspot" onclick="findIndicator('channel')">all communication must remain on Telegram</span>.</p>
+<p>Regards,<br>NexaCore Talent Acquisition</p>
+</div></div>
+<button class="action secondary" style="margin-top:16px" onclick="toggleHeader()">View Technical Header</button>
+<div id="headerBox" class="header-view hidden" style="margin-top:14px">Return-Path: payroll@nexacore-careers.com
+Received: from mail.fastrelay.example (185.199.88.41)
+Authentication-Results:
+  spf=softfail
+  dkim=none
+  dmarc=fail
+Reply-To: nexacore.hr@protonmail.com
+Message-ID: &lt;48219@fastrelay.example&gt;</div>
+</section>
+<aside class="panel">
+<p class="eyebrow">INDICATOR CHECKLIST</p><h2><span id="foundCount">0</span>/5 Found</h2>
+<div class="indicator-list">
+<div id="ind-sender" class="indicator">Look-alike sender domain</div>
+<div id="ind-urgency" class="indicator">Artificial urgency</div>
+<div id="ind-interview" class="indicator">Hiring without a real interview</div>
+<div id="ind-payment" class="indicator">Cheque and equipment purchase request</div>
+<div id="ind-channel" class="indicator">Move to an unverified messaging platform</div>
+</div>
+<button id="validateEmail" class="action success" style="margin-top:16px" disabled onclick="validateStage()">Validate Email Evidence</button>
+<div id="emailFeedback" class="feedback">Click suspicious parts of the email.</div>
+</aside></div></div>
+<div class="c1-toast"></div>
+<script src="case001-system.js"></script>
+<script>
+const found=new Set();
+function findIndicator(id){
+ found.add(id);document.getElementById('ind-'+id).classList.add('found');foundCount.textContent=found.size;
+ if(found.size===5){validateEmail.disabled=false;emailFeedback.className='feedback good';emailFeedback.textContent='All visible indicators found. Review the technical header, then validate.'}
+}
+function toggleHeader(){headerBox.classList.toggle('hidden');Case001.addNote('Email authentication failed: SPF softfail, no DKIM, and DMARC failure.')}
+function validateStage(){
+ Case001.complete('email','website',18,'Recruiter email used a look-alike domain, failed authentication, created urgency, and requested an advance payment.');
+ emailFeedback.className='feedback good';emailFeedback.textContent='Email evidence validated. Website analysis unlocked.';
+ setTimeout(()=>location.href='evidence002.html',650)
+}
+</script>
+</body></html>

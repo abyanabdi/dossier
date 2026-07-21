@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CASE 001 Complete | DOSSIER</title>
+<link rel="stylesheet" href="../style-v2.css">
+<link rel="stylesheet" href="case001-system.css">
+<style>
+:root{--bg:#07101d;--panel:#141c2b;--panel2:#1b2537;--border:#2d3b54;--text:#eef3fb;--muted:#aab6cb;--accent:#5aa2ff;--accent2:#7fc2ff;--success:#39d98a;--warning:#ffb454;--danger:#ff7675}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0,#17375f 0,#0b1220 43%,#07101d 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}
+button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px 4% 90px}.panel{background:rgba(20,28,43,.96);border:1px solid var(--border);border-radius:20px;padding:26px;margin-bottom:22px;box-shadow:0 20px 65px rgba(0,0,0,.22)}.hero{padding:42px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(90,162,255,.11);right:-180px;top:-230px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:1;margin:8px 0 14px;letter-spacing:-2px}.eyebrow{font-size:12px;letter-spacing:3px;color:var(--accent);font-weight:900}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.action{border:0;border-radius:12px;padding:13px 18px;background:var(--accent);color:white;font-weight:900;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px);filter:brightness(1.08)}.action.success{background:var(--success);color:#06130d}.action.secondary{background:#26344c}.action:disabled{opacity:.42;cursor:not-allowed;transform:none}.feedback{border:1px solid var(--border);border-radius:12px;padding:14px;background:#101a2a;margin-top:14px;min-height:52px}.feedback.good{border-color:var(--success);color:#c9f8de}.feedback.bad{border-color:var(--danger);color:#ffd1d1}.hidden{display:none!important}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#26344c;font-size:12px;margin:4px}.check-card{border:1px solid var(--border);border-radius:14px;background:var(--panel2);padding:16px;cursor:pointer;transition:.2s}.check-card:hover{border-color:var(--accent);transform:translateY(-2px)}.check-card.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(90,162,255,.11)}.check-card.correct{border-color:var(--success);background:rgba(57,217,138,.07)}.check-card.wrong{border-color:var(--danger);background:rgba(255,118,117,.07)}
+.certificate{max-width:950px;margin:30px auto;border:3px double var(--accent);background:linear-gradient(145deg,#f8fbff,#e8eef7);color:#152033;padding:50px;text-align:center;border-radius:8px}.seal{width:110px;height:110px;border-radius:50%;margin:20px auto;display:grid;place-items:center;border:6px double #1c4772;font-weight:950;color:#1c4772}.cert-score{font-size:58px;font-weight:950;color:#1d5790}.print-note{color:var(--muted);text-align:center}@media print{body{background:white}.c1-hud,.action,.print-note,.c1-notebook{display:none!important}.page{padding:0}.panel{border:0;box-shadow:none}.certificate{margin:0;max-width:none}}
+@media(max-width:800px){.page{padding:20px 14px}.panel,.hero{padding:20px}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}}
+</style>
+</head>
+<body data-case-stage="complete" data-objective="Review the closed case certificate">
+<div class="c1-hud"><div class="c1-hud-inner">
+ <div class="c1-brand">DOSSIER · 001</div>
+ <div><div class="c1-meta"><span>OBJECTIVE: <b data-c1-objective></b></span><span><b data-c1-progress>0%</b> · SCORE <b data-c1-score>0</b></span></div><div class="c1-meter"><div class="c1-meter-fill"></div></div></div>
+ <div class="c1-tools"><button class="c1-tool" onclick="Case001.toggleNotebook()">📓 <span>Notebook</span></button><button class="c1-tool" onclick="Case001.restart()">↻ <span>Restart</span></button></div>
+</div></div>
+<div class="c1-notebook"><h3>Investigator Notebook</h3><div data-c1-notes></div></div>
+<div class="c1-lock"><div class="c1-lock-card"><p class="eyebrow">STAGE LOCKED</p><h2>Complete the previous investigation stage.</h2><a class="action" href="case001.html">Return to CASE 001</a></div></div>
+
+<div class="page">
+<header class="panel hero"><p class="eyebrow">CASE ARCHIVE 001</p><h1>CASE CLOSED</h1><p>The Internship Scam has been classified, documented, and archived.</p><div class="c1-stage-nav"></div></header>
+<section class="certificate">
+<p style="letter-spacing:4px;font-weight:800">DOSSIER INVESTIGATION ACADEMY</p>
+<div class="seal">CASE<br>001</div>
+<h1>Certificate of Investigation</h1>
+<p>This certifies that</p>
+<h2>CASE 001 INVESTIGATOR</h2>
+<p>successfully completed <b>The Internship Scam</b>, demonstrating competency in email authentication, domain verification, digital-footprint analysis, social-engineering recognition, and victim-response planning.</p>
+<div class="cert-score" id="certScore">100%</div>
+<p id="certRank"><b>CYBER FRAUD INVESTIGATOR</b></p>
+<hr>
+<p>CASE FILE 001 · EMPLOYMENT IMPERSONATION · CLOSED</p>
+</section>
+<p class="print-note">Use your browser’s print option to save the certificate as a PDF.</p>
+<div style="text-align:center"><button class="action" onclick="window.print()">Print Certificate</button> <a class="action secondary" href="../casefiles.html">Return to Case Files</a></div>
+</div>
+<div class="c1-toast"></div>
+<script src="case001-system.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ const s=Case001.get();certScore.textContent=(s.score||100)+'%';
+ certRank.innerHTML='<b>'+((s.score||100)>=95?'SENIOR CYBER FRAUD INVESTIGATOR':'CYBER FRAUD INVESTIGATOR')+'</b>';
+ Case001.complete('complete',null,0,'CASE 001 closed and archived.');
+});
+</script>
+</body></html>

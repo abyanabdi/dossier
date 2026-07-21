@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence 001-C | DOSSIER</title>
+<link rel="stylesheet" href="../style-v2.css">
+<link rel="stylesheet" href="case001-system.css">
+<style>
+:root{--bg:#07101d;--panel:#141c2b;--panel2:#1b2537;--border:#2d3b54;--text:#eef3fb;--muted:#aab6cb;--accent:#5aa2ff;--accent2:#7fc2ff;--success:#39d98a;--warning:#ffb454;--danger:#ff7675}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0,#17375f 0,#0b1220 43%,#07101d 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}
+button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px 4% 90px}.panel{background:rgba(20,28,43,.96);border:1px solid var(--border);border-radius:20px;padding:26px;margin-bottom:22px;box-shadow:0 20px 65px rgba(0,0,0,.22)}.hero{padding:42px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(90,162,255,.11);right:-180px;top:-230px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:1;margin:8px 0 14px;letter-spacing:-2px}.eyebrow{font-size:12px;letter-spacing:3px;color:var(--accent);font-weight:900}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.action{border:0;border-radius:12px;padding:13px 18px;background:var(--accent);color:white;font-weight:900;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px);filter:brightness(1.08)}.action.success{background:var(--success);color:#06130d}.action.secondary{background:#26344c}.action:disabled{opacity:.42;cursor:not-allowed;transform:none}.feedback{border:1px solid var(--border);border-radius:12px;padding:14px;background:#101a2a;margin-top:14px;min-height:52px}.feedback.good{border-color:var(--success);color:#c9f8de}.feedback.bad{border-color:var(--danger);color:#ffd1d1}.hidden{display:none!important}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#26344c;font-size:12px;margin:4px}.check-card{border:1px solid var(--border);border-radius:14px;background:var(--panel2);padding:16px;cursor:pointer;transition:.2s}.check-card:hover{border-color:var(--accent);transform:translateY(-2px)}.check-card.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(90,162,255,.11)}.check-card.correct{border-color:var(--success);background:rgba(57,217,138,.07)}.check-card.wrong{border-color:var(--danger);background:rgba(255,118,117,.07)}
+.graph{position:relative;min-height:480px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,#0e1929,#09111e);overflow:hidden}.node{position:absolute;border:1px solid var(--border);background:#182842;border-radius:14px;padding:14px;cursor:pointer;min-width:160px;text-align:center;transition:.25s}.node:hover{border-color:var(--accent);transform:scale(1.03)}.node.active{border-color:var(--success);background:rgba(57,217,138,.1)}.node:nth-child(1){left:8%;top:12%}.node:nth-child(2){right:8%;top:12%}.node:nth-child(3){left:39%;top:39%}.node:nth-child(4){left:10%;bottom:10%}.node:nth-child(5){right:9%;bottom:10%}.line{position:absolute;height:2px;background:#334767;transform-origin:left center}.l1{width:34%;left:22%;top:28%;transform:rotate(25deg)}.l2{width:34%;right:20%;top:29%;transform:rotate(155deg)}.l3{width:31%;left:23%;bottom:27%;transform:rotate(-24deg)}.l4{width:31%;right:21%;bottom:27%;transform:rotate(204deg)}.profile{border:1px solid var(--border);border-radius:14px;padding:16px;background:var(--panel2);margin-top:12px}
+@media(max-width:800px){.page{padding:20px 14px}.panel,.hero{padding:20px}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}}
+</style>
+</head>
+<body data-case-stage="footprint" data-objective="Trace the fraud network">
+<div class="c1-hud"><div class="c1-hud-inner">
+ <div class="c1-brand">DOSSIER · 001</div>
+ <div><div class="c1-meta"><span>OBJECTIVE: <b data-c1-objective></b></span><span><b data-c1-progress>0%</b> · SCORE <b data-c1-score>0</b></span></div><div class="c1-meter"><div class="c1-meter-fill"></div></div></div>
+ <div class="c1-tools"><button class="c1-tool" onclick="Case001.toggleNotebook()">📓 <span>Notebook</span></button><button class="c1-tool" onclick="Case001.restart()">↻ <span>Restart</span></button></div>
+</div></div>
+<div class="c1-notebook"><h3>Investigator Notebook</h3><div data-c1-notes></div></div>
+<div class="c1-lock"><div class="c1-lock-card"><p class="eyebrow">STAGE LOCKED</p><h2>Complete the previous investigation stage.</h2><a class="action" href="case001.html">Return to CASE 001</a></div></div>
+
+<div class="page">
+<header class="panel hero"><p class="eyebrow">EVIDENCE 001-C</p><h1>DIGITAL FOOTPRINT TRACE</h1><p>Connect the recruiter identity, domain, payment destination, and vendor account.</p><div class="c1-stage-nav"></div></header>
+<section class="panel"><p class="eyebrow">LINK ANALYSIS</p><h2>Open every node</h2>
+<div class="graph">
+<div class="line l1"></div><div class="line l2"></div><div class="line l3"></div><div class="line l4"></div>
+<button class="node" onclick="openNode(0,this)">👤 Recruiter Profile</button>
+<button class="node" onclick="openNode(1,this)">🌐 Fake Domain</button>
+<button class="node" onclick="openNode(2,this)">💬 Telegram Account</button>
+<button class="node" onclick="openNode(3,this)">🏦 Payment Account</button>
+<button class="node" onclick="openNode(4,this)">🛒 Equipment Vendor</button>
+</div>
+<div id="nodeDetail" class="profile"><p class="muted">Select a node to inspect its metadata.</p></div>
+</section>
+<section class="panel"><p class="eyebrow">ATTACK MODEL</p><h2>Put the fraud stages in order</h2>
+<div id="attackList"></div>
+<button class="action" onclick="checkAttack()">Validate Attack Sequence</button>
+<div id="attackFeedback" class="feedback">Arrange the five stages from first contact to financial loss.</div>
+<button id="footContinue" class="action success hidden" onclick="finishFootprint()">Open Investigation Board →</button></section>
+</div>
+<div class="c1-toast"></div>
+<script src="case001-system.js"></script>
+<script>
+const details=[
+ ['Recruiter Profile','Created 12 days ago. Stolen employee photograph. No prior employment history.'],
+ ['Fake Domain','Registered 9 days ago from the same network range used by the Telegram account.'],
+ ['Telegram Account','Username changed twice. Recovery email uses a disposable provider.'],
+ ['Payment Account','Recipient was a newly created personal account, not a corporate vendor.'],
+ ['Equipment Vendor','Checkout page and fake domain share the same analytics identifier.']
+];
+const opened=new Set();
+let attack=[
+ {id:'pay',text:'Victim sends money to the fake equipment vendor.'},
+ {id:'target',text:'Fraudster identifies a student seeking internships.'},
+ {id:'trust',text:'Impersonated recruiter establishes credibility.'},
+ {id:'cheque',text:'Fraudster sends a counterfeit cheque.'},
+ {id:'pressure',text:'Victim is pressured to purchase equipment immediately.'}
+];
+const correct=['target','trust','cheque','pressure','pay'];
+function openNode(i,el){opened.add(i);el.classList.add('active');nodeDetail.innerHTML=`<h3>${details[i][0]}</h3><p>${details[i][1]}</p>`;if(opened.size===5)Case001.addNote('Digital footprint links the recruiter profile, fake domain, Telegram account, payment account, and vendor site.')}
+function renderAttack(){attackList.innerHTML=attack.map((x,i)=>`<div class="check-card" style="display:flex;justify-content:space-between;align-items:center;margin:9px 0"><span><b>${i+1}.</b> ${x.text}</span><span><button class="c1-tool" onclick="move(${i},-1)">↑</button> <button class="c1-tool" onclick="move(${i},1)">↓</button></span></div>`).join('')}
+function move(i,d){const j=i+d;if(j<0||j>=attack.length)return;[attack[i],attack[j]]=[attack[j],attack[i]];renderAttack()}
+function checkAttack(){
+ if(opened.size<5){attackFeedback.className='feedback bad';attackFeedback.textContent='Inspect all five digital-footprint nodes first.';return}
+ if(attack.map(x=>x.id).join('|')===correct.join('|')){attackFeedback.className='feedback good';attackFeedback.textContent='Attack sequence verified: targeting → trust → counterfeit cheque → pressure → loss.';footContinue.classList.remove('hidden')}
+ else{attackFeedback.className='feedback bad';attackFeedback.textContent='Sequence rejected. Begin with targeting and end with the victim sending money.'}
+}
+function finishFootprint(){Case001.complete('footprint','board',18,'The scam used a coordinated identity, look-alike domain, messaging account, counterfeit cheque, and fake vendor.');location.href='investigation001.html'}
+renderAttack();
+</script>
+</body></html>
