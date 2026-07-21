@@ -85,7 +85,7 @@ function updateProgress(){const count=Object.values(stages).filter(Boolean).leng
 function addNote(text){if(caseNotes.querySelector('.muted'))caseNotes.innerHTML='';caseNotes.innerHTML+=`<div class="connection" style="border-left-color:var(--success)">✓ ${text}</div>`}
 function good(el,t){el.className='feedback good';el.textContent=t}function bad(el,t){el.className='feedback bad';el.textContent=t}function show(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
 function resetBoard(){if(!confirm('Reset all investigation-board progress?'))return;location.reload()}
-function saveAndContinue(){localStorage.setItem('case003BoardComplete','true');show('Case resolution unlocked.');setTimeout(()=>location.href='case003.html',700)}
+function saveAndContinue(){localStorage.setItem('case003BoardComplete','true');localStorage.setItem('case003ResolutionUnlocked','true');show('Case resolution unlocked.');setTimeout(()=>location.href='case-resolution.html',700)}
 init();
 </script>
 </body></html>
