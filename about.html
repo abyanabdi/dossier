@@ -6,28 +6,2777 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>About Dossier</title>
+<meta
+name="description"
+content="Learn about Dossier, an interactive investigation education platform that teaches evidence analysis, digital forensics, cybercrime, forensic science, and investigative reasoning through immersive case simulations."
+>
+
+<title>About | Dossier</title>
 
 <link rel="stylesheet" href="style-v2.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   CINEMATIC ABOUT PAGE
+========================================================= */
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+overflow-x:hidden;
+overflow-y:auto;
+}
+
+.about-page{
+min-height:100vh;
+background:
+radial-gradient(circle at 86% 5%,rgba(52,111,198,.2),transparent 34%),
+radial-gradient(circle at 7% 57%,rgba(54,134,135,.09),transparent 35%),
+linear-gradient(180deg,#09111d 0%,#0b1220 47%,#09111d 100%);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.about-nav{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 8%;
+border-bottom:1px solid rgba(127,194,255,.13);
+background:rgba(9,17,29,.88);
+backdrop-filter:blur(18px);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:13px;
+color:#ffffff;
+font-size:23px;
+font-weight:800;
+letter-spacing:7px;
+text-decoration:none;
+}
+
+.brand-mark{
+width:34px;
+height:34px;
+display:grid;
+place-items:center;
+border:1px solid rgba(127,194,255,.25);
+border-radius:10px;
+background:linear-gradient(135deg,#5aa2ff,#2867d8);
+box-shadow:0 0 24px rgba(90,162,255,.28);
+font-size:13px;
+letter-spacing:0;
+}
+
+.about-nav .nav-links{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.about-nav .nav-links a{
+position:relative;
+color:#c8d3e4;
+font-size:14px;
+font-weight:500;
+text-decoration:none;
+}
+
+.about-nav .nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-7px;
+width:0;
+height:2px;
+background:#7fc2ff;
+transition:.25s ease;
+}
+
+.about-nav .nav-links a:hover,
+.about-nav .nav-links a.active{
+color:#ffffff;
+}
+
+.about-nav .nav-links a:hover::after,
+.about-nav .nav-links a.active::after{
+width:100%;
+}
+
+.about-access{
+padding:11px 17px;
+border:1px solid rgba(127,194,255,.3);
+border-radius:10px;
+background:rgba(90,162,255,.07);
+}
+
+.about-access::after{
+display:none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.about-hero{
+position:relative;
+max-width:none;
+min-height:660px;
+padding:105px 8% 95px;
+display:grid;
+grid-template-columns:minmax(0,1.05fr) minmax(370px,.95fr);
+align-items:center;
+gap:70px;
+overflow:hidden;
+}
+
+.about-hero::before{
+content:"";
+position:absolute;
+top:-285px;
+right:-120px;
+width:780px;
+height:780px;
+border-radius:50%;
+background:rgba(56,112,199,.23);
+filter:blur(140px);
+pointer-events:none;
+}
+
+.about-hero::after{
+content:"DOSSIER";
+position:absolute;
+left:5%;
+bottom:-63px;
+font-size:clamp(120px,18vw,255px);
+font-weight:800;
+letter-spacing:-10px;
+color:rgba(255,255,255,.018);
+pointer-events:none;
+}
+
+.hero-copy{
+position:relative;
+z-index:2;
+max-width:820px;
+}
+
+.system-status{
+display:inline-flex;
+align-items:center;
+gap:10px;
+margin-bottom:24px;
+padding:8px 13px;
+border:1px solid rgba(57,217,138,.22);
+border-radius:999px;
+background:rgba(57,217,138,.055);
+color:#92eabb;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.system-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#39d98a;
+box-shadow:0 0 14px rgba(57,217,138,.9);
+animation:statusPulse 1.9s infinite;
+}
+
+@keyframes statusPulse{
+
+0%,100%{
+opacity:1;
+transform:scale(1);
+}
+
+50%{
+opacity:.45;
+transform:scale(.72);
+}
+
+}
+
+.eyebrow{
+margin-bottom:17px;
+color:#7fc2ff;
+font-size:12px;
+font-weight:700;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.about-hero h1{
+max-width:820px;
+margin:0 0 24px;
+font-size:clamp(55px,7vw,91px);
+line-height:.96;
+letter-spacing:-5px;
+}
+
+.hero-gradient{
+background:linear-gradient(100deg,#ffffff 8%,#c0e1ff 48%,#5aa2ff 100%);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero-description{
+max-width:740px;
+margin:0;
+color:#a7b3c6;
+font-size:18px;
+line-height:1.8;
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:33px;
+}
+
+.hero-actions a{
+min-height:52px;
+padding:14px 23px;
+}
+
+.button-arrow{
+display:inline-block;
+margin-left:8px;
+transition:.25s ease;
+}
+
+.primary-btn:hover .button-arrow{
+transform:translateX(5px);
+}
+
+
+/* =========================================================
+   PLATFORM TERMINAL
+========================================================= */
+
+.platform-terminal{
+position:relative;
+z-index:2;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.22);
+border-radius:22px;
+background:
+linear-gradient(180deg,rgba(20,29,45,.96),rgba(10,17,29,.99));
+box-shadow:
+0 32px 85px rgba(0,0,0,.45),
+0 0 0 1px rgba(255,255,255,.025) inset;
+}
+
+.platform-terminal::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 50%,
+rgba(255,255,255,.012) 50%
+);
+background-size:100% 4px;
+pointer-events:none;
+}
+
+.terminal-bar{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 18px;
+border-bottom:1px solid rgba(127,194,255,.12);
+background:rgba(255,255,255,.018);
+}
+
+.terminal-lights{
+display:flex;
+gap:7px;
+}
+
+.terminal-light{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#445168;
+}
+
+.terminal-light:nth-child(1){
+background:#ff6b6b;
+}
+
+.terminal-light:nth-child(2){
+background:#ffd166;
+}
+
+.terminal-light:nth-child(3){
+background:#39d98a;
+}
+
+.terminal-title{
+color:#8493a9;
+font-size:10px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.terminal-content{
+position:relative;
+z-index:2;
+padding:27px;
+}
+
+.platform-heading{
+display:flex;
+justify-content:space-between;
+gap:18px;
+padding-bottom:20px;
+border-bottom:1px solid rgba(127,194,255,.11);
+}
+
+.platform-heading span{
+display:block;
+margin-bottom:5px;
+color:#718199;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.7px;
+text-transform:uppercase;
+}
+
+.platform-heading strong{
+font-size:20px;
+color:#f4f8ff;
+}
+
+.security-tag{
+height:max-content;
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.22);
+border-radius:8px;
+background:rgba(57,217,138,.06);
+color:#80e2ad;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+}
+
+.terminal-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+margin:20px 0;
+}
+
+.terminal-stat{
+padding:14px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:11px;
+background:rgba(255,255,255,.022);
+}
+
+.terminal-stat span{
+display:block;
+margin-bottom:4px;
+color:#728198;
+font-size:9px;
+font-weight:700;
+letter-spacing:1.4px;
+text-transform:uppercase;
+}
+
+.terminal-stat strong{
+font-size:20px;
+color:#ffffff;
+}
+
+.terminal-stat small{
+margin-left:3px;
+color:#8291a7;
+font-size:10px;
+}
+
+.terminal-log{
+padding:15px;
+border:1px solid rgba(57,217,138,.12);
+border-radius:11px;
+background:rgba(57,217,138,.03);
+font-family:monospace;
+font-size:11px;
+line-height:1.9;
+color:#8abda3;
+}
+
+.log-time{
+color:#596b82;
+}
+
+.platform-progress{
+margin-top:20px;
+}
+
+.progress-heading{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+color:#8b9bb1;
+font-size:10px;
+}
+
+.progress-track{
+height:7px;
+overflow:hidden;
+border-radius:999px;
+background:#08101b;
+}
+
+.progress-fill{
+width:100%;
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,#3478d6,#39d98a);
+box-shadow:0 0 15px rgba(57,217,138,.35);
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.about-summary{
+position:relative;
+z-index:5;
+padding:0 8% 90px;
+}
+
+.summary-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:17px;
+}
+
+.summary-card{
+padding:22px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:16px;
+background:rgba(18,27,42,.72);
+backdrop-filter:blur(12px);
+}
+
+.summary-number{
+display:block;
+margin-bottom:6px;
+color:#ffffff;
+font-size:31px;
+font-weight:800;
+}
+
+.summary-label{
+color:#8291a7;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.3px;
+text-transform:uppercase;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.about-section{
+position:relative;
+max-width:1500px;
+margin:auto;
+padding:95px 8%;
+}
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:35px;
+margin-bottom:42px;
+}
+
+.section-heading h2{
+margin:0;
+font-size:clamp(34px,4vw,53px);
+letter-spacing:-2px;
+}
+
+.section-copy{
+max-width:650px;
+margin:0;
+color:#98a6ba;
+line-height:1.75;
+}
+
+
+/* =========================================================
+   MISSION
+========================================================= */
+
+.mission-panel{
+display:grid;
+grid-template-columns:.82fr 1.18fr;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.15);
+border-radius:22px;
+background:linear-gradient(180deg,#141d2d,#0d1624);
+box-shadow:0 28px 70px rgba(0,0,0,.26);
+}
+
+.mission-visual{
+position:relative;
+min-height:520px;
+padding:35px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+overflow:hidden;
+border-right:1px solid rgba(127,194,255,.13);
+background:
+radial-gradient(circle at 25% 20%,rgba(90,162,255,.29),transparent 31%),
+linear-gradient(145deg,#173250,#0a1421 72%);
+}
+
+.mission-visual::after{
+content:"D";
+position:absolute;
+right:-30px;
+bottom:-105px;
+font-size:360px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.035);
+}
+
+.mission-top,
+.mission-bottom{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:18px;
+}
+
+.mission-id{
+color:#b8ddff;
+font-size:11px;
+font-weight:800;
+letter-spacing:2.3px;
+}
+
+.mission-tag{
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.25);
+border-radius:999px;
+background:rgba(57,217,138,.08);
+color:#83e6b1;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.mission-symbol{
+position:relative;
+z-index:2;
+display:grid;
+place-items:center;
+width:130px;
+height:130px;
+margin:auto;
+border:1px solid rgba(255,255,255,.15);
+border-radius:50%;
+background:rgba(255,255,255,.035);
+box-shadow:
+0 0 0 22px rgba(255,255,255,.018),
+0 0 70px rgba(90,162,255,.14);
+font-size:48px;
+font-weight:800;
+}
+
+.mission-type{
+color:#9eafc3;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.mission-content{
+padding:50px;
+}
+
+.mission-content h3{
+margin:7px 0 18px;
+font-size:39px;
+letter-spacing:-1.4px;
+}
+
+.mission-content > p{
+color:#a5b2c5;
+font-size:15px;
+line-height:1.85;
+}
+
+.mission-points{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+margin:28px 0 31px;
+}
+
+.mission-point{
+padding:16px;
+border:1px solid rgba(127,194,255,.1);
+border-radius:11px;
+background:#0e1725;
+}
+
+.mission-point strong{
+display:block;
+margin-bottom:6px;
+color:#ffffff;
+font-size:13px;
+}
+
+.mission-point span{
+color:#8392a8;
+font-size:11px;
+line-height:1.6;
+}
+
+
+/* =========================================================
+   CORE PRINCIPLES
+========================================================= */
+
+.values-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:21px;
+}
+
+.value-card{
+position:relative;
+min-height:330px;
+overflow:hidden;
+padding:29px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:19px;
+background:
+linear-gradient(180deg,rgba(20,29,44,.98),rgba(12,20,33,.99));
+box-shadow:0 22px 55px rgba(0,0,0,.2);
+transition:
+transform .3s ease,
+border-color .3s ease,
+box-shadow .3s ease;
+}
+
+.value-card:hover{
+transform:translateY(-6px);
+border-color:rgba(127,194,255,.29);
+box-shadow:
+0 30px 70px rgba(0,0,0,.33),
+0 0 38px rgba(53,115,200,.06);
+}
+
+.value-card::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,#5aa2ff,transparent);
+}
+
+.value-card:nth-child(2)::before{
+background:linear-gradient(90deg,#39d98a,transparent);
+}
+
+.value-card:nth-child(3)::before{
+background:linear-gradient(90deg,#bb80ff,transparent);
+}
+
+.value-card:nth-child(4)::before{
+background:linear-gradient(90deg,#ffd166,transparent);
+}
+
+.value-card:nth-child(5)::before{
+background:linear-gradient(90deg,#ff8e8e,transparent);
+}
+
+.value-card:nth-child(6)::before{
+background:linear-gradient(90deg,#79d2ff,transparent);
+}
+
+.value-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:15px;
+margin-bottom:25px;
+}
+
+.value-icon{
+display:grid;
+place-items:center;
+width:52px;
+height:52px;
+border:1px solid rgba(127,194,255,.17);
+border-radius:14px;
+background:rgba(90,162,255,.06);
+font-size:22px;
+}
+
+.value-number{
+color:rgba(255,255,255,.065);
+font-size:47px;
+font-weight:800;
+line-height:1;
+}
+
+.value-card h3{
+margin:0 0 13px;
+font-size:21px;
+}
+
+.value-card p{
+margin:0;
+color:#98a6ba;
+font-size:13px;
+line-height:1.75;
+}
+
+
+/* =========================================================
+   LEARNING MODEL
+========================================================= */
+
+.learning-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
+counter-reset:learning;
+}
+
+.learning-card{
+position:relative;
+min-height:250px;
+padding:27px 23px;
+border:1px solid rgba(127,194,255,.11);
+border-radius:17px;
+background:linear-gradient(180deg,#141d2c,#0e1724);
+counter-increment:learning;
+}
+
+.learning-card::before{
+content:"0" counter(learning);
+display:block;
+margin-bottom:25px;
+color:#5aa2ff;
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.learning-icon{
+display:grid;
+place-items:center;
+width:44px;
+height:44px;
+margin-bottom:17px;
+border:1px solid rgba(90,162,255,.18);
+border-radius:12px;
+background:rgba(90,162,255,.06);
+font-size:18px;
+}
+
+.learning-card h3{
+margin:0 0 9px;
+font-size:17px;
+}
+
+.learning-card p{
+margin:0;
+color:#8f9db2;
+font-size:12px;
+line-height:1.7;
+}
+
+
+/* =========================================================
+   PLATFORM AREAS
+========================================================= */
+
+.platform-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:21px;
+}
+
+.platform-card{
+position:relative;
+overflow:hidden;
+min-height:420px;
+display:flex;
+flex-direction:column;
+padding:30px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:19px;
+background:linear-gradient(180deg,#141d2c,#0d1624);
+transition:.3s ease;
+}
+
+.platform-card:hover{
+transform:translateY(-5px);
+border-color:rgba(127,194,255,.29);
+}
+
+.platform-card::after{
+position:absolute;
+right:-7px;
+top:8px;
+font-size:92px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.028);
+}
+
+.platform-card.cases::after{
+content:"01";
+}
+
+.platform-card.evidence::after{
+content:"02";
+}
+
+.platform-card.research::after{
+content:"03";
+}
+
+.platform-label{
+position:relative;
+z-index:2;
+color:#7fc2ff;
+font-size:10px;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.platform-card h3{
+position:relative;
+z-index:2;
+margin:16px 0 13px;
+font-size:24px;
+}
+
+.platform-card p{
+position:relative;
+z-index:2;
+color:#94a2b7;
+font-size:13px;
+line-height:1.75;
+}
+
+.platform-list{
+position:relative;
+z-index:2;
+display:grid;
+gap:8px;
+margin:20px 0 28px;
+}
+
+.platform-list div{
+display:flex;
+gap:8px;
+color:#9eacc0;
+font-size:12px;
+}
+
+.platform-list strong{
+color:#39d98a;
+}
+
+.platform-card .primary-btn{
+position:relative;
+z-index:2;
+align-self:flex-start;
+margin-top:auto;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-panel{
+display:grid;
+grid-template-columns:.82fr 1.18fr;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.14);
+border-radius:21px;
+background:linear-gradient(180deg,#141d2c,#0c1522);
+}
+
+.skills-intro{
+padding:42px;
+border-right:1px solid rgba(127,194,255,.12);
+background:
+radial-gradient(circle at top left,rgba(90,162,255,.16),transparent 46%);
+}
+
+.skills-intro h3{
+margin:8px 0 16px;
+font-size:32px;
+letter-spacing:-1px;
+}
+
+.skills-intro p{
+color:#9eacc0;
+line-height:1.8;
+}
+
+.skills-stamp{
+display:inline-block;
+margin-top:23px;
+padding:10px 14px;
+border:1px solid rgba(57,217,138,.24);
+border-radius:9px;
+color:#82e2ad;
+font-size:10px;
+font-weight:800;
+letter-spacing:1.5px;
+transform:rotate(-2deg);
+}
+
+.skills-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+}
+
+.skill{
+padding:29px;
+border-bottom:1px solid rgba(127,194,255,.09);
+}
+
+.skill:nth-child(odd){
+border-right:1px solid rgba(127,194,255,.09);
+}
+
+.skill:nth-last-child(-n+2){
+border-bottom:none;
+}
+
+.skill-number{
+display:block;
+margin-bottom:11px;
+color:#5aa2ff;
+font-size:10px;
+font-weight:800;
+letter-spacing:1.5px;
+}
+
+.skill h4{
+margin:0 0 8px;
+font-size:16px;
+}
+
+.skill p{
+margin:0;
+color:#8d9bb0;
+font-size:12px;
+line-height:1.7;
+}
+
+
+/* =========================================================
+   FUTURE DEVELOPMENT
+========================================================= */
+
+.roadmap-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.roadmap-card{
+position:relative;
+overflow:hidden;
+min-height:320px;
+padding:28px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:18px;
+background:linear-gradient(180deg,#141d2c,#0d1624);
+}
+
+.roadmap-status{
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-bottom:25px;
+padding:7px 10px;
+border:1px solid rgba(57,217,138,.2);
+border-radius:999px;
+background:rgba(57,217,138,.055);
+color:#80e2ad;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.roadmap-status::before{
+content:"";
+width:6px;
+height:6px;
+border-radius:50%;
+background:#39d98a;
+box-shadow:0 0 10px rgba(57,217,138,.8);
+}
+
+.roadmap-card h3{
+margin:0 0 13px;
+font-size:21px;
+}
+
+.roadmap-card p{
+color:#96a4b8;
+font-size:13px;
+line-height:1.75;
+}
+
+.roadmap-progress{
+margin-top:25px;
+}
+
+.roadmap-progress-heading{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+color:#8190a6;
+font-size:9px;
+font-weight:700;
+letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.roadmap-track{
+height:6px;
+overflow:hidden;
+border-radius:999px;
+background:#08101b;
+}
+
+.roadmap-fill{
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,#3478d6,#7fc2ff);
+}
+
+.roadmap-fill.one{
+width:70%;
+}
+
+.roadmap-fill.two{
+width:50%;
+}
+
+.roadmap-fill.three{
+width:35%;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.about-cta{
+padding:50px 8% 110px;
+}
+
+.cta-panel{
+position:relative;
+overflow:hidden;
+max-width:1500px;
+margin:auto;
+padding:60px;
+border:1px solid rgba(127,194,255,.18);
+border-radius:24px;
+background:
+linear-gradient(110deg,rgba(25,44,71,.95),rgba(13,23,38,.98));
+text-align:center;
+}
+
+.cta-panel::before{
+content:"";
+position:absolute;
+left:50%;
+top:-160px;
+width:520px;
+height:360px;
+transform:translateX(-50%);
+border-radius:50%;
+background:rgba(90,162,255,.16);
+filter:blur(95px);
+}
+
+.cta-panel > *{
+position:relative;
+z-index:2;
+}
+
+.cta-panel h2{
+max-width:790px;
+margin:0 auto 17px;
+font-size:clamp(32px,4vw,45px);
+letter-spacing:-1.5px;
+}
+
+.cta-panel p{
+max-width:700px;
+margin:0 auto;
+color:#a1aec2;
+line-height:1.75;
+}
+
+.cta-buttons{
+display:flex;
+justify-content:center;
+gap:13px;
+flex-wrap:wrap;
+margin-top:27px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.about-footer{
+padding:45px 8%;
+border-top:1px solid rgba(127,194,255,.1);
+background:#08101b;
+}
+
+.footer-top{
+display:flex;
+justify-content:space-between;
+gap:30px;
+margin-bottom:28px;
+}
+
+.footer-brand-copy{
+max-width:500px;
+margin-top:13px;
+color:#7f8da3;
+font-size:12px;
+line-height:1.7;
+}
+
+.footer-links{
+display:flex;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:#8795aa;
+font-size:12px;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#ffffff;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding-top:24px;
+border-top:1px solid rgba(127,194,255,.08);
+color:#637188;
+font-size:11px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(24px);
+transition:
+opacity .7s ease,
+transform .7s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1150px){
+
+.about-hero{
+grid-template-columns:1fr;
+padding-top:85px;
+}
+
+.platform-terminal{
+max-width:720px;
+}
+
+.values-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.learning-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media(max-width:900px){
+
+.mission-panel,
+.skills-panel{
+grid-template-columns:1fr;
+}
+
+.mission-visual{
+min-height:360px;
+border-right:none;
+border-bottom:1px solid rgba(127,194,255,.13);
+}
+
+.skills-intro{
+border-right:none;
+border-bottom:1px solid rgba(127,194,255,.12);
+}
+
+.platform-grid,
+.roadmap-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:780px){
+
+.about-nav{
+position:relative;
+flex-direction:column;
+gap:17px;
+padding:18px 6%;
+}
+
+.about-nav .nav-links{
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.about-access{
+display:none;
+}
+
+.about-hero{
+min-height:auto;
+padding:75px 6% 70px;
+gap:45px;
+}
+
+.about-hero h1{
+font-size:51px;
+letter-spacing:-3px;
+}
+
+.hero-description{
+font-size:16px;
+}
+
+.about-summary,
+.about-section,
+.about-cta,
+.about-footer{
+padding-left:6%;
+padding-right:6%;
+}
+
+.summary-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.section-heading{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.mission-content{
+padding:31px;
+}
+
+.mission-content h3{
+font-size:31px;
+}
+
+.mission-points{
+grid-template-columns:1fr;
+}
+
+.values-grid{
+grid-template-columns:1fr;
+}
+
+.learning-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-top,
+.footer-bottom{
+flex-direction:column;
+}
+
+}
+
+@media(max-width:520px){
+
+.about-hero h1{
+font-size:42px;
+}
+
+.hero-actions{
+flex-direction:column;
+}
+
+.hero-actions a{
+width:100%;
+}
+
+.summary-grid,
+.terminal-grid,
+.learning-grid,
+.skills-list{
+grid-template-columns:1fr;
+}
+
+.skill{
+border-right:none !important;
+border-bottom:1px solid rgba(127,194,255,.09) !important;
+}
+
+.skill:last-child{
+border-bottom:none !important;
+}
+
+.mission-content{
+padding:26px 22px;
+}
+
+.value-card{
+padding:24px 21px;
+}
+
+.cta-panel{
+padding:42px 22px;
+}
+
+}
+
+</style>
 
 </head>
 
 
-<body>
+<body class="about-page">
 
 
-<nav>
+<nav class="about-nav">
 
-<div class="logo">
-DOSSIER
-</div>
+<a class="brand" href="index.html">
+
+<span class="brand-mark">D</span>
+
+<span>DOSSIER</span>
+
+</a>
 
 
 <div class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="casefiles.html">Case Files</a>
+<a href="library.html">Evidence Library</a>
+<a href="research.html">Research</a>
+<a class="active" href="about.html">About</a>
+
+<a class="about-access" href="#mission">
+View Mission
+</a>
+
+</div>
+
+</nav>
+
+
+
+<main>
+
+
+<section class="about-hero">
+
+<div class="hero-copy reveal">
+
+<div class="system-status">
+
+<span class="system-dot"></span>
+
+Platform Systems Operational
+
+</div>
+
+
+<p class="eyebrow">
+ABOUT THE DOSSIER PLATFORM
+</p>
+
+
+<h1>
+
+Investigation is learned by
+
+<span class="hero-gradient">
+doing the work.
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+Dossier is an interactive investigation education platform designed to teach evidence analysis, digital forensics, cybercrime awareness, forensic reasoning, and critical decision-making through immersive case simulations.
+
+</p>
+
+
+<div class="hero-actions">
+
+<a class="primary-btn" href="#mission">
+
+Explore the Platform
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<a class="secondary-btn" href="casefiles.html">
+
+Enter Case Database
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="platform-terminal reveal">
+
+<div class="terminal-bar">
+
+<div class="terminal-lights">
+
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+
+</div>
+
+<span class="terminal-title">
+Dossier Platform Intelligence
+</span>
+
+</div>
+
+
+<div class="terminal-content">
+
+<div class="platform-heading">
+
+<div>
+
+<span>Platform Status</span>
+
+<strong>
+Operational
+</strong>
+
+</div>
+
+<div class="security-tag">
+SYSTEM VERIFIED
+</div>
+
+</div>
+
+
+<div class="terminal-grid">
+
+<div class="terminal-stat">
+
+<span>Active Cases</span>
+
+<strong>03</strong>
+
+<small>available</small>
+
+</div>
+
+<div class="terminal-stat">
+
+<span>Evidence Categories</span>
+
+<strong>12</strong>
+
+<small>documented</small>
+
+</div>
+
+<div class="terminal-stat">
+
+<span>Research Reports</span>
+
+<strong>06</strong>
+
+<small>published</small>
+
+</div>
+
+<div class="terminal-stat">
+
+<span>Learning Model</span>
+
+<strong>05</strong>
+
+<small>stages</small>
+
+</div>
+
+</div>
+
+
+<div class="terminal-log">
+
+<div>
+<span class="log-time">[20:04:11]</span>
+Platform identity verified
+</div>
+
+<div>
+<span class="log-time">[20:04:13]</span>
+Investigation modules connected
+</div>
+
+<div>
+<span class="log-time">[20:04:15]</span>
+Evidence archive synchronized
+</div>
+
+<div>
+<span class="log-time">[20:04:16]</span>
+Learning environment ready_
+</div>
+
+</div>
+
+
+<div class="platform-progress">
+
+<div class="progress-heading">
+
+<span>System integrity</span>
+
+<span>100%</span>
+
+</div>
+
+<div class="progress-track">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="about-summary reveal">
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="3">
+0
+</strong>
+
+<span class="summary-label">
+Active Investigations
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="12">
+0
+</strong>
+
+<span class="summary-label">
+Evidence Categories
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="6">
+0
+</strong>
+
+<span class="summary-label">
+Research Reports
+</span>
+
+</div>
+
+
+<div class="summary-card">
+
+<strong class="summary-number" data-count="5">
+0
+</strong>
+
+<span class="summary-label">
+Learning Stages
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="about-section reveal" id="mission">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+PLATFORM MISSION
+</p>
+
+<h2>
+Turning investigation into an active learning experience
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Dossier was created to move beyond passive reading. Users are placed inside realistic investigative environments where they must examine evidence, question assumptions, make decisions, and defend their conclusions.
+
+</p>
+
+</div>
+
+
+<div class="mission-panel">
+
+<div class="mission-visual">
+
+<div class="mission-top">
+
+<span class="mission-id">
+DOSSIER CORE DIRECTIVE
+</span>
+
+<span class="mission-tag">
+Mission Active
+</span>
+
+</div>
+
+
+<div class="mission-symbol">
+D
+</div>
+
+
+<div class="mission-bottom">
+
+<span class="mission-type">
+Interactive Investigation Education
+</span>
+
+</div>
+
+</div>
+
+
+<div class="mission-content">
+
+<p class="case-label">
+OUR PURPOSE
+</p>
+
+<h3>
+Teach people how to think like investigators.
+</h3>
+
+<p>
+
+Dossier combines criminology, forensic science, cybercrime, digital evidence, and investigative reasoning in one interactive platform. Each case requires users to identify what matters, separate fact from assumption, evaluate competing explanations, and reach a conclusion supported by evidence.
+
+</p>
+
+<p>
+
+The goal is not simply to reveal an answer. The goal is to build the judgment, patience, curiosity, and analytical discipline required to understand how reliable investigations are conducted.
+
+</p>
+
+
+<div class="mission-points">
+
+<div class="mission-point">
+
+<strong>
+Immersive Case Simulations
+</strong>
+
+<span>
+Investigations unfold through realistic evidence, decisions, interviews, and forensic findings.
+</span>
+
+</div>
+
+
+<div class="mission-point">
+
+<strong>
+Evidence-Based Reasoning
+</strong>
+
+<span>
+Conclusions must be supported by verified information rather than instinct or first impressions.
+</span>
+
+</div>
+
+
+<div class="mission-point">
+
+<strong>
+Practical Skill Development
+</strong>
+
+<span>
+Users practice digital verification, evidence comparison, timeline analysis, and investigative judgment.
+</span>
+
+</div>
+
+
+<div class="mission-point">
+
+<strong>
+Responsible Investigation
+</strong>
+
+<span>
+The platform emphasizes limitations, uncertainty, ethics, and the danger of unsupported assumptions.
+</span>
+
+</div>
+
+</div>
+
+
+<a class="primary-btn" href="casefiles.html">
+
+Explore Investigations
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="about-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+CORE PRINCIPLES
+</p>
+
+<h2>
+What guides the platform
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Every Dossier investigation is designed around principles that support careful, fair, and defensible investigative reasoning.
+
+</p>
+
+</div>
+
+
+<div class="values-grid">
+
+
+<article class="value-card">
+
+<div class="value-top">
+
+<div class="value-icon">
+⌕
+</div>
+
+<span class="value-number">
+01
+</span>
+
+</div>
+
+<h3>
+Examine Before Concluding
+</h3>
+
+<p>
+
+An object, message, record, or behaviour may appear suspicious without proving anything. Investigators must determine what the evidence actually establishes before forming a conclusion.
+
+</p>
+
+</article>
+
+
+
+<article class="value-card">
+
+<div class="value-top">
+
+<div class="value-icon">
+◇
+</div>
+
+<span class="value-number">
+02
+</span>
+
+</div>
+
+<h3>
+Separate Fact From Assumption
+</h3>
+
+<p>
+
+Observed information must remain distinct from interpretation. The platform encourages users to recognize when they are relying on evidence and when they are making an inference.
+
+</p>
+
+</article>
+
+
+
+<article class="value-card">
+
+<div class="value-top">
+
+<div class="value-icon">
+◎
+</div>
+
+<span class="value-number">
+03
+</span>
+
+</div>
+
+<h3>
+Question Initial Impressions
+</h3>
+
+<p>
+
+Confidence, nervousness, authority, familiarity, and professional appearance can all be misleading. First impressions should guide further inquiry, not determine guilt or credibility.
+
+</p>
+
+</article>
+
+
+
+<article class="value-card">
+
+<div class="value-top">
+
+<div class="value-icon">
+▦
+</div>
+
+<span class="value-number">
+04
+</span>
+
+</div>
+
+<h3>
+Compare Independent Sources
+</h3>
+
+<p>
+
+Strong findings emerge when physical evidence, digital records, timelines, statements, and laboratory results support the same explanation.
+
+</p>
+
+</article>
+
+
+
+<article class="value-card">
+
+<div class="value-top">
+
+<div class="value-icon">
+△
+</div>
+
+<span class="value-number">
+05
+</span>
+
+</div>
+
+<h3>
+Test Alternative Explanations
+</h3>
+
+<p>
+
+A persuasive theory must explain the evidence better than competing possibilities. Investigators should actively look for information that could challenge their preferred conclusion.
+
+</p>
+
+</article>
+
+
+
+<article class="value-card">
+
+<div class="value-top">
+
+<div class="value-icon">
+✓
+</div>
+
+<span class="value-number">
+06
+</span>
+
+</div>
+
+<h3>
+Report Uncertainty Honestly
+</h3>
+
+<p>
+
+Responsible analysis explains what is known, what remains uncertain, what information is missing, and what the available evidence cannot prove.
+
+</p>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<section class="about-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+LEARNING MODEL
+</p>
+
+<h2>
+How users move through an investigation
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Dossier investigations follow a structured learning process that requires active participation at every stage.
+
+</p>
+
+</div>
+
+
+<div class="learning-grid">
+
+<div class="learning-card">
+
+<div class="learning-icon">
+▤
+</div>
+
+<h3>
+Receive the Briefing
+</h3>
+
+<p>
+
+Review the incident, known facts, persons involved, initial evidence, and investigative objective.
+
+</p>
+
+</div>
+
+
+<div class="learning-card">
+
+<div class="learning-icon">
+⌕
+</div>
+
+<h3>
+Examine the Evidence
+</h3>
+
+<p>
+
+Inspect documents, digital records, physical objects, laboratory findings, and environmental details.
+
+</p>
+
+</div>
+
+
+<div class="learning-card">
+
+<div class="learning-icon">
+◎
+</div>
+
+<h3>
+Question and Compare
+</h3>
+
+<p>
+
+Interview relevant individuals, identify contradictions, and compare statements with independent records.
+
+</p>
+
+</div>
+
+
+<div class="learning-card">
+
+<div class="learning-icon">
+◇
+</div>
+
+<h3>
+Build a Case Theory
+</h3>
+
+<p>
+
+Organize means, motive, opportunity, timing, access, and corroborating evidence into a defensible explanation.
+
+</p>
+
+</div>
+
+
+<div class="learning-card">
+
+<div class="learning-icon">
+✓
+</div>
+
+<h3>
+Defend the Conclusion
+</h3>
+
+<p>
+
+Complete the assessment and explain which evidence supports the final investigative decision.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="about-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+PLATFORM STRUCTURE
+</p>
+
+<h2>
+A connected investigation environment
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+The platform is organized into three connected areas that allow users to move between practical investigations, evidence methods, and supporting research.
+
+</p>
+
+</div>
+
+
+<div class="platform-grid">
+
+
+<article class="platform-card cases">
+
+<span class="platform-label">
+DIVISION 01
+</span>
+
+<h3>
+Case Files
+</h3>
+
+<p>
+
+The Case Files database contains interactive investigations ranging from foundational cybercrime scenarios to advanced forensic homicide analysis.
+
+</p>
+
+<div class="platform-list">
+
+<div>
+<strong>✓</strong>
+Realistic investigation briefings
+</div>
+
+<div>
+<strong>✓</strong>
+Step-by-step evidence review
+</div>
+
+<div>
+<strong>✓</strong>
+Interactive investigator decisions
+</div>
+
+<div>
+<strong>✓</strong>
+Case assessments and conclusions
+</div>
+
+</div>
+
+<a class="primary-btn" href="casefiles.html">
+
+Enter Case Database
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</article>
+
+
+
+<article class="platform-card evidence">
+
+<span class="platform-label">
+DIVISION 02
+</span>
+
+<h3>
+Evidence Library
+</h3>
+
+<p>
+
+The Evidence Library explains how investigators identify, preserve, examine, compare, and interpret physical and digital evidence.
+
+</p>
+
+<div class="platform-list">
+
+<div>
+<strong>✓</strong>
+Digital evidence methods
+</div>
+
+<div>
+<strong>✓</strong>
+Physical evidence examination
+</div>
+
+<div>
+<strong>✓</strong>
+Forensic toxicology
+</div>
+
+<div>
+<strong>✓</strong>
+Interview and timeline analysis
+</div>
+
+</div>
+
+<a class="primary-btn" href="library.html">
+
+Open Evidence Library
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</article>
+
+
+
+<article class="platform-card research">
+
+<span class="platform-label">
+DIVISION 03
+</span>
+
+<h3>
+Research Division
+</h3>
+
+<p>
+
+The Research Division connects academic concepts, investigative methods, emerging technology, and ethical reasoning to the case simulations.
+
+</p>
+
+<div class="platform-list">
+
+<div>
+<strong>✓</strong>
+Cybercrime and social engineering
+</div>
+
+<div>
+<strong>✓</strong>
+AI and synthetic media
+</div>
+
+<div>
+<strong>✓</strong>
+Forensic science research
+</div>
+
+<div>
+<strong>✓</strong>
+Evidence-based reasoning
+</div>
+
+</div>
+
+<a class="primary-btn" href="research.html">
+
+Visit Research Division
+
+<span class="button-arrow">→</span>
+
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<section class="about-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+SKILLS DEVELOPED
+</p>
+
+<h2>
+What investigators practice
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+Dossier is designed to help users strengthen transferable skills that apply to criminology, forensic science, cybersecurity, research, analysis, and public safety.
+
+</p>
+
+</div>
+
+
+<div class="skills-panel">
+
+<div class="skills-intro">
+
+<p class="case-label">
+INVESTIGATOR DEVELOPMENT
+</p>
+
+<h3>
+Build judgment, not just knowledge.
+</h3>
+
+<p>
+
+The platform requires users to apply information rather than memorize definitions. Each case develops practical reasoning through decisions, mistakes, evidence comparison, and reflection.
+
+</p>
+
+<span class="skills-stamp">
+TRAINING ACTIVE
+</span>
+
+</div>
+
+
+<div class="skills-list">
+
+<div class="skill">
+
+<span class="skill-number">
+SKILL 01
+</span>
+
+<h4>
+Critical Thinking
+</h4>
+
+<p>
+
+Evaluate claims, recognize assumptions, and identify what information is still missing.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<span class="skill-number">
+SKILL 02
+</span>
+
+<h4>
+Evidence Analysis
+</h4>
+
+<p>
+
+Determine what individual evidence items support and how they connect to the wider case.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<span class="skill-number">
+SKILL 03
+</span>
+
+<h4>
+Digital Verification
+</h4>
+
+<p>
+
+Examine emails, websites, metadata, online identities, financial records, and device information.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<span class="skill-number">
+SKILL 04
+</span>
+
+<h4>
+Investigative Interviewing
+</h4>
+
+<p>
+
+Use open questions, follow-up prompts, contradiction checks, and evidence presentation responsibly.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<span class="skill-number">
+SKILL 05
+</span>
+
+<h4>
+Timeline Reconstruction
+</h4>
+
+<p>
+
+Organize events, access records, communications, and witness accounts into a clear sequence.
+
+</p>
+
+</div>
+
+
+<div class="skill">
+
+<span class="skill-number">
+SKILL 06
+</span>
+
+<h4>
+Decision Communication
+</h4>
+
+<p>
+
+Explain conclusions clearly while identifying supporting evidence, limitations, and uncertainty.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="about-section reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+PLATFORM ROADMAP
+</p>
+
+<h2>
+Where Dossier is going next
+</h2>
+
+</div>
+
+<p class="section-copy">
+
+The platform will continue expanding into new forms of cybercrime, forensic investigation, digital evidence, major crime analysis, and interactive learning.
+
+</p>
+
+</div>
+
+
+<div class="roadmap-grid">
+
+<div class="roadmap-card">
+
+<span class="roadmap-status">
+Development Active
+</span>
+
+<h3>
+Synthetic Identity Investigation
+</h3>
+
+<p>
+
+A future case involving manipulated video interviews, fabricated professional histories, deepfake identities, and employment fraud.
+
+</p>
+
+<div class="roadmap-progress">
+
+<div class="roadmap-progress-heading">
+
+<span>Development</span>
+
+<span>70%</span>
+
+</div>
+
+<div class="roadmap-track">
+
+<div class="roadmap-fill one"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-card">
+
+<span class="roadmap-status">
+Development Active
+</span>
+
+<h3>
+Ransomware Incident Response
+</h3>
+
+<p>
+
+An advanced digital forensics investigation involving phishing, compromised systems, malicious software, attacker communications, and evidence recovery.
+
+</p>
+
+<div class="roadmap-progress">
+
+<div class="roadmap-progress-heading">
+
+<span>Development</span>
+
+<span>50%</span>
+
+</div>
+
+<div class="roadmap-track">
+
+<div class="roadmap-fill two"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="roadmap-card">
+
+<span class="roadmap-status">
+Research Active
+</span>
+
+<h3>
+Expanded Major Crime Cases
+</h3>
+
+<p>
+
+Future investigations will introduce property crime, organized fraud, suspicious disappearances, institutional misconduct, and complex crime-scene reconstruction.
+
+</p>
+
+<div class="roadmap-progress">
+
+<div class="roadmap-progress-heading">
+
+<span>Development</span>
+
+<span>35%</span>
+
+</div>
+
+<div class="roadmap-track">
+
+<div class="roadmap-fill three"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="about-cta reveal">
+
+<div class="cta-panel">
+
+<p class="eyebrow">
+ENTER THE INVESTIGATION
+</p>
+
+<h2>
+The platform begins where passive learning ends.
+</h2>
+
+<p>
+
+Choose a case, examine the evidence, challenge your assumptions, and build a conclusion that can withstand scrutiny.
+
+</p>
+
+
+<div class="cta-buttons">
+
+<a class="primary-btn" href="casefiles.html">
+
+Explore Case Files
+
+<span class="button-arrow">→</span>
+
+</a>
+
+<a class="secondary-btn" href="library.html">
+
+Review Evidence Methods
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="about-footer">
+
+<div class="footer-top">
+
+<div>
+
+<a class="brand" href="index.html">
+
+<span class="brand-mark">D</span>
+
+<span>DOSSIER</span>
+
+</a>
+
+<p class="footer-brand-copy">
+
+An interactive investigation education platform teaching cybercrime, forensic science, digital evidence, critical thinking, and evidence-based reasoning through immersive case simulations.
+
+</p>
+
+</div>
+
+
+<div class="footer-links">
 
 <a href="index.html">Home</a>
 <a href="casefiles.html">Case Files</a>
@@ -37,515 +2786,111 @@ DOSSIER
 
 </div>
 
-</nav>
-
-
-
-
-
-
-
-<section class="hero">
-
-<p class="eyebrow">
-ABOUT DOSSIER
-</p>
-
-<h1>
-Reimagining How We Learn Investigations
-</h1>
-
-<p class="hero-text">
-
-Dossier is an interactive investigation platform that
-transforms digital investigations, cybercrime,
-forensic science, and artificial intelligence into
-realistic case-based learning experiences.
-
-</p>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-What is Dossier?
-</h2>
-
-<div class="card">
-
-<p>
-
-Dossier is an educational platform where users learn
-by investigating.
-
-</p>
-
-<p>
-
-Instead of only reading about cybercrime or digital
-evidence, users work through simulated
-investigations that require them to review evidence,
-identify suspicious patterns, evaluate information,
-and determine what conclusions are supported by the
-available facts.
-
-</p>
-
-<p>
-
-Every investigation is designed around the idea that
-effective investigators rely on careful observation,
-critical thinking, and evidence-based decision
-making. By combining realistic case scenarios with
-interactive evidence and assessments, Dossier
-creates an engaging environment where users can
-experience how modern digital investigations are
-conducted.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-Why Dossier Exists
-</h2>
-
-<div class="card">
-
-<p>
-
-Technology has transformed the way people
-communicate, work, and interact online. As a result,
-crime has evolved beyond physical spaces, creating
-new forms of digital evidence that investigators must
-understand and analyze.
-
-</p>
-
-<p>
-
-Today, important evidence can exist within emails,
-websites, online accounts, digital footprints, social
-media activity, and artificial intelligence systems.
-Understanding these sources of information has become
-an essential part of modern investigations.
-
-</p>
-
-<p>
-
-Dossier was created to make these concepts easier to
-understand by transforming them into interactive
-learning experiences that encourage users to think
-through problems the way investigators do.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-Our Mission
-</h2>
-
-<div class="card">
-
-<p>
-
-Dossier's mission is to make investigation education
-more engaging, accessible, and relevant to today's
-digital world.
-
-</p>
-
-<p>
-
-The platform focuses on developing investigative
-thinking by encouraging users to analyze evidence,
-recognize patterns, evaluate credibility, question
-assumptions, and make decisions supported by facts.
-
-</p>
-
-<p>
-
-Through interactive case files, research resources,
-and evidence-based learning, Dossier aims to help
-users better understand the relationship between
-technology, crime, and modern investigations.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-The Dossier Experience
-</h2>
-
-<div class="grid">
-
-<div class="learn-card">
-
-<p class="case-label">
-01 / INVESTIGATE
-</p>
-
-<h3>
-Explore Realistic Cases
-</h3>
-
-<p>
-
-Every investigation begins with a realistic digital
-case involving cybercrime, online fraud, social
-engineering, or emerging technologies. Users review
-the available information and begin building an
-understanding of what happened.
-
-</p>
-
 </div>
 
 
+<div class="footer-bottom">
 
+<span>
+© 2026 Dossier. Interactive Investigation Platform.
+</span>
 
-
-<div class="learn-card">
-
-<p class="case-label">
-02 / ANALYZE
-</p>
-
-<h3>
-Review Digital Evidence
-</h3>
-
-<p>
-
-Investigators examine emails, websites, digital
-footprints, online activity, and other evidence to
-identify suspicious indicators and connect important
-details throughout the investigation.
-
-</p>
+<span>
+Platform systems operational.
+</span>
 
 </div>
-
-
-
-
-
-<div class="learn-card">
-
-<p class="case-label">
-03 / CONCLUDE
-</p>
-
-<h3>
-Make Evidence-Based Decisions
-</h3>
-
-<p>
-
-After reviewing the available evidence, users
-complete an investigation assessment and determine
-the outcome of the case using the facts they have
-collected.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-What Dossier Explores
-</h2>
-
-<div class="grid">
-
-<div class="learn-card">
-
-<h3>
-Digital Forensics
-</h3>
-
-<p>
-
-Learn how investigators collect, preserve, analyze,
-and interpret digital evidence from computers,
-mobile devices, online accounts, and internet
-activity.
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="learn-card">
-
-<h3>
-Cybercrime Investigation
-</h3>
-
-<p>
-
-Explore phishing attacks, identity theft, online
-fraud, social engineering, financial scams, and
-other forms of cyber-enabled crime.
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="learn-card">
-
-<h3>
-Artificial Intelligence
-</h3>
-
-<p>
-
-Understand how artificial intelligence is changing
-both criminal behaviour and modern investigative
-techniques while creating new opportunities and new
-challenges.
-
-</p>
-
-</div>
-
-
-
-
-
-<div class="learn-card">
-
-<h3>
-Human Behaviour & Crime
-</h3>
-
-<p>
-
-Examine how trust, manipulation, psychology, and
-decision making influence online behaviour and play
-an important role in digital crime.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-The Investigator Mindset
-</h2>
-
-<div class="card">
-
-<p>
-
-Every investigation begins with asking the right
-questions.
-
-</p>
-
-<ul>
-
-<li>What evidence supports this claim?</li>
-
-<li>Can the information be independently verified?</li>
-
-<li>Are there inconsistencies or suspicious patterns?</li>
-
-<li>What alternative explanations should be considered?</li>
-
-<li>How could this incident have been prevented?</li>
-
-</ul>
-
-<p>
-
-Dossier encourages users to think beyond simply
-finding answers. Effective investigations require
-curiosity, careful observation, and the ability to
-evaluate evidence before reaching conclusions.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-Founder
-</h2>
-
-<div class="card">
-
-<h3>
-Abyan Abdi
-</h3>
-
-<p>
-
-Dossier was created to make modern investigation
-education more interactive and accessible.
-
-</p>
-
-<p>
-
-As technology continues to reshape the way crime is
-committed and investigated, understanding digital
-evidence has become increasingly important. Dossier
-was built to help users explore these changes
-through realistic investigations that encourage
-observation, critical thinking, and evidence-based
-decision making.
-
-</p>
-
-<p>
-
-Rather than simply presenting information, the
-platform encourages users to work through case
-files, analyze digital evidence, identify
-suspicious patterns, and draw conclusions supported
-by the facts.
-
-</p>
-
-<p>
-
-The goal is to create an engaging learning
-experience that helps users develop investigative
-thinking while exploring digital forensics,
-cybercrime, artificial intelligence, and the
-evolving relationship between technology and modern
-investigations.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<h2>
-The Future of Dossier
-</h2>
-
-<div class="card">
-
-<p>
-
-Technology continues to reshape the way
-investigations are conducted, creating new forms of
-crime and new sources of digital evidence.
-
-</p>
-
-<p>
-
-As Dossier grows, the platform will continue
-expanding with additional case files, interactive
-investigations, research resources, and learning
-experiences that explore emerging issues in
-cybercrime, digital forensics, artificial
-intelligence, and online investigations.
-
-</p>
-
-<p>
-
-The goal is to create a platform where users can
-continuously strengthen their investigative
-thinking while gaining a deeper understanding of
-the technologies shaping the future of modern
-investigations.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-
-
-
-<footer>
-
-<p>
-© 2026 Dossier
-</p>
-
 
 </footer>
+
+
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+revealObserver.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:0.1
+}
+);
+
+revealItems.forEach((item) => {
+
+revealObserver.observe(item);
+
+});
+
+
+/* =========================================================
+   ANIMATED PLATFORM STATISTICS
+========================================================= */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(!entry.isIntersecting){
+return;
+}
+
+const counter = entry.target;
+const target = Number(counter.dataset.count);
+
+let current = 0;
+
+const animation = setInterval(() => {
+
+current += 1;
+counter.textContent = current;
+
+if(current >= target){
+
+counter.textContent = target;
+clearInterval(animation);
+
+}
+
+},100);
+
+counterObserver.unobserve(counter);
+
+});
+
+},
+{
+threshold:0.65
+}
+);
+
+counters.forEach((counter) => {
+
+counterObserver.observe(counter);
+
+});
+
+</script>
 
 
 </body>
