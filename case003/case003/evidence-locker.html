@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DOSSIER | Evidence Locker</title>
+
+<link rel="stylesheet" href="../style-v2.css">
+
+<style>
+
+
+.page{
+
+max-width:1200px;
+margin:auto;
+padding:40px;
+
+}
+
+
+.terminal{
+
+background:#0d1626;
+border:1px solid #2d3b54;
+border-radius:18px;
+padding:30px;
+font-family:monospace;
+color:#7fc2ff;
+margin-bottom:30px;
+
+}
+
+
+.header{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:35px;
+margin-bottom:25px;
+
+}
+
+
+.label{
+
+color:#5aa2ff;
+letter-spacing:3px;
+font-size:14px;
+
+}
+
+
+.header h1{
+
+font-size:50px;
+
+}
+
+
+.status{
+
+color:#39d98a;
+font-weight:bold;
+
+}
+
+
+
+
+
+.dashboard{
+
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+
+}
+
+
+
+
+.evidence-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+
+}
+
+
+
+.evidence-card{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:25px;
+
+}
+
+
+
+.evidence-card h2{
+
+margin:15px 0;
+
+}
+
+
+
+.evidence-card p{
+
+color:#aab6cb;
+line-height:1.7;
+
+}
+
+
+
+.status-box{
+
+background:#1b2537;
+padding:10px;
+border-radius:10px;
+margin-top:15px;
+
+}
+
+
+
+button{
+
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:#5aa2ff;
+color:white;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+transform:translateY(-2px);
+
+}
+
+
+
+
+
+
+.progress-panel{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:25px;
+height:max-content;
+
+}
+
+
+
+.progress-bar{
+
+height:12px;
+background:#1b2537;
+border-radius:20px;
+overflow:hidden;
+
+}
+
+
+
+.progress-fill{
+
+height:100%;
+width:0%;
+background:#39d98a;
+transition:.5s;
+
+}
+
+
+
+
+
+.notes{
+
+background:#1b2537;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+
+}
+
+
+
+.note{
+
+margin:10px 0;
+color:#aab6cb;
+
+}
+
+
+
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.75);
+
+justify-content:center;
+align-items:center;
+
+}
+
+
+
+
+.modal-content{
+
+background:#141c2b;
+border:1px solid #2d3b54;
+border-radius:20px;
+padding:35px;
+
+width:90%;
+max-width:650px;
+
+}
+
+
+
+.modal-content p{
+
+color:#aab6cb;
+line-height:1.8;
+
+}
+
+
+
+.observation{
+
+background:#1b2537;
+padding:15px;
+border-radius:12px;
+margin:10px 0;
+cursor:pointer;
+
+}
+
+
+
+.observation:hover{
+
+border:1px solid #5aa2ff;
+
+}
+
+
+
+.complete{
+
+color:#39d98a;
+font-weight:bold;
+
+}
+
+
+
+
+
+.next{
+
+display:block;
+margin-top:30px;
+background:#5aa2ff;
+padding:20px;
+border-radius:15px;
+text-align:center;
+color:white;
+font-size:20px;
+font-weight:bold;
+text-decoration:none;
+
+}
+
+
+
+@media(max-width:900px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+
+.evidence-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+</style>
+
+<link rel="stylesheet" href="case003-system.css">
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="logo">
+DOSSIER
+</div>
+
+
+<div class="nav-links">
+
+<a href="../index.html">Home</a>
+<a href="../casefiles.html">Case Files</a>
+<a href="../library.html">Evidence Library</a>
+<a href="../research.html">Research</a>
+<a href="../about.html">About</a>
+
+</div>
+
+</nav>
+
+
+
+
+
+
+
+<div class="page">
+
+
+
+
+
+
+<div class="terminal">
+
+<p>DOSSIER EVIDENCE MANAGEMENT SYSTEM</p>
+
+<p>CASE FILE 003 CONNECTED</p>
+
+<p>VERIFYING CHAIN OF CUSTODY...</p>
+
+<p>EVIDENCE REVIEW MODE ENABLED</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="header">
+
+
+<p class="label">
+CASE FILE 003
+</p>
+
+
+<h1>
+EVIDENCE LOCKER
+</h1>
+
+
+<p>
+SILENT DOSE
+</p>
+
+
+<p class="status">
+● ACTIVE EVIDENCE REVIEW
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="dashboard">
+
+
+
+
+
+<div class="evidence-grid">
+
+
+
+
+
+
+<div class="evidence-card">
+
+<p class="label">
+EVIDENCE 001
+</p>
+
+<h2>
+☕ Coffee Mug
+</h2>
+
+<p>
+Recovered from dining area.
+
+Possible connection to unknown compound exposure.
+</p>
+
+
+<div class="status-box" id="mug-status">
+STATUS:
+Unexamined
+</div>
+
+
+<button onclick="openEvidence('mug')">
+Open Evidence Bag →
+</button>
+
+</div>
+
+
+
+
+
+
+
+<div class="evidence-card">
+
+<p class="label">
+EVIDENCE 002
+</p>
+
+<h2>
+💊 Medication Bottle
+</h2>
+
+<p>
+Recovered beside victim's belongings.
+
+Requires verification.
+</p>
+
+
+<div class="status-box" id="med-status">
+STATUS:
+Unexamined
+</div>
+
+
+<button onclick="openEvidence('med')">
+Open Evidence Bag →
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="evidence-card">
+
+<p class="label">
+EVIDENCE 003
+</p>
+
+<h2>
+📱 Victim Phone
+</h2>
+
+<p>
+Digital device recovered at scene.
+
+Potential communications evidence.
+</p>
+
+
+<div class="status-box" id="phone-status">
+STATUS:
+Unexamined
+</div>
+
+
+<button onclick="openEvidence('phone')">
+Open Evidence Bag →
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="evidence-card">
+
+<p class="label">
+EVIDENCE 004
+</p>
+
+<h2>
+📓 Research Notebook
+</h2>
+
+<p>
+Private research documentation recovered.
+</p>
+
+
+<div class="status-box" id="note-status">
+STATUS:
+Unexamined
+</div>
+
+
+<button onclick="openEvidence('note')">
+Open Evidence Bag →
+</button>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="progress-panel">
+
+
+<h2>
+Investigation Progress
+</h2>
+
+
+<div class="progress-bar">
+
+<div class="progress-fill" id="progress"></div>
+
+</div>
+
+
+<p id="percentage">
+0% Complete
+</p>
+
+
+
+
+<div class="notes">
+
+
+<h3>
+Detective Notebook
+</h3>
+
+
+<div class="note">
+• No forced entry identified
+</div>
+
+
+<div class="note">
+• Unknown compound suspected
+</div>
+
+
+<div class="note" id="new-note">
+• Awaiting evidence analysis
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<a class="next" href="lab.html">
+
+CONTINUE TO FORENSIC LAB →
+
+</a>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- MODALS -->
+
+
+
+<div class="modal" id="mug">
+
+
+<div class="modal-content">
+
+<h2>
+Evidence 001: Coffee Mug
+</h2>
+
+
+<p>
+
+Initial inspection:
+
+<br><br>
+
+✓ Ceramic mug recovered from dining table
+
+<br>
+
+✓ Beverage residue preserved
+
+<br>
+
+✓ No visible damage
+
+<br>
+
+✓ Possible contamination source
+
+</p>
+
+
+
+<div class="observation" onclick="completeEvidence('mug')">
+
+Submit Sample For Toxicology Analysis
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="modal" id="med">
+
+
+<div class="modal-content">
+
+
+<h2>
+Evidence 002: Medication Bottle
+</h2>
+
+
+<p>
+
+Initial inspection:
+
+<br><br>
+
+✓ Prescription label present
+
+<br>
+
+✓ Contents require comparison
+
+<br>
+
+✓ Possible substitution risk
+
+</p>
+
+
+<div class="observation" onclick="completeEvidence('med')">
+
+Submit Medication For Analysis
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="modal" id="phone">
+
+
+<div class="modal-content">
+
+
+<h2>
+Evidence 003: Victim Phone
+</h2>
+
+
+<p>
+
+Device status:
+
+<br><br>
+
+LOCKED
+
+<br><br>
+
+Available actions:
+
+<br>
+
+✓ Extract messages
+
+<br>
+
+✓ Review calls
+
+<br>
+
+✓ Analyze contacts
+
+</p>
+
+
+<div class="observation" onclick="completeEvidence('phone')">
+
+Begin Digital Extraction
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="modal" id="note">
+
+
+<div class="modal-content">
+
+
+<h2>
+Evidence 004: Research Notebook
+</h2>
+
+
+<p>
+
+Document examination:
+
+<br><br>
+
+✓ Chemical formulas detected
+
+<br>
+
+✓ Research references identified
+
+<br>
+
+✓ Additional review required
+
+</p>
+
+
+<div class="observation" onclick="completeEvidence('note')">
+
+Scan Document
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+let completed = [];
+
+
+
+function openEvidence(id){
+
+document.getElementById(id).style.display="flex";
+
+}
+
+
+
+
+function completeEvidence(id){
+
+
+if(!completed.includes(id)){
+
+
+completed.push(id);
+
+
+updateProgress();
+
+
+}
+
+
+
+document.getElementById(id).style.display="none";
+
+
+}
+
+
+
+function updateProgress(){
+
+
+let percent =
+(completed.length / 4) * 100;
+
+
+document.getElementById("progress").style.width =
+percent+"%";
+
+
+document.getElementById("percentage").innerHTML =
+percent+"% Complete";
+
+
+
+if(percent===100){
+
+
+document.getElementById("new-note").innerHTML =
+"✓ All evidence reviewed. Laboratory analysis unlocked.";
+
+
+}
+
+
+}
+
+
+</script>
+
+
+
+
+
+<script src="case003-system.js"></script>
+</body>
+
+</html>
