@@ -6,35 +6,1144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dossier | Digital Investigation Platform</title>
+<meta
+name="description"
+content="Dossier is an interactive investigation platform exploring cybercrime, forensic science, digital evidence, and criminology through realistic case simulations."
+>
+
+<title>Dossier | Interactive Investigation Platform</title>
 
 <link rel="stylesheet" href="style-v2.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   PREMIUM HOMEPAGE
+========================================================= */
+
+.homepage{
+overflow:hidden;
+}
+
+.home-nav{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 8%;
+background:rgba(9,17,29,.88);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(127,194,255,.14);
+}
+
+.home-nav .logo{
+display:flex;
+align-items:center;
+gap:13px;
+font-size:24px;
+font-weight:800;
+letter-spacing:8px;
+}
+
+.logo-mark{
+width:34px;
+height:34px;
+display:grid;
+place-items:center;
+border-radius:10px;
+background:linear-gradient(135deg,#5aa2ff,#2867d8);
+box-shadow:0 0 24px rgba(90,162,255,.35);
+font-size:14px;
+letter-spacing:0;
+}
+
+.home-nav .nav-links{
+display:flex;
+align-items:center;
+gap:26px;
+}
+
+.home-nav .nav-links a{
+position:relative;
+font-size:14px;
+font-weight:500;
+color:#dce6f6;
+text-decoration:none;
+}
+
+.home-nav .nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-7px;
+width:0;
+height:2px;
+background:#7fc2ff;
+transition:.25s ease;
+}
+
+.home-nav .nav-links a:hover::after,
+.home-nav .nav-links a.active::after{
+width:100%;
+}
+
+.home-nav .nav-links a:hover,
+.home-nav .nav-links a.active{
+color:#ffffff;
+}
+
+.nav-action{
+padding:11px 18px;
+border:1px solid rgba(127,194,255,.35);
+border-radius:11px;
+background:rgba(90,162,255,.08);
+}
+
+.nav-action::after{
+display:none;
+}
+
+
+/* HERO */
+
+.home-hero{
+position:relative;
+min-height:760px;
+max-width:none;
+padding:105px 8% 90px;
+display:grid;
+grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);
+align-items:center;
+gap:70px;
+}
+
+.home-hero::before{
+content:"";
+position:absolute;
+top:-220px;
+right:-100px;
+width:680px;
+height:680px;
+border-radius:50%;
+background:rgba(49,113,211,.22);
+filter:blur(130px);
+pointer-events:none;
+}
+
+.home-hero::after{
+content:"";
+position:absolute;
+left:-220px;
+bottom:-260px;
+width:560px;
+height:560px;
+border-radius:50%;
+background:rgba(90,162,255,.10);
+filter:blur(120px);
+pointer-events:none;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:790px;
+}
+
+.status-line{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:8px 14px;
+margin-bottom:25px;
+border:1px solid rgba(57,217,138,.25);
+border-radius:999px;
+background:rgba(57,217,138,.07);
+color:#9bf0c5;
+font-size:12px;
+font-weight:700;
+letter-spacing:1.5px;
+text-transform:uppercase;
+}
+
+.status-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#39d98a;
+box-shadow:0 0 14px rgba(57,217,138,.9);
+animation:statusPulse 2s infinite;
+}
+
+@keyframes statusPulse{
+0%,100%{
+opacity:1;
+transform:scale(1);
+}
+50%{
+opacity:.55;
+transform:scale(.75);
+}
+}
+
+.home-hero .eyebrow{
+margin-bottom:20px;
+}
+
+.home-hero h1{
+max-width:820px;
+margin-bottom:25px;
+font-size:clamp(52px,6.3vw,88px);
+line-height:.98;
+letter-spacing:-4px;
+}
+
+.gradient-text{
+background:linear-gradient(100deg,#ffffff 5%,#a9d5ff 48%,#5aa2ff 100%);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.home-hero .hero-text{
+max-width:690px;
+font-size:19px;
+line-height:1.8;
+color:#aab6cb;
+}
+
+.hero-actions{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.hero-actions .primary-btn,
+.hero-actions .secondary-btn{
+min-height:54px;
+padding:15px 25px;
+}
+
+.btn-icon{
+margin-left:9px;
+transition:.25s;
+}
+
+.primary-btn:hover .btn-icon{
+transform:translateX(5px);
+}
+
+.hero-trust{
+display:flex;
+gap:24px;
+flex-wrap:wrap;
+margin-top:34px;
+color:#8493aa;
+font-size:13px;
+}
+
+.hero-trust span{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.trust-check{
+color:#39d98a;
+font-weight:800;
+}
+
+
+/* TERMINAL */
+
+.hero-terminal{
+position:relative;
+z-index:2;
+}
+
+.terminal-shell{
+position:relative;
+overflow:hidden;
+border:1px solid rgba(127,194,255,.24);
+border-radius:22px;
+background:
+linear-gradient(180deg,rgba(22,31,48,.96),rgba(11,18,31,.98));
+box-shadow:
+0 35px 90px rgba(0,0,0,.48),
+0 0 0 1px rgba(255,255,255,.02) inset;
+}
+
+.terminal-shell::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+transparent 50%,
+rgba(255,255,255,.012) 50%
+);
+background-size:100% 4px;
+pointer-events:none;
+}
+
+.terminal-topbar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 18px;
+border-bottom:1px solid rgba(127,194,255,.13);
+background:rgba(255,255,255,.018);
+}
+
+.terminal-lights{
+display:flex;
+gap:7px;
+}
+
+.terminal-light{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#354259;
+}
+
+.terminal-light:nth-child(1){
+background:#ff6b6b;
+}
+
+.terminal-light:nth-child(2){
+background:#ffd166;
+}
+
+.terminal-light:nth-child(3){
+background:#39d98a;
+}
+
+.terminal-title{
+font-size:11px;
+font-weight:700;
+letter-spacing:2px;
+color:#8291aa;
+text-transform:uppercase;
+}
+
+.terminal-body{
+padding:25px;
+}
+
+.terminal-header{
+display:flex;
+justify-content:space-between;
+gap:18px;
+padding-bottom:20px;
+border-bottom:1px solid rgba(127,194,255,.12);
+}
+
+.terminal-case-id{
+font-size:11px;
+font-weight:700;
+letter-spacing:2px;
+color:#7fc2ff;
+}
+
+.terminal-case-title{
+margin-top:5px;
+font-size:22px;
+font-weight:700;
+color:#f4f8ff;
+}
+
+.priority-badge{
+height:max-content;
+padding:7px 10px;
+border:1px solid rgba(255,107,107,.3);
+border-radius:8px;
+background:rgba(255,107,107,.08);
+color:#ff9b9b;
+font-size:10px;
+font-weight:800;
+letter-spacing:1.3px;
+}
+
+.terminal-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin:20px 0;
+}
+
+.terminal-data{
+padding:13px;
+border:1px solid rgba(127,194,255,.11);
+border-radius:11px;
+background:rgba(255,255,255,.025);
+}
+
+.terminal-data span{
+display:block;
+margin-bottom:4px;
+font-size:9px;
+font-weight:700;
+letter-spacing:1.5px;
+color:#728198;
+text-transform:uppercase;
+}
+
+.terminal-data strong{
+font-size:13px;
+color:#e8eef8;
+}
+
+.case-progress-label{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+font-size:11px;
+color:#93a3ba;
+}
+
+.case-progress-track{
+height:7px;
+overflow:hidden;
+border-radius:999px;
+background:#0a101b;
+}
+
+.case-progress-fill{
+width:76%;
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,#3f85ec,#7fc2ff);
+box-shadow:0 0 16px rgba(90,162,255,.45);
+}
+
+.terminal-log{
+margin-top:19px;
+padding:15px;
+border:1px solid rgba(57,217,138,.14);
+border-radius:11px;
+background:rgba(57,217,138,.035);
+font-family:monospace;
+font-size:11px;
+line-height:1.9;
+color:#8fbfa8;
+}
+
+.log-time{
+color:#5e7189;
+}
+
+.terminal-open{
+display:flex;
+justify-content:center;
+width:100%;
+margin-top:19px;
+}
+
+
+/* QUICK STATS */
+
+.home-stats-section{
+position:relative;
+z-index:3;
+padding:0 8% 80px;
+}
+
+.home-stat-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.home-stat{
+padding:24px;
+border:1px solid rgba(127,194,255,.13);
+border-radius:17px;
+background:rgba(20,28,43,.72);
+backdrop-filter:blur(14px);
+}
+
+.home-stat-number{
+display:block;
+margin-bottom:6px;
+font-size:31px;
+font-weight:800;
+color:#ffffff;
+}
+
+.home-stat-label{
+font-size:12px;
+font-weight:600;
+letter-spacing:1.3px;
+color:#8796ad;
+text-transform:uppercase;
+}
+
+
+/* SECTION HEADERS */
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:30px;
+margin-bottom:35px;
+}
+
+.section-heading h2{
+margin:0;
+}
+
+.section-heading-copy{
+max-width:610px;
+color:#9eabc0;
+}
+
+.section-link{
+white-space:nowrap;
+color:#7fc2ff;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+}
+
+.section-link:hover{
+color:#ffffff;
+}
+
+
+/* FEATURED CASE */
+
+.featured-investigation{
+padding-top:100px;
+}
+
+.featured-case{
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+overflow:hidden;
+padding:0;
+}
+
+.featured-visual{
+position:relative;
+min-height:490px;
+padding:36px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+background:
+linear-gradient(135deg,rgba(27,53,84,.75),rgba(10,18,31,.95)),
+radial-gradient(circle at top left,rgba(90,162,255,.45),transparent 55%);
+border-right:1px solid rgba(127,194,255,.14);
+}
+
+.featured-visual::after{
+content:"003";
+position:absolute;
+right:-20px;
+bottom:-85px;
+font-size:250px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.035);
+}
+
+.visual-top{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+}
+
+.case-number{
+font-size:12px;
+font-weight:700;
+letter-spacing:3px;
+color:#7fc2ff;
+}
+
+.active-chip{
+padding:7px 11px;
+border:1px solid rgba(57,217,138,.25);
+border-radius:999px;
+background:rgba(57,217,138,.08);
+color:#7de9b2;
+font-size:10px;
+font-weight:700;
+letter-spacing:1.2px;
+}
+
+.evidence-symbol{
+position:relative;
+z-index:2;
+display:grid;
+place-items:center;
+width:115px;
+height:115px;
+margin:auto;
+border:1px solid rgba(127,194,255,.25);
+border-radius:50%;
+background:rgba(90,162,255,.07);
+box-shadow:
+0 0 0 20px rgba(90,162,255,.025),
+0 0 70px rgba(90,162,255,.18);
+font-size:44px;
+}
+
+.visual-bottom{
+position:relative;
+z-index:2;
+}
+
+.visual-bottom p{
+margin:0;
+color:#8fa1b9;
+font-size:12px;
+letter-spacing:1px;
+}
+
+.featured-details{
+padding:47px;
+}
+
+.featured-details h3{
+margin:7px 0 17px;
+font-size:39px;
+letter-spacing:-1px;
+}
+
+.featured-summary{
+max-width:700px;
+margin-bottom:25px;
+color:#aab6cb;
+font-size:16px;
+line-height:1.8;
+}
+
+.case-meta{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin:27px 0;
+}
+
+.meta-box{
+padding:15px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:12px;
+background:#101827;
+}
+
+.meta-box span{
+display:block;
+margin-bottom:5px;
+font-size:9px;
+letter-spacing:1.4px;
+color:#75849b;
+text-transform:uppercase;
+}
+
+.meta-box strong{
+font-size:13px;
+color:#e8eef8;
+}
+
+.feature-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin:25px 0 30px;
+}
+
+.feature-list div{
+display:flex;
+gap:9px;
+align-items:flex-start;
+color:#9fadc1;
+font-size:13px;
+}
+
+.feature-list strong{
+color:#67dba0;
+}
+
+
+/* CASE DATABASE */
+
+.case-card{
+position:relative;
+overflow:hidden;
+display:flex;
+flex-direction:column;
+min-height:360px;
+}
+
+.case-card::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,#5aa2ff,transparent);
+}
+
+.case-card-number{
+position:absolute;
+right:20px;
+top:10px;
+font-size:74px;
+font-weight:800;
+line-height:1;
+color:rgba(255,255,255,.03);
+}
+
+.case-card h3{
+position:relative;
+z-index:2;
+font-size:22px;
+}
+
+.case-card-description{
+position:relative;
+z-index:2;
+flex-grow:1;
+}
+
+.case-card-meta{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin:16px 0 24px;
+}
+
+.case-pill{
+padding:6px 9px;
+border:1px solid rgba(127,194,255,.13);
+border-radius:7px;
+background:#101827;
+color:#95a5bc;
+font-size:10px;
+font-weight:600;
+}
+
+.case-card .primary-btn{
+align-self:flex-start;
+}
+
+.case-card.locked{
+opacity:.72;
+}
+
+.case-card.locked::before{
+background:linear-gradient(90deg,#617087,transparent);
+}
+
+
+/* HOW IT WORKS */
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+counter-reset:process;
+}
+
+.process-card{
+position:relative;
+padding:30px 26px;
+border:1px solid rgba(127,194,255,.12);
+border-radius:17px;
+background:linear-gradient(180deg,#141c2b,#101827);
+counter-increment:process;
+}
+
+.process-card::before{
+content:"0" counter(process);
+display:block;
+margin-bottom:28px;
+font-size:12px;
+font-weight:800;
+letter-spacing:2px;
+color:#5aa2ff;
+}
+
+.process-icon{
+display:grid;
+place-items:center;
+width:47px;
+height:47px;
+margin-bottom:18px;
+border:1px solid rgba(90,162,255,.22);
+border-radius:13px;
+background:rgba(90,162,255,.07);
+font-size:20px;
+}
+
+.process-card h3{
+margin-bottom:9px;
+font-size:18px;
+}
+
+.process-card p{
+margin:0;
+color:#94a3b8;
+font-size:13px;
+}
+
+
+/* DISCIPLINES */
+
+.discipline-card{
+min-height:240px;
+}
+
+.discipline-icon{
+display:grid;
+place-items:center;
+width:48px;
+height:48px;
+margin-bottom:20px;
+border:1px solid rgba(127,194,255,.18);
+border-radius:13px;
+background:rgba(90,162,255,.06);
+font-size:20px;
+}
+
+
+/* CTA */
+
+.home-cta{
+padding-top:70px;
+padding-bottom:105px;
+}
+
+.cta-panel{
+position:relative;
+overflow:hidden;
+padding:62px;
+border:1px solid rgba(127,194,255,.2);
+border-radius:25px;
+background:
+linear-gradient(110deg,rgba(26,45,72,.95),rgba(15,25,42,.98));
+text-align:center;
+}
+
+.cta-panel::before{
+content:"";
+position:absolute;
+top:-130px;
+left:50%;
+width:500px;
+height:350px;
+transform:translateX(-50%);
+border-radius:50%;
+background:rgba(90,162,255,.18);
+filter:blur(90px);
+}
+
+.cta-panel > *{
+position:relative;
+z-index:2;
+}
+
+.cta-panel h2{
+max-width:750px;
+margin:0 auto 18px;
+font-size:42px;
+}
+
+.cta-panel p{
+max-width:670px;
+margin:0 auto;
+color:#a9b6c9;
+}
+
+.cta-panel .buttons{
+justify-content:center;
+}
+
+
+/* FOOTER */
+
+.home-footer{
+margin:0;
+padding:48px 8%;
+border-top:1px solid rgba(127,194,255,.12);
+background:#09111d;
+text-align:left;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1.4fr repeat(3,.7fr);
+gap:50px;
+margin-bottom:42px;
+}
+
+.footer-brand p{
+max-width:380px;
+margin-top:16px;
+color:#8492a8;
+font-size:13px;
+}
+
+.footer-title{
+display:block;
+margin-bottom:15px;
+font-size:11px;
+font-weight:700;
+letter-spacing:1.7px;
+color:#7fc2ff;
+text-transform:uppercase;
+}
+
+.footer-column a{
+display:block;
+margin-bottom:9px;
+color:#8f9db1;
+font-size:13px;
+text-decoration:none;
+}
+
+.footer-column a:hover{
+color:#ffffff;
+}
+
+.footer-bottom{
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding-top:25px;
+border-top:1px solid rgba(127,194,255,.09);
+color:#6f7e94;
+font-size:12px;
+}
+
+
+/* REVEAL ANIMATION */
+
+.reveal{
+opacity:0;
+transform:translateY(25px);
+transition:
+opacity .7s ease,
+transform .7s ease;
+}
+
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+.home-hero{
+grid-template-columns:1fr;
+padding-top:85px;
+}
+
+.hero-content{
+max-width:850px;
+}
+
+.hero-terminal{
+max-width:700px;
+}
+
+.home-stat-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.featured-case{
+grid-template-columns:1fr;
+}
+
+.featured-visual{
+min-height:360px;
+border-right:none;
+border-bottom:1px solid rgba(127,194,255,.14);
+}
+
+.process-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-grid{
+grid-template-columns:1.4fr repeat(2,1fr);
+}
+
+}
+
+@media(max-width:780px){
+
+.home-nav{
+position:relative;
+flex-direction:column;
+gap:17px;
+padding:18px 6%;
+}
+
+.home-nav .nav-links{
+justify-content:center;
+gap:15px;
+}
+
+.nav-action{
+display:none;
+}
+
+.home-hero{
+min-height:auto;
+padding:80px 6% 65px;
+gap:50px;
+}
+
+.home-hero h1{
+font-size:48px;
+letter-spacing:-2.5px;
+}
+
+.home-hero .hero-text{
+font-size:16px;
+}
+
+.home-stats-section,
+section,
+.home-footer{
+padding-left:6%;
+padding-right:6%;
+}
+
+.home-stat-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.section-heading{
+align-items:flex-start;
+flex-direction:column;
+}
+
+.featured-details{
+padding:30px;
+}
+
+.featured-details h3{
+font-size:31px;
+}
+
+.case-meta{
+grid-template-columns:1fr;
+}
+
+.feature-list{
+grid-template-columns:1fr;
+}
+
+.process-grid{
+grid-template-columns:1fr;
+}
+
+.cta-panel{
+padding:45px 25px;
+}
+
+.cta-panel h2{
+font-size:32px;
+}
+
+.footer-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.footer-brand{
+grid-column:1 / -1;
+}
+
+.footer-bottom{
+flex-direction:column;
+}
+
+}
+
+@media(max-width:520px){
+
+.home-hero h1{
+font-size:40px;
+}
+
+.hero-actions{
+flex-direction:column;
+}
+
+.hero-actions a{
+width:100%;
+}
+
+.home-stat-grid{
+grid-template-columns:1fr;
+}
+
+.terminal-grid{
+grid-template-columns:1fr;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.footer-brand{
+grid-column:auto;
+}
+
+}
+
+</style>
 
 </head>
 
 
-<body>
+<body class="homepage">
 
 
-<nav>
+<nav class="home-nav">
 
 <div class="logo">
-DOSSIER
+
+<span class="logo-mark">D</span>
+
+<span>DOSSIER</span>
+
 </div>
 
 
 <div class="nav-links">
 
-<a href="index.html">Home</a>
+<a class="active" href="index.html">Home</a>
 <a href="casefiles.html">Case Files</a>
 <a href="library.html">Evidence Library</a>
 <a href="research.html">Research</a>
 <a href="about.html">About</a>
+
+<a class="nav-action" href="casefiles.html">
+Enter Database
+</a>
 
 </div>
 
@@ -42,190 +1151,526 @@ DOSSIER
 
 
 
-<section class="hero">
+<main>
+
+
+<section class="home-hero">
+
+<div class="hero-content reveal">
+
+<div class="status-line">
+
+<span class="status-dot"></span>
+
+Investigation Database Online
+
+</div>
 
 
 <p class="eyebrow">
-DIGITAL INVESTIGATION PLATFORM
+INTERACTIVE INVESTIGATION PLATFORM
 </p>
 
 
 <h1>
-Investigative Thinking for the Digital Age.
+
+Investigative thinking for the
+
+<span class="gradient-text">
+modern world.
+</span>
+
 </h1>
 
 
 <p class="hero-text">
 
-Dossier is an interactive learning platform exploring cybercrime, digital forensics, criminology, and investigative methods through realistic case simulations and evidence-based analysis.
+Enter realistic case simulations built around cybercrime, forensic science, digital evidence, criminology, and investigative reasoning. Examine evidence, challenge assumptions, interview suspects, and build conclusions supported by facts.
 
 </p>
 
 
-<div class="buttons">
-
+<div class="hero-actions">
 
 <a class="primary-btn" href="casefiles.html">
 
-Explore Case Files
+Enter Case Files
+
+<span class="btn-icon">→</span>
 
 </a>
 
 
 <a class="secondary-btn" href="library.html">
 
-Evidence Library
+Explore Evidence Library
 
 </a>
 
+</div>
+
+
+<div class="hero-trust">
+
+<span>
+<b class="trust-check">✓</b>
+Interactive case simulations
+</span>
+
+<span>
+<b class="trust-check">✓</b>
+Evidence-based decisions
+</span>
+
+<span>
+<b class="trust-check">✓</b>
+Saved investigation progress
+</span>
 
 </div>
 
+</div>
+
+
+
+<div class="hero-terminal reveal">
+
+<div class="terminal-shell">
+
+<div class="terminal-topbar">
+
+<div class="terminal-lights">
+
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+<span class="terminal-light"></span>
+
+</div>
+
+<span class="terminal-title">
+Dossier Investigation Terminal
+</span>
+
+</div>
+
+
+<div class="terminal-body">
+
+<div class="terminal-header">
+
+<div>
+
+<p class="terminal-case-id">
+ACTIVE CASE FILE 003
+</p>
+
+<p class="terminal-case-title">
+Silent Dose
+</p>
+
+</div>
+
+<span class="priority-badge">
+HIGH PRIORITY
+</span>
+
+</div>
+
+
+<div class="terminal-grid">
+
+<div class="terminal-data">
+
+<span>Classification</span>
+
+<strong>
+Suspicious Death
+</strong>
+
+</div>
+
+
+<div class="terminal-data">
+
+<span>Lead Unit</span>
+
+<strong>
+Major Crimes
+</strong>
+
+</div>
+
+
+<div class="terminal-data">
+
+<span>Evidence Items</span>
+
+<strong>
+04 Logged
+</strong>
+
+</div>
+
+
+<div class="terminal-data">
+
+<span>Persons of Interest</span>
+
+<strong>
+04 Identified
+</strong>
+
+</div>
+
+</div>
+
+
+<div>
+
+<div class="case-progress-label">
+
+<span>Investigation system</span>
+
+<span>Operational</span>
+
+</div>
+
+<div class="case-progress-track">
+
+<div class="case-progress-fill"></div>
+
+</div>
+
+</div>
+
+
+<div class="terminal-log">
+
+<div>
+<span class="log-time">[20:12:08]</span>
+Scene briefing received
+</div>
+
+<div>
+<span class="log-time">[20:13:42]</span>
+Evidence locker initialized
+</div>
+
+<div>
+<span class="log-time">[20:15:17]</span>
+Laboratory access authorized
+</div>
+
+<div>
+<span class="log-time">[20:16:03]</span>
+Awaiting investigator assignment_
+</div>
+
+</div>
+
+
+<a
+class="primary-btn terminal-open"
+href="case003/case003.html"
+>
+
+Open Active Investigation →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 
+<section class="home-stats-section reveal">
+
+<div class="home-stat-grid">
+
+<div class="home-stat">
+
+<strong class="home-stat-number" data-count="3">
+0
+</strong>
+
+<span class="home-stat-label">
+Available Case Files
+</span>
+
+</div>
 
 
-<section class="featured">
+<div class="home-stat">
 
+<strong class="home-stat-number" data-count="12">
+0
+</strong>
+
+<span class="home-stat-label">
+Investigation Modules
+</span>
+
+</div>
+
+
+<div class="home-stat">
+
+<strong class="home-stat-number" data-count="4">
+0
+</strong>
+
+<span class="home-stat-label">
+Forensic Disciplines
+</span>
+
+</div>
+
+
+<div class="home-stat">
+
+<strong class="home-stat-number" data-count="100" data-suffix="%">
+0
+</strong>
+
+<span class="home-stat-label">
+Evidence-Based Learning
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="featured-investigation reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+FEATURED INVESTIGATION
+</p>
 
 <h2>
-Featured Investigation
+Enter the Silent Dose case
 </h2>
 
+</div>
 
+<p class="section-heading-copy">
 
-<div class="card">
+A full suspicious death investigation involving crime-scene analysis, laboratory testing, suspect interviews, evidence comparison, and final case reconstruction.
 
-
-<p class="case-label">
-CASE FILE 001
 </p>
 
-
-<h3>
-The Internship Scam
-</h3>
+</div>
 
 
+<div class="card featured-case">
+
+<div class="featured-visual">
+
+<div class="visual-top">
+
+<span class="case-number">
+CASE FILE 003
+</span>
+
+<span class="active-chip">
+ACTIVE INVESTIGATION
+</span>
+
+</div>
+
+
+<div class="evidence-symbol">
+⚗
+</div>
+
+
+<div class="visual-bottom">
 
 <p>
+CLASSIFICATION // MAJOR CRIMES
+</p>
 
-A university student receives what appears to be a legitimate internship offer. Analyze emails, websites, and digital evidence to determine whether the opportunity is genuine or part of a social engineering attack.
+</div>
+
+</div>
+
+
+<div class="featured-details">
+
+<p class="case-label">
+ADVANCED CASE SIMULATION
+</p>
+
+<h3>
+Silent Dose
+</h3>
+
+<p class="featured-summary">
+
+Dr. Eleanor Hayes, a respected chemistry professor, is found unconscious inside her home. Laboratory analysis reveals traces of an unidentified experimental compound. Examine the scene, process evidence, question four persons of interest, and determine whether the incident was accidental or deliberately planned.
 
 </p>
 
 
+<div class="case-meta">
 
-<div class="stats">
-
-
-<div>
-
-<span>Status</span>
-
-<strong>
-Closed
-</strong>
-
-</div>
-
-
-
-<div>
-
-<span>Category</span>
-
-<strong>
-Cybercrime
-</strong>
-
-</div>
-
-
-
-<div>
+<div class="meta-box">
 
 <span>Difficulty</span>
 
-<strong>
-Beginner
-</strong>
+<strong>Advanced</strong>
+
+</div>
+
+<div class="meta-box">
+
+<span>Category</span>
+
+<strong>Suspicious Death</strong>
+
+</div>
+
+<div class="meta-box">
+
+<span>Estimated Time</span>
+
+<strong>45–70 Minutes</strong>
+
+</div>
 
 </div>
 
 
+<div class="feature-list">
+
+<div>
+<strong>✓</strong>
+Interactive crime-scene investigation
+</div>
+
+<div>
+<strong>✓</strong>
+Four forensic evidence stations
+</div>
+
+<div>
+<strong>✓</strong>
+Detailed suspect interviews
+</div>
+
+<div>
+<strong>✓</strong>
+Contradiction and timeline board
+</div>
+
+<div>
+<strong>✓</strong>
+Final incident reconstruction
+</div>
+
+<div>
+<strong>✓</strong>
+Investigator performance score
+</div>
 
 </div>
 
 
+<a class="primary-btn" href="case003/case003.html">
 
-<a class="primary-btn" href="case001/case001.html">
+Begin Silent Dose
 
-Open Investigation →
+<span class="btn-icon">→</span>
 
 </a>
 
-
 </div>
 
+</div>
 
 </section>
 
 
 
+<section class="reveal">
 
+<div class="section-heading">
 
-<section class="dashboard">
+<div>
 
+<p class="eyebrow">
+INVESTIGATION DATABASE
+</p>
 
 <h2>
-Investigation Database
+Choose your case file
 </h2>
 
+</div>
+
+<a class="section-link" href="casefiles.html">
+View complete database →
+</a>
+
+</div>
 
 
 <div class="grid">
 
 
+<article class="learn-card case-card">
 
-<div class="learn-card">
-
+<span class="case-card-number">
+01
+</span>
 
 <p class="case-label">
 CASE FILE 001
 </p>
 
-
 <h3>
 The Internship Scam
 </h3>
 
+<p class="case-card-description">
 
-<p>
-Status: Closed Investigation
+A university student receives a convincing internship offer. Examine the recruiter email, investigate the company website, trace the digital footprint, and determine whether the opportunity is legitimate.
+
 </p>
 
+<div class="case-card-meta">
 
-<p>
-Category: Social Engineering
-</p>
-
-
-<a class="primary-btn" href="case001/case001.html">
-Review Case →
-</a>
-
+<span class="case-pill">Beginner</span>
+<span class="case-pill">Cybercrime</span>
+<span class="case-pill">Social Engineering</span>
 
 </div>
 
+<a class="primary-btn" href="case001/case001.html">
+Open Case →
+</a>
+
+</article>
 
 
 
+<article class="learn-card case-card">
 
-<div class="learn-card">
+<span class="case-card-number">
+02
+</span>
 
 <p class="case-label">
 CASE FILE 002
@@ -235,31 +1680,33 @@ CASE FILE 002
 The Executive Impersonation Incident
 </h3>
 
-<p>
-Status: Active Investigation
+<p class="case-card-description">
+
+Investigate a coordinated financial fraud involving executive impersonation, fraudulent communications, synthetic voice evidence, and an unauthorized payment request.
+
 </p>
 
-<p>
-Category: AI Fraud & Social Engineering
-</p>
+<div class="case-card-meta">
 
-<p>
-Difficulty: Intermediate
-</p>
-
-<a class="primary-btn" href="case002.html">
-Review Case →
-</a>
+<span class="case-pill">Intermediate</span>
+<span class="case-pill">AI Fraud</span>
+<span class="case-pill">Audio Forensics</span>
 
 </div>
 
+<a class="primary-btn" href="case002.html">
+Open Case →
+</a>
+
+</article>
 
 
 
+<article class="learn-card case-card">
 
-
-
-<div class="learn-card">
+<span class="case-card-number">
+03
+</span>
 
 <p class="case-label">
 CASE FILE 003
@@ -269,180 +1716,463 @@ CASE FILE 003
 Silent Dose
 </h3>
 
-<p>
-Status: Available
+<p class="case-card-description">
+
+Investigate the suspicious death of a chemistry professor. Analyze physical evidence, laboratory findings, suspect statements, hidden contradictions, and the reconstructed timeline.
+
 </p>
 
-<p>
-Category: Suspicious Death Investigation
-</p>
+<div class="case-card-meta">
 
-<p>
-Difficulty: Advanced
-</p>
+<span class="case-pill">Advanced</span>
+<span class="case-pill">Major Crimes</span>
+<span class="case-pill">Forensic Science</span>
+
+</div>
 
 <a class="primary-btn" href="case003/case003.html">
-Review Case →
+Open Case →
+</a>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+<section class="reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+INVESTIGATION WORKFLOW
+</p>
+
+<h2>
+How Dossier works
+</h2>
+
+</div>
+
+<p class="section-heading-copy">
+
+Each case guides you through a structured investigative process while allowing you to make decisions and evaluate evidence independently.
+
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+<div class="process-card">
+
+<div class="process-icon">
+▣
+</div>
+
+<h3>
+Receive the Briefing
+</h3>
+
+<p>
+
+Review the incident, identify the investigative objective, and understand what information is currently known.
+
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-icon">
+⌕
+</div>
+
+<h3>
+Examine Evidence
+</h3>
+
+<p>
+
+Inspect digital records, physical objects, forensic reports, communications, and scene observations.
+
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-icon">
+◎
+</div>
+
+<h3>
+Test Explanations
+</h3>
+
+<p>
+
+Compare statements, identify contradictions, reconstruct events, and challenge unsupported assumptions.
+
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-icon">
+✓
+</div>
+
+<h3>
+Reach a Conclusion
+</h3>
+
+<p>
+
+Build a final finding supported by evidence and receive an investigator score based on your decisions.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="reveal">
+
+<div class="section-heading">
+
+<div>
+
+<p class="eyebrow">
+LEARNING DISCIPLINES
+</p>
+
+<h2>
+Skills developed through investigation
+</h2>
+
+</div>
+
+<a class="section-link" href="library.html">
+Explore the Evidence Library →
 </a>
 
 </div>
 
 
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="learn">
-
-
-<h2>
-What You'll Learn
-</h2>
-
-
-
 <div class="grid">
 
+<div class="learn-card discipline-card">
 
-
-<div class="learn-card">
-
+<div class="discipline-icon">
+⌁
+</div>
 
 <h3>
-Digital Evidence
-</h3>
-
+Digital Evidence</h3>
 
 <p>
 
-Learn how emails, metadata, websites, and online activity can be collected, analyzed, and interpreted as digital evidence.
+Analyze emails, metadata, online identities, websites, account records, communications, and digital activity.
 
 </p>
-
 
 </div>
 
 
+<div class="learn-card discipline-card">
 
-
-
-<div class="learn-card">
-
+<div class="discipline-icon">
+◉
+</div>
 
 <h3>
-Cybercrime
+Forensic Science
 </h3>
-
 
 <p>
 
-Explore phishing, identity theft, online fraud, ransomware, and social engineering attacks.
+Interpret physical evidence, chemical findings, laboratory testing, exposure pathways, and scene conditions.
 
 </p>
-
 
 </div>
 
 
+<div class="learn-card discipline-card">
 
-
-
-<div class="learn-card">
-
+<div class="discipline-icon">
+◇
+</div>
 
 <h3>
-Investigative Thinking
+Criminological Reasoning
 </h3>
-
 
 <p>
 
-Strengthen analytical reasoning by evaluating evidence, identifying patterns, and making informed investigative decisions.
+Examine offender behaviour, victim targeting, motive, opportunity, social engineering, and patterns of deception.
 
 </p>
-
 
 </div>
 
 
+<div class="learn-card discipline-card">
 
-
-
-<div class="learn-card">
-
+<div class="discipline-icon">
+△
+</div>
 
 <h3>
-Artificial Intelligence
+Investigative Analysis
 </h3>
-
 
 <p>
 
-Explore how artificial intelligence is influencing cybercrime, digital investigations, and forensic analysis.
+Build timelines, compare statements, recognize contradictions, test alternative explanations, and document conclusions.
 
 </p>
 
-
 </div>
 
-
-
-
 </div>
-
 
 </section>
 
 
 
+<section class="home-cta reveal">
 
+<div class="cta-panel">
 
-
-
-<section class="mission">
-
+<p class="eyebrow">
+YOUR INVESTIGATION BEGINS HERE
+</p>
 
 <h2>
-Mission
+Evidence does not speak for itself. Investigators give it meaning.
 </h2>
-
-
 
 <p>
 
-Dossier was created to make digital investigations more accessible through interactive learning. By combining criminology, digital forensics, and cybersecurity, the platform encourages users to analyze evidence, think critically, and better understand how modern investigations are conducted.
+Enter the Dossier database and begin developing the analytical skills required to examine information, recognize manipulation, and reach conclusions supported by evidence.
 
 </p>
 
+<div class="buttons">
+
+<a class="primary-btn" href="casefiles.html">
+
+Explore Case Files
+
+<span class="btn-icon">→</span>
+
+</a>
+
+<a class="secondary-btn" href="research.html">
+
+Visit Research Division
+
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
+</main>
 
 
 
+<footer class="home-footer">
 
+<div class="footer-grid">
 
-<footer>
+<div class="footer-brand">
 
+<div class="logo">
+
+<span class="logo-mark">D</span>
+
+<span>DOSSIER</span>
+
+</div>
 
 <p>
 
-© 2026 Dossier • Digital Investigation Platform
+An interactive investigation education platform combining criminology, forensic science, cybercrime, digital evidence, and analytical reasoning.
 
 </p>
 
+</div>
+
+
+<div class="footer-column">
+
+<span class="footer-title">
+Platform
+</span>
+
+<a href="casefiles.html">Case Files</a>
+<a href="library.html">Evidence Library</a>
+<a href="research.html">Research Division</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<span class="footer-title">
+Investigations
+</span>
+
+<a href="case001/case001.html">The Internship Scam</a>
+<a href="case002.html">Executive Impersonation</a>
+<a href="case003/case003.html">Silent Dose</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<span class="footer-title">
+Information
+</span>
+
+<a href="about.html">About Dossier</a>
+<a href="README.md">Project Documentation</a>
+<a href="casefiles.html">Investigation Database</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 Dossier. Interactive Investigation Platform.
+</span>
+
+<span>
+Built for investigative learning and evidence-based reasoning.
+</span>
+
+</div>
 
 </footer>
 
 
+
+<script>
+
+/* Reveal sections as the user scrolls */
+
+const revealItems = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+revealObserver.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:0.12
+}
+);
+
+revealItems.forEach((item) => {
+
+revealObserver.observe(item);
+
+});
+
+
+/* Animate homepage statistics */
+
+const counters = document.querySelectorAll("[data-count]");
+
+const counterObserver = new IntersectionObserver(
+(entries) => {
+
+entries.forEach((entry) => {
+
+if(!entry.isIntersecting){
+return;
+}
+
+const counter = entry.target;
+const target = Number(counter.dataset.count);
+const suffix = counter.dataset.suffix || "";
+
+let current = 0;
+
+const duration = 1000;
+const interval = 25;
+const steps = duration / interval;
+const increase = target / steps;
+
+const animation = setInterval(() => {
+
+current += increase;
+
+if(current >= target){
+
+counter.textContent = target + suffix;
+clearInterval(animation);
+
+}else{
+
+counter.textContent = Math.floor(current) + suffix;
+
+}
+
+},interval);
+
+counterObserver.unobserve(counter);
+
+});
+
+},
+{
+threshold:0.65
+}
+);
+
+counters.forEach((counter) => {
+
+counterObserver.observe(counter);
+
+});
+
+</script>
 
 
 </body>
