@@ -1,79 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Evidence 001-A | DOSSIER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence 001-A | Recruiter Email Forensics | DOSSIER</title>
 <link rel="stylesheet" href="../style-v2.css">
 <link rel="stylesheet" href="case001-system.css">
 <style>
-:root{--bg:#07101d;--panel:#141c2b;--panel2:#1b2537;--border:#2d3b54;--text:#eef3fb;--muted:#aab6cb;--accent:#5aa2ff;--accent2:#7fc2ff;--success:#39d98a;--warning:#ffb454;--danger:#ff7675}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 90% 0,#17375f 0,#0b1220 43%,#07101d 100%);color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65}
-button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px 4% 90px}.panel{background:rgba(20,28,43,.96);border:1px solid var(--border);border-radius:20px;padding:26px;margin-bottom:22px;box-shadow:0 20px 65px rgba(0,0,0,.22)}.hero{padding:42px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(90,162,255,.11);right:-180px;top:-230px}.hero h1{font-size:clamp(40px,7vw,76px);line-height:1;margin:8px 0 14px;letter-spacing:-2px}.eyebrow{font-size:12px;letter-spacing:3px;color:var(--accent);font-weight:900}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.action{border:0;border-radius:12px;padding:13px 18px;background:var(--accent);color:white;font-weight:900;cursor:pointer;transition:.2s}.action:hover{transform:translateY(-2px);filter:brightness(1.08)}.action.success{background:var(--success);color:#06130d}.action.secondary{background:#26344c}.action:disabled{opacity:.42;cursor:not-allowed;transform:none}.feedback{border:1px solid var(--border);border-radius:12px;padding:14px;background:#101a2a;margin-top:14px;min-height:52px}.feedback.good{border-color:var(--success);color:#c9f8de}.feedback.bad{border-color:var(--danger);color:#ffd1d1}.hidden{display:none!important}.tag{display:inline-block;padding:5px 9px;border-radius:999px;background:#26344c;font-size:12px;margin:4px}.check-card{border:1px solid var(--border);border-radius:14px;background:var(--panel2);padding:16px;cursor:pointer;transition:.2s}.check-card:hover{border-color:var(--accent);transform:translateY(-2px)}.check-card.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(90,162,255,.11)}.check-card.correct{border-color:var(--success);background:rgba(57,217,138,.07)}.check-card.wrong{border-color:var(--danger);background:rgba(255,118,117,.07)}
-.email-shell{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.7fr);gap:18px}.email-window{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#f5f7fb;color:#142033}.email-head{padding:18px;border-bottom:1px solid #d7dfeb;background:#fff}.email-body{padding:24px}.email-line{padding:10px 0;border-bottom:1px solid #e5e9f0}.hotspot{border:2px dashed transparent;border-radius:8px;padding:3px;cursor:pointer}.hotspot:hover{border-color:#5aa2ff}.header-view{font-family:monospace;font-size:13px;white-space:pre-wrap;background:#091321;border-radius:12px;padding:16px;color:#cfe7ff}.indicator-list{display:grid;gap:9px}.indicator{border:1px solid var(--border);background:var(--panel2);border-radius:12px;padding:12px;opacity:.45}.indicator.found{opacity:1;border-color:var(--success)}
-@media(max-width:800px){.page{padding:20px 14px}.panel,.hero{padding:20px}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}}
+:root{
+  --bg:#07101d;--panel:#121c2b;--panel2:#172438;--panel3:#0d1725;
+  --border:#2c3d56;--text:#eef5ff;--muted:#9cafc5;
+  --accent:#5aa2ff;--accent2:#8ac8ff;--success:#39d98a;
+  --warning:#ffbd69;--danger:#ff7b83;--violet:#b494ff;
+  --shadow:0 24px 80px rgba(0,0,0,.34);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;overflow-x:hidden;
+  background:
+    radial-gradient(circle at 88% -5%,rgba(60,122,211,.27),transparent 32%),
+    radial-gradient(circle at 0 50%,rgba(37,71,122,.15),transparent 28%),
+    linear-gradient(180deg,#07101b,#0a1320 48%,#07101b);
+  color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65
+}
+button{font:inherit}
+.page{max-width:1500px;margin:auto;padding:34px 4% 100px}
+.panel{
+  background:linear-gradient(180deg,rgba(18,28,43,.97),rgba(11,19,31,.99));
+  border:1px solid rgba(138,200,255,.13);border-radius:20px;
+  box-shadow:var(--shadow)
+}
+.hero{position:relative;overflow:hidden;padding:42px;margin-bottom:22px}
+.hero:after{
+  content:"001-A";position:absolute;right:-28px;bottom:-72px;
+  font-size:170px;font-weight:950;color:rgba(255,255,255,.025);pointer-events:none
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:2.8px;color:var(--accent2);text-transform:uppercase}
+.hero h1{font-size:clamp(43px,6vw,77px);line-height:.98;letter-spacing:-3px;margin:8px 0 18px}
+.hero p{color:var(--muted);max-width:780px}
+.status-card{
+  padding:22px;border:1px solid rgba(138,200,255,.13);border-radius:16px;
+  background:rgba(7,16,29,.66)
+}
+.status-card h3{margin:0 0 14px}
+.status-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.status-item{padding:12px;border:1px solid rgba(138,200,255,.09);border-radius:10px;background:#101a2a}
+.status-item span{display:block;color:#75879d;font-size:9px;letter-spacing:1.1px;text-transform:uppercase}
+.status-item strong{display:block;margin-top:3px;font-size:13px}
+.workspace{display:grid;grid-template-columns:250px minmax(0,1.35fr) minmax(310px,.75fr);gap:18px;align-items:start}
+.sidebar,.console,.intel{padding:22px}
+.sidebar{position:sticky;top:94px}
+.tool-list{display:grid;gap:9px;margin-top:15px}
+.tool{
+  width:100%;text-align:left;padding:13px 14px;border-radius:11px;
+  border:1px solid rgba(138,200,255,.11);background:#111d2e;color:#c9d7e8;
+  cursor:pointer;transition:.2s
+}
+.tool:hover{transform:translateX(3px);border-color:rgba(138,200,255,.4)}
+.tool.active{border-color:var(--accent);background:rgba(90,162,255,.09);color:#fff}
+.tool.done:after{content:"✓";float:right;color:var(--success);font-weight:900}
+.progress-mini{height:8px;background:#0a1420;border-radius:999px;overflow:hidden;margin:11px 0 5px}
+.progress-mini-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--success));transition:.35s}
+.mini-meta{display:flex;justify-content:space-between;color:#7e90a6;font-size:10px}
+.console{min-height:720px}
+.console-head{display:flex;justify-content:space-between;gap:18px;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(138,200,255,.09)}
+.console-head h2{margin:3px 0 0}
+.badge{padding:7px 10px;border:1px solid rgba(255,189,105,.23);border-radius:999px;color:#ffd89d;font-size:9px;font-weight:900;letter-spacing:1px}
+.view{display:none;padding-top:22px;animation:fade .3s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.email-window{overflow:hidden;border-radius:16px;background:#f3f6fa;color:#172133;border:1px solid #d8e0eb}
+.email-toolbar{display:flex;justify-content:space-between;padding:11px 15px;background:#e7ecf3;border-bottom:1px solid #d2dbe7;font-size:11px;color:#5d6a7b}
+.email-head{padding:17px 20px;background:white;border-bottom:1px solid #d9e0e8}
+.email-row{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:7px 0;font-size:13px}
+.email-row span:first-child{color:#6d7888}
+.email-body{padding:24px;line-height:1.72}
+.hotspot{
+  display:inline;border-bottom:2px dashed rgba(43,108,192,.65);cursor:pointer;
+  background:linear-gradient(transparent 64%,rgba(90,162,255,.16) 64%)
+}
+.hotspot.found{border-color:#2fa86e;background:linear-gradient(transparent 64%,rgba(57,217,138,.18) 64%)}
+.file-card{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding:13px 14px;border:1px solid #d8e0ea;border-radius:11px;background:white}
+.file-card strong{font-size:12px}.file-card span{font-size:10px;color:#718095}
+.codebox{
+  font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  white-space:pre-wrap;padding:18px;border:1px solid rgba(138,200,255,.09);
+  border-radius:12px;background:#08131f;color:#cde6ff;overflow:auto
+}
+.code-line{display:block;padding:3px 8px;border-radius:6px;cursor:pointer}
+.code-line:hover{background:rgba(90,162,255,.08)}
+.code-line.found{background:rgba(57,217,138,.08);color:#c9f8de}
+.route{display:grid;gap:13px;margin-top:16px}
+.route-step{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;padding:14px;border:1px solid rgba(138,200,255,.1);border-radius:12px;background:#101a29}
+.route-step strong{display:block}.route-step p{margin:4px 0 0;color:#8799af;font-size:11px}
+.route-num{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#172b45;border:1px solid rgba(138,200,255,.19);font-weight:900;color:var(--accent2)}
+.analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.analysis-card{padding:15px;border:1px solid rgba(138,200,255,.1);border-radius:12px;background:#101a29}
+.analysis-card span{display:block;color:#74869d;font-size:9px;letter-spacing:1px;text-transform:uppercase}
+.analysis-card strong{display:block;margin-top:4px}
+.intel h3{margin-top:0}
+.metric{padding:13px;border:1px solid rgba(138,200,255,.09);border-radius:11px;background:#101a29;margin-bottom:10px}
+.metric-top{display:flex;justify-content:space-between;gap:12px;font-size:11px}
+.metric-top span{color:#8fa1b7}.metric-top strong{color:#dbe7f5}
+.metric-bar{height:6px;background:#07111c;border-radius:99px;overflow:hidden;margin-top:8px}
+.metric-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--warning))}
+.findings{display:grid;gap:9px;margin-top:15px}
+.finding{padding:12px;border:1px solid rgba(138,200,255,.09);border-radius:10px;background:#0f1928;opacity:.42}
+.finding.found{opacity:1;border-color:rgba(57,217,138,.28);background:rgba(57,217,138,.05)}
+.finding strong{display:block;font-size:11px}.finding p{margin:3px 0 0;color:#8092a8;font-size:10px}
+.assessment{margin-top:18px;padding-top:18px;border-top:1px solid rgba(138,200,255,.09)}
+.choice{
+  width:100%;text-align:left;padding:13px 14px;margin:8px 0;border:1px solid rgba(138,200,255,.12);
+  border-radius:10px;background:#101b2b;color:#cddaea;cursor:pointer
+}
+.choice:hover{border-color:rgba(138,200,255,.38)}
+.choice.correct{border-color:rgba(57,217,138,.42);background:rgba(57,217,138,.07)}
+.choice.wrong{border-color:rgba(255,123,131,.38);background:rgba(255,123,131,.07)}
+.feedback{margin-top:13px;padding:13px;border:1px solid rgba(138,200,255,.1);border-radius:10px;background:#0d1725;color:#90a2b8;font-size:11px}
+.feedback.good{border-color:rgba(57,217,138,.28);color:#bff3d5;background:rgba(57,217,138,.05)}
+.feedback.bad{border-color:rgba(255,123,131,.28);color:#ffc2c6;background:rgba(255,123,131,.05)}
+.action{
+  display:inline-block;margin-top:13px;padding:12px 16px;border:1px solid rgba(138,200,255,.2);
+  border-radius:10px;background:linear-gradient(135deg,#3f83df,#2d66bb);color:white;
+  text-decoration:none;font-weight:850;font-size:12px;cursor:pointer
+}
+.action:disabled{opacity:.4;cursor:not-allowed}
+.action.success{background:linear-gradient(135deg,#2da870,#218257)}
+.hidden{display:none!important}
+@media(max-width:1150px){.workspace{grid-template-columns:220px 1fr}.intel{grid-column:1/-1}.sidebar{position:static}}
+@media(max-width:780px){.page{padding:18px 13px 80px}.hero,.sidebar,.console,.intel{padding:18px}.hero-grid,.workspace{grid-template-columns:1fr}.status-grid,.analysis-grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1.5px}.email-row{grid-template-columns:65px 1fr}}
 </style>
 </head>
-<body data-case-stage="email" data-objective="Authenticate the recruiter email">
-<div class="c1-hud"><div class="c1-hud-inner">
- <div class="c1-brand">DOSSIER · 001</div>
- <div><div class="c1-meta"><span>OBJECTIVE: <b data-c1-objective></b></span><span><b data-c1-progress>0%</b> · SCORE <b data-c1-score>0</b></span></div><div class="c1-meter"><div class="c1-meter-fill"></div></div></div>
- <div class="c1-tools"><button class="c1-tool" onclick="Case001.toggleNotebook()">📓 <span>Notebook</span></button><button class="c1-tool" onclick="Case001.restart()">↻ <span>Restart</span></button></div>
-</div></div>
-<div class="c1-notebook"><h3>Investigator Notebook</h3><div data-c1-notes></div></div>
-<div class="c1-lock"><div class="c1-lock-card"><p class="eyebrow">STAGE LOCKED</p><h2>Complete the previous investigation stage.</h2><a class="action" href="case001.html">Return to CASE 001</a></div></div>
+<body data-case-stage="email" data-objective="Authenticate the recruiter email and document the impersonation indicators">
 
-<div class="page">
-<header class="panel hero"><p class="eyebrow">EVIDENCE 001-A</p><h1>RECRUITER EMAIL ANALYSIS</h1><p>Inspect the message, reveal the technical header, and identify five indicators that the sender is impersonating an employer.</p><div class="c1-stage-nav"></div></header>
-<div class="email-shell">
-<section class="panel">
-<div class="email-window">
-<div class="email-head">
-<div class="email-line"><b>From:</b> <span class="hotspot" onclick="findIndicator('sender')">Northstar Digital Careers &lt;recruitment@northstar-digitalcareers.com&gt;</span></div>
-<div class="email-line"><b>To:</b> Emma Chen</div>
-<div class="email-line"><b>Subject:</b> <span class="hotspot" onclick="findIndicator('urgency')">Immediate Internship Placement — Response Required Today</span></div>
-</div>
-<div class="email-body">
-<p>Dear Maya,</p>
-<p>Your academic profile has been selected for our Remote Security Analyst Internship. <span class="hotspot" onclick="findIndicator('interview')">No additional interview is required</span> because your qualifications have already been approved.</p>
-<p>To begin, complete the attached identity form and deposit the enclosed mobile cheque. You must then <span class="hotspot" onclick="findIndicator('payment')">purchase approved equipment from our private vendor</span>.</p>
-<p>For confidentiality, <span class="hotspot" onclick="findIndicator('channel')">all communication must remain on Telegram</span>.</p>
-<p>Regards,<br>Northstar Digital Talent Acquisition</p>
+<div class="c1-hud"><div class="c1-hud-inner">
+  <div class="c1-brand">DOSSIER · 001</div>
+  <div>
+    <div class="c1-meta"><span>OBJECTIVE: <b data-c1-objective></b></span><span><b data-c1-progress>0%</b> · SCORE <b data-c1-score>0</b></span></div>
+    <div class="c1-meter"><div class="c1-meter-fill"></div></div>
+  </div>
+  <div class="c1-tools">
+    <button class="c1-tool" onclick="Case001.toggleNotebook()">📓 <span>Notebook</span></button>
+    <button class="c1-tool" onclick="Case001.restart()">↻ <span>Restart</span></button>
+  </div>
 </div></div>
-<button class="action secondary" style="margin-top:16px" onclick="toggleHeader()">View Technical Header</button>
-<div id="headerBox" class="header-view hidden" style="margin-top:14px">Return-Path: payroll@northstar-digitalcareers.com
-Received: from mail.fastrelay.example (185.199.88.41)
-Authentication-Results:
-  spf=softfail
-  dkim=none
-  dmarc=fail
-Reply-To: northstar.hiring@protonmail.com
-Message-ID: &lt;48219@fastrelay.example&gt;</div>
+
+<div class="c1-notebook"><h3>Investigator Notebook</h3><div data-c1-notes></div></div>
+<div class="c1-lock"><div class="c1-lock-card"><p class="eyebrow">STAGE LOCKED</p><h2>Complete the case briefing first.</h2><a class="action" href="case001.html">Return to Briefing</a></div></div>
+
+<main class="page">
+<header class="panel hero">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Evidence 001-A · Email Forensics</p>
+      <h1>Recruiter Identity Analysis</h1>
+      <p>
+        Examine the message exactly as an investigator would: review the visible content, authentication results,
+        delivery route, reply path, and attachment behavior. Your conclusion must rely on connected evidence, not appearance.
+      </p>
+      <div class="c1-stage-nav"></div>
+    </div>
+    <aside class="status-card">
+      <p class="eyebrow">Evidence Intake</p>
+      <h3>Preserved Email Copy</h3>
+      <div class="status-grid">
+        <div class="status-item"><span>Message ID</span><strong>MSG-001-A-48219</strong></div>
+        <div class="status-item"><span>Collection</span><strong>Victim Export</strong></div>
+        <div class="status-item"><span>Integrity</span><strong>Hash Logged</strong></div>
+        <div class="status-item"><span>Status</span><strong style="color:var(--success)">Ready for Analysis</strong></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section class="workspace">
+  <aside class="panel sidebar">
+    <p class="eyebrow">Forensic Tools</p>
+    <h3>Analysis Modules</h3>
+    <div class="tool-list">
+      <button class="tool active" id="tool-message" onclick="openView('message')">01 · Message View</button>
+      <button class="tool" id="tool-header" onclick="openView('header')">02 · Technical Header</button>
+      <button class="tool" id="tool-route" onclick="openView('route')">03 · Delivery Route</button>
+      <button class="tool" id="tool-attachment" onclick="openView('attachment')">04 · Attachment Review</button>
+      <button class="tool" id="tool-assessment" onclick="openView('assessment')">05 · Investigator Decision</button>
+    </div>
+    <div style="margin-top:20px">
+      <div class="mini-meta"><span>Modules reviewed</span><strong id="moduleCount">1 / 5</strong></div>
+      <div class="progress-mini"><div class="progress-mini-fill" id="moduleBar"></div></div>
+      <div class="mini-meta"><span>Indicators validated</span><strong id="indicatorCount">0 / 8</strong></div>
+    </div>
+  </aside>
+
+  <section class="panel console">
+    <div class="console-head">
+      <div><p class="eyebrow">Active Workstation</p><h2 id="viewTitle">Recovered Message</h2></div>
+      <span class="badge" id="viewBadge">VISUAL INSPECTION</span>
+    </div>
+
+    <div class="view active" id="view-message">
+      <div class="email-window">
+        <div class="email-toolbar"><span>Mail Viewer · Preserved copy</span><span>March 11, 2026 · 9:18 AM</span></div>
+        <div class="email-head">
+          <div class="email-row"><span>From</span><strong><span class="hotspot" data-indicator="sender" onclick="markIndicator('sender',this)">Ryan Cole &lt;ryan.cole@northstar-digitalcareers.com&gt;</span></strong></div>
+          <div class="email-row"><span>To</span><strong>Emma Chen</strong></div>
+          <div class="email-row"><span>Reply-To</span><strong><span class="hotspot" data-indicator="reply" onclick="markIndicator('reply',this)">northstar.hiring@protonmail.com</span></strong></div>
+          <div class="email-row"><span>Subject</span><strong><span class="hotspot" data-indicator="urgency" onclick="markIndicator('urgency',this)">Immediate Internship Placement · Response Required Today</span></strong></div>
+        </div>
+        <div class="email-body">
+          <p>Dear Emma,</p>
+          <p>
+            Your academic profile has been selected for our Remote Software Internship.
+            <span class="hotspot" data-indicator="interview" onclick="markIndicator('interview',this)">No additional interview is required</span>
+            because your qualifications have already been approved.
+          </p>
+          <p>
+            To begin onboarding, deposit the attached company cheque and
+            <span class="hotspot" data-indicator="payment" onclick="markIndicator('payment',this)">purchase your approved equipment from our private vendor within two hours</span>.
+          </p>
+          <p>
+            For confidentiality,
+            <span class="hotspot" data-indicator="telegram" onclick="markIndicator('telegram',this)">all communication must remain on Telegram</span>.
+          </p>
+          <p>Regards,<br>Ryan Cole<br>Senior Talent Acquisition Specialist<br>Northstar Digital</p>
+          <div class="file-card">
+            <div><strong>Northstar_Onboarding_Cheque.pdf</strong><br><span>PDF attachment · 184 KB</span></div>
+            <span>Attachment 1 of 1</span>
+          </div>
+        </div>
+      </div>
+      <div class="feedback" id="messageFeedback">Click the underlined areas that require investigative attention.</div>
+    </div>
+
+    <div class="view" id="view-header">
+      <p class="muted">Select suspicious technical lines. Authentication results are stronger than the professional appearance of the message.</p>
+      <div class="codebox"><span class="code-line">Return-Path: payroll@northstar-digitalcareers.com</span>
+<span class="code-line">Received: from mail.fastrelay.example (185.199.88.41)</span>
+<span class="code-line" data-indicator="spf" onclick="markIndicator('spf',this)">Authentication-Results: spf=softfail</span>
+<span class="code-line" data-indicator="dkim" onclick="markIndicator('dkim',this)">Authentication-Results: dkim=none</span>
+<span class="code-line" data-indicator="dmarc" onclick="markIndicator('dmarc',this)">Authentication-Results: dmarc=fail</span>
+<span class="code-line">Reply-To: northstar.hiring@protonmail.com</span>
+<span class="code-line">Message-ID: &lt;48219@fastrelay.example&gt;</span></div>
+      <div class="analysis-grid" style="margin-top:16px">
+        <div class="analysis-card"><span>Claimed organization</span><strong>Northstar Digital</strong></div>
+        <div class="analysis-card"><span>Authenticated organization</span><strong style="color:var(--danger)">None confirmed</strong></div>
+        <div class="analysis-card"><span>DKIM signature</span><strong>Not present</strong></div>
+        <div class="analysis-card"><span>DMARC policy result</span><strong style="color:var(--danger)">Failed</strong></div>
+      </div>
+    </div>
+
+    <div class="view" id="view-route">
+      <p class="muted">Reconstruct how the email moved and where replies were redirected.</p>
+      <div class="route">
+        <div class="route-step"><div class="route-num">1</div><div><strong>Claimed sender</strong><p>Ryan Cole at northstar-digitalcareers.com</p></div></div>
+        <div class="route-step"><div class="route-num">2</div><div><strong>Relay server</strong><p>Message passed through a low-cost third-party relay rather than verified company infrastructure.</p></div></div>
+        <div class="route-step"><div class="route-num">3</div><div><strong>Victim inbox</strong><p>The display name and polished signature created the appearance of legitimacy.</p></div></div>
+        <div class="route-step"><div class="route-num">4</div><div><strong>Reply diversion</strong><p>Responses were redirected to an unrelated Proton Mail account controlled outside the claimed domain.</p></div></div>
+      </div>
+      <button class="action" onclick="recordRoute()">Record Route Finding</button>
+      <div class="feedback" id="routeFeedback">Document why the reply path matters.</div>
+    </div>
+
+    <div class="view" id="view-attachment">
+      <p class="muted">The attachment is preserved for later banking analysis. At this stage, determine why its role is suspicious.</p>
+      <div class="analysis-grid">
+        <div class="analysis-card"><span>Filename</span><strong>Northstar_Onboarding_Cheque.pdf</strong></div>
+        <div class="analysis-card"><span>Claimed purpose</span><strong>Equipment reimbursement</strong></div>
+        <div class="analysis-card"><span>Requested action</span><strong>Deposit before verification</strong></div>
+        <div class="analysis-card"><span>Required purchase</span><strong>Private vendor only</strong></div>
+      </div>
+      <div class="route" style="margin-top:16px">
+        <div class="route-step"><div class="route-num">A</div><div><strong>Cheque creates confidence</strong><p>The displayed balance makes the victim believe the employer has already funded the purchase.</p></div></div>
+        <div class="route-step"><div class="route-num">B</div><div><strong>Urgency prevents verification</strong><p>The two-hour deadline discourages contacting the real company or waiting for the cheque to clear.</p></div></div>
+        <div class="route-step"><div class="route-num">C</div><div><strong>Private vendor controls the destination</strong><p>The victim is directed to send real funds into infrastructure selected by the offender.</p></div></div>
+      </div>
+      <button class="action" onclick="recordAttachment()">Record Attachment Finding</button>
+      <div class="feedback" id="attachmentFeedback">The attachment must be interpreted together with the payment demand.</div>
+    </div>
+
+    <div class="view" id="view-assessment">
+      <p class="eyebrow">Investigator Decision</p>
+      <h3>Which finding most strongly shows that the sender was not authenticated as Northstar Digital?</h3>
+      <button class="choice" onclick="answerAssessment(this,false)">The message includes a professional signature and company name.</button>
+      <button class="choice" onclick="answerAssessment(this,true)">SPF softfail, no DKIM signature, DMARC failure, and an unrelated reply-to address.</button>
+      <button class="choice" onclick="answerAssessment(this,false)">The internship is remote and communication occurred online.</button>
+      <button class="choice" onclick="answerAssessment(this,false)">The subject line uses the word “immediate.”</button>
+      <div class="feedback" id="assessmentFeedback">Review all modules before submitting your conclusion.</div>
+      <button class="action success" id="completeBtn" disabled onclick="completeStage()">Validate Email Evidence →</button>
+    </div>
+  </section>
+
+  <aside class="panel intel">
+    <p class="eyebrow">Live Intelligence</p>
+    <h3>Identity Risk Profile</h3>
+    <div class="metric">
+      <div class="metric-top"><span>Authentication risk</span><strong id="authRisk">0%</strong></div>
+      <div class="metric-bar"><div class="metric-fill" id="authRiskBar" style="width:0"></div></div>
+    </div>
+    <div class="metric">
+      <div class="metric-top"><span>Social engineering indicators</span><strong id="socialRisk">0%</strong></div>
+      <div class="metric-bar"><div class="metric-fill" id="socialRiskBar" style="width:0"></div></div>
+    </div>
+    <div class="findings">
+      <div class="finding" id="finding-sender"><strong>Lookalike sender domain</strong><p>The domain resembles a company name but is not independently verified.</p></div>
+      <div class="finding" id="finding-reply"><strong>Unrelated reply address</strong><p>Replies leave the claimed company domain.</p></div>
+      <div class="finding" id="finding-urgency"><strong>Artificial urgency</strong><p>The deadline limits independent verification.</p></div>
+      <div class="finding" id="finding-interview"><strong>Bypassed hiring controls</strong><p>No verified interview or live company contact occurred.</p></div>
+      <div class="finding" id="finding-payment"><strong>Advance payment demand</strong><p>The victim is told to move money through a selected vendor.</p></div>
+      <div class="finding" id="finding-telegram"><strong>Channel migration</strong><p>Communication is moved to a less accountable platform.</p></div>
+      <div class="finding" id="finding-auth"><strong>Authentication failure</strong><p>SPF, DKIM, and DMARC do not validate the claimed sender.</p></div>
+      <div class="finding" id="finding-route"><strong>Reply diversion</strong><p>The response path is controlled outside the claimed organization.</p></div>
+    </div>
+    <div class="assessment">
+      <p class="eyebrow">Current Assessment</p>
+      <h3 id="assessmentTitle">Insufficient evidence</h3>
+      <p class="muted" id="assessmentText">Review the message and technical records to build an evidence-based conclusion.</p>
+    </div>
+  </aside>
 </section>
-<aside class="panel">
-<p class="eyebrow">INDICATOR CHECKLIST</p><h2><span id="foundCount">0</span>/5 Found</h2>
-<div class="indicator-list">
-<div id="ind-sender" class="indicator">Look-alike sender domain</div>
-<div id="ind-urgency" class="indicator">Artificial urgency</div>
-<div id="ind-interview" class="indicator">Hiring without a real interview</div>
-<div id="ind-payment" class="indicator">Cheque and equipment purchase request</div>
-<div id="ind-channel" class="indicator">Move to an unverified messaging platform</div>
-</div>
-<button id="validateEmail" class="action success" style="margin-top:16px" disabled onclick="validateStage()">Validate Email Evidence</button>
-<div id="emailFeedback" class="feedback">Click suspicious parts of the email.</div>
-</aside></div></div>
+</main>
+
 <div class="c1-toast"></div>
 <script src="case001-system.js"></script>
 <script>
-const found=new Set();
-function findIndicator(id){
- found.add(id);document.getElementById('ind-'+id).classList.add('found');foundCount.textContent=found.size;
- if(found.size===5){validateEmail.disabled=false;emailFeedback.className='feedback good';emailFeedback.textContent='All visible indicators found. Review the technical header, then validate.'}
+const state={
+  viewed:new Set(['message']),
+  indicators:new Set(),
+  route:false,
+  attachment:false,
+  correctDecision:false
+};
+
+const titles={
+  message:['Recovered Message','VISUAL INSPECTION'],
+  header:['Technical Header','AUTHENTICATION'],
+  route:['Delivery Route','ROUTING ANALYSIS'],
+  attachment:['Attachment Review','FINANCIAL LURE'],
+  assessment:['Investigator Decision','EVIDENCE VALIDATION']
+};
+
+function openView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.tool').forEach(t=>t.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  document.getElementById('tool-'+id).classList.add('active');
+  state.viewed.add(id);
+  document.getElementById('tool-'+id).classList.add('done');
+  viewTitle.textContent=titles[id][0];
+  viewBadge.textContent=titles[id][1];
+  updateInterface();
 }
-function toggleHeader(){headerBox.classList.toggle('hidden');Case001.addNote('Email authentication failed: SPF softfail, no DKIM, and DMARC failure.')}
-function validateStage(){
- Case001.complete('email','website',18,'Recruiter email used a look-alike domain, failed authentication, created urgency, and requested an advance payment.');
- emailFeedback.className='feedback good';emailFeedback.textContent='Email evidence validated. Website analysis unlocked.';
- setTimeout(()=>location.href='evidence002.html',650)
+
+function markIndicator(id,el){
+  state.indicators.add(id);
+  el.classList.add('found');
+  const finding=document.getElementById('finding-'+(id==='spf'||id==='dkim'||id==='dmarc'?'auth':id));
+  if(finding)finding.classList.add('found');
+  if(['spf','dkim','dmarc'].every(x=>state.indicators.has(x))){
+    document.getElementById('finding-auth').classList.add('found');
+    Case001.addNote('Email authentication failed: SPF softfail, DKIM absent, and DMARC failure.');
+  }
+  if(id==='reply')Case001.addNote('Replies were diverted from the claimed company domain to an unrelated Proton Mail account.');
+  if(id==='payment')Case001.addNote('The recruiter connected the job offer to a cheque deposit and immediate purchase from a private vendor.');
+  updateInterface();
 }
+
+function recordRoute(){
+  state.route=true;
+  document.getElementById('finding-route').classList.add('found');
+  routeFeedback.className='feedback good';
+  routeFeedback.textContent='Recorded. The visible sender identity and actual reply path do not belong to one verified organization.';
+  Case001.addNote('Delivery analysis shows the message used third-party relay infrastructure and redirected replies outside the claimed employer domain.');
+  updateInterface();
+}
+
+function recordAttachment(){
+  state.attachment=true;
+  attachmentFeedback.className='feedback good';
+  attachmentFeedback.textContent='Recorded. The cheque, urgency, and private vendor form a coordinated payment lure.';
+  Case001.addNote('The cheque attachment was used to create confidence before directing Emma to send real funds to the offender-controlled vendor.');
+  updateInterface();
+}
+
+function answerAssessment(el,correct){
+  document.querySelectorAll('#view-assessment .choice').forEach(x=>x.classList.remove('correct','wrong'));
+  el.classList.add(correct?'correct':'wrong');
+  if(correct){
+    state.correctDecision=true;
+    assessmentFeedback.className='feedback good';
+    assessmentFeedback.textContent='Correct. Multiple technical findings directly contradict the claimed sender identity.';
+  }else{
+    state.correctDecision=false;
+    assessmentFeedback.className='feedback bad';
+    assessmentFeedback.textContent='That detail may be suspicious, but it does not authenticate or disprove the sender as strongly as the technical record.';
+  }
+  updateInterface();
+}
+
+function updateInterface(){
+  const visibleIds=['sender','reply','urgency','interview','payment','telegram'];
+  const visibleCount=visibleIds.filter(x=>state.indicators.has(x)).length;
+  const authCount=['spf','dkim','dmarc'].filter(x=>state.indicators.has(x)).length;
+  const totalValidated=visibleCount+(authCount===3?1:0)+(state.route?1:0);
+  indicatorCount.textContent=totalValidated+' / 8';
+
+  const viewedCount=state.viewed.size;
+  moduleCount.textContent=viewedCount+' / 5';
+  moduleBar.style.width=(viewedCount/5*100)+'%';
+
+  const authPct=Math.min(100,(authCount*24)+(state.indicators.has('reply')?18:0)+(state.route?10:0));
+  const socialPct=Math.min(100,visibleCount*15+(state.attachment?10:0));
+  authRisk.textContent=authPct+'%';authRiskBar.style.width=authPct+'%';
+  socialRisk.textContent=socialPct+'%';socialRiskBar.style.width=socialPct+'%';
+
+  if(totalValidated>=6){
+    assessmentTitle.textContent='Probable impersonation';
+    assessmentText.textContent='The message combines identity failure, reply diversion, urgency, channel migration, and a payment lure.';
+  }
+  if(totalValidated===8&&state.attachment){
+    assessmentTitle.textContent='High-confidence impersonation';
+    assessmentText.textContent='The email is not authenticated as Northstar Digital and forms part of a coordinated employment-payment scam.';
+  }
+
+  const ready=
+    visibleCount===6 &&
+    authCount===3 &&
+    state.route &&
+    state.attachment &&
+    state.correctDecision &&
+    state.viewed.size===5;
+
+  completeBtn.disabled=!ready;
+  if(ready){
+    assessmentFeedback.className='feedback good';
+    assessmentFeedback.textContent='Evidence threshold met. The recruiter identity can now be classified as fraudulent.';
+  }
+}
+
+function completeStage(){
+  Case001.complete(
+    'email',
+    'website',
+    18,
+    'Recruiter email used a lookalike domain, failed sender authentication, redirected replies, created urgency, moved communication to Telegram, and demanded an equipment payment.'
+  );
+  completeBtn.disabled=true;
+  completeBtn.textContent='Evidence Validated ✓';
+  setTimeout(()=>location.href='evidence002.html',700);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('tool-message').classList.add('done');
+  updateInterface();
+});
 </script>
-</body></html>
+</body>
+</html>
