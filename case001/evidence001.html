@@ -25,18 +25,18 @@ body{
   color:var(--text);font-family:Inter,Arial,sans-serif;line-height:1.65
 }
 button{font:inherit}
-.page{max-width:1500px;margin:auto;padding:34px 4% 100px}
+.page{width:100%;max-width:none;margin:0;padding:30px 2% 100px}
 .panel{
   background:linear-gradient(180deg,rgba(18,28,43,.97),rgba(11,19,31,.99));
   border:1px solid rgba(138,200,255,.13);border-radius:20px;
   box-shadow:var(--shadow)
 }
-.hero{position:relative;overflow:hidden;padding:42px;margin-bottom:22px}
+.hero{position:relative;overflow:hidden;padding:46px 3%;margin-bottom:22px;width:100%}
 .hero:after{
   content:"001-A";position:absolute;right:-28px;bottom:-72px;
   font-size:170px;font-weight:950;color:rgba(255,255,255,.025);pointer-events:none
 }
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(360px,.6fr);gap:42px;align-items:center}
 .eyebrow{font-size:11px;font-weight:900;letter-spacing:2.8px;color:var(--accent2);text-transform:uppercase}
 .hero h1{font-size:clamp(43px,6vw,77px);line-height:.98;letter-spacing:-3px;margin:8px 0 18px}
 .hero p{color:var(--muted);max-width:780px}
@@ -49,7 +49,7 @@ button{font:inherit}
 .status-item{padding:12px;border:1px solid rgba(138,200,255,.09);border-radius:10px;background:#101a2a}
 .status-item span{display:block;color:#75879d;font-size:9px;letter-spacing:1.1px;text-transform:uppercase}
 .status-item strong{display:block;margin-top:3px;font-size:13px}
-.workspace{display:grid;grid-template-columns:250px minmax(0,1.35fr) minmax(310px,.75fr);gap:18px;align-items:start}
+.workspace{display:grid;grid-template-columns:260px minmax(720px,1fr) 360px;gap:20px;align-items:start;width:100%}
 .sidebar,.console,.intel{padding:22px}
 .sidebar{position:sticky;top:94px}
 .tool-list{display:grid;gap:9px;margin-top:15px}
@@ -64,7 +64,7 @@ button{font:inherit}
 .progress-mini{height:8px;background:#0a1420;border-radius:999px;overflow:hidden;margin:11px 0 5px}
 .progress-mini-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--success));transition:.35s}
 .mini-meta{display:flex;justify-content:space-between;color:#7e90a6;font-size:10px}
-.console{min-height:720px}
+.console{min-height:780px;width:100%}
 .console-head{display:flex;justify-content:space-between;gap:18px;align-items:center;padding-bottom:18px;border-bottom:1px solid rgba(138,200,255,.09)}
 .console-head h2{margin:3px 0 0}
 .badge{padding:7px 10px;border:1px solid rgba(255,189,105,.23);border-radius:999px;color:#ffd89d;font-size:9px;font-weight:900;letter-spacing:1px}
@@ -129,8 +129,23 @@ button{font:inherit}
 .action:disabled{opacity:.4;cursor:not-allowed}
 .action.success{background:linear-gradient(135deg,#2da870,#218257)}
 .hidden{display:none!important}
-@media(max-width:1150px){.workspace{grid-template-columns:220px 1fr}.intel{grid-column:1/-1}.sidebar{position:static}}
+@media(max-width:1320px){.workspace{grid-template-columns:230px minmax(0,1fr)}.intel{grid-column:1/-1}.sidebar{position:static}}
 @media(max-width:780px){.page{padding:18px 13px 80px}.hero,.sidebar,.console,.intel{padding:18px}.hero-grid,.workspace{grid-template-columns:1fr}.status-grid,.analysis-grid{grid-template-columns:1fr}.hero h1{letter-spacing:-1.5px}.email-row{grid-template-columns:65px 1fr}}
+
+.guide-box{margin:0 0 18px;padding:18px 20px;border:1px solid rgba(90,162,255,.28);border-radius:14px;background:linear-gradient(135deg,rgba(90,162,255,.09),rgba(57,217,138,.04))}
+.guide-box h3{margin:0 0 6px;font-size:16px}
+.guide-box p{margin:0;color:#a9bad0;font-size:13px;line-height:1.65}
+.plain-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.legend-card{padding:16px;border:1px solid rgba(138,200,255,.12);border-radius:12px;background:#101a29}
+.legend-card strong{display:block;font-size:14px;margin-bottom:5px}
+.legend-card p{margin:0;color:#8fa1b7;font-size:12px;line-height:1.55}
+.click-hint{margin:14px 0;padding:12px 14px;border-left:3px solid var(--accent);background:rgba(90,162,255,.06);color:#c9daf0;font-size:12px}
+.code-line{padding:8px 10px;margin:4px 0;border:1px solid transparent}
+.code-line:hover{border-color:rgba(90,162,255,.25)}
+.code-line:after{content:"Click to inspect";float:right;color:#6f86a0;font-family:Inter,Arial,sans-serif;font-size:10px}
+.code-line.found:after{content:"Reviewed ✓";color:var(--success)}
+@media(max-width:900px){.plain-legend{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body data-case-stage="email" data-objective="Authenticate the recruiter email and document the impersonation indicators">
@@ -230,16 +245,25 @@ button{font:inherit}
           </div>
         </div>
       </div>
-      <div class="feedback" id="messageFeedback">Click the underlined areas that require investigative attention.</div>
+      <div class="feedback" id="messageFeedback">Click each underlined phrase. Every click identifies one warning sign and adds it to the evidence panel.</div>
     </div>
 
     <div class="view" id="view-header">
-      <p class="muted">Select suspicious technical lines. Authentication results are stronger than the professional appearance of the message.</p>
+      <div class="guide-box">
+        <h3>What are you doing here?</h3>
+        <p>You are checking whether the email was genuinely sent by Northstar Digital. Click the three authentication-result lines below. Each one is a security check that helps verify the sender.</p>
+      </div>
+      <div class="plain-legend">
+        <div class="legend-card"><strong>SPF</strong><p>Checks whether the sending server was allowed to send email for the claimed domain. A soft fail means the server was not clearly authorized.</p></div>
+        <div class="legend-card"><strong>DKIM</strong><p>Looks for a digital signature added by the real organization. “None” means no verifiable company signature was attached.</p></div>
+        <div class="legend-card"><strong>DMARC</strong><p>Combines the other checks and asks whether the visible sender identity can be trusted. “Fail” means it did not pass verification.</p></div>
+      </div>
+      <div class="click-hint">Click the SPF, DKIM, and DMARC lines. You are not expected to know these terms already. The page teaches what each result means.</div>
       <div class="codebox"><span class="code-line">Return-Path: payroll@northstar-digitalcareers.com</span>
 <span class="code-line">Received: from mail.fastrelay.example (185.199.88.41)</span>
-<span class="code-line" data-indicator="spf" onclick="markIndicator('spf',this)">Authentication-Results: spf=softfail</span>
-<span class="code-line" data-indicator="dkim" onclick="markIndicator('dkim',this)">Authentication-Results: dkim=none</span>
-<span class="code-line" data-indicator="dmarc" onclick="markIndicator('dmarc',this)">Authentication-Results: dmarc=fail</span>
+<span class="code-line" data-indicator="spf" onclick="markIndicator('spf',this)">SPF check: SOFT FAIL — sending server was not clearly authorized</span>
+<span class="code-line" data-indicator="dkim" onclick="markIndicator('dkim',this)">DKIM check: NONE — no verified company signature was attached</span>
+<span class="code-line" data-indicator="dmarc" onclick="markIndicator('dmarc',this)">DMARC check: FAIL — the visible sender identity did not pass verification</span>
 <span class="code-line">Reply-To: northstar.hiring@protonmail.com</span>
 <span class="code-line">Message-ID: &lt;48219@fastrelay.example&gt;</span></div>
       <div class="analysis-grid" style="margin-top:16px">
@@ -251,7 +275,7 @@ button{font:inherit}
     </div>
 
     <div class="view" id="view-route">
-      <p class="muted">Reconstruct how the email moved and where replies were redirected.</p>
+      <div class="guide-box"><h3>What does “delivery route” mean?</h3><p>It is the path the email followed from the sender to Emma. The important issue is that it looked like it came from Northstar Digital, but replies were redirected to a separate Proton Mail account.</p></div>
       <div class="route">
         <div class="route-step"><div class="route-num">1</div><div><strong>Claimed sender</strong><p>Ryan Cole at northstar-digitalcareers.com</p></div></div>
         <div class="route-step"><div class="route-num">2</div><div><strong>Relay server</strong><p>Message passed through a low-cost third-party relay rather than verified company infrastructure.</p></div></div>
@@ -416,11 +440,11 @@ function updateInterface(){
 
   if(totalValidated>=6){
     assessmentTitle.textContent='Probable impersonation';
-    assessmentText.textContent='The message combines identity failure, reply diversion, urgency, channel migration, and a payment lure.';
+    assessmentText.textContent='The sender could not be verified, replies were redirected elsewhere, and the message pressured Emma to move quickly and send money.';
   }
   if(totalValidated===8&&state.attachment){
     assessmentTitle.textContent='High-confidence impersonation';
-    assessmentText.textContent='The email is not authenticated as Northstar Digital and forms part of a coordinated employment-payment scam.';
+    assessmentText.textContent='The technical checks do not confirm Northstar Digital as the sender. The email also uses urgency, Telegram, a cheque, and a private vendor to pressure Emma into sending money.';
   }
 
   const ready=
