@@ -23,7 +23,7 @@ button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px
 <div class="c1-lock"><div class="c1-lock-card"><p class="eyebrow">STAGE LOCKED</p><h2>Complete the previous investigation stage.</h2><a class="action" href="case001.html">Return to CASE 001</a></div></div>
 
 <div class="page">
-<header class="panel hero"><p class="eyebrow">EVIDENCE 001-C</p><h1>DIGITAL FOOTPRINT TRACE</h1><p>Connect the recruiter identity, domain, payment destination, and vendor account.</p><div class="c1-stage-nav"></div></header>
+<header class="panel hero"><p class="eyebrow">EVIDENCE 001-C</p><h1>DIGITAL FOOTPRINT TRACE</h1><p>Inspect every node, identify the shared infrastructure, and reconstruct the fraud in the order it occurred.</p><div class="c1-stage-nav"></div></header>
 <section class="panel"><p class="eyebrow">LINK ANALYSIS</p><h2>Open every node</h2>
 <div class="graph">
 <div class="line l1"></div><div class="line l2"></div><div class="line l3"></div><div class="line l4"></div>
@@ -60,11 +60,24 @@ let attack=[
  {id:'pressure',text:'Victim is pressured to purchase equipment immediately.'}
 ];
 const correct=['target','trust','cheque','pressure','pay'];
-function openNode(i,el){opened.add(i);el.classList.add('active');nodeDetail.innerHTML=`<h3>${details[i][0]}</h3><p>${details[i][1]}</p>`;if(opened.size===5)Case001.addNote('Digital footprint links the recruiter profile, fake domain, Telegram account, payment account, and vendor site.')}
+function openNode(i,el){
+ opened.add(i);
+ el.classList.add('active');
+ nodeDetail.innerHTML=`<h3>${details[i][0]}</h3><p>${details[i][1]}</p><p style="color:var(--success);font-weight:800">NODE INSPECTED · ${opened.size}/5</p>`;
+ if(opened.size===5){
+   Case001.addNote('Digital footprint links the recruiter profile, fake domain, Telegram account, payment account, and vendor site.');
+   attackFeedback.className='feedback good';
+   attackFeedback.textContent='All five nodes inspected. You may now validate the attack sequence.';
+ }
+}
 function renderAttack(){attackList.innerHTML=attack.map((x,i)=>`<div class="check-card" style="display:flex;justify-content:space-between;align-items:center;margin:9px 0"><span><b>${i+1}.</b> ${x.text}</span><span><button class="c1-tool" onclick="move(${i},-1)">↑</button> <button class="c1-tool" onclick="move(${i},1)">↓</button></span></div>`).join('')}
 function move(i,d){const j=i+d;if(j<0||j>=attack.length)return;[attack[i],attack[j]]=[attack[j],attack[i]];renderAttack()}
 function checkAttack(){
- if(opened.size<5){attackFeedback.className='feedback bad';attackFeedback.textContent='Inspect all five digital-footprint nodes first.';return}
+ if(opened.size<5){
+   attackFeedback.className='feedback bad';
+   attackFeedback.textContent=`Inspect all five digital-footprint nodes first. ${opened.size}/5 complete.`;
+   return;
+ }
  if(attack.map(x=>x.id).join('|')===correct.join('|')){attackFeedback.className='feedback good';attackFeedback.textContent='Attack sequence verified: targeting → trust → counterfeit cheque → pressure → loss.';footContinue.classList.remove('hidden')}
  else{attackFeedback.className='feedback bad';attackFeedback.textContent='Sequence rejected. Begin with targeting and end with the victim sending money.'}
 }
