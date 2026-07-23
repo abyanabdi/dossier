@@ -25,7 +25,7 @@ button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px
 <div class="page">
 <header class="panel hero"><p class="eyebrow">EVIDENCE 001-B</p><h1>FAKE EMPLOYER WEBSITE</h1><p>Use independent verification tools. A polished website can still be fraudulent.</p><div class="c1-stage-nav"></div></header>
 <section class="panel">
-<div class="browser"><div class="browserbar"><span>● ● ●</span><div class="url">https://nexacore-careers.com</div></div><div class="site"><div class="site-hero"><h2>NexaCore Careers</h2><p>Building tomorrow's secure workforce.</p><button>Apply Now</button></div><h3>Global opportunities. Immediate remote placement.</h3><p>Our award-winning recruiting division connects exceptional students to high-paying technology roles.</p></div></div>
+<div class="browser"><div class="browserbar"><span>● ● ●</span><div class="url">https://northstar-digitalcareers.com</div></div><div class="site"><div class="site-hero"><h2>Northstar Digital Careers</h2><p>Building tomorrow's secure workforce.</p><button>Apply Now</button></div><h3>Global opportunities. Immediate remote placement.</h3><p>Our award-winning recruiting division connects exceptional students to high-paying technology roles.</p></div></div>
 </section>
 <section class="panel"><p class="eyebrow">DOMAIN FORENSICS</p><h2>Run all three checks</h2>
 <div class="tool-grid">
@@ -37,7 +37,7 @@ button,input,select{font:inherit}.page{max-width:1450px;margin:auto;padding:34px
 <section class="panel"><p class="eyebrow">INVESTIGATOR DECISION</p><h2>Which conclusion is best supported?</h2>
 <div class="grid" id="websiteChoices">
 <button class="check-card" onclick="chooseWebsite(false,this)">The website is legitimate because HTTPS is enabled.</button>
-<button class="check-card" onclick="chooseWebsite(true,this)">The site impersonates NexaCore using a newly registered look-alike domain.</button>
+<button class="check-card" onclick="chooseWebsite(true,this)">The site impersonates Northstar Digital using a newly registered look-alike domain.</button>
 <button class="check-card" onclick="chooseWebsite(false,this)">The website is safe because it displays a company logo.</button>
 <button class="check-card" onclick="chooseWebsite(false,this)">The company created a separate domain only for student recruitment.</button>
 </div><div id="webFeedback" class="feedback">Complete all three technical checks before deciding.</div>
@@ -51,7 +51,7 @@ function runTool(id){
  tools.add(id);
  if(id==='whois')whois.textContent='Created: 9 days ago\nRegistrant: Privacy protected\nRegistrar country: unrelated to employer';
  if(id==='tls')tls.textContent='Certificate: valid\nIssued: 8 days ago\nNote: HTTPS encrypts traffic; it does not verify business identity';
- if(id==='company')company.textContent='Official domain: nexacore.com\nCareers: careers.nexacore.com\nNo record of nexacore-careers.com';
+ if(id==='company')company.textContent='Official domain: nexacore.com\nCareers: careers.nexacore.com\nNo record of northstar-digitalcareers.com';
  if(tools.size===3){webFeedback.className='feedback good';webFeedback.textContent='Technical checks complete. Select the supported conclusion.'}
 }
 function chooseWebsite(ok,el){
